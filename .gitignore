@@ -1,0 +1,13 @@
+voraussetzungen.pdf
+*-wochenplan.pdf
+*.log
+*.fls
+*.out
+*.thm
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.aux
+*.nav
+*.snm
+*.toc

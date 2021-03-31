@@ -53,16 +53,16 @@
 \begin{aufgabe}[Auswahl, Partition, und Quick Sort]
 Sei $A[0..n-1]$ ein Feld von unterschiedlichen ganzen Zahlen.
 Der Eintrag von \emph{Rang $k$} in $A$ ist die $k$t kleinste Zahl unter den Zahlen in $A$.
-Der \emph{Median} von $A$ ist die Zahl von Rank $\lfloor(n-1)/2\rfloor$.
+Der \emph{Median} von $A$ ist die Zahl von Rang $\lfloor(n-1)/2\rfloor$.
 \begin{enumerate}
 	\item Gib einen Algorithmus mit Laufzeit $O(n\log n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
 \end{enumerate}
 Eine \emph{Partition} von $A$ ist eine Aufteilung in Felder $A_\text{low}$ und $A_\text{high}$, so dass $A_\text{low}$ alle Zahlen von $A$ enthält, die kleiner oder gleich dem Median von $A$ sind, und $A_\text{high}$ enthält alle Zahlen von $A$, die größer sind als der Median von $A$.
 Es gibt einen Linearzeitalgorithmus, der den Median eines Feldes findet; diesen Algorithmus darfst du im Folgenden einfach annehmen.
 \begin{enumerate}[resume]
-	\item Gib einen Algorithmus an, der eine Partition von $A$ in Zeit $O(n)$ ausrechnen.
+	\item Gib einen Algorithmus an, der eine Partition von $A$ in Zeit $O(n)$ ausrechnet.
 	\item (schwer) Gib einen Algorithmus an, der $A$ in Zeit $O(n\log n)$ sortiert, indem er rekursiv partitioniert.
-	\item (sehr schwer) Gib einen Algorithmus mit Laufzeit $O(n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rank $k$ hat.
+	\item (sehr schwer) Gib einen Algorithmus mit Laufzeit $O(n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
 \end{enumerate}
 \end{aufgabe}
 

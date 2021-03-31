@@ -1,0 +1,177 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Einführung und Peaks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+Aufgaben~\ref{tue-first} bis~\ref{tue-last} werden \textbf{Dienstag} synchron bearbeitet.
+Aufgabe~\ref{lesen} asynchron.
+Aufgabe~\ref{thu-first} bis~\ref{thu-last} werden \textbf{Donnerstag} synchron bearbeitet.
+Die \emoji{star}-Aufgabe~\ref{star} muss bis 20:00 am Montag dem 19.4.~im Moodle abgegeben werden.
+
+\begin{aufgabe}[Schleifen]\label{tue-first}
+	Was geben die Funktionen \texttt{loop1}, \texttt{loop2}, \texttt{loop3}, \texttt{loop4} im folgendem Java/C/C++ Codefragment jeweils zurück, wenn die Eingabe $n=4$ ist? Was bei Eingabe $n=10$? Was bei Eingabe $n=1000$? Was geben sie als Funktion von $n$ zurück?
+
+	\begin{tabular}{lll}
+\begin{lstlisting}[language=C++]
+int loop1(int n) {
+	int x = 0;
+	for(int i = 0; i < n; i++) {
+		for(int j = 0; j < n; j++) x++;
+	}
+	return x;
+}
+\end{lstlisting}
+&\hspace{1em}&
+\begin{lstlisting}[language=C++]
+int loop2(int n) {
+	int x = 0;
+	for(int i = 0; i < n; i++) x++;
+	for(int j = 0; j < n; j++) x++;
+	return x;
+}
+\end{lstlisting}
+\\
+\begin{lstlisting}[language=C++]
+int loop3(int n) {
+	int x = 0;
+	for(int i = 0; i < n; i++) {
+		if (i == n-1)
+			for(int j = 0; j < n; j++)
+				x++;
+	}
+	return x;
+}
+\end{lstlisting}
+&&
+\begin{lstlisting}[language=C++]
+int loop4(int n) {
+	int x = 0;
+	for(int i = 0; i < n; i++) {
+		for(int j = i; j < n; j++) x++;
+	}
+	return x;
+}
+\end{lstlisting}
+\end{tabular}
+\end{aufgabe}
+\begin{loesung}
+	$n\mapsto n^2$, $n\mapsto 2n$, $n\mapsto n$, und $n\mapsto n(n+1)/2$.
+\end{loesung}
+
+\begin{aufgabe}[Rekursion und Iteration]
+	Eine Funktion ist \emph{rekursiv}, wenn sie sich selbst aufruft. Zum Beispiel:
+	\begin{lstlisting}[language=C++]
+int f(int[] A, int n) {
+	if(n == 0) return 0;
+	else return f(A, n-1) + A[n-1];
+}\end{lstlisting}
+\vspace{-1em}
+	\begin{enumerate}
+		\item Was liefert \texttt{f(A,n)} zurück, wenn \texttt{A} ein Feld ist, das \texttt{n} Zahlen enthält?
+		\item Kann man \texttt{f(A,n)} auch \emph{iterativ} machen? Das heißt, kann man den Code so umschreiben, dass die Funktion sich nicht selbt aufruft, aber das selbe Ergebnis liefert? Wie?
+	\end{enumerate}
+\end{aufgabe}
+\begin{loesung}
+	Die Summer aller Einträge von $A$.
+	Ja, mit einem for-loop. [..Pseudocode..]
+\end{loesung}
+
+\begin{aufgabe}[Coronatests]
+	Das Gesundheitsamt schickt euch eine Gruppe von 128 Personen mit der gesicherten Information, dass genau eine davon mit SARS-CoV-2 infiziert ist. Aber wer ist es? Euer Testzentrum hat nur eine PCR-Maschine zur Verfügung und ein Durchlauf auf einer Probe dauert eine Stunde. Ihr wollt das Ergebnis aber so schnell wie möglich wissen. Da das PCR-Verfahren hochsensitiv ist, könnt ihr poblemlos Abstriche von mehreren Personen zu einer Probe zusammenlegen, um zu testen, ob mindestens eine der gewählten Personen positiv ist.
+	\begin{enumerate}
+		\item Wie findet man den positiven Fall in 7 Stunden?
+		\item Wie viele Stunden braucht ihr, um $n$ Personen zu testen anstatt $128$?
+		\item (schwer) Unerwarteterweise finden sich in einem Nebenraum deines Testzentrums plötzlich $k-1$ verstaubte, aber funktionsbereite PCR-Maschinen, ihr könnt also $k$ Proben pro Stunde testen. Wie viele Stunden braucht ihr in dieser Situation, um den positiven Fall zu finden?
+	\end{enumerate}
+\end{aufgabe}
+\begin{loesung}
+	Erste Hälfte testen, dann rekursiv in erste oder zweite Hälfte absteigen. Die Antwort zu (c) ist $\log_{k+1} n$, hier Personen in $k+1$ gleichgroße Gruppen aufteilen.
+\end{loesung}
+
+\begin{aufgabe}[Zombieduelle]
+	Ihr habt eine Armee von $n$ hirnlosen Zombies und wollt den stärksten und den schwächsten finden. Ihr könnt zwei Zombies in einen Käfig sperren und ein Stück Fleisch zwischen sie werfen, um umgehend herauszufinden, wer von den beiden der Stärkere ist. Da ihr die massenhafte Fleischproduktion aus ethischen Gründen ablehnt, wollt ihr die Zahl der Duelle so klein wie möglich halten.
+	\begin{enumerate}
+		\item Wie findet man den stärksten Zombie mit höchstens $n-1$ Duellen? Geht es mit $n-2$ Duellen?
+		\item (schwer) Wie findet man sowohl den stärksten als auch den schwächsten Zombie mit höchstens $3n/2$ Duellen?
+		\item (sehr schwer) Wie findet man sowohl den stärksten als auch den schwächsten Zombie mit höchstens $n+\log_2 n$ Duellen?
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Ameisen auf dem Stock, sehr schwer]\label{tue-last}
+	Auf einem 100 cm langen Stock befinden sich 100 Ameisen.
+	Zu Beginn wird jede Ameise auf dem Stock positioniert und entweder nach links oder nach rechts ausgerichtet.
+	Dann fangen alle Ameisen gleichzeitig an, sich zu bewegen.
+	Jede Ameise bewegt sich exakt 1 cm pro Sekunde. Wenn eine Ameise auf eine ihr entgegen kommende Ameise trifft, drehen sich beide Ameisen sofort um und laufen in die andere Richtung weiter.
+	Wenn eine Ameise eines der beiden Stockenden erreicht, fällt sie runter.
+	Wie lange dauert es maximal (über alle möglichen Startkonfigurationen), bis alle Ameisen vom Stock gefallen sind?
+\end{aufgabe}
+
+\begin{aufgabe}[\emoji{books}]\label{lesen}
+	Lies CLRS Kapitel 1.
+\end{aufgabe}
+
+\begin{aufgabe}[Hügel]\label{thu-first}
+	Sei $A = [2, 1, 3, 7, 3, 11, 1, 5, 7, 10]$.
+	\begin{enumerate}
+		\item (einfach) Finde alle Hügel von $A$.
+		\item (einfach) Welche Hügel werden von den beiden Linearzeitalgorithmen jeweils ausgegeben?
+		\item Gib die Sequenz von rekursiven Aufrufen an, die der rekursive Algorithmus produziert. Nimm hierfür zunächst an, dass der Algorithmus immer die linke Hälfte des Felds wählt, wenn beide Richtungen möglich wären. Gib anschließend alle möglichen Sequenzen von rekursiven Aufrufen an, die der Algorithmus machen kann, wenn er jedesmal eine zufällige gültige Richtung wählt.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Täler]
+	Überlegt euch ein \emph{Talproblem} als Gegenstück zum Hügelproblem.
+	Stellt eine präzise Definition des Talproblems auf.
+\end{aufgabe}
+
+\begin{aufgabe}[Algorithmen und Anwendungen] Diskutiert:
+	\begin{enumerate}
+		\item Kann ein algorithmisches Problem von verschiedenen Algorithmen gelöst werden?
+		\item Kann ein und derselbe Algorithmus mehr als ein algorithmisches Problem lösen?
+		\item Kann ein abstrakter Datentyp von verschiedenen Datenstrukturen implementiert werden?
+		\item Gib ein Problem in der echten Welt an, für das man zwingend die optimale Lösung braucht. Gib ebenso ein Problem an, wo eine approximative Lösung ausreicht.
+	\end{enumerate}	
+\end{aufgabe}
+
+\begin{aufgabe}
+	Gegeben sind Algorithmus A mit Laufzeit $100n^2$ und Algorithmus B mit Laufzeit~$2^n$.
+	Was ist der kleinste Wert von $n$, sodass Algorithmus A auf dem selben Rechner schneller läuft als Algorithmus B?
+\end{aufgabe}
+
+\begin{aufgabe}[Hügeleigenschaften]
+	Sei $A$ ein Feld der Länge $n\ge 1$.
+	\begin{enumerate}
+		\item Beweise, dass $A$ immer mindestens einen Hügel hat.
+		\item Was ist die maximale Anzahl an Hügeln, die $A$ haben kann?
+		\item Angenommen wir ändern die Definition von Hügel so, dass $A[i]$ ein Hügel ist wenn $A[i]$ echt größer als seine Nachbarn ist. Welchen Effekt hat die Änderung auf die beiden Eigenschaften?
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Noch mehr Hügel]\label{thu-last}\mbox{}
+	\begin{enumerate}
+		\item Was ist die schlimmste Eingabe für jeden der drei Hügelalgorithmen?
+		\item Schreib den rekursiven Algorithmus so um, dass er iterativ wird. Schreib hierfür den Pseudocode.
+		\item Beweise, dass der rekursive Algorithmus immer einen Hügel findet. \emph{Hinweis:} Definiere eine nützliche Invariante, die für jeden rekursiven Aufruf gilt, und gib einen Beweis per Induktion.
+		\item Implementiere (in einer echten Programmiersprache deiner Wahl) die beiden Linearzeitalgorithmen um Hügel zu finden.
+		\item Implementiere auch den rekursiven Algorithmus, um Hügel zu finden (achte darauf, dass dein Programm immer nur auf die Positionen $0$ bis $n-1$ des Feldes zugreifen darf).
+	\end{enumerate}
+\end{aufgabe}
+
+
+\begin{aufgabe}[2D Hügel, \emoji{star}]\label{star}
+	Sei $M$ eine $n\times n$ Matrix (ein zweidimensionales Feld).
+	Ein Eintrag $M[i,j]$ ist ein Hügel, wenn er nicht kleiner is als seine Nachbarn im N,O,S,W ist (das heißt $M[i][j]\ge M[i][j-1]$, $M[i][j]\ge M[i+1][j]$, $M[i][j]\ge M[i][j+1]$, und $M[i][j]\ge M[i-1][j]$).
+	Wir wollen nun einen effizienten Algorithmus entwerfen, der einen Hügel in $M$ findet.
+	\begin{enumerate}
+		\item Gib einen einfachen Algorithmus an, der $O(n^2)$ Zeit braucht.
+		\item (schwer) Gib einen Algorithmus an, der $O(n \log n)$ Zeit braucht. \emph{Hinweis:} Beginne, indem du die maximale Zahl in der mittleren Spalte findest, und benutze dies, um das Problem rekursiv zu lösen.
+		\item (sehr schwer) Gib einen Algorithmus an, der $O(n)$ Zeit braucht. \emph{Hinweis:} Konstruiere einen rekursiven Algorithmus, der $M$ in 4 Quadranten aufteilt.
+	\end{enumerate}
+\end{aufgabe}
+
+\end{document}

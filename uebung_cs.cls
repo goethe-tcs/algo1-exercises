@@ -265,7 +265,9 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 	}{}
 }
 
+\iffalse
 \AddToHook{shipout/background}{\put (1in,-1in){\aeprintwatermark}}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

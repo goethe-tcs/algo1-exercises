@@ -9,15 +9,52 @@
 \begin{document}
 
 Aufgaben~\ref{tue-first} bis~\ref{tue-last} werden \textbf{Dienstag} synchron bearbeitet.
-Aufgabe~\ref{lesen} asynchron.
+Asynchron lesen Sie dann CLRS Kapitel~1 und schauen das erste Video an.
 Aufgabe~\ref{thu-first} bis~\ref{thu-last} werden \textbf{Donnerstag} synchron bearbeitet.
-Die \emoji{star}-Aufgabe~\ref{star} muss bis 20:00 am Montag dem 19.4.~im Moodle abgegeben werden.
-
+Die \emoji{star}-Aufgabe~\ref{star} muss bis 17:00 am Freitag, dem 23.4.~im Moodle abgegeben werden.
+\section*{Dienstag}
 \begin{aufgabe}[Schleifen]\label{tue-first}
-	Was geben die Funktionen \texttt{loop1}, \texttt{loop2}, \texttt{loop3}, \texttt{loop4} im folgendem Java/C/C++ Codefragment jeweils zurück, wenn die Eingabe $n=4$ ist? Was bei Eingabe $n=10$? Was bei Eingabe $n=1000$? Was geben sie als Funktion von $n$ zurück?
+	Schauen Sie sich das Codefragment an (entweder in Python oder in Java/C/C++).
+	Was geben die Funktionen \texttt{loop1}, \texttt{loop2}, \texttt{loop3}, \texttt{loop4} jeweils zurück, wenn die Eingabe $n=4$ ist? Was bei Eingabe $n=10$? Was bei Eingabe $n=1000$? Was geben sie als Funktion von $n$ zurück?
 
 	\begin{tabular}{lll}
-\begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=Python]
+# Python
+
+def loop1(n):
+	x = 0
+	for i in range(n):
+		for j in range(n):
+			x += 1
+	return x
+
+def loop2(n):
+	x = 0
+	for i in range(n):
+		x += 1
+	for j in range(n):
+		x += 1
+	return x
+	
+def loop3(n):
+	x = 0
+	for i in range(n):
+		if (i == n-1):
+			for j in range(n):
+				x += 1
+	return x
+
+def loop4(n):
+	x = 0
+	for i in range(n):
+		for j in range(i,n):
+			x += 1
+	return x
+\end{lstlisting}
+&\mbox{}\hspace{2cm}\mbox{}&
+\begin{lstlisting}[language=Java]
+/* Java/C/C++ */
+
 int loop1(int n) {
 	int x = 0;
 	for(int i = 0; i < n; i++) {
@@ -25,18 +62,14 @@ int loop1(int n) {
 	}
 	return x;
 }
-\end{lstlisting}
-&\hspace{1em}&
-\begin{lstlisting}[language=C++]
+
 int loop2(int n) {
 	int x = 0;
 	for(int i = 0; i < n; i++) x++;
 	for(int j = 0; j < n; j++) x++;
 	return x;
 }
-\end{lstlisting}
-\\
-\begin{lstlisting}[language=C++]
+
 int loop3(int n) {
 	int x = 0;
 	for(int i = 0; i < n; i++) {
@@ -46,9 +79,7 @@ int loop3(int n) {
 	}
 	return x;
 }
-\end{lstlisting}
-&&
-\begin{lstlisting}[language=C++]
+
 int loop4(int n) {
 	int x = 0;
 	for(int i = 0; i < n; i++) {
@@ -63,26 +94,38 @@ int loop4(int n) {
 	$n\mapsto n^2$, $n\mapsto 2n$, $n\mapsto n$, und $n\mapsto n(n+1)/2$.
 \end{loesung}
 
+\newpage
 \begin{aufgabe}[Rekursion und Iteration]
 	Eine Funktion ist \emph{rekursiv}, wenn sie sich selbst aufruft. Zum Beispiel:
-	\begin{lstlisting}[language=C++]
+
+	\begin{tabular}{lcl}
+\begin{lstlisting}[language=Python]
+# Python
+
+def f(A, n):
+	if (n == 0):
+		return 0
+	else:
+		return f(A, n-1) + A[n-1]
+\end{lstlisting}
+&\mbox{}\hspace{2cm}\mbox{}&
+	\begin{lstlisting}[language=Java]
+/* Java/C/C++ */
+
 int f(int[] A, int n) {
 	if(n == 0) return 0;
 	else return f(A, n-1) + A[n-1];
 }\end{lstlisting}
-\vspace{-1em}
+	\end{tabular}
 	\begin{enumerate}
 		\item Was liefert \texttt{f(A,n)} zurück, wenn \texttt{A} ein Feld ist, das \texttt{n} Zahlen enthält?
-		\item Kann man \texttt{f(A,n)} auch \emph{iterativ} machen? Das heißt, kann man den Code so umschreiben, dass die Funktion sich nicht selbt aufruft, aber das selbe Ergebnis liefert? Wie?
+		\item Kann man \texttt{f(A,n)} auch \emph{iterativ} machen? Das heißt, kann man den Code so umschreiben, dass die Funktion sich nicht selbst aufruft, aber dasselbe Ergebnis liefert? Wie?
 	\end{enumerate}
 \end{aufgabe}
-\begin{loesung}
-	Die Summer aller Einträge von $A$.
-	Ja, mit einem for-loop. [..Pseudocode..]
-\end{loesung}
+
 
 \begin{aufgabe}[Coronatests]
-	Das Gesundheitsamt schickt euch eine Gruppe von 128 Personen mit der gesicherten Information, dass genau eine davon mit SARS-CoV-2 infiziert ist. Aber wer ist es? Euer Testzentrum hat nur eine PCR-Maschine zur Verfügung und ein Durchlauf auf einer Probe dauert eine Stunde. Ihr wollt das Ergebnis aber so schnell wie möglich wissen. Da das PCR-Verfahren hochsensitiv ist, könnt ihr poblemlos Abstriche von mehreren Personen zu einer Probe zusammenlegen, um zu testen, ob mindestens eine der gewählten Personen positiv ist.
+	Das Gesundheitsamt schickt euch eine Gruppe von 128 Personen mit der gesicherten Information, dass genau eine davon mit SARS-CoV-2 infiziert ist. Aber wer ist es? Euer Testzentrum hat nur eine PCR-Maschine zur Verfügung und ein Durchlauf auf einer Probe dauert eine Stunde. Ihr wollt das Ergebnis aber so schnell wie möglich wissen. Da das PCR-Verfahren hochsensitiv ist, könnt ihr problemlos Abstriche von mehreren Personen zu einer Probe zusammenlegen, um zu testen, ob mindestens eine der gewählten Personen positiv ist.
 	\begin{enumerate}
 		\item Wie findet man den positiven Fall in 7 Stunden?
 		\item Wie viele Stunden braucht ihr, um $n$ Personen zu testen anstatt $128$?
@@ -90,13 +133,13 @@ int f(int[] A, int n) {
 	\end{enumerate}
 \end{aufgabe}
 \begin{loesung}
-	Erste Hälfte testen, dann rekursiv in erste oder zweite Hälfte absteigen. Die Antwort zu (c) ist $\log_{k+1} n$, hier Personen in $k+1$ gleichgroße Gruppen aufteilen.
+	Erste Hälfte testen, dann rekursiv in erste oder zweite Hälfte absteigen. Die Antwort zu (c) ist $\log_{k+1} n$, hier Personen in $k+1$ gleich große Gruppen aufteilen.
 \end{loesung}
 
 \begin{aufgabe}[Zombieduelle]
 	Ihr habt eine Armee von $n$ hirnlosen Zombies und wollt den stärksten und den schwächsten finden. Ihr könnt zwei Zombies in einen Käfig sperren und ein Stück Fleisch zwischen sie werfen, um umgehend herauszufinden, wer von den beiden der Stärkere ist. Da ihr die massenhafte Fleischproduktion aus ethischen Gründen ablehnt, wollt ihr die Zahl der Duelle so klein wie möglich halten.
 	\begin{enumerate}
-		\item Wie findet man den stärksten Zombie mit höchstens $n-1$ Duellen? Geht es mit $n-2$ Duellen?
+		\item Wie findet man den stärksten Zombie mit höchstens $n-1$ Duellen?
 		\item (schwer) Wie findet man sowohl den stärksten als auch den schwächsten Zombie mit höchstens $3n/2$ Duellen?
 		\item (sehr schwer) Wie findet man sowohl den stärksten als auch den schwächsten Zombie mit höchstens $n+\log_2 n$ Duellen?
 	\end{enumerate}
@@ -111,16 +154,16 @@ int f(int[] A, int n) {
 	Wie lange dauert es maximal (über alle möglichen Startkonfigurationen), bis alle Ameisen vom Stock gefallen sind?
 \end{aufgabe}
 
-\begin{aufgabe}[\emoji{books}]\label{lesen}
-	Lies CLRS Kapitel 1.
-\end{aufgabe}
+\section*{Lesestoff}
+Lies CLRS Kapitel 1 und schau dir das erste Video an.
 
+\section*{Donnerstag}
 \begin{aufgabe}[Hügel]\label{thu-first}
 	Sei $A = [2, 1, 3, 7, 3, 11, 1, 5, 7, 10]$.
 	\begin{enumerate}
 		\item (einfach) Finde alle Hügel von $A$.
 		\item (einfach) Welche Hügel werden von den beiden Linearzeitalgorithmen jeweils ausgegeben?
-		\item Gib die Sequenz von rekursiven Aufrufen an, die der rekursive Algorithmus produziert. Nimm hierfür zunächst an, dass der Algorithmus immer die linke Hälfte des Felds wählt, wenn beide Richtungen möglich wären. Gib anschließend alle möglichen Sequenzen von rekursiven Aufrufen an, die der Algorithmus machen kann, wenn er jedesmal eine zufällige gültige Richtung wählt.
+		\item Gib die Sequenz von rekursiven Aufrufen an, die der rekursive Algorithmus produziert. Nimm hierfür zunächst an, dass der Algorithmus immer die linke Hälfte des Felds wählt, wenn beide Richtungen möglich wären. Gib anschließend alle möglichen Sequenzen von rekursiven Aufrufen an, die der Algorithmus machen kann, wenn er jedes Mal eine zufällige gültige Richtung wählt.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -140,7 +183,7 @@ int f(int[] A, int n) {
 
 \begin{aufgabe}
 	Gegeben sind Algorithmus A mit Laufzeit $100n^2$ und Algorithmus B mit Laufzeit~$2^n$.
-	Was ist der kleinste Wert von $n$, sodass Algorithmus A auf dem selben Rechner schneller läuft als Algorithmus B?
+	Was ist der kleinste Wert von $n$, sodass Algorithmus A auf demselben Rechner schneller läuft als Algorithmus B?
 \end{aufgabe}
 
 \begin{aufgabe}[Hügeleigenschaften]
@@ -148,7 +191,7 @@ int f(int[] A, int n) {
 	\begin{enumerate}
 		\item Beweise, dass $A$ immer mindestens einen Hügel hat.
 		\item Was ist die maximale Anzahl an Hügeln, die $A$ haben kann?
-		\item Angenommen wir ändern die Definition von Hügel so, dass $A[i]$ ein Hügel ist wenn $A[i]$ echt größer als seine Nachbarn ist. Welchen Effekt hat die Änderung auf die beiden Eigenschaften?
+		\item Angenommen wir ändern die Definition von Hügel so, dass $A[i]$ ein Hügel ist, wenn $A[i]$ echt größer als seine Nachbarn ist. Welchen Effekt hat die Änderung auf die beiden Eigenschaften?
 	\end{enumerate}
 \end{aufgabe}
 
@@ -165,7 +208,7 @@ int f(int[] A, int n) {
 
 \begin{aufgabe}[2D Hügel, \emoji{star}]\label{star}
 	Sei $M$ eine $n\times n$ Matrix (ein zweidimensionales Feld).
-	Ein Eintrag $M[i,j]$ ist ein Hügel, wenn er nicht kleiner is als seine Nachbarn im N,O,S,W ist (das heißt $M[i][j]\ge M[i][j-1]$, $M[i][j]\ge M[i+1][j]$, $M[i][j]\ge M[i][j+1]$, und $M[i][j]\ge M[i-1][j]$).
+	Ein Eintrag $M[i,j]$ ist ein Hügel, wenn er nicht kleiner ist als seine Nachbarn im N,O,S,W ist (das heißt $M[i][j]\ge M[i][j-1]$, $M[i][j]\ge M[i+1][j]$, $M[i][j]\ge M[i][j+1]$, und $M[i][j]\ge M[i-1][j]$).
 	Wir wollen nun einen effizienten Algorithmus entwerfen, der einen Hügel in $M$ findet.
 	\begin{enumerate}
 		\item Gib einen einfachen Algorithmus an, der $O(n^2)$ Zeit braucht.

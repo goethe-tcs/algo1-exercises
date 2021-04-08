@@ -13,9 +13,9 @@
 	Lies CLRS Kapitel 3 sowie 4.3--4.5.
 \end{aufgabe}
 
-\begin{aufgabe}[Asymptotisches Wachstum, \warmup] \label{tue-first}\mbox{}
+\begin{aufgabe}[Asymptotisches Wachstum, \warmup]\label{tue-first}\mbox{}
 	Ordne die folgenden Funktionen in aufsteigender Reihenfolge nach ihrem asymptotischem Wachstum.
-	$f(n)$ kommt vor $g(n)$, wenn $f(n) = O(g(n))$.
+	Das heißt, $f(n)$ kommt vor $g(n)$, wenn $f(n) = O(g(n))$ gilt.
 	\[n \log n\hspace*{15pt} n^2\hspace*{15pt} 2^n\hspace*{15pt} n^3\hspace*{15pt} \sqrt{n}\hspace*{15pt} n\]
 	
 \end{aufgabe}
@@ -41,7 +41,7 @@
 \end{aufgabe}
 
 \begin{aufgabe}[Looping Louie]
-	Analysiere die Laufzeit für die folgenden Funktionen von $n$ und gib das Ergebnis in $O$-Notation.
+	Analysiere die Laufzeit für die folgenden Funktionen von $n$ und gib das Ergebnis in $O$-Notation an.
 	\begin{center}
 		\begin{tabular}{ccccc}
 
@@ -81,7 +81,7 @@ return
 	\end{center}
 \end{aufgabe}
 
-\begin{aufgabe}
+\begin{aufgabe}[Asymptotische Aussagen]
 	Sind die folgenden Aussagen wahr oder falsch?
 	\begin{center}
 		\begin{tabular}{ccc}
@@ -100,11 +100,11 @@ return
 	\end{center}
 \end{aufgabe}
 
-\begin{aufgabe}
+\begin{aufgabe}[Verdopplungen]
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item (\warmup) Algorithmus $A$ benötigt genau $7n^3$ Operationen für eine Eingabe der Länge $n$.
-		Wie Operationen mehr benötigt $A$ bei doppelter Eingabelänge.
+		Wieviele Operationen mehr benötigt $A$ bei doppelter Eingabelänge?
 		\item Betrachte die Laufzeiten für einen Algorithmus $B$:
 		\begin{table}[h!]
 		\centering
@@ -117,8 +117,8 @@ return
 		\end{tabular}
 		\end{table}
 		
-		Gib eine Schätzung für die Laufzeit von B auf einer 6000 Bit langen Eingabe.
-		Drück deine Schätzung der asymptotischen Laufzeit in Abhängigkeit von Eingabelänge $n$ in $O$-Notation aus.
+		Schätze die Laufzeit von B auf einer 6000 Bit langen Eingabe.
+		Was ist vermutlich die asymptotische Laufzeit von B? Drück deine Vermutung in Abhängigkeit von Eingabelänge $n$ in $O$-Notation aus.
 		\item Algorithmus $C$ benötigt für jede Verdoppelung der Eingabelänge 3 Sekunden länger. 
 		Gib die asymptotischen Laufzeit von $C$ in Abhängigkeit von Eingabelänge $n$ in $O$-Notation an.
 	\end{enumerate}
@@ -128,36 +128,37 @@ return
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item Seien $f(n)$ und $g(n)$ asymptotisch nicht negative Funktionen.
-		Beweis, dass $\max(f(n),g(n)) = \Theta(f(n) + g(n))$
-		\item Erkläre warum die Aussage \glqq Die Laufzeit von Algorithmus $D$ is mindestens $O(n^2)$\grqq keinen Sinn ergibt.
-		\item Ist $2^{n+1} = O(2^n)$? Ist $2^{2n} = O(2^n)$? Beweis.
-		\item Beweis, dass $\log_2(n!) = O(n \log n)$.
-		\item (\hard) Beweis, dass $\log_2(n!) = \Omega(n\log n))$. Beweis, dass $\log_2(n!) = \Theta(n\log n))$.
+		Beweise, dass folgendes gilt: $\max(f(n),g(n)) = \Theta(f(n) + g(n))$
+		\item Erkläre warum die Aussage \enquote{Die Laufzeit von Algorithmus $D$ ist mindestens $O(n^2)$} keinen Sinn ergibt.
+		\item Ist $2^{n+1} = O(2^n)$? Ist $2^{2n} = O(2^n)$? Beweise dies.
+		\item Beweise, dass $\log_2(n!) = O(n \log n)$.
+		\item (\hard) Beweise, dass $\log_2(n!) = \Omega(n\log n)$ gilt.
+		Beweise, dass $\log_2(n!) = \Theta(n\log n)$ gilt.
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[$k$-Merge Sort]
 	Professorin M. Erge stellt ihren neue Algorithmus, 3-Merge Sort, vor.
-	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und gemischt (merged) werden.
+	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und wieder verflochten (\textit{merged}) werden.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item Zeige, dass sich drei sortierte Arrays in Linearzeit (asymptotisch) mischen lassen.
+		\item Zeige, dass sich drei sortierte Felder in asymptotischer Linearzeit verflechten lassen.
 		\item Führe eine Laufzeitanalyse für 3-Merge Sort durch.
-		\item (\hard) Verallgemeiner den Algorithmus und die Analyse von 3-Merge Sort zu $k$-Merge Sort für $k>3$.\\
+		\item (\hard) Verallgemeinere den Algorithmus und die Analyse von 3-Merge Sort zu $k$-Merge Sort für $k>3$.\\
 		Hat Prof M. Erge den Durchbruch geschafft?
 		Stellt $k$-Merge Sort eine Verbesserung gegenüber dem klassischen 2-Merge Sort dar?
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Maximale Teilarrays]
-	Sei $A' \in \mathbb{Z}^n$ als ein Array $A[0, ..., n-1]$ gespeichert.
-	Ein Teilarray von $A$ ist ein genau dann ein \textit{maximaler Teilarray} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + ... + A[j]$ maximal über alle möglichen Teilarrays ist.
-	Löse die folgenden Teilaufgaben.
+\begin{aufgabe}[Maximale Teilfelder]
+	Sei $A' \in \mathbb{Z}^n$ als ein Feld $A[0, ..., n-1]$ gespeichert.
+	Ein Teilfeld von $A$ ist ein genau dann ein \textit{maximales Teilfeld} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + ... + A[j]$ maximal über alle möglichen Teilfelder ist.
+	Löse die folgenden Aufgaben.
 	\begin{enumerate}
-		\item (\warmup) Schreib einen Algorithmus, der einen maximalen Teilarray von $A$ in Laufzeit $O(n^3)$ findet.
-		\item Schreib einen Algorithmus, der einen maximalen Teilarray von $A$ in Laufzeit $O(n^2)$ findet.
-		\item (\hard) Schreib einen Divide and Conquer Algorithmus, der einen maximalen Teilarray von $A$ in Laufzeit $O(n\log n)$ findet.
-		\item (\veryhard) Schreib einen Algorithmus, der einen maximalen Teilarray von $A$ in Laufzeit $O(n)$ findet.
+		\item (\warmup) Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^3)$ findet.
+		\item Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^2)$ findet.
+		\item (\hard) Schreib einen \textit{Divide and Conquer} Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n\log n)$ findet.
+		\item (\veryhard) Schreib einen Algorithmus, der einen maximales Teilfeld von $A$ in Laufzeit $O(n)$ findet.
 	\end{enumerate}
 \end{aufgabe}
 \end{document}

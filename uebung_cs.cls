@@ -17,7 +17,8 @@
 \RequirePackage[a4paper,left=1in,right=1in,bottom=1.5in,top=1in]{geometry}
 \RequirePackage{ifthen}
 \RequirePackage{amsmath,amsfonts,amssymb,ragged2e}
-\RequirePackage{ngerman}
+\RequirePackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{microtype}
 \RequirePackage{mathpazo}% palatino fonts

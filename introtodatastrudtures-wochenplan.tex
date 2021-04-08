@@ -1,0 +1,32 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\usepackage{algorithmic}
+\blattname{Wochenplan: Stacks, Queues, Verkette Listen und Bäume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\begin{aufgabe}[\emoji{books}]\label{lesen}
+	Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.4.1.
+\end{aufgabe}
+
+\begin{aufgabe}[Stacks und Queues]
+	Löse die Teilaufgaben.
+	\begin{enumerate}
+		\item (\warmup) Wie sieht die Abfolge \texttt{PUSH(4), PUSH(1), PUSH(3), POP(), PUSH(8), POP()} auf einem initial leerem Stack, der auf einem Array der Länge 6 implementiert wurde, aus?
+		\item Zeige wie zwei Stacks $S_1, S_2$ auf einem Array $A$ der Länge $N$ implementierbar ist.
+		Hierbei soll es zu keinem Stack Overflow kommen, es sei denn die Anzahl der Elemente in $S_1$ und $S_2$ ist größer als $N$.
+		Die \texttt{PUSH} und \texttt{POP} Operationen sollen $O(1)$ Zeit benötigen.
+		\item (\warmup) Wie sieht die Abfolge \texttt{ENQUEUE(4), ENQUEUE(1), ENQUEUE(3), DEQUEUE(), ENQUEUE(8), DEQUEUE()} auf einer initial leeren Queue, die auf einem Array der Länge 6 implementiert wurde, aus?
+		\item (\hard) Zeige, wie eine Queue $Q$ und ihre Operationen mit nur zwei Stacks $S_1, S_2$ implementierbar ist.
+		Gib eine Laufzeitanalyse für die Operationen an.
+	\end{enumerate}
+\end{aufgabe}
+
+%\begin{aufgabe}[]
+%\end{aufgabe}
+
+\end{document}

@@ -10,18 +10,17 @@
 \begin{document}
 
 \begin{aufgabe}[\emoji{books}]\label{lesen}
-	Lies CLRS Kapitel 3.
+	Lies CLRS Kapitel 3.4.3 - 4.5
 \end{aufgabe}
 
-\begin{aufgabe}[\warmup] \textbf{Asymptotisches Wachstum} \label{tue-first}\mbox{}
+\begin{aufgabe}[Asymptotisches Wachstum, \warmup] \label{tue-first}\mbox{}
 	Ordne die folgenden Funktionen in aufsteigender Reihenfolge nach ihrem asymptotischem Wachstum.
 	$f(n)$ kommt vor $g(n)$, wenn $f(n) = O(g(n))$.
 	\[n \log n\hspace*{15pt} n^2\hspace*{15pt} 2^n\hspace*{15pt} n^3\hspace*{15pt} \sqrt{n}\hspace*{15pt} n\]
 	
 \end{aufgabe}
 
-\begin{aufgabe}
-	\textbf{$\Theta$-Notation}
+\begin{aufgabe}[$\Theta$-Notation]
 	Schreibe die folgenden Funktionen in $\Theta$-Notation.
 	\begin{center}
 		\begin{tabular}{ccc}
@@ -41,8 +40,7 @@
 	
 \end{aufgabe}
 
-\begin{aufgabe}
-	\textbf{Looping Louie}
+\begin{aufgabe}[Looping Louie]
 	Analysiere die Laufzeit für die folgenden Funktionen von $n$ und gib das Ergebnis in $O$-Notation.
 	\begin{center}
 		\begin{tabular}{ccccc}
@@ -126,8 +124,7 @@ return
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}
-	\textbf{Asymptotische Eigenschaften}
+\begin{aufgabe}[Asymptotische Eigenschaften]
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item Seien $f(n)$ und $g(n)$ asymptotisch nicht negative Funktionen.
@@ -139,9 +136,8 @@ return
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}
-	\textbf{$k$-Merge Sort}
-	Professor M. Erge stellt seinen neue Algorithmus, 3-Merge Sort, vor.
+\begin{aufgabe}[$k$-Merge Sort]
+	Professorin M. Erge stellt ihren neue Algorithmus, 3-Merge Sort, vor.
 	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und gemischt (merged) werden.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
@@ -153,10 +149,9 @@ return
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}
-	\textbf{Maximale Teilarrays}
+\begin{aufgabe}[Maximale Teilarrays]
 	Sei $A' \in \mathbb{Z}^n$ als ein Array $A[0, ..., n-1]$ gespeichert.
-	Ein \textit{maximaler Teilarray} von $A$ ist ein Teilarray $A[i..j], 0\leq i\leq j\leq n-1$ genau dann wenn die Summe $A[i] + A[i+1] + ... + A[j]$ maximal über alle Teilarrays ist.
+	Ein Teilarray von $A$ ist ein genau dann ein \textit{maximaler Teilarray} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + ... + A[j]$ maximal über alle möglichen Teilarrays ist.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item (\warmup) Schreib einen Algorithmus, der einen maximalen Teilarray von $A$ in Laufzeit $O(n^3)$ findet.

@@ -14,10 +14,10 @@
 
 \begin{aufgabe}[Von Hand laufen lassen und Eigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
-		\item (einfach) Beschreibe den Ablauf von insertion sort, wenn die Eingabe ein Feld $A=[31,41,59,26,41,58]$ ist.
-		\item (einfach) Verändere den Pseudocode für insertion sort, um das Eingabefeld monoton fallend anstatt monoton wachsend zu ordnen.	
+		\item (\warmup) Beschreibe den Ablauf von insertion sort, wenn die Eingabe ein Feld $A=[31,41,59,26,41,58]$ ist.
+		\item (\warmup) Verändere den Pseudocode für insertion sort, um das Eingabefeld monoton fallend anstatt monoton wachsend zu ordnen.	
 		\item Analysiere \emph{die Laufzeit im mittleren Fall} von linearer Suche.
-		\item (einfach) Beschreibe den Ablauf von merge sort auf dem Feld $A=[3,41,52,26,38,57,9,49]$.
+		\item (\warmup) Beschreibe den Ablauf von merge sort auf dem Feld $A=[3,41,52,26,38,57,9,49]$.
 		\item Überzeuge dich, dass insertion sort auch rekursiv wie folgt formuliert werden kann: um $A[0..n-1]$ zu sortieren, sortieren wir $A[0..n-2]$ rekursiv und fügen dann $A[n-1]$ in das sortierte Feld $A[0..n-2]$ ein. Stelle die Rekursionsgleichung für die Laufzeit dieses Algorithmus auf und löse sie.
 		\item Ein Freund schlägt vor, dass du binäre Suche nutzen solltest, um den Einfügeschritt von insertion sort schneller zu machen. Funktioniert das, und welchen Effekt hat es auf die Laufzeit des Algorithmus?
 	\end{enumerate}
@@ -26,7 +26,7 @@
 \begin{aufgabe}[Duplikate und nahe Nachbarn]
 	Sei $A[0..n-1]$ ein Feld von ganzen Zahlen.
 	\begin{enumerate}
-		\item (einfach) Ein \emph{Duplikat} in $A$ ist ein Paar $(i,j)$ von Einträgen, dass $A[i]=A[j]$. Gib einen Algorithmus an, der in Zeit $O(n^2)$ ein Duplikat in $A$ findet.
+		\item (\warmup) Ein \emph{Duplikat} in $A$ ist ein Paar $(i,j)$ von Einträgen, dass $A[i]=A[j]$. Gib einen Algorithmus an, der in Zeit $O(n^2)$ ein Duplikat in $A$ findet.
 		\item Gib einen Algorithmus an, der in $A$ ein Duplikat in Zeit $O(n\log n)$ findet. \emph{Hinweis:} Nutze merge sort.
 		\item Ein \emph{nächster Nachbar} in $A$ ist ein Paar $(i,j)$, sodass der Abstand $|A[i]-A[j]|$ minimal ist unter allen Paaren von Einträgen. Gib einen Algorithmus an, der in $A$ einen nächsten Nachbarn in Zeit $O(n\log n)$ findet.
 	\end{enumerate}
@@ -42,11 +42,11 @@
 	Das Feld $A$ hat eine \emph{2-Summe}, wenn es zwei Einträge $i$ und $j$ gibt mit $A[i]+A[j]=0$.
 	Analog hat $A$ eine \emph{3-Summe}, wenn es drei Einträge $i$, $j$, und $k$ gibt, sodass $A[i]+A[j]+A[k]=0$.
 	\begin{enumerate}
-		\item (leicht) Gib einen einfachen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 2-Summe hat.
+		\item (\warmup) Gib einen einfachen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 2-Summe hat.
 		\item Gib einen Algorithmus an, der in Zeit $O(n\log n)$ feststellt, ob $A$ eine 2-Summe hat. \emph{Hinweis: binäre Suche.}
-		\item (leicht) Gib einen Algorithmus an, der in Zeit $O(n^3)$ feststellt, ob $A$ eine 3-Summe hat.
+		\item (\warmup) Gib einen Algorithmus an, der in Zeit $O(n^3)$ feststellt, ob $A$ eine 3-Summe hat.
 		\item Gib einen Algorithmus an, der in Zeit $O(n^2\log n)$ feststellt, ob $A$ eine 3-Summe hat. \emph{Hinweis: binäre Suche.}
-		\item (sehr schwer) Gib einen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 3-Summe hat.
+		\item (\veryhard) Gib einen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 3-Summe hat.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -61,8 +61,8 @@ Eine \emph{Partition} von $A$ ist eine Aufteilung in Felder $A_\text{low}$ und $
 Es gibt einen Linearzeitalgorithmus, der den Median eines Feldes findet; diesen Algorithmus darfst du im Folgenden einfach annehmen.
 \begin{enumerate}[resume]
 	\item Gib einen Algorithmus an, der eine Partition von $A$ in Zeit $O(n)$ ausrechnet.
-	\item (schwer) Gib einen Algorithmus an, der $A$ in Zeit $O(n\log n)$ sortiert, indem er rekursiv partitioniert.
-	\item (sehr schwer) Gib einen Algorithmus mit Laufzeit $O(n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
+	\item (\hard) Gib einen Algorithmus an, der $A$ in Zeit $O(n\log n)$ sortiert, indem er rekursiv partitioniert.
+	\item (\veryhard) Gib einen Algorithmus mit Laufzeit $O(n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
 \end{enumerate}
 \end{aufgabe}
 

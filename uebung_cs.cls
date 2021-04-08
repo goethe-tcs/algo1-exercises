@@ -228,6 +228,10 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 \let\hint\hinweis
 \def\by#1#2{\stackrel{\rm #1}{#2}}
 
+\newcommand{\warmup}{einfach}
+\newcommand{\hard}{schwer}
+\newcommand{\veryhard}{sehr schwer}
+
 %\renewcommand\ThisComment[1]{%
 %	\immediate\write\CommentStream{\unexpanded{#1}}%
 %}

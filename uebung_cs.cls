@@ -50,6 +50,7 @@
   stringstyle=\color{orange},
   tabsize=2%
 }
+\usepackage{algorithmic}
 
 \usetikzlibrary{shapes,arrows,decorations,decorations.pathmorphing,decorations.pathreplacing,plotmarks}
 \RequirePackage{wrapfig}

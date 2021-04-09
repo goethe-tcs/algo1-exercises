@@ -2,7 +2,7 @@
 \documentclass{uebung_cs}
 \usepackage{algo121}
 \usepackage{algorithmic}
-\blattname{Wochenplan: Stacks, Queues, Verkette Listen und Bäume}
+\blattname{Wochenplan: Stacks, Queues, Verkettete Listen und Bäume}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13,20 +13,125 @@
 	Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.4.1.
 \end{aufgabe}
 
-\begin{aufgabe}[Stacks und Queues]
+\begin{aufgabe}[Stapel und Warteschlangen]
 	Löse die Teilaufgaben.
 	\begin{enumerate}
-		\item (\warmup) Wie sieht die Abfolge \texttt{PUSH(4), PUSH(1), PUSH(3), POP(), PUSH(8), POP()} auf einem initial leerem Stack, der auf einem Array der Länge 6 implementiert wurde, aus?
-		\item Zeige wie zwei Stacks $S_1, S_2$ auf einem Array $A$ der Länge $N$ implementierbar ist.
-		Hierbei soll es zu keinem Stack Overflow kommen, es sei denn die Anzahl der Elemente in $S_1$ und $S_2$ ist größer als $N$.
+		\item (\warmup) Wie sieht die Abfolge \texttt{PUSH(4), PUSH(1), PUSH(3), POP(), PUSH(8), POP()} auf einem initial leerem Stapel, der auf einem Feld der Länge 6 implementiert wurde, aus?
+		\item Zeige wie zwei Stapel $S_1, S_2$ auf einem Feld $A$ der Länge $N$ implementierbar ist.
+		Hierbei soll es zu keinem Stapel Overflow kommen, es sei denn die Anzahl der Elemente in $S_1$ und $S_2$ ist größer als $N$.
 		Die \texttt{PUSH} und \texttt{POP} Operationen sollen $O(1)$ Zeit benötigen.
-		\item (\warmup) Wie sieht die Abfolge \texttt{ENQUEUE(4), ENQUEUE(1), ENQUEUE(3), DEQUEUE(), ENQUEUE(8), DEQUEUE()} auf einer initial leeren Queue, die auf einem Array der Länge 6 implementiert wurde, aus?
-		\item (\hard) Zeige, wie eine Queue $Q$ und ihre Operationen mit nur zwei Stacks $S_1, S_2$ implementierbar ist.
+		\item (\warmup) Wie sieht die Abfolge \texttt{ENQUEUE(4), ENQUEUE(1), ENQUEUE(3), DEQUEUE(), ENQUEUE(8), DEQUEUE()} auf einer initial leeren Warteschlange, die auf einem Feld der Länge 6 implementiert wurde, aus?
+		\item (\hard) Zeige, wie eine Warteschlange $Q$ und ihre Operationen mit nur zwei Stapel $S_1, S_2$ implementierbar ist.
 		Gib eine Laufzeitanalyse für die Operationen an.
 	\end{enumerate}
 \end{aufgabe}
 
-%\begin{aufgabe}[]
-%\end{aufgabe}
+\begin{aufgabe}[Nahezu eine ehemalige dänische Klausuraufgabe]
+	Sei $S$ ein Stapel.
+	Führe die folgenden Operationen von links nach rechts aus: Ein Buchstabe $i$ steht hierbei für $S.$\texttt{PUSH(}$i$\texttt{)} und * steht für $S.$\texttt{POP()}.
+	\[IFI*G**OE*THEU**NI\]
+	Gib die Sequenz der Buchstaben, die durch die Pop-Aufrufe ausgegeben werden, entsprechend der gegebenen an.
+\end{aufgabe}
+
+\begin{aufgabe}[Algorithmen auf verkettete Listen]
+	Betrachte die Algorithmen \texttt{FOO} und \texttt{BAR} und die verkettete Liste darunter.
+	\begin{center}
+	\begin{minipage}{0.45\textwidth}
+		\begin{algorithmic}
+			\STATE \texttt{FOO}$(head)$
+			\STATE $x = head$
+			\STATE $c = 0$
+			\WHILE{$x \neq null$}
+				\STATE $x = x.next$
+				\STATE $c = c + 1$
+			\ENDWHILE
+			\RETURN c
+		\end{algorithmic}
+	\end{minipage}%
+		\hfill
+	\begin{minipage}{0.45\textwidth}
+		\begin{algorithmic}
+			\STATE \texttt{BAR}$(x,s)$
+			\IF{$x == null$}
+				\RETURN s
+			\ELSE
+				\RETURN \texttt{Bar}$(x.next)$
+			\ENDIF
+		\end{algorithmic}
+	\end{minipage}\\%
+	\end{center}
+	
+	\textbf{!!!Hier kommt eine verkettete Liste rein!!!}
+
+	\begin{enumerate}
+		\item (\warmup) Führe \texttt{FOO}(head) händisch durch.
+		\item (\warmup) Erkläre was \texttt{FOO} berechnet.
+		\item Führe \texttt{BAR}(head,0) händisch durch.
+		\item Erkläre was \texttt{BAR} berechnet.
+	\end{enumerate}
+
+\end{aufgabe}
+
+\begin{aufgabe}[Implememtierung verketteter Listen, \warmup]
+	Sei $x$ ein Element in einer einfach verketteten Liste wie in den Folien beschrieben.
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item Sei $x$ nicht das letzte Element in der Liste.
+		Worin resultiert der folgende Code-Schnipsel?
+		\hspace*{20pt}\texttt{x.next = x.next.next;}
+
+		\item Sei $t$ ein neues Element, das noch nicht in der Liste enthalten ist.
+		Worin resultiert der folgende Code-Schnipsel?
+		\hspace*{20pt}\texttt{t.next = x.next;}
+		\hspace*{20pt}\texttt{x.next = t;}
+
+		\item Voraussetzungen wie in b).
+		Bringt der folgende Code-Schnipsel die gleichen Resultate?
+		Wenn nein was sonst?
+		\hspace*{20pt}\texttt{x.next = t;}
+		\hspace*{20pt}\texttt{t.next = x.next;}
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Implememtierung von Stapeln und Warteschlangen]
+	Implementiere die folgenden Datenstrukturen in einer Programmiersprache deiner Wahl.
+	\begin{enumerate}
+		\item Ein Stapel für Integer mittels einer einfach verketteten Liste.
+		\item Eine Warteschlange für Integer mittels einer einfach verketteten Liste.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Sortierte verkettete Listen]
+	Sei $L$ eine einfach verkettete Liste von $n$ Integern in sortierter Reihenfolge.
+	Löse die folgenden Aufgaben.
+	\begin{enumerate}
+		\item Entwirf einen Algorithmus, der einen neuen Integer in $L$ einfügt, sodass die Liste danach noch sortiert ist.
+		\item Ein Freund schlägt vor binäre Suche zu verwenden um das Suchen in sortierten verketteten Listen zu beschleunigen. Wird das funktioniere? Begründe.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Eine Liste umkehren]
+	Entwirf einen Algorithmus, der eine verkettete Liste $L_{In}$ mit $n$ Elementen als Eingabe erhält und eine verkette Liste $L_{Out}$ ausgibt, die die Elemente $L_{In}$ in umgekehrter Reihenfolge enthält.
+	Der Algorithmus soll $O(n)$ Zeit benötigen und dabei, zusätzlich zur Ausgabe, nicht mehr als konstant viel zusätzlichen Speicherplatz benötigen\footnote{Zusätzlicher Speicherplatz hängt in keiner Weise von $n$ ab und wächst nicht mit einer längeren Eingabe.}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	32 Inhaftierte sind zu lebenslänglicher Einzelhaft verurteilt.
+	Der Gefängnisdirektor schlägt den Inhaftierten einen zwar nicht mit Menschenrechten, aber mit einer algorithmischen Fragestellung vereinbaren, Deal vor.
+	Der Direktor hat eine Schüssel voll mit den Zellennummern aller Inhaftierten.
+	Jeden Tag zieht der Direktor eine Nummer lässt die Inhaftierte, aus der korrespondierenden Zelle, in das Vernehmungszimmer des Gefängnisses und packt die Zellennummer zurück in die Schüssel.
+	Das Vernehmungszimmer ist leer, abgesehen von $k$ Lichtschaltern.
+	Aktionen, die die Inhaftierte durchführen ist ist die Schalter an und ausschalten.
+	Zudem kann sich die Inhaftierte dazu entscheiden dem Direktor zu sagen, dass sie im überzeugt ist, dass alle 32 Inhaftierte mindestens einmal im Zimmer gewesen sind.
+	Liegt sie in dieser Annahme richtig werden alle Inhaftierten freigelassen.
+	Liegt sie in dieser Annahme falsch werden alle Inhaftierten hingerichtet.
+	Die Inhaftierten bekommen ein Treffen um sich eine Strategie zu überlegen, bevor sie wieder voneinander isoliert werden.
+	Anfangs sind alle Lichtschalter ausgeschaltet.
+	\begin{enumerate}
+		\item Ist es möglich für $k=32$ eine Strategie zu entwickeln, die mit 100\%iger Sicherheit funktioniert?
+		\item Für $k=5$?
+		\item (\veryhard) Für $k=1$?
+	\end{enumerate}
+\end{aufgabe}
 
 \end{document}

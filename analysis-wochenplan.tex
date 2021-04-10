@@ -1,21 +1,19 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
 \usepackage{algo121}
-\usepackage{algorithmic}
 \blattname{Wochenplan: Analyse von Algorithmen}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
+\section*{Vorbereitung}
+Lies CLRS Kapitel 3 sowie 4.3--4.5 und schau das Video der Woche.
 
-\begin{aufgabe}[\emoji{books}]\label{lesen}
-	Lies CLRS Kapitel 3 sowie 4.3--4.5.
-\end{aufgabe}
-
+\section*{Dienstag}
 \begin{aufgabe}[Asymptotisches Wachstum, \warmup]\label{tue-first}\mbox{}
 	Ordne die folgenden Funktionen in aufsteigender Reihenfolge nach ihrem asymptotischem Wachstum.
-	Das heißt, $f(n)$ kommt vor $g(n)$, wenn $f(n) = O(g(n))$ gilt.
+	Das heißt, $f(n)$ kommt vor $g(n)$, wenn $f(n) = o(g(n))$ gilt.
 	\[n \log n\hspace*{15pt} n^2\hspace*{15pt} 2^n\hspace*{15pt} n^3\hspace*{15pt} \sqrt{n}\hspace*{15pt} n\]
 	
 \end{aufgabe}
@@ -25,23 +23,24 @@
 	\begin{center}
 		\begin{tabular}{ccc}
 			$n^2 + n^3/2$
-			&\mbox{}\hspace{2cm}\mbox{}&
+			&&
 			$8\log_2^7 n + 34\log_2 n + \frac{1}{1000}n$\\
 			$2^n + n^4$&&
-			$2^n7 + 5\log_2^3$\\
+			$2^n\cdot 7 + 5\log_2^3 n$\\
 			$\log_2n + n\sqrt{n}$&&
 			$n(n^2 - 18)\log_2 n$\\
 			$n(n-6)$&&
 			$n\log_2^4 n + n^2$\\
 			$4\sqrt{n}$&&
-			$n^3 \log_2 n + \sqrt{n}\log_2 n$
+			$n^3 \log_2 n + \sqrt{n}\log_2 n$\\
+			$99\sin n + 99\cos n$&& $100+\frac{1}{n}$
 		\end{tabular}
 	\end{center}
 	
 \end{aufgabe}
 
 \begin{aufgabe}[Looping Louie]
-	Analysiere die Laufzeit für die folgenden Funktionen von $n$ und gib das Ergebnis in $O$-Notation an.
+	Analysiere die Laufzeit für die folgenden Funktionen in $n$ und gib das Ergebnis in $O$-Notation an.
 	\begin{center}
 		\begin{tabular}{ccccc}
 
@@ -49,7 +48,7 @@
 Loop1(n)
 i = 1
 while i <= n do
-	print 'x'
+	print "*"
 	i = 2*i
 return
 \end{lstlisting}		
@@ -60,7 +59,7 @@ return
 Loop2(n)
 i = 1
 while i <= n do
-	print 'x'
+	print "*"
 	i = 5*i
 return
 \end{lstlisting}
@@ -73,7 +72,7 @@ Loop3(n)
 for i = 1 to n do
 	j = 1
 	while j <= n do
-		print 'x'
+		print "*"
 		j = j*2
 return
 \end{lstlisting}
@@ -89,31 +88,39 @@ return
 			&\mbox{}\hspace{2cm}\mbox{}&
 			$\frac{n^3}{1000} + n + 100 = \Omega(n^2)$\\
 			$\log_2 n + n = O(n)$&&
-			$2^n + n^2 = \Omega(n)$\\
+			$2^n + n^2 = \omega(n)$\\
 			$2^{\log_2 n} = O(n)$&&
 			$\log_4 n + \log_{16} n = \Theta(\log n)$\\
 			$n^3(n-1)/5 = \Theta(n^3)$&&
 			$n^{1/4} + n^2 = \Theta(n)$\\
 			$\log_2^2n + n = \Theta(n)$&&
-			$2^{\log_4n} = \Theta(\sqrt{n})$
+			$2^{\log_4n} = \Theta(\sqrt{n})$\\
+			$n^{1.9}\log n = o(n^2/\log n)$&&
+			$n\cdot(n\bmod 7) = \Theta(n)$\\
+			$f(n)=\omega(g(n))$
+			$\Longrightarrow$
+			$f(n)=\Omega(g(n))$&&
+			$f(n)=O(g(n))$
+			$\Longrightarrow$
+			$f(n)=o(g(n))$
 		\end{tabular}
 	\end{center}
 \end{aufgabe}
+
+\section*{Donnerstag}
 
 \begin{aufgabe}[Verdopplungen]
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item (\warmup) Algorithmus $A$ benötigt genau $7n^3$ Operationen für eine Eingabe der Länge $n$.
-		Wieviele Operationen mehr benötigt $A$ bei doppelter Eingabelänge?
+		Wie viele Operationen mehr benötigt $A$ bei doppelter Eingabelänge?
 		\item Betrachte die Laufzeiten für einen Algorithmus $B$:
 		\begin{table}[h!]
 		\centering
-		\begin{tabular}{|l|c|c|c|c|c|}
-			\hline
+		\begin{tabular}{lccccc}
 			Eingabelänge (Bits) & 1000 & 2000 & 3000 & 4000 & 5000\\
-			\hline
+			\midrule
 			Dauer [Sekunden] & 5 & 20 & 45 & 80 & 125 \\
-			\hline
 		\end{tabular}
 		\end{table}
 		
@@ -138,21 +145,21 @@ return
 \end{aufgabe}
 
 \begin{aufgabe}[$k$-Merge Sort]
-	Professorin M. Erge stellt ihren neue Algorithmus, 3-Merge Sort, vor.
-	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und wieder verflochten (\textit{merged}) werden.
+	Professorin M.\ Erge stellt ihren neuen Algorithmus, 3-Merge Sort, vor.
+	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und wieder verflochten werden.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item Zeige, dass sich drei sortierte Felder in asymptotischer Linearzeit verflechten lassen.
 		\item Führe eine Laufzeitanalyse für 3-Merge Sort durch.
 		\item (\hard) Verallgemeinere den Algorithmus und die Analyse von 3-Merge Sort zu $k$-Merge Sort für $k>3$.\\
-		Hat Prof M. Erge den Durchbruch geschafft?
+		Hat Prof.\ M.\ Erge den Durchbruch geschafft?
 		Stellt $k$-Merge Sort eine Verbesserung gegenüber dem klassischen 2-Merge Sort dar?
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Maximale Teilfelder]
-	Sei $A' \in \mathbb{Z}^n$ als ein Feld $A[0, ..., n-1]$ gespeichert.
-	Ein Teilfeld von $A$ ist ein genau dann ein \textit{maximales Teilfeld} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + ... + A[j]$ maximal über alle möglichen Teilfelder ist.
+	Sei $A' \in \mathbb{Z}^n$ als ein Feld $A[0, \dots, n-1]$ gespeichert.
+	Ein Teilfeld von $A$ ist ein genau dann ein \textit{maximales Teilfeld} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + \cdots + A[j]$ maximal über alle möglichen Teilfelder ist.
 	Löse die folgenden Aufgaben.
 	\begin{enumerate}
 		\item (\warmup) Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^3)$ findet.

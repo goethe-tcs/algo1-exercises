@@ -18,8 +18,8 @@
 \RequirePackage{ifthen}
 \RequirePackage{amsmath,amsfonts,amssymb,ragged2e}
 \RequirePackage[ngerman]{babel}
-\usepackage[babel,german=quotes]{csquotes}
 \RequirePackage[utf8]{inputenc}
+\usepackage[babel,german=quotes]{csquotes}
 \RequirePackage{microtype}
 \RequirePackage{mathpazo}% palatino fonts
 \RequirePackage{epic,graphicx,xcolor}
@@ -47,7 +47,7 @@
   keywordstyle=\bfseries\color{green!40!black},
   commentstyle=\normalfont\itshape\color{black!60},
   identifierstyle=\color{blue},
-  stringstyle=\color{orange},
+  stringstyle=\color{black!90},
   tabsize=2%
 }
 \usepackage{algorithmic}

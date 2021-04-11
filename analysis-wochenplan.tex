@@ -33,7 +33,7 @@ Lies CLRS Kapitel 3 sowie 4.3--4.5 und schau das Video der Woche.
 			$n\log_2^4 n + n^2$\\
 			$4\sqrt{n}$&&
 			$n^3 \log_2 n + \sqrt{n}\log_2 n$\\
-			$99\sin n + 99\cos n$&& $100+\frac{1}{n}$
+			$99\sin n + 99\cos n$&& $\frac{100n}{\log n}+\frac{1}{n}$
 		\end{tabular}
 	\end{center}
 	
@@ -95,7 +95,7 @@ return
 			$n^{1/4} + n^2 = \Theta(n)$\\
 			$\log_2^2n + n = \Theta(n)$&&
 			$2^{\log_4n} = \Theta(\sqrt{n})$\\
-			$n^{1.9}\log n = o(n^2/\log n)$&&
+			$n^{1.9}\log^9 n = o(n^2/\log n)$&&
 			$n\cdot(n\bmod 7) = \Theta(n)$\\
 			$f(n)=\omega(g(n))$
 			$\Longrightarrow$
@@ -104,6 +104,27 @@ return
 			$\Longrightarrow$
 			$f(n)=o(g(n))$
 		\end{tabular}
+	\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}[Master der Asymptotik]
+	Löse die folgenden Rekursionsgleichungen in $\Theta$-Notation als Funktion von~$n$.
+	Benutze Rekursionsbäume um die Gleichungen für $A,B,C$ zu lösen, und für $D,E,F$ benutze das Mastertheorem.
+
+	\begin{center}
+	\begin{tabular}{ccc}
+		$A(n) = 2 A(n/4)+\sqrt{n}$
+		&
+		$B(n) = 2 B(n/4)+n$
+		&
+		$C(n) = 2 C(n/4)+n^2$
+		\\
+		$D(n)=8 D(n/2)+487n^2$
+		&
+		$E(n)=2 E(n/4)+n^{0.4}$
+		&
+		$F(n)=9 F(n/3)+n^2$
+	\end{tabular}
 	\end{center}
 \end{aufgabe}
 
@@ -137,23 +158,10 @@ return
 		\item Seien $f(n)$ und $g(n)$ asymptotisch nicht negative Funktionen.
 		Beweise, dass folgendes gilt: $\max(f(n),g(n)) = \Theta(f(n) + g(n))$
 		\item Erkläre warum die Aussage \enquote{Die Laufzeit von Algorithmus $D$ ist mindestens $O(n^2)$} keinen Sinn ergibt.
-		\item Ist $2^{n+1} = O(2^n)$? Ist $2^{2n} = O(2^n)$? Beweise dies.
-		\item Beweise, dass $\log_2(n!) = O(n \log n)$.
+		\item Gilt $2^{n+1} = O(2^n)$? Gilt $2^{2n} = O(2^n)$? Beweise deine Behauptung.
+		\item Beweise, dass $\log_2(n!) = O(n \log n)$ gilt.
 		\item (\hard) Beweise, dass $\log_2(n!) = \Omega(n\log n)$ gilt.
 		Beweise, dass $\log_2(n!) = \Theta(n\log n)$ gilt.
-	\end{enumerate}
-\end{aufgabe}
-
-\begin{aufgabe}[$k$-Merge Sort]
-	Professorin M.\ Erge stellt ihren neuen Algorithmus, 3-Merge Sort, vor.
-	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und wieder verflochten werden.
-	Löse die folgenden Teilaufgaben.
-	\begin{enumerate}
-		\item Zeige, dass sich drei sortierte Felder in asymptotischer Linearzeit verflechten lassen.
-		\item Führe eine Laufzeitanalyse für 3-Merge Sort durch.
-		\item (\hard) Verallgemeinere den Algorithmus und die Analyse von 3-Merge Sort zu $k$-Merge Sort für $k>3$.\\
-		Hat Prof.\ M.\ Erge den Durchbruch geschafft?
-		Stellt $k$-Merge Sort eine Verbesserung gegenüber dem klassischen 2-Merge Sort dar?
 	\end{enumerate}
 \end{aufgabe}
 

@@ -62,14 +62,32 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 	\end{minipage}\\%
 	\end{center}
 	
-	\begin{tikzpicture}
-    \node[draw] at (0, 0) (list1-1) {1};
-    \node[draw] at (0.5, 0) (list1-2) {\textcolor{white}{0}};
-    \node[draw] at (1.5, 0) (list2-1) {2};
-    \node[draw] at (2, 0) (list2-2) {\textcolor{white}{0}};
-    \draw[->] (list1-2.east) -- (list2-1.west);
-    \end{tikzpicture}
-	
+	\begin{center}
+		\begin{tikzpicture}
+			\usetikzlibrary{arrows.meta}
+			\def\list {1,1,2,3,5}  % list elements
+			\def\listN {5} % number of elements in list
+			\foreach \key [count=\index] in \list
+			{
+				% contours
+				\draw (\index*2, 0.6) rectangle (\index*2 + 1.2, 0);
+				\draw (\index*2+0.6,0.6) -- (\index*2+0.6,0);
+				% key
+				\node (k\index) at (\index*2+0.3, 0.3) {\key};
+				% invisible nodes used for drawing pointers
+				\node (left_of_\index) at (\index*2, 0.3) {};
+				\node (next_\index) at (\index*2 + 0.9, 0.3) {};
+			}
+			\foreach \index in {2,...,\listN}
+			{
+				% pointer arrow
+				\pgfmathtruncatemacro{\prev}{\index - 1};
+				\draw[Circle-, thick, bend left=30] (next_\prev.center) to (left_of_\index.center);
+			}
+			% head pointer
+			\draw[-to, thick] (2.1,1.2) to (2.3,0.7);
+		\end{tikzpicture}	
+	\end{center}
 
 	\begin{enumerate}
 		\item (\warmup) Führe \texttt{FOO}(head) händisch durch.

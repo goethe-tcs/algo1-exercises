@@ -1,0 +1,62 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\section*{Vorbereitung}
+Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 und schau das Video der Woche.
+
+\section*{Dienstag}
+\begin{aufgabe}[Darstellung, Eigenschaften und Algorithmen]\label{tue-first}\mbox{}
+	\textbf{TIKZ here}\\\\
+	Betrachte den Graph in Figure 1.
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item (\warmup) Gib die Adjazenzlisten und Adjazenzmatritzen für die Graphen 1 und 2 an.
+		\item (\warmup) Tiefensuche wird auf Graph 1, beginnend von Knoten 0, ausgeführt.
+		Die Adjazenzlisten sind hierbei aufsteigend sortiert.
+		Gib den Tiefensuchebaum, Entdeckungsreihenfolge und -zeitpunkte an.
+		\item (\warmup) Breitensuche wird auf Graph 1, beginnend von Knoten 0, ausgeführt.
+		Die Adjazenzlisten sind hierbei aufsteigend sortiert.
+		Gib den Breitensuchebaum und die Distanz zum Startknoten für alle Knoten an.
+		\item Gib die Zusammenhangskomponenten der 3 Graphen an.
+		\item Welche der 3 Graphen sind bipartit?
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Buchstabenlabyrinth]
+	Algolina und ihre kleine Schwester spielen das Buchstabenlabyrinth Spiel.
+	In diesem Spiel wird, wie im Beispiel, eine $N\times N$ Matrix mit As und Bs gefüllt.
+	Die Herausforderung ist es einen kürzesten Pfad von oben links nach unten rechts zu finden.
+	Die Knoten auf dem Pfad müsssen dabei allerdings zwischen A und B alternieren, sprich die Buchstaben eines Pfades buchstabieren ABABABAB...
+	Der Pfad darf immer nur horizontal und vertikal gehen, diagonale Bewegungen sind also nicht erlaubt.
+	Im Beispiel sind die Buchstaben des kürzesten Pfads bold geschrieben.
+	\begin{center}
+		\begin{tabular}{ccccc}
+			\textbf{A} & A & \textbf{A} & \textbf{B} & \textbf{A}\\
+			\textbf{B} & B & \textbf{B} & B & \textbf{B}\\
+			\textbf{A} & \textbf{B} & \textbf{A} & A & \textbf{A}\\
+			A & B & B & B & \textbf{B}\\
+			A & A & A & A & \textbf{A}
+		\end{tabular}
+	\end{center}
+	Da die Schwestern sich nicht sicher sind, ob sie auch tatsächlich den kürzesten Weg gefunden haben wollen sie ein Programm schreiben, das es für sie beantwortet.
+	Entwirf einen Algorithmus, der für eine, wie zuvor definierte, Matrix die Länge eines kürzsten Weges findet.
+	Implementiere den Algorithmus in einer Programmiersprache deiner Wahl.
+	%@Holger: Du wolltest ja eigentlich erstmal den Programmierteil aus den Übungen rausnehmen oder bring ich da was durcheinander?
+\end{aufgabe}
+
+\begin{aufgabe}[Tiefensuche mittels eines Stapels]
+	Erkläre wie Tiefensuche rekursionslos mit einem Stapel implementiert werden kann.
+\end{aufgabe}
+
+\begin{aufgabe}[Wer nix weiß sucht einen Kreis]
+	Entwirf einen Algorithmus, der feststellt ob ein Graph einen Kreis enthält.
+	Wie schnell ist dein Algorithmus?
+\end{aufgabe}
+
+\end{document}

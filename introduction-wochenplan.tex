@@ -11,7 +11,7 @@
 Aufgaben~\ref{tue-first} bis~\ref{tue-last} werden \textbf{Dienstag} synchron bearbeitet.
 Asynchron lesen Sie dann CLRS Kapitel~1 und schauen das erste Video an.
 Aufgabe~\ref{thu-first} bis~\ref{thu-last} werden \textbf{Donnerstag} synchron bearbeitet.
-Die \emoji{star}-Aufgabe~\ref{star} muss bis 17:00 am Freitag, dem 23.4.~im Moodle abgegeben werden.
+Die \emoji{star}-Aufgabe 2D-Hügel finden Sie in Moodle.
 \section*{Dienstag}
 \begin{aufgabe}[Schleifen]\label{tue-first}
 	Schauen Sie sich das Codefragment an (entweder in Python oder in Java/C/C++).
@@ -202,18 +202,6 @@ Lies CLRS Kapitel 1 und schau dir das erste Video an.
 		\item Beweise, dass der rekursive Algorithmus immer einen Hügel findet. \emph{Hinweis:} Definiere eine nützliche Invariante, die für jeden rekursiven Aufruf gilt, und gib einen Beweis per Induktion.
 		\item Implementiere (in einer echten Programmiersprache deiner Wahl) die beiden Linearzeitalgorithmen um Hügel zu finden.
 		\item Implementiere auch den rekursiven Algorithmus, um Hügel zu finden (achte darauf, dass dein Programm immer nur auf die Positionen $0$ bis $n-1$ des Feldes zugreifen darf).
-	\end{enumerate}
-\end{aufgabe}
-
-\section*{Schriftlich}
-\begin{aufgabe}[2D Hügel, \emoji{star}]\label{star}
-	Sei $M$ eine $n\times n$ Matrix (ein zweidimensionales Feld).
-	Ein Eintrag $M[i,j]$ ist ein Hügel, wenn er nicht kleiner ist als seine Nachbarn im N,O,S,W ist (das heißt $M[i][j]\ge M[i][j-1]$, $M[i][j]\ge M[i+1][j]$, $M[i][j]\ge M[i][j+1]$, und $M[i][j]\ge M[i-1][j]$).
-	Wir wollen nun einen effizienten Algorithmus entwerfen, der einen Hügel in $M$ findet.
-	\begin{enumerate}
-		\item Gib einen einfachen Algorithmus an, der $O(n^2)$ Zeit braucht.
-		\item (schwer) Gib einen Algorithmus an, der $O(n \log n)$ Zeit braucht. \emph{Hinweis:} Beginne, indem du die maximale Zahl in der mittleren Spalte findest, und benutze dies, um das Problem rekursiv zu lösen.
-		\item (sehr schwer) Gib einen Algorithmus an, der $O(n)$ Zeit braucht. \emph{Hinweis:} Konstruiere einen rekursiven Algorithmus, der $M$ in 4 Quadranten aufteilt.
 	\end{enumerate}
 \end{aufgabe}
 

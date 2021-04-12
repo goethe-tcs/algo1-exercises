@@ -62,7 +62,14 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 	\end{minipage}\\%
 	\end{center}
 	
-	\textbf{!!!Hier kommt eine verkettete Liste rein!!!}
+	\begin{tikzpicture}
+    \node[draw] at (0, 0) (list1-1) {1};
+    \node[draw] at (0.5, 0) (list1-2) {\textcolor{white}{0}};
+    \node[draw] at (1.5, 0) (list2-1) {2};
+    \node[draw] at (2, 0) (list2-2) {\textcolor{white}{0}};
+    \draw[->] (list1-2.east) -- (list2-1.west);
+    \end{tikzpicture}
+	
 
 	\begin{enumerate}
 		\item (\warmup) Führe \texttt{FOO}(head) händisch durch.
@@ -131,6 +138,20 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 		\item Ist es möglich für $k=32$ eine Strategie zu entwickeln, die mit 100\%iger Sicherheit funktioniert?
 		\item Für $k=5$?
 		\item (\veryhard) Für $k=1$?
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Dynamische Felder und Stapel]
+	Wir sind daran interessiert einen Stapel auf einem dynamischen Feld, ohne maximaler Feldgröße, zu implementieren.
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item (\hard) Verallgemeinere dynamische Felder, sodass diese für Stapel sowohl \texttt{PUSH} als auch \texttt{POP} Operationen unterstützen.
+		Die Laufzeit für jede Sequenz von $n$ Operationen soll hierbei in $\Theta(n)$ liegen und deine Lösung soll zu jedem Zeitpunkt in der Sequenz lineare Zeit, in der Anzahl der Elemente des Stapels, verwenden.
+		
+		\item (\veryhard) Zeige, wie man eine $O(1)$ Laufzeit für die Stapel-Operationen auf dynamischen Feldern erreichen kann.
+		Hierbei soll der benötigte Speicherplatz linear in der Anzahl der Element auf dem Stapel sein.
+		Beachte hierbei nur die \texttt{PUSH} Operation.
+		\textit{Hinweis:} Bedenke, wie der Aufwand gleichmäßig über alle Operationen verteilt werden kann.
 	\end{enumerate}
 \end{aufgabe}
 

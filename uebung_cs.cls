@@ -30,6 +30,8 @@
 \RequirePackage{tcolorbox}
 \RequirePackage{cleveref}
 
+\RequirePackage{subcaption}
+
 \RequirePackage[shortlabels,inline]{enumitem}
 \setlist{nosep,itemsep=2pt}
 

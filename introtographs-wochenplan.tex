@@ -208,9 +208,9 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 	Wie schnell ist dein Algorithmus?
 \end{aufgabe}
 
-% #########################
-% für aufgabe 6
-% #########################
+\begin{aufgabe}[Anzahl kürzester Wege]
+	Entwirf einen Algorithmus, der für einen Graphen $G$ und zwei Knoten $s,t$ die Anzahl der kürzesten Pfade zwischen $s$ udn $t$ ausgibt.
+\end{aufgabe}
 \begin{center}
 	\begin{figure}[h]
 		\begin{subfigure}[b]{0.24\textwidth}
@@ -439,35 +439,86 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 			\hspace*{\fill}
 			\caption{}
 		\end{subfigure}
-		\caption{}
+		\caption{(a) ein $6\times6$ Gittergraph. (b), (c) und (d) sind $6\times6$ Labyrinthe. (b) ist schön, (c) und (d) sind unschön. In (c) ist das Ende nicht erreichbar und (d) enthält einen Weg der im Kreis führt.}
 		\label{ex6mazes}
 	\end{figure}
 \end{center}
 
-% #########################
-% für aufgabe 7
-% #########################
-\begin{center}
-	\begin{tikzpicture}
-		% graph 1 has an euler tour :D
-		\draw (0,0) -- (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1) -- (0,0);
-	\end{tikzpicture}
-	%
-	\hspace{1.5cm}
-	%
-	\begin{tikzpicture}
-		% graph 2 has an euler tour :D
-		\draw (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1);
-	\end{tikzpicture}
-	%
-	\hspace{1.5cm}
-	%
-	\begin{tikzpicture}
-		% graph 3 does not :D
-		\draw (1,-1) -- (3,-1) -- (3,1) -- (1,1) -- (1,-1);
-		\draw (1,-1) -- (3,1);
-		\draw (1,1) -- (3,-1);
-	\end{tikzpicture}
-\end{center}
+\begin{aufgabe}[Labyrinthe und Gittergraphen]
+	Ein $k\times k$ Gittergraph ist ein Graph in dem die Knoten, wie in einem Netz, in $k$ Reihen mit jeweils $k$ Knoten angeordnet sind.
+	Kanten dürfen sich hierbei nur zwischen Knoten befinden, die in horizontaler und vertikaler Richtung adjazent sind.
+	Siehe \ref{ex6mazes} (a).
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
+		Drück $n$ und $m$ in asymptotischer Notation, im Bezug auf $k$, aus.
+	\end{enumerate}
+	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, bestehend aus $k^2$ Feldern, angeordnet aus $k$ Reihen mit jeweils $k$ Feldern.
+	Die vier Seiten eines Feldes sind jeweils entweder frei oder eine Wand.
+	Ein $walk$ im Labyrinth ist eine Sequenz $F$ von Feldern $f_1,..., f_\ell$, sodass aufeinanderfolgende Felder $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und es sich keine Wand zwischen ihnen befindet.
+	Ein spezielles Feld ist als Start gekennzeichnet und ein weiteres als Ziel.
+	Der Verein \glqq Daten- und Gartenbau\grqq{} bewertet ein Labyrinth als $schön$, falls die folgenden Vorausetzungen eingehalten werden:
+	\begin{itemize}
+		\item Es gibt genau einen Weg vom Start zum Ziel.
+		\item Es gibt einen Weg vom Start zu jedem anderen Feld des Labyrinths.
+		\item Es gibt keinen Weg, der im Kreis führt.
+	\end{itemize}
+	Ein Labyrinth wird als $unschön$ bewertet, wenn min. einer dieser Punkte verletzt wird.
+	Siehe \ref{ex6mazes} (b)-(d).
+	\begin{enumerate}
+		\item[b)] Beschreibe wie man ein $k\times k$ Labyrinth als $k\times k$ Gittergraph modelliert.
+		\item[c)] Zeichne \ref{ex6mazes} (b) als Gittergraph.
+		\item[d)] Mit dem Aufschwung des Gärtnertums des letzten Jahres wurden nun so viele Labyrinthe eingereicht, dass der Verein Probleme hat mit der Bewertung hinterher zu kommen.
+		Entwirf einen Algorithmus, der für ein als $k\times k$ Gittergraph modelliertes $k\times k$ Labyrinth als Eingabe ausgibt, ob dieses schön ist.
+		Zeige die Korrektheit des Algorithmus\footnote{Beweis, dass die Ausgabe deines Algorithmus auf allen möglichen Eingaben richtig ist.} und gib eine Laufzeitanalyse mit der Asymptotik als Funktion von $k$.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Eulerkreis und Eulerpfad]
+	Sei $G$ ein zusammenhängender Graph mit $n$ Knoten und $m$ Kanten.
+	Ein Eulerpfad in $G$ ist ein Pfad, der alle Kanten genau ein mal enthält.
+	Ein Eulerkreis ist ein Eulerpfad der in dem selben Knoten beginnt und endet.
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item (\hard) Zeige, dass $G$ einen Eulerkreis hat, genau dann wenn alle Knoten einen geraden Knotengrad haben.
+		\item (\hard) Zeige, dass $G$ einen Eulerpfad hat, genau dann wenn 0 oder 2 Knoten einen ungeraden Knotengrad haben.
+		\item Welche der Zeichnungen können gezeichnet werden ohne den Stift abzusetzen?
+		Kannst du den Stift am selben Punkte auf und absetzen?\\
+		\begin{center}
+			\begin{tikzpicture}
+				% graph 1 has an euler tour :D
+				% no dont tell them :(
+				\draw (0,0) -- (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1) -- (0,0);
+			\end{tikzpicture}
+			%
+			\hspace{1.5cm}
+			%
+			\begin{tikzpicture}
+				% graph 2 has an euler tour :D
+				\draw (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1);
+			\end{tikzpicture}
+			%
+			\hspace{1.5cm}
+			%
+			\begin{tikzpicture}
+				% graph 3 does not :D
+				\draw (1,-1) -- (3,-1) -- (3,1) -- (1,1) -- (1,-1);
+				\draw (1,-1) -- (3,1);
+				\draw (1,1) -- (3,-1);
+			\end{tikzpicture}
+		\end{center}
+		\item Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ eineen Eulerkreis hat.
+		\item (\hard) Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen Eulerkreis ermittelt, falls $G$ einen enthält.
+	\end{enumerate}	
+\end{aufgabe}
+
+\begin{aufgabe}[Durchmesser von Bäumen]
+	Sei $T$ ein binärer Baum mit $n$ Knoten.
+	Der Durchmesser von $T$ ist längste kürzeste Weg zwischen Knotenpaaren aus $T$\footnote{Sei $dist_G(u,v)$ die Länge des kürzesten Weges von Knoten $u$ nach Knoten $v$ im Graph $G$, dann ist der Durchmesser $\max_{u,v\in G}( dist_G(u,v) )$.}.
+	\begin{enumerate}
+		\item Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n^2)$ ermittelt
+		\item (\hard) Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n)$ ermittelt.
+	\end{enumerate}
+\end{aufgabe}
 
 \end{document}

@@ -1,0 +1,104 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\section*{Vorbereitung}
+Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 und schau das Video der Woche.
+
+\section*{Dienstag}
+
+\begin{aufgabe}[Repräsentation, Eigenschaften und Algorithmen]
+Löse für die Graphen in Abbildung 1 folgende Aufgaben:
+	\begin{enumerate}
+		\item (\warmup) Zeige die Adjazenzlisten und Adjazenzmatrizen für Graph (a) und Graph (b)
+		\item (\warmup) Führe die Breitensuche und Tiefensuche in den Graphen (a) und (c) aus.
+		Die Startknoten sind \textbf{Knoten 4 in Graph (a)} und \textbf{Knoten 5 in Graph (c)}
+		\item Welcher der Graphen (a) und (c) ist ein gerichteter, azyklischer Graph?
+		Wenn ein Graph ein gerichteter, azyklischer Graph ist, finde mithilfe des rekursiven Algorithmus für das topologische Sortieren eine topologische Reihenfolge der Knoten.
+		Finde ansonsten einen Kreis.
+		\item Gib die stark zusammenhängenden Komponenten der Graphen (a) und (c) an.
+		\item Wie viele verschiedene topologische Reihenfolgen hat Graph (b)?
+		\item Wie viele stark zusammenhängende Komponenten hat ein gerichteter azyklischer Graph?
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Schlangen und Leitern]
+	Schlangen und Leitern ist ein klassisches Brettspiel.
+	Wir schauen und die folgende Variante an.
+	Das Spielbrett ist ein $n \times n$ Feld mit Zellen, die von $1$ bis $n^2$ in der Reihenfolge, wie in der Grafik gezeigt.
+	Bestimmte Zellpaare sind Schlangen, die nach unten führen, oder Leitern, die nach oben führen.
+	Eine Zelle kann nur der Endpunkt für entweder eine Schlange \textbf{oder} eine Leiter sein.\\
+	Das Ziel des Spiels ist es, sich von Zelle $1$ zu Zelle $n^2$ in möglichst wenig Runden zu bewegen.
+	Als erstes wird eine Spielfigur auf das Feld $1$ platziert.
+	In jeder Runde kann die Figur um maximal $5$ Zellen nach vorne verschoben werden.
+	Wenn die Figur am oberen Ende einer Schlange ankommt, wird sie zum unteren Ende dieser Schlange bewegt.
+	Genauso wird eine Figur, die am unteren Ende einer Leiter ankommt, an ihr oberes Ende bewegt.
+	\begin{enumerate}
+		\item Entwirf einen Algorithmus, der die geringste Anzahl an Runden berechnet, die benötigt werden um eine Spielfigur von Zelle $1$ zu Zelle $n^2$ zu bewegen.
+	\end{enumerate}    
+\end{aufgabe}
+
+\begin{aufgabe}[Gerichtete azyklische Graphen und topologische Sortierung]
+	\begin{enumerate}
+		\item Professorin Tina Opologisch schlägt folgenden neuen und einfachen Algorithmus zur Bestimmung einer topologischen Reihenfolge: führe die Breitensuche vom Knoten s mit Ein-Grad $0$ aus und sortiere die Knoten aufsteigend nach dem Abstand zu s. Funktioniert dieser Algorithmus?
+		\item Bestimme einen Algorithmus, der als Eingabe einen Graphen G und eine Reihenfolge S der Knoten in G erhält und bestimmt, ob S eine topologische Reihenfolge für G ist.
+		\item Gegeben ist ein gerichteter, azyklischer Graph G.
+		Gibt es eine topologische Reihenfolge von G, die nicht durch den rekursiven Algorithmus gefunden werden kann.
+		\item (\hard) Ein Hamilton-Weg ist ein Weg der alle Knoten genau einmal besucht.
+		Bestimme einen Algorithmus, der bestimmt, ob ein gerichteter, azyklischer Graph einen Hamilton-Weg enthält.
+	\end{enumerate}
+\end{aufgabe}
+
+
+\begin{aufgabe}[Studiengangplanung]
+Algolina hat den gesamten Sommer damit verbracht sich zu überlegen, welche Kurse sie an der Universität der Algorithmen belegen möchte.
+Der Abschluss eines Kurses benötigt ein Semester (sie ist eine Super-Studentin und besteht jeden Kurs). Manche Kurse hängen von anderen Kursen ab.
+Daher ist es nicht erlaubt, diese im gleichen Semester zu belegen. Wenn Kurs i von Kurs j abhängt, muss Algolina Kurs j in einem früheren Semester als Kurs i belegen.
+Sie möchte ihr Studium in möglichst wenigen Semestern abschließen.
+Gegeben sind N Kurse (numeriert von $1$ bis $N$), die Algolina belegen möchte, und die jeweiligen Kurse von denen diese abhängen.
+Ermittle die geringste Anzahl an Semestern, die Algolina braucht, um ihr Studium abzuschließen.
+(Da Algolina eine Super-Studentin ist, kann sie unendlich viele Kurse pro Semester belegen.)
+Es kann angenommen werden, dass es keine zyklischen Abhängigkeiten gibt.
+Bestimme einen Algorithmus, um dieses Problem zu lösen. Implementiere diesen Algorithmus.
+\end{aufgabe}
+
+
+\begin{aufgabe}[Ethnographen, hard]\footnote{Aus \textit{Algorithm Design}, Jon Kleinberg und Eva Tardos}
+Du hilfst einer Gruppe von Ethnographen bei der Analyse mündlicher Geschichtsdaten, die sie durch die Befragung von Mitgliedern eines Dorfes gesammelt haben, um mehr über das Leben von Menschen zu erfahren, die in den letzten zweihundert Jahren dort gelebt haben.\\
+In diesen Interviews haben die Ethnographen herausgefunden, dass es eine Menge von n Menschen (die mittlerweile Verstorben sind) gibt, die als $P_1, P_2, \ldots, P_n$ notiert sind.
+Sie haben zudem Fakten darüber gesammelt, wann diese Menschen im Verhältnis zueinander gelebt haben. Jeder Fakt ist in einer der folgenden beiden Formen aufgeschrieben:
+\begin{enumerate}
+	\item[(a)] Für ein i und ein j: Person $P_i$ starb bevor $P_j$ geboren wurde
+	\item[(b)] Für ein i und ein j: die Lebensdauer von $P_i$ und $P_j$ überlappen zumindest teilweise
+\end{enumerate}
+Natürlich sind die Ethnographen nicht sicher, ob all diese Fakten korrekt sind; Die Erinnerungen sind nicht so gut und vieles wurde nur mündlich weitergegeben.
+Du sollst nun ermitteln, ob die Daten zumindest untereinander konsistent sind.
+Das heißt es kann eine Menge an Menschen gegeben haben, für die alle gesammelten Fakten gleichzeitig wahr sind.\\
+Bestimme einen effizienten Algorithmus, der diese Aufgabe löst: entweder sollte er Geburts- und Todesdatum für alle $n$ Menschen ausgeben, sodass alle gesammelten Fakten wahr sind, oder wenn dies nicht möglich ist, ausgeben, dass die Fakten, die die Ethnographen gesammelt haben, untereinander nicht konsistent sind. 
+\end{aufgabe}
+
+
+\begin{aufgabe}[Topologische Sortierung und gerichtete azyklische Graphen]
+Zeige, dass ein gerichteter Graph G genau dann ein gerichteter, azyklischer Graph ist, wenn G eine topologische Reihenfolge hat.
+\textit{Tipp: nutze das Lemma für die Korrektheit der topologischen Sortierung}
+\end{aufgabe}
+
+
+\begin{aufgabe}[Drei Flaschen]
+Du hast drei Flaschen mit einer Kapazität von 8, 5 und 3 Litern.
+Zu Beginn ist die 8 Liter Flasche mit Wasser gefüllt und die anderen beiden sind leer.
+Dein Ziel ist es genau 4 Liter in einem der Flaschen zu haben. Du kannst dafür Wasser von einer Flasche in eine andere gießen, aber musst so lange weitermachen, bis entweder die Flasche aus der du das Wasser entnimmst leer ist oder die Flasche in die das Wasser gefüllt wird, voll ist.
+\begin{enumerate}
+	\item (\hard) Zeige, dass es möglich ist dies zu tun und gib die geringste Anzahl an Füllungen/Leerungen von Flaschen an, die du finden kannst.
+	\item (\hard) Nimm nun an, dass du $n$ Flaschen mit einer Kapazität von $d_1, \ldots, d_n$ Litern und einem Zielvolumen hast x Litern Wasser in einer Flasche hast.
+	Bestimme einen Algorithmus um die geringste Anzahl an Füllungen/Leerungen von Flaschen zum erreichen des Zielvolumens zu bestimmen.
+	\textit{Modelliere das Problem als impliziten Graphen.}
+\end{enumerate}
+\end{aufgabe}
+
+\end{document}

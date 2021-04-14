@@ -1,0 +1,71 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\section*{Vorbereitung}
+Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
+
+\section*{Dienstag}
+\begin{aufgabe}[Heap Eigenschaften]\label{tue-first}
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item (\warmup) Welcher der folgenden Bäume hat Heapstruktur?
+		\item (\warmup) Welche der folgenden Feldern hat Heapstruktur? Index 0 wird nicht benutzt und ist deshalb mit -- markiert.
+		\begin{center}
+			$A = [$ --$,9,7,8,3,4]$\hspace*{10pt}$B = [$ --$,12,4,7,1,2,10]$\hspace*{10pt}$C = [$ --$,5,7,8,3]$
+		\end{center}
+		\item (\warmup) Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen wobei eine Zahl für das Einfügen dieser Zahl steht und $\star$ für eine \texttt{ExtractMax} Operation steht.
+		Wie sieht der Heap $H$ nach den einzelnen Operationen der jeweiligen Sequenzen aus, wenn $H$ für jede Sequenz initial leer ist?
+		\item Hat ein sortiertes Feld Heapstruktur?
+		\item Wo befindet sich in einem (Max-)Heap das kleinste Element?
+		\item Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heapstruktur aufrechterhalten.
+		\item (\hard) Angenommen wir haben $k$ sortierte Felder mit jeweils $n$ Elementen.
+		Zeige, wie sich alle Felder in Zeit $O(n\log k)$ zu einem einzelnen sortierten Feld verflechten lassen.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Prioritäten, \warmup]
+	Die Kakistokratische Partei will deine Hilfe im ihre neue \glqq Frischluft\grqq{}-Politik umzusetzen.
+	Designe ein Bürgerregister, dass die Bürger:innen und ihre Gehälter beinhaltet, sodass man die Person mit dem geringsten Einkommen schnell finden und ausbürgern kann.\\
+	Das System soll die folgenden Operationen unterstützen:
+	\begin{itemize}
+		\item \texttt{Insert(c,i)} fügt eine Person mit der Sozialversicherungsnummer $c$ und dem jährlichen Gehalt $i$ ein.
+		\item \texttt{DeportLowestIncome()} Gibt die Person mit dem niedrigsten Einkommen aus und entfernt sie aus dem System.
+	\end{itemize}
+	Design eine möglichst effiziente Lösung für das System.
+\end{aufgabe}
+
+\begin{aufgabe}[Operationen für Prioritätswarteschlangen]
+	Wir wollten die Menge an zur Verfügung stehenden Operationen für Prioritätswarteschlangen vergrößern.\\
+	Wir interessieren uns hierbei für die folgenden Operationen:
+	\begin{itemize}
+		\item \texttt{RemoveLargest($m$)} entfernt das $m$-größte Element der Prioritätswarteschlange.
+		\item \texttt{Delete($x$)} entfernt Element $x$ aus der Prioritätswarteschlange.
+		\item \texttt{Fusion($x,y$)} entfent Elemente $x$ und $y$ aus der Prioritätswarteschlange und fügt Element $z$, mit Schlüssel $x$.key + $y$.key, ein.
+		\item \texttt{FindLargest($x$r)} gibt all jene Elemente der Prioritätswarteschlange aus, deren Schlüssel $\geq x$ ist.
+		\item \texttt{ExtractMin()} gibt das Element der Prioritätswarteschlange mit dem kleinsten Schlüssel aus und entfernt es.
+	\end{itemize}
+	Wir wollen diese Operationen effizient nutzen können, ohne das sich die Komplexität der Standardoperationen ändert.
+	Sei $n$ die Anzahl der Elemente in der Prioritätswarteschlange.
+	löse die folgenden Teilaufgaben:
+	\begin{enumerate}
+		\item Erkläre wie sich \texttt{RemoveLargest($m$)} mit Zeitbedarf $O(m\log n)$ implementieren lässt.
+		\item Erkläre wie sich \texttt{Delete($x$)} und \texttt{Fusion($x,y$)} mit Zeitbedarf $O(\log n)$ implementieren lässt.
+		\item (\hard) Erkläre wie sich \texttt{FindLargest($x$)} mit Zeitbedarf $O(m)$, wobei $m$ die Anzahl der Elemente mit Schlüssel $\geq x$ ist, implementieren lässt.
+		\item (\hard) Erkläre wie sich \texttt{ExtractMin()} mit Zeit bedarf $O(\log n)$ implementieren lässt.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Satellitendaten]
+	Sei $A[0..n-1]$ ein als Feld gespeicherter Heap.
+	Jedes Element $x$ in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel, der in $A[i]$ liegt.
+	Es ist oftmals nützlich zusätzliche Informationen (Satellitendaten), die mit einem Element assoziert sind, zu speichern.
+	Zeige, wie wir Zugang zu den Satellitendaten das Element mit Index $i$ in Zeit $O(1)$ ermöglichen können, ohne hierbei die Laufzeiten der Standardoperationen des Heaps zu verändern.
+\end{aufgabe}
+
+\end{document}

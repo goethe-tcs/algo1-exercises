@@ -26,8 +26,6 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 		\item Welche der 3 Graphen sind bipartit?
 	\end{enumerate}
 	%
-\end{aufgabe}
-
 \begin{center}
 	\begin{figure}[h]
 		\begin{subfigure}[b]{0.33\textwidth}
@@ -35,9 +33,9 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 			\scalebox{0.6}
 			{
 				\begin{tikzpicture}
-					% peterson graph labels
-					\def\outer {1,1,2,3,5};
-					\def\inner {8,13,21,35,56};
+					% peterson graph labels;
+					\def\outer {0,1,2,3,4};
+					\def\inner {5,6,7,8,9};
 					% radii
 					\def\outerRadius {3};
 					\def\innerRadius {1.5};
@@ -64,7 +62,7 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 						\draw (outer_\current) -- (inner_\current);
 					}
 				\end{tikzpicture}
-			}	
+			}
 			\hspace*{\fill}
 			\caption*{Graph 1}
 		\end{subfigure}
@@ -103,10 +101,10 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 					}
 					% edges
 					\draw  (v_2)  % path 1
-						-- (v_3) 
-						-- (v_10) 
-						-- (v_9) 
-						-- (v_8) 
+						-- (v_3)
+						-- (v_10)
+						-- (v_9)
+						-- (v_8)
 						-- (v_7)
 						-- (v_6)
 						-- (v_9);
@@ -118,8 +116,8 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 						-- (v_6);
 					\draw  (v_5)
 						-- (v_4);
-				\end{tikzpicture}	
-			}	
+				\end{tikzpicture}
+			}
 			\hspace*{\fill}
 			\caption*{Graph 2}
 		\end{subfigure}
@@ -158,8 +156,8 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 					}
 					% edges
 					\draw  (v_1)  % path 1
-						-- (v_2) 
-						-- (v_4) 
+						-- (v_2)
+						-- (v_4)
 						-- (v_5)
 						-- (v_1);
 					\draw  (v_7)  % path 2
@@ -168,8 +166,8 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 						-- (v_6);
 					\draw  (v_10)
 						-- (v_9);
-				\end{tikzpicture}	
-			}	
+				\end{tikzpicture}
+			}
 			\hspace*{\fill}
 			\caption*{Graph 3}
 		\end{subfigure}

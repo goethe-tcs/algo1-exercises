@@ -1,0 +1,25 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{\emoji{star}-Aufgabe: 2D-Hügel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+	Sei $M$ eine $n\times n$ Matrix (ein zweidimensionales Feld).
+	Ein Eintrag $M[i,j]$ ist ein Hügel, wenn er nicht kleiner ist als seine Nachbarn im N,O,S,W ist (das heißt $M[i][j]\ge M[i][j-1]$, $M[i][j]\ge M[i+1][j]$, $M[i][j]\ge M[i][j+1]$, und $M[i][j]\ge M[i-1][j]$).
+	Wir wollen nun einen effizienten Algorithmus entwerfen, der einen Hügel in $M$ findet.
+	\begin{enumerate}
+		\item Gib einen einfachen Algorithmus an, der $O(n^2)$ Zeit braucht.
+		\item (schwer) Gib einen Algorithmus an, der $O(n \log n)$ Zeit braucht. Begründe, wieso die Laufzeitschranke gilt. \emph{Hinweis:} Beginne, indem du die maximale Zahl in der mittleren Spalte findest, und benutze dies, um das Problem rekursiv zu lösen.
+		\item (sehr schwer) Gib einen Algorithmus an, der $O(n)$ Zeit braucht. Begründe, wieso die Laufzeitschranke gilt. \emph{Hinweis:} Konstruiere einen rekursiven Algorithmus, der $M$ in 4 Quadranten aufteilt.
+	\end{enumerate}
+
+\paragraph{Spezielle Bewertungskriterien.}
+Die Abgabe wird \emph{akzeptiert}, wenn b) vollständig und korrekt gelöst wurde und dabei fast keine Abstriche in den allgemeinen Bewertungskriterien erkennbar sind, oder wenn c) vollständig und korrekt gelöst wurde und dabei höchstens leichte und lokal begrenzte Abstriche in den allgemeinen Bewertungskriterien erkennbar sind.
+Es genügt also, nur die Lösung zu b) oder nur die Lösung zu c) abzugeben.
+
+\input{allgemeine-kriterien.inc}
+\end{document}

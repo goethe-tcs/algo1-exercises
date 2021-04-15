@@ -1,3 +1,6 @@
+.vscode
+.npm-packages
+star*.pdf
 voraussetzungen.pdf
 *-wochenplan.pdf
 *.log

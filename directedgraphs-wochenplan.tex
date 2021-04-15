@@ -13,7 +13,124 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 \section*{Dienstag}
 
 \begin{aufgabe}[Repräsentation, Eigenschaften und Algorithmen]
-Löse für die Graphen in Abbildung 1 folgende Aufgaben:
+\begin{center}
+	\begin{figure}[h]
+		\begin{subfigure}[b]{0.33\textwidth}
+			\hspace*{\fill}
+			\scalebox{0.7}
+			{
+				\begin{tikzpicture}
+					\node[draw,circle] (v0) at (0,5)     {$0$};
+					\node[draw,circle] (v1) at (5.5,1.5) {$1$};
+					\node[draw,circle] (v2) at (4.5,4)   {$2$};
+					\node[draw,circle] (v3) at (3.5,2.5) {$3$};
+					\node[draw,circle] (v4) at (1,0)     {$4$};
+					\node[draw,circle] (v5) at (1.5,2.5) {$5$};
+					\node[draw,circle] (v6) at (2.8,1.2) {$6$};
+					%
+					\draw[-stealth] (v0) -- (v2);
+					\draw[-stealth] (v0) -- (v3);
+					\draw[-stealth] (v0) -- (v5);
+					%
+					\draw[-stealth] (v2) -- (v1);
+					%
+					\draw[-stealth] (v3) -- (v1);
+					\draw[-stealth] (v3) -- (v5);
+					%
+					\draw[-stealth] (v4) -- (v0);
+					\draw[-stealth] (v4) -- (v1);
+					\draw[-stealth] (v4) -- (v6);
+					%
+					\draw[-stealth] (v6) -- (v1);
+					\draw[-stealth] (v6) -- (v3);
+					\draw[-stealth] (v6) -- (v5);
+				\end{tikzpicture}
+			}
+			\caption{}
+			\hspace*{\fill}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.33\textwidth}
+			\hspace*{\fill}
+			\scalebox{0.7}
+			{
+				\begin{tikzpicture}
+					\node[draw,circle] (v0) at (0.5,2) {$0$};
+					\node[draw,circle] (v1) at (2,3)   {$1$};
+					\node[draw,circle] (v2) at (4,3)   {$2$};
+					\node[draw,circle] (v3) at (2,1)   {$3$};
+					\node[draw,circle] (v4) at (4,1)   {$4$};
+					\node[draw,circle] (v5) at (5.5,2) {$5$};
+					%
+					\draw[-stealth] (v0) -- (v1);
+					\draw[-stealth] (v1) -- (v2);
+					\draw[-stealth] (v2) -- (v5);
+					\draw[-stealth] (v0) -- (v3);
+					\draw[-stealth] (v3) -- (v4);
+					\draw[-stealth] (v4) -- (v5);
+				\end{tikzpicture}
+			}
+			\caption{}
+			\hspace*{\fill}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.33\textwidth}
+			\hspace*{\fill}
+			\scalebox{0.6}
+			{
+				\begin{tikzpicture}
+					% scale parameters
+					\def\xscale {1.5};
+					\def\yscale {1.2};
+					% node labels
+					\def\labels {4,9,8,5,0,2,3,1,6,7};
+					% node xy coordinates
+					\def\pos { (\xscale * 0   , 0     * \yscale)
+							 , (\xscale * 1   , -1    * \yscale)
+							 , (\xscale * 1.2 , -2.2  * \yscale)
+							 , (\xscale * 2   , -0.5  * \yscale)
+							 , (\xscale * 1.3 ,  3    * \yscale)
+							 , (\xscale * 2.7 ,  2.2  * \yscale)
+							 , (\xscale * 2.7 ,  0.5  * \yscale)
+							 , (\xscale * 4.7 ,  2.5  * \yscale)
+							 , (\xscale * 4.7 , -0.5  * \yscale)
+							 , (\xscale * 4.2 , -2    * \yscale)
+							 };
+					% draw nodes and labels
+					\foreach \coords [count=\index] in \pos
+					{
+						% node (v_\index) at \coords {\index};  % uncomment for debugging
+						\node[draw, circle] (v_\index) at \coords {\phantom{0}};
+					}
+					\foreach \label [count=\index] in \labels
+					{
+						\node () at (v_\index) {\label};  % comment for debugging
+					}
+					% edges
+					\draw[-stealth] (v_1) -- (v_5);
+					\draw[-stealth] (v_2) -- (v_1);
+					\draw[-stealth] (v_3) -- (v_2);
+					\draw[-stealth] (v_3) -- (v_4);
+					\draw[-stealth] (v_3) -- (v_10);
+					\draw[-stealth] (v_4) -- (v_2);
+					\draw[-stealth] (v_4) -- (v_7);
+					\draw[-stealth] (v_5) -- (v_4);
+					\draw[-stealth, bend right=30] (v_5) to (v_1);
+					\draw[-stealth] (v_6) -- (v_5);
+					\draw[-stealth] (v_6) -- (v_7);
+					\draw[-stealth] (v_7) -- (v_8);
+					\draw[-stealth] (v_7) -- (v_10);
+					\draw[-stealth] (v_9) -- (v_8);
+					\draw[-stealth] (v_9) -- (v_6);
+					\draw[-stealth] (v_10) -- (v_9);
+				\end{tikzpicture}
+			}
+			\hspace*{\fill}
+			\caption{}
+		\end{subfigure}
+		\caption{}
+		\label{digraph}
+	\end{figure}
+\end{center}
+Löse für die Graphen in Abbildung \ref{digraph} folgende Aufgaben:
 	\begin{enumerate}
 		\item (\warmup) Zeige die Adjazenzlisten und Adjazenzmatrizen für Graph (a) und Graph (b)
 		\item (\warmup) Führe die Breitensuche und Tiefensuche in den Graphen (a) und (c) aus.
@@ -30,7 +147,7 @@ Löse für die Graphen in Abbildung 1 folgende Aufgaben:
 \begin{aufgabe}[Schlangen und Leitern]
 	Schlangen und Leitern ist ein klassisches Brettspiel.
 	Wir schauen und die folgende Variante an.
-	Das Spielbrett ist ein $n \times n$ Feld mit Zellen, die von $1$ bis $n^2$ in der Reihenfolge, wie in der Grafik gezeigt.
+	Das Spielbrett ist ein $n \times n$ Feld mit Zellen, die von $1$ bis $n^2$ in der Reihenfolge, wie in Abbildung \ref{snakesladders} gezeigt.
 	Bestimmte Zellpaare sind Schlangen, die nach unten führen, oder Leitern, die nach oben führen.
 	Eine Zelle kann nur der Endpunkt für entweder eine Schlange \textbf{oder} eine Leiter sein.\\
 	Das Ziel des Spiels ist es, sich von Zelle $1$ zu Zelle $n^2$ in möglichst wenig Runden zu bewegen.
@@ -40,7 +157,47 @@ Löse für die Graphen in Abbildung 1 folgende Aufgaben:
 	Genauso wird eine Figur, die am unteren Ende einer Leiter ankommt, an ihr oberes Ende bewegt.
 	\begin{enumerate}
 		\item Entwirf einen Algorithmus, der die geringste Anzahl an Runden berechnet, die benötigt werden um eine Spielfigur von Zelle $1$ zu Zelle $n^2$ zu bewegen.
-	\end{enumerate}    
+	\end{enumerate}
+	\begin{center}
+		\begin{figure}
+			\hspace*{\fill}	
+			\begin{tikzpicture}
+				\draw (0,0) grid (5,5);
+				\foreach \x in {1,...,5}
+				{
+					\node (n_\x) at (\x - 0.5, 0.5) {\x};
+				}
+				\foreach \x in {6,...,10}
+				{
+					\node (n_\x) at (10.5 - \x, 1.5) {\x};
+				}
+				\foreach \x in {11,...,15}
+				{
+					\node (n_\x) at (-10.5 + \x, 2.5) {\x};
+				}
+				\foreach \x in {16,...,20}
+				{
+					\node (n_\x) at (20.5 - \x, 3.5) {\x};
+				}
+				\foreach \x in {21,...,25}
+				{
+					\node (n_\x) at (-20.5 + \x, 4.5) {\x};
+				}
+				%
+				\draw [-stealth, red!50, thick] (n_19) to (n_1);
+				\draw [-stealth, red!50, thick] (n_22) to (n_18);
+				\draw [-stealth, red!50, thick] (n_16) to (n_8);
+				%
+				\draw [-stealth, blue!50, thick] (n_11) to (n_21);
+				\draw [-stealth, blue!50, thick] (n_9) to (n_17);
+				\draw [-stealth, blue!50, thick] (n_4) to (n_13);
+				\draw [-stealth, blue!50, thick] (n_14) to (n_24);
+			\end{tikzpicture}
+			\hspace*{\fill}	
+			\caption{Schlangen und Leitern}
+			\label{snakesladders}
+		\end{figure}
+	\end{center}
 \end{aufgabe}
 
 \begin{aufgabe}[Gerichtete azyklische Graphen und topologische Sortierung]

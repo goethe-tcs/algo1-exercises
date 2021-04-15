@@ -4,10 +4,15 @@
 \blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newboolean{programming}
 \setboolean{programming}{false}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{every tree node/.style={minimum width=20pt,draw,circle},
+blank/.style={draw=none},
+edge from parent/.style=
+{draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+level distance=1.5cm}
 
 \begin{document}
 \section*{Vorbereitung}
@@ -18,7 +23,92 @@ Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item (\warmup) Welche der folgenden Bäume erfüllen die Heap-Eigenschaft?
-		\item (\warmup) Welche der, durch die folgenden Feldern repräsentierten, Bäume erfüllen die Heap-Eigenschaft?
+		\begin{center}
+			\begin{figure}[h]
+				\begin{subfigure}[b]{0.3\textwidth}
+					\hspace*{\fill}
+					\scalebox{0.5}
+					{
+						\begin{tikzpicture}[sibling distance=20pt]
+							\Tree
+							[.16 
+								[.13
+									[.7
+										\edge[]; {4}
+										\edge[blank]; \node[blank]{};
+									] 
+									5
+								]
+								[.11
+									9
+									1
+								]
+							]
+						\end{tikzpicture}
+					}
+					\hspace*{\fill}
+					\caption{}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.3\textwidth}
+					\hspace*{\fill}
+					\scalebox{0.5}
+					{
+						\begin{tikzpicture}[sibling distance=20pt]
+							\Tree
+							[.20 
+								[.18 
+									[.16
+										13
+										4
+									]
+									[.15
+										7
+										19
+									]
+								]
+								[.14
+									[.11
+										\edge[]; {2}
+										\edge[blank]; \node[blank]{};
+									]
+									10
+								]
+							]
+						\end{tikzpicture}
+					}
+					\hspace*{\fill}
+					\caption{}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.3\textwidth}
+					\hspace*{\fill}
+					\scalebox{0.5}
+					{
+						\begin{tikzpicture}[sibling distance=20pt]
+							\Tree
+							[.9 
+								[.8 
+									[.6
+										3
+										2
+									]
+									\edge[blank]; \node[blank]{};
+								]
+								[.7
+									[.5
+										\edge[]; {1}
+										\edge[blank]; \node[blank]{};
+									]
+									4
+								]
+							]
+						\end{tikzpicture}
+					}
+					\hspace*{\fill}
+					\caption{}
+				\end{subfigure}
+			\end{figure}
+		\end{center}
+				\item (\warmup) Welche der, durch die folgenden Feldern repräsentierten, Bäume erfüllen die Heap-Eigenschaft?
 		Index 0 wird nicht benutzt und ist deshalb mit -- markiert.
 		\begin{center}
 			$A = [$ --$,9,7,8,3,4]$\hspace*{10pt}$B = [$ --$,12,4,7,1,2,10]$\hspace*{10pt}$C = [$ --$,5,7,8,3]$

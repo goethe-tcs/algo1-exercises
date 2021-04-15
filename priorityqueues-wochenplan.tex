@@ -4,24 +4,28 @@
 \blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newboolean{programming}
+\setboolean{programming}{false}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 \section*{Vorbereitung}
 Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 
 \section*{Dienstag}
-\begin{aufgabe}[Heap Eigenschaften]\label{tue-first}
+\begin{aufgabe}[Heap-Eigenschaften]\label{tue-first}
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item (\warmup) Welcher der folgenden Bäume hat Heapstruktur?
-		\item (\warmup) Welche der folgenden Feldern hat Heapstruktur? Index 0 wird nicht benutzt und ist deshalb mit -- markiert.
+		\item (\warmup) Welche der folgenden Bäume erfüllen die Heap-Eigenschaft?
+		\item (\warmup) Welche der, durch die folgenden Feldern repräsentierten, Bäume erfüllen die Heap-Eigenschaft?
+		Index 0 wird nicht benutzt und ist deshalb mit -- markiert.
 		\begin{center}
 			$A = [$ --$,9,7,8,3,4]$\hspace*{10pt}$B = [$ --$,12,4,7,1,2,10]$\hspace*{10pt}$C = [$ --$,5,7,8,3]$
 		\end{center}
 		\item (\warmup) Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen wobei eine Zahl für das Einfügen dieser Zahl steht und $\star$ für eine \texttt{ExtractMax} Operation steht.
 		Wie sieht der Heap $H$ nach den einzelnen Operationen der jeweiligen Sequenzen aus, wenn $H$ für jede Sequenz initial leer ist?
-		\item Hat ein sortiertes Feld Heapstruktur?
+		\item Erfüllt ein sortiertes Feld die Heap-Eigenschaft?
 		\item Wo befindet sich in einem (Max-)Heap das kleinste Element?
 		\item Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heapstruktur aufrechterhalten.
 		\item (\hard) Angenommen wir haben $k$ sortierte Felder mit jeweils $n$ Elementen.
@@ -29,7 +33,7 @@ Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Prioritäten, \warmup]
+\begin{aufgabe}[Wahlgorithmen und Statenstrukturen, \warmup]
 	Die Kakistokratische Partei will deine Hilfe im ihre neue \glqq Frischluft\grqq{}-Politik umzusetzen.
 	Designe ein Bürgerregister, dass die Bürger:innen und ihre Gehälter beinhaltet, sodass man die Person mit dem geringsten Einkommen schnell finden und ausbürgern kann.\\
 	Das System soll die folgenden Operationen unterstützen:
@@ -66,6 +70,41 @@ Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 	Jedes Element $x$ in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel, der in $A[i]$ liegt.
 	Es ist oftmals nützlich zusätzliche Informationen (Satellitendaten), die mit einem Element assoziert sind, zu speichern.
 	Zeige, wie wir Zugang zu den Satellitendaten das Element mit Index $i$ in Zeit $O(1)$ ermöglichen können, ohne hierbei die Laufzeiten der Standardoperationen des Heaps zu verändern.
+\end{aufgabe}
+
+\begin{aufgabe}[Eigenschaften von Heaps]
+	Sei $T = (V,E)$ ein vollständiger Binärbaum mit Höhe $h$.
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item Zeige, dass die Anzahl an Knoten $|V| = 2^{h+1} - 1$ ist.\\
+		\textit{Hinweis: Begründe, dass $|V| = 1 + 2 + 4 + \hdots + 2^h$ und betrachte diesen Wert als Binärzahl.}
+		\item Zeige, dass die Summe, $S = n / 4 \cdot 1 + n / 8 \cdot 2 + n / 16 \cdot 3 + n / 32 \cdot 4 + \hdots = \Theta(n)$.\\
+		\textit{Hinweis: Berechne $S - S/2$}
+	\end{enumerate}
+\end{aufgabe}
+
+\ifthenelse{\boolean{programming}}{
+\begin{aufgabe}[Implementierung von Heaps]
+	Wir interessieren uns dafür eine Prioritätswarteschlange mittels eines Heap auf einem Feld zu implementieren.
+	\begin{enumerate}
+		\item Implementiere die zuvor genante Datenstruktur mitsamt \texttt{Insert} und \texttt{ExtractMax} Operationen in einer Programmiersprache deiner Wahl.
+	\end{enumerate}
+\end{aufgabe}
+}{}
+
+\begin{aufgabe}[Summen]
+	Sei $A[0..n-1]$ ein Feld von Integern.
+	Wir interessieren uns für die foglenden Operationen:
+	\begin{itemize}
+		\item \texttt{Sum($i,j$)} gibt $A[i] + A[i+1] + \hdots + A[j]$ aus.
+		\item \texttt{Change($i,x$)} setzt $A[i]$ auf den Wert $x$.
+	\end{itemize}
+	Löse die folgenden Teilaufgaben:
+	\begin{enumerate}
+		\item (\warmup) Entwirf eine Datenstruktur, die \texttt{Sum} mit $O(1)$ Zeit und $O(n^2)$ Platz unterstützt.
+		\item (\hard) Entwirf eine Datenstruktur, die \texttt{Sum} mit $O(1)$ Zeit und $O(n)$ Platz unterstützt.
+		\item (\veryhard) Entwirf eine Datenstruktur, die \texttt{Sum} und \texttt{Change} beide mit $O(\log n)$ Zeit und $O(n)$ Platz unterstützt.
+	\end{enumerate}
 \end{aufgabe}
 
 \end{document}

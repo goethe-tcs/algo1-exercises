@@ -453,14 +453,14 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
 		Drück $n$ und $m$ in asymptotischer Notation, im Bezug auf $k$, aus.
 	\end{enumerate}
-	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, bestehend aus $k^2$ Feldern, angeordnet aus $k$ Reihen mit jeweils $k$ Feldern.
+	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, bestehend aus $k^2$ Zellen, angeordnet aus $k$ Reihen mit jeweils $k$ Zellen.
 	Die vier Seiten eines Feldes sind jeweils entweder frei oder eine Wand.
-	Ein $walk$ im Labyrinth ist eine Sequenz $F$ von Feldern $f_1,..., f_\ell$, sodass aufeinanderfolgende Felder $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und es sich keine Wand zwischen ihnen befindet.
-	Ein spezielles Feld ist als Start gekennzeichnet und ein weiteres als Ziel.
+	Ein $walk$ im Labyrinth ist eine Sequenz $F$ von Zellen $f_1,..., f_\ell$, sodass aufeinanderfolgende Zellen $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und es sich keine Wand zwischen ihnen befindet.
+	Eine spezielle Zelle ist als Start gekennzeichnet und eine weitere als Ziel.\\
 	Der Verein \glqq Daten- und Gartenbau\grqq{} bewertet ein Labyrinth als $schön$, falls die folgenden Vorausetzungen eingehalten werden:
 	\begin{itemize}
 		\item Es gibt genau einen Weg vom Start zum Ziel.
-		\item Es gibt einen Weg vom Start zu jedem anderen Feld des Labyrinths.
+		\item Es gibt einen Weg vom Start zu jeder anderen Zelle des Labyrinths.
 		\item Es gibt keinen Weg, der im Kreis führt.
 	\end{itemize}
 	Ein Labyrinth wird als $unschön$ bewertet, wenn min. einer dieser Punkte verletzt wird.

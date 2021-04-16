@@ -1,0 +1,103 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Disjunkte Mengen, Union-Find}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newboolean{programming}
+\setboolean{programming}{false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Makros für noch nicht übersetzte Begrifflichkeiten
+\newcommand{\qfind}{\textit{\textbf{Quick Find}}}
+\newcommand{\qunion}{\textit{\textbf{Quick Union}}}
+\newcommand{\wqunion}{\textit{\textbf{Weighted Quick Union}}}
+\newcommand{\pathcomp}{\textit{\textbf{Path Compression}}}
+
+
+\begin{document}
+\section*{Vorbereitung}
+Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das Video der Woche.
+
+\section*{Dienstag}
+\begin{aufgabe}[Union Find von Hand laufen lassen]\label{tue-first}
+	Sieh dir die folgende Sequenz an Operationen an:
+	\texttt{Init(7), Union(3,4),  Union(5,0), Union(4,5), Union(4,3), Union(0,1), Union(2,6), Union(0,4)} und \texttt{Union(6,0)}
+	\begin{enumerate}
+		\item (\warmup) Führe die Sequenz mittels \qfind von Hand durch.
+		Zeige, wie die Inhalte des $id$ Feldes nach jedem Schritt aussehen.
+		Die \texttt{Union($i,j$)} Operation aktualisiert hierbei immer $id$ für die Menge, die durch $i$ gegeben wird.
+		\item (\warmup) Führe die Sequenz mittels \qunion von Hand durch.
+		Zeige, wie der Baum nach jedem Schritt aussehen.
+		Die \texttt{Union($i,j$)} Operation setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$.
+		\item Führe die Sequenz mittels \wqunion von Hand durch.
+		Zeige, wie der Baum nach jedem Schritt aussehen.
+		Die \texttt{Union($i,j$)} Operation setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$, wenn die Größe der beiden Bäume gleich ist.
+		\item Zeige das Resultat von \pathcomp auf einem der Bäume aus a) und b) nach einer \texttt{Find($x$)} Operation, für die Fälle, dass $x$ ein Blatt ist, $x$ ein innerer Knoten mit Tiefe 1 ist oder $x$ ein innerer Knoten mit Höhe 1 ist 
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Alternative zum \qfind Algorithmus]
+	Eine Kommilitonin stellt die folgende, intuitive Variante von \qfind \texttt{Union} vor.
+	Funktioniert sie?
+	\begin{algorithmic}
+		\STATE \texttt{Union}(i,j)
+		\IF{\texttt{Find}($i$) $\neq$ \texttt{Find}($j$)}
+			\FOR{$k = 0$ \textbf{to} $n - 1$}
+				\IF{$id[k] == id[i]$}
+					\STATE $id[k] = id[j]$
+				\ENDIF
+			\ENDFOR
+		\ENDIF
+	\end{algorithmic}
+\end{aufgabe}
+
+\begin{aufgabe}[Dynamische Zusammenhangskomponente und Suche in Graphen]
+	Mittels Tiefen- und Breitensuche können wir die Zusammenhangskomponente eines Graphs finden.
+	Entwirf eine einfache Lösung für die dynamische Zusammenhangskomponente mittels Suche in Graphen und vergleichedie Komplexität deiner Lösung mit der auf Union-Find basierenden Lösung.
+\end{aufgabe}
+
+\ifthenelse{\boolean{programming}}{
+\begin{aufgabe}[Implememtierung von Union-Find]
+	Wir wollen Datenstrukturen für Union-Find in einer beliebigen Programmiersprache implementieren, die \texttt{Init}, \texttt{Union} und \texttt{Find} unterstützen.
+	\begin{enumerate}
+		\item Implementiere \qunion
+		\item Erweitere deine Implementierung mit \wqunion
+		\item Erweitere deine Implementierung mit \pathcomp
+	\end{enumerate}
+\end{aufgabe}
+}{}
+
+\begin{aufgabe}[Zombie Invasion, \hard]
+	In der post-apokalyptischen Zukunft (ein unaufmerksamer Student hat bei Zombieduel-Experimenten versehentlich einige freigelassen) haben du und eine kleine Gruppe an Überlebenden sich in einem kleinen Gebäude verbarrikadiert.
+	Das einzige was zwischen euch und einer hungrigen Horde Zombies steht ist ein Grid von $k\times k$ Wänden.\\\\
+	% Ich denke hier reicht der mittlere Teil des Grids als Vis
+	Oberhalb des Grids warten die Zombies, während deine Gruppe und du unterhalb sind.
+	Unglücklicherweise sind die Wände alt und spröde und stürzen regelmäßig ein.
+	Sobald ein Pfad von ganz oben nach ganz unten verläuft kommen die Zombies durch.
+	Um eure Evakuierung vorzubereiten willst du permanent überprüfen, ob es einen entsprechenden Pfad durch das Grid gibt.
+	Entwirf eine Datenstruktur, die es effizient den Überblick behält, während die Wände (Zellen des Grids) eine nach der anderen einstürzen.
+\end{aufgabe}
+
+\begin{aufgabe}[Rekursive \pathcomp, \hard]
+	Entwirf eine rekursive Variante von \pathcomp in Pseudo-Code.
+\end{aufgabe}
+
+\begin{aufgabe}[Union-Find mit verketteten Listen und Gewichtungen]
+	Wir wollen eine Variante von \qfind mittels verketteten Listen auf die folgende Art und Weise implementieren.
+	Jede Menge wird durch eine einfach verkettete Liste repräsentiert.
+	Der Repräsentant jeder Menge ist das erste Element der respektiven Liste und jedes Element der Liste hat einen Pointer auf den Repräsentanten.
+	Des weiteren haben wir einen Pointer \textit{tail} auf das letzte Element der Liste.
+	Zum Beispiel eine Datenstruktur für die Menge $\{1,4,7,8,14\}$ mit Repräsentant $7$ könnte wie folgt aussehen:
+	% Yeehaw Tikz-Time
+	\begin{enumerate}
+		\item Zeige, unter Benutzung der Repräsentation, wie \texttt{Init($n$)} in Zeit $O(n)$, \texttt{Find($i$)} in Zeit $O(1)$ und \texttt{Union($i,j$)} in Zeit $O(|S(i)|)$, wobei $S(i)$ die Menge mit $i$ ist.
+		\item Zeige, wie man die Lösung erweitern kann, sodass \texttt{Init} und \texttt{Find} dieselbe Zeitkomplexität haben, aber \texttt{Union($i,j$)} in Zeit $O(\min(|S(i)|, |S(j)|))$ benötigt.\\
+		\textit{Hinweis: Speichere ein paar Zusatzinformationen}
+		\item (\hard) Zeige, dass für $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen die zuvorige Lösung eine Laufzeit in $O(p + m\log n)$ benötigt.
+	\end{enumerate}
+\end{aufgabe}
+
+
+\end{document}

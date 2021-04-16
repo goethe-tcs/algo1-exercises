@@ -52,7 +52,7 @@
   stringstyle=\color{black!90},
   tabsize=2%
 }
-\usepackage{algorithmic}
+\RequirePackage{algorithmic}
 
 \usetikzlibrary{shapes,arrows,decorations,decorations.pathmorphing,decorations.pathreplacing,plotmarks}
 \RequirePackage{wrapfig}

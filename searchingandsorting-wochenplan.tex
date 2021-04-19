@@ -27,9 +27,10 @@ Lies CLRS Kapitel 2 und schau dir die Videos der Woche an.
 \begin{aufgabe}[Duplikate und nahe Nachbarn]
 	Sei $A[0..n-1]$ ein Feld von ganzen Zahlen.
 	\begin{enumerate}
-		\item (\warmup) Ein \emph{Duplikat} in $A$ ist ein Paar $(i,j)$ von unterschiedlichen Indizes mit $A[i]=A[j]$. Gib einen Algorithmus an, der in Zeit $O(n^2)$ ein Duplikat in $A$ findet.
-		\item Gib einen Algorithmus an, der in $A$ ein Duplikat in Zeit $O(n\log n)$ findet. \emph{Hinweis:} Nutze merge sort.
-		\item Ein \emph{nächster Nachbar} in $A$ ist ein Paar $(i,j)$ mit $i\ne j$, sodass der Abstand $|A[i]-A[j]|$ minimal ist unter allen Paaren von Einträgen. Gib einen Algorithmus an, der in $A$ einen nächsten Nachbarn in Zeit $O(n\log n)$ findet.
+		\item (\warmup) Ein \emph{Duplikat} in $A$ ist ein Paar $(i,j)$ von unterschiedlichen Indizes mit $A[i]=A[j]$. Entwirf einen Algorithmus an, der in Zeit $O(n^2)$ findet, ob $A$ ein Duplikat hat.
+		\item Entwirf einen Algorithmus an, der in Zeit $O(n\log n)$ findet, ob $A$ ein Duplikat hat. \emph{Hinweis:} Nutze merge sort.
+		\item Ein \emph{nächstes Paar} in $A$ ist ein Paar $(i,j)$ mit $i\ne j$, sodass der Abstand $|A[i]-A[j]|$ minimal ist unter allen Paaren von Einträgen.
+		Etwirf einen Algorithmus an, der den Abstand vom kürzesten Paar aus $A$ in Zeit $O(n\log n)$ findet.
 	\end{enumerate}
 \end{aufgabe}
 

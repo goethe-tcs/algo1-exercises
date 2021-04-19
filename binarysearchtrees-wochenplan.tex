@@ -1,0 +1,43 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Disjunkte Mengen, Union-Find}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newboolean{programming}
+\setboolean{programming}{false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\section*{Vorbereitung}
+Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
+
+\section*{Dienstag}
+\begin{aufgabe}[Binärbaumeigenschaften]\label{tue-first}
+	\begin{enumerate}
+		\item (\warmup) Welche der Bäume sind binäre Suchbäume?
+		\item (\warmup) Wo in einem Baum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
+		\item (\warmup) Gib die Reihenfolge, in der die Knoten traversiert werden für Präorder, Inorder und Postorder für Baum b) an.
+		\item Verleich die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
+		\item Schreibe Pseudocode für eine iterative Variante der Knotentraversierung in Inorder.
+		\item (\hard) Beweise oder widerlege.
+		Wenn Knoten $v$ zwei Kinder hat, dann hat das Element mit dem nächstgrößeren Schlüssel kein linkes Kind und das Element mit dem nächstkleineren Schlüssel kein rechtes Kind.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Blätter und Höhe]
+	Sei $T$ ein Binärbaum mit $n$ Knoten und Wurzel $w$.
+	\begin{enumerate}
+		\item Entwirf einen rekursiven Algorithmus, der für Eingabe $w$ die Anzahl der Blätter in $T$ ausgibt.
+		Schreibe deine Lösung in Pseudocode auf.
+		\item Entwirf einen rekursiven Algorithmus, der für Eingabe $w$ die Höhe von $T$ ausgibt.
+		Schreibe deine Lösung in Pseudocode auf.
+		\ifthenelse{\boolean{programming}}{
+		\item Implementiere deine Lösung in einer Sprache deiner Wahl.
+		}{}
+	\end{enumerate}
+\end{aufgabe}
+
+\end{document}

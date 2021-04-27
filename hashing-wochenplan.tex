@@ -1,0 +1,85 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{Wochenplan: Hashing und Dynamische Sets}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newboolean{programming}
+\setboolean{programming}{false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Makros für noch nicht übersetzte Begrifflichkeiten
+\newcommand{\dynset}{\textit{\textbf{dynamische Menge}}}
+
+
+\begin{document}
+\section*{Vorbereitung}
+Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
+
+\section*{Dienstag}
+\begin{aufgabe}[Von Hand laufen lassen und Eigenschaften]\label{tue-first}
+	\begin{enumerate}
+		\item (\warmup) Füge die Schlüsselsequenz $7, 18, 2, 3, 14, 25, 1, 11, 12, 1332$ in eine Hashtabelle der Länge 11 mittels verkettem Hashing und Hashfunktion $f(k) = k \mod 11$
+		\item (\warmup) Füge die Schlüsselsequenz $2, 32, 43, 16, 77, 51, 1, 17, 42, 111$ in eine Hashtabelle der Länge 17 mittels verkettem Hashing und Hashfunktion $f(k) = k \mod 17$
+		\item Lösche 111 und 51 aus der in b) erzeugten Hashtabelle.
+		\item Angenommen wir löschen in linearem Sodieren ohne die Element im Cluser rechts von $x$ wieder einzufügen.
+			Gib eine kürztmögliche Sequenz an Wörterbuch Operationen, sodass die Modifikation zu einem nicht korrekt arbeitenden Ergebnis führt.
+		\item Sei $S$ eine Sequenz von Schlüsselns, die in einer Hashtabelle $A$ mittels verkettetem Hashing gespeichert sind.
+			Gegeben $A$, kann der größte Schlüssel aus $S$ effizient gefunden werden?
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Teiler in der Divisionsmethode\footnote{CLRS 11.3.1}]
+	Betrachte die Hashfunktion $h(k) = k \mod 10$ und die Schlüsselsequenz $K = 0, 5, 20, 40, 65, 15, 90, 95, 80, 55$.
+	\begin{enumerate}
+		\item Warum ist die Wahl der Hashfunktion problematisch im Bezug auf $K$?
+		\item Erkläre, warum wir Primzahlen in der Divisionsmethode verwenden.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Faules Löschen in linearem Sondieren]
+	Die Methode aus 1. d) hat nicht funktioniert, wir versuchen es also noch mal anders.
+	Wenn wir ein Element an Position $p$ löschen, dann hinterlassen wir eine Markierung, das dort ein Element gelöscht worden ist.
+	\begin{enumerate}
+		\item Erkläre, wie \texttt{Search} und \texttt{Insert} modifiziert werden können, damit wie mit dieser Methode funktionieren.
+		\item Erkläre welche Vorteile und Nachteile diese Methode, im Vergleich zu der Methode aus der Vorlesung, hat.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Spiel Server Statistiken]
+	Für dein neues, sehr erfolgreiches Online Spiel willst du verfolgen, ob deine aktiven Spieler:innen aus einer kleinen Gruppen sehr aktiver Spieler:innen oder einer großen Gruppe vieler Verschiedener, die unregelmäßig spielen, kommen.
+	Das Spiel hat hierbei immer Sessions und jede Spielerin hat eine ID.
+	Von deinem Server kannst du dir für alle Spielsessions die IDs der Spieler:innen, die an einer Session teilgenommen haben, als Sequenz ausgeben lassen.
+	\begin{enumerate}
+		\item Entwirf einen Algorithmus, der die Anzahl an unterschiedlichen Spieler:innen auf dem Server ermittelt.
+		\item Entwirf einen Algorithmus, der die Spielerin ermittelt, die in den meisten Spielsessions gespielt hat.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Bitvektoren]
+	Computer werden	oft als $w$-\textit{Bit Computer} bezeichnet, beispielsweise sind die meisten modernen Computer $64$-Bit Computer.
+	Das bedeutet, dass die Register und Speicherzellen jeweils $w$-Bits speichern und primitive Datentypen wie Integer, Gleitkommazahlen und Pointer mit $w$ Bits dargestellt werden.
+	Manche Programmiersprachen unterstützen Bit-Manipulation Operationen mit konstantem Zeitaufwand, wie z.B. shifting und bitweise logische Operationen.
+	Wir wollen diese nutzen, um effizient Felder von Bits, sogenannte \textit{Bitvektoren}, zu implementieren.
+	Angenommen wir arbeiten auf einem $w$-Bit Computer.
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt repräsentiert werden kann, sodass ein $i$-tes Bit in Zeit $O(1)$ ausgelesen oder geflippt werden kann.
+		\item Zeige, wie ein Bitvektor $B$ der Länge $n$ kompakt repräsentiert werden kann, sodass ein $i$-tes Bit in Zeit $O(1)$ ausgelesen oder geflippt werden kann.
+		\item Zeige, wie ein Bitvektor genutzt werden kann um eine \dynset zu repräsentieren, ohne zusätzliche Adressdaten zu verwenden.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Sortieren in kleinen Universen, \hard]
+	Sei $A[0\hdots n-1]$ ein Feld von Integern aus \{0, ..., n-1\}.
+	Entwirf einen Algorithmus, der $A$ in Zeit $O(n)$ sortiert.
+\end{aufgabe}
+
+\begin{aufgabe}[Nicht initialisierte Felder, \veryhard]
+	Wir wollen ein \textit{riesiges} Feld $A$ implementieren, desen Einträge wir effizient auslesen und ändern können.
+	Anfangs enthalten die Einträge von $A$ \glqq Müll\grqq{} und wegen der Größe des Feldes wollen wir keine Zeit darauf verwenden alle Einträge zu bereinigen.
+	Gib eine Lösung, die linearen Platz in der Länge des Feldes benötigt, auslesen und ändern in $O(1)$ Zeit pro Eintrag unterstützt und $O(1)$ Zeit für die Initialisierung benötigt.
+\end{aufgabe}
+
+\end{document}

@@ -1,7 +1,7 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
 \usepackage{algo121}
-\blattname{Wochenplan: Disjunkte Mengen, Union-Find}
+\blattname{Wochenplan: Minimale Spannbaum}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13,6 +13,35 @@
 \begin{document}
 \section*{Vorbereitung}
 Lies E Kapitel 7 (oder CLRS Kapitel 23) und schau das Video der Woche.
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+			\node[draw,circle] (v0) at (0,  1.5)	{$0$};
+			\node[draw,circle] (v1) at (2,  3  )	{$1$};
+			\node[draw,circle] (v2) at (5,  3  )	{$2$};
+			\node[draw,circle] (v3) at (8,  3  )	{$3$};
+			\node[draw,circle] (v4) at (3.5,1.5)	{$4$};
+			\node[draw,circle] (v5) at (2,  0  )	{$5$};
+			\node[draw,circle] (v6) at (5,  0  )	{$6$};
+			\node[draw,circle] (v7) at (8,  0  )	{$7$};
+			\node[draw,circle] (v8) at (10, 1.5)	{$8$};
+			%
+			\def\list {v0/v1/4, v0/v5/8, v1/v2/8, v2/v3/7, v2/v4/2, v2/v7/4, v3/v8/9, v4/v5/4, v4/v6/4, v5/v6/1, v6/v7/4, v7/v8/10}  % list elements
+			\foreach \u\v\weight in \list
+			{	\draw[-] (\u) -- (\v) node [midway, above=2pt] {\weight};
+			}
+			\def\vertical {v1/v5/11, v3/v7/14}  % list elements
+			\foreach \u\v\weight in \vertical
+			{	\draw[-] (\u) -- (\v) node [midway, left] {\weight};
+			}
+			
+			%
+		\end{tikzpicture}
+		\caption{Graph für Aufgabe 1}
+		\label{digraph}
+	\end{center}
+\end{figure}
 
 \section*{Dienstag}
 \begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}

@@ -9,6 +9,39 @@
 \section*{Vorbereitung}
 Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau das Video der Woche.
 
+\vspace*{20pt}
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+			\usetikzlibrary{arrows.meta}
+			\node[draw,circle] (v0)  at (0,  3.5)	{$0$};
+			\node[draw,circle] (v1)  at (2.5,2.5)	{$1$};
+			\node[draw,circle] (v2)  at (6,  3.5)	{$2$};
+			\node[draw,circle] (v3)  at (12, 3.5)	{$3$};
+			\node[draw,circle] (v4)  at (0,1.5)	{$4$};
+			\node[draw,circle] (v5)  at (4.5,1.5)	{$5$};
+			\node[draw,circle] (v6)  at (9,1.75)	{$6$};
+			\node[draw,circle] (v7)  at (12,1.75)	{$7$};
+			\node[draw,circle] (v8)  at (2.5,0)	{$8$};
+			\node[draw,circle] (v9)  at (6,0)	{$9$};
+			\node[draw,circle] (v10) at (9,0)	{$10$};
+			\node[draw,circle] (v11) at (12,0)	{$11$};
+			%
+			\def\list {v0/v1/6, v0/v2/4, v1/v2/1, v1/v4/8, v1/v5/3, v2/v3/6, v2/v6/8, v4/v5/4, v4/v8/5, v8/v9/1, v9/v5/6, v9/v10/4, v10/v7/7, v10/v11/2}  % list elements
+			\foreach \u\v\weight in \list
+			{	\draw[-Stealth] (\u) -- (\v) node [midway, above] {\weight};
+			}
+			\def\vertical {v0/v4/3, v2/v5/4, v2/v9/4, v3/v7/7, v6/v10/1, v11/v7/2}  % list elements
+			\foreach \u\v\weight in \vertical
+			{	\draw[-Stealth] (\u) -- (\v) node [midway, left] {\weight};
+			}
+			%
+		\end{tikzpicture}
+		\caption{Gerichtet und gewichtet}
+		\label{digraph}
+	\end{center}
+\end{figure}
+
 \section*{Dienstag}
 \begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}
 	\begin{enumerate}

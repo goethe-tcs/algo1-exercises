@@ -1,0 +1,28 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{\emoji{star}-Aufgabe: Fehlende Bitstrings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+	Seien $n,k,\ell$ positive ganze Zahlen mit $n=2^\ell-k$.
+    Die Elemente von $\{0,1\}^\ell$ heißen \emph{Bitstrings der Länge~$\ell$}.
+    Ein Wesen namens Regloh besitzt ein unsortiertes Feld $A[1..n]$ von $n$ \emph{unterschiedlichen} Bitstrings der Länge~$\ell$; das heißt, genau $k$ Bitstrings der Länge $\ell$ kommen \emph{nicht} in $A$ vor.
+    Regloh erlaubt Zugriff auf das Feld \emph{\textbf{nur}} über eine Funktion \textsc{FetchBit}$(i,j)$, welche das $j$te Bit des Strings $A[i]$ zurückliefert.
+    \begin{enumerate}
+        \item Im Fall $k=1$ fehlt dem Feld $A$ genau ein Bitstring. Beschreibe einen Algorithmus, der für eine Eingabe mit $k=1$ den fehlenden Bitstring ausgibt und dabei nur $O(n)$ oft auf \textsc{FetchBit} zugreift.
+        \item (\hard) Beschreibe einen Algorithmus, der für eine beliebige Eingabe mit $k\ge 1$ alle fehlenden Bitstrings ausgibt und dabei nur $O(n\log k)$ oft auf \textsc{FetchBit} zugreift.
+    \end{enumerate}
+
+    \paragraph{Beispiel für b).}
+    Im Fall $k=3$, $n=5$, $\ell=3$ und $A=$\texttt{["100", "010", "110", "000", "111"]}
+    wäre \textsc{FetchBit}$(2,2)=1$ und \textsc{FetchBit}$(4,1)=0$, und der Algorithmus soll \texttt{011}, \texttt{101} und \texttt{001} ausgeben.
+
+\paragraph{Spezielle Bewertungskriterien.}
+Wie immer werden grobe Idee, formale Beschreibung, Korrektheitsbeweis, und Laufzeitanalyse erwartet, wobei in dieser Aufgabe die Laufzeitanalyse besonders wichtig ist: In der Laufzeitanalyse, muss die Zahl der Zugriffe auf \textsc{FetchBit} beschränkt werden, d.h.\ alle anderen Schritte, die der Algorithmus ausführt, zählen diesmal nicht mit.
+Die Abgabe wird \emph{akzeptiert}, wenn Aufgabe a) oder b) vollständig und korrekt gelöst wurde und dabei fast keine Abstriche in den allgemeinen Bewertungskriterien erkennbar sind. Aufgabe b) korrekt zu lösen erhöht den Lernerfolg, wird das Lehrpersonal freuen, und gibt einen kleinen Vorteil in der Bewertung.
+
+\input{allgemeine-kriterien.inc}
+\end{document}

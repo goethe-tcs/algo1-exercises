@@ -16,7 +16,7 @@ Die folgenden Kriterien werden erwartet:
 	Die Lösung zu einer Algorithmenaufgabe ist typischerweise wie folgt strukturiert:
 	\begin{enumerate}
 		\item Grobe Idee: Zunächst wird die Idee des Algorithmus \emph{in wenigen Worten} beschrieben.
-		\item Formale Beschreibung: Der Algorithmus wird in natürlicher Sprache, Pseudocode, oder Code präzise und eindeutig beschrieben.
+		\item Formale Beschreibung: Der Algorithmus wird in natürlicher Sprache, Pseudocode, oder Code präzise, eindeutig und kompakt beschrieben.
 		\item Korrektheitsbeweis: Die Korrektheit des Algorithmus wird bewiesen.
 		\item Laufzeitanalyse: Die Laufzeit des Algorithmus wird analysiert.
 	\end{enumerate}

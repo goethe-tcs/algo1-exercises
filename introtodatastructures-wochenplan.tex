@@ -6,6 +6,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newboolean{programming}
+\setboolean{programming}{true}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -98,7 +102,7 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Implememtierung verketteter Listen, \warmup]
+\begin{aufgabe}[Implementierung verketteter Listen, \warmup]
 	Sei $x$ ein Element in einer einfach verketteten Liste wie in den Folien beschrieben.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
@@ -119,13 +123,15 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Implememtierung von Stapeln und Warteschlangen]
+\ifthenelse{\boolean{programming}}{
+\begin{aufgabe}[Implementierung von Stapeln und Warteschlangen]
 	Implementiere die folgenden Datenstrukturen in einer Programmiersprache deiner Wahl.
 	\begin{enumerate}
 		\item Ein Stapel für Integer mittels einer einfach verketteten Liste.
 		\item Eine Warteschlange für Integer mittels einer einfach verketteten Liste.
 	\end{enumerate}
 \end{aufgabe}
+}{}
 
 \begin{aufgabe}[Sortierte verkettete Listen]
 	Sei $L$ eine einfach verkettete Liste von $n$ Integern in sortierter Reihenfolge.

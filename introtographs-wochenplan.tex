@@ -194,7 +194,7 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 		\end{tabular}
 	\end{center}
 	Da die Schwestern sich nicht sicher sind, ob sie auch tatsächlich den kürzesten Weg gefunden haben wollen sie ein Programm schreiben, das es für sie beantwortet.
-	Entwirf einen Algorithmus, der für eine, wie zuvor definierte, Matrix die Länge eines kürzsten Weges findet.
+	Entwirf einen Algorithmus, der für eine, wie zuvor definierte, Matrix die Länge eines kürzesten Weges findet.
 	Implementiere den Algorithmus in einer Programmiersprache deiner Wahl.
 	%@Holger: Du wolltest ja eigentlich erstmal den Programmierteil aus den Übungen rausnehmen oder bring ich da was durcheinander?
 \end{aufgabe}
@@ -209,7 +209,7 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 \end{aufgabe}
 
 \begin{aufgabe}[Anzahl kürzester Wege]
-	Entwirf einen Algorithmus, der für einen Graphen $G$ und zwei Knoten $s,t$ die Anzahl der kürzesten Pfade zwischen $s$ udn $t$ ausgibt.
+	Entwirf einen Algorithmus, der für einen Graphen $G$ und zwei Knoten $s,t$ die Anzahl der kürzesten Pfade zwischen $s$ und $t$ ausgibt.
 \end{aufgabe}
 \begin{center}
 	\begin{figure}[h]
@@ -483,7 +483,7 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 		\item (\hard) Zeige, dass $G$ einen Eulerkreis hat, genau dann wenn alle Knoten einen geraden Knotengrad haben.
 		\item (\hard) Zeige, dass $G$ einen Eulerpfad hat, genau dann wenn 0 oder 2 Knoten einen ungeraden Knotengrad haben.
 		\item Welche der Zeichnungen können gezeichnet werden ohne den Stift abzusetzen?
-		Kannst du den Stift am selben Punkte auf und absetzen?
+		Kannst du den Stift am selben Punkt auf- und absetzen?
 	\end{enumerate}
 \end{aufgabe}
 
@@ -511,15 +511,15 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 	\end{tikzpicture}
 \end{center}
 \begin{enumerate}
-	\item[d)] Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ eineen Eulerkreis hat.
+	\item[d)] Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ einen Eulerkreis hat.
 	\item[e)] (\hard) Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen Eulerkreis ermittelt, falls $G$ einen enthält.
 \end{enumerate}	
 
 \begin{aufgabe}[Durchmesser von Bäumen]
 	Sei $T$ ein binärer Baum mit $n$ Knoten.
-	Der Durchmesser von $T$ ist längste kürzeste Weg zwischen Knotenpaaren aus $T$\footnote{Sei $dist_G(u,v)$ die Länge des kürzesten Weges von Knoten $u$ nach Knoten $v$ im Graph $G$, dann ist der Durchmesser $\max_{u,v\in G}( dist_G(u,v) )$.}.
+	Der \textit{Durchmesser von $T$} ist die Länge des längsten kürzesten Weges zwischen Knotenpaaren aus $T$\footnote{Sei $dist_G(u,v)$ die Länge des kürzesten Weges von Knoten $u$ nach Knoten $v$ im Graph $G$, dann ist der Durchmesser $\max_{u,v\in G}( dist_G(u,v) )$.}.
 	\begin{enumerate}
-		\item Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n^2)$ ermittelt
+		\item Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n^2)$ ermittelt.
 		\item (\hard) Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n)$ ermittelt.
 	\end{enumerate}
 \end{aufgabe}

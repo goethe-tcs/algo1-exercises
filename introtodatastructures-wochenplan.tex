@@ -21,24 +21,26 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 \begin{aufgabe}[Stapel und Warteschlangen]
 	Löse die Teilaufgaben.
 	\begin{enumerate}
-		\item (\warmup) Wie sieht die Abfolge \texttt{PUSH(4), PUSH(1), PUSH(3), POP(), PUSH(8), POP()} auf einem initial leerem Stapel, der auf einem Feld der Länge 6 implementiert wurde, aus?
-		\item Zeige wie zwei Stapel $S_1, S_2$ auf einem Feld $A$ der Länge $N$ implementierbar ist.
-		Hierbei soll es zu keinem Stapel Overflow kommen, es sei denn die Anzahl der Elemente in $S_1$ und $S_2$ ist größer als $N$.
+		\item (\warmup) Betrachte einen anfangs leeren Stapel, auf dem die Operationen \texttt{PUSH(4)}, \texttt{PUSH(1)}, \texttt{PUSH(3)}, \texttt{POP()}, \texttt{PUSH(8)}, \texttt{POP()} ausgeführt werden. Wie sieht der Stapel nach jeder Operation aus, wenn dieser durch ein festes Feld der Länge 6 implementiert wurde?
+		\item Wie können \emph{zwei} Stapel $S_1, S_2$ auf \emph{einem} festen Feld $A$ der Länge $N$ implementiert werden?
+		Es darf hierbei zu keinem Überlauf kommen, es sei denn die Anzahl der Elemente in~$S_1$ und~$S_2$ ist größer als $N$.
 		Die \texttt{PUSH} und \texttt{POP} Operationen sollen $O(1)$ Zeit benötigen.
-		\item (\warmup) Wie sieht die Abfolge \texttt{ENQUEUE(4), ENQUEUE(1), ENQUEUE(3), DEQUEUE(), ENQUEUE(8), DEQUEUE()} auf einer initial leeren Warteschlange, die auf einem Feld der Länge 6 implementiert wurde, aus?
-		\item (\hard) Zeige, wie eine Warteschlange $Q$ und ihre Operationen mit nur zwei Stapel $S_1, S_2$ implementierbar ist.
-		Gib eine Laufzeitanalyse für die Operationen an.
+		\item (\warmup) Betrachte eine anfangs leere Warteschlange, auf der die Operationen \texttt{ENQUEUE(4)}, \texttt{ENQUEUE(1)}, \texttt{ENQUEUE(3)}, \texttt{DEQUEUE()}, \texttt{ENQUEUE(8)}, \texttt{DEQUEUE()} ausgeführt werden. Wie sieht die Warteschlange nach jeder Operation aus, wenn diese auf einem festen Feld der Länge 6 implementiert wurde?
+		\item (\hard) Wie können eine Warteschlange $Q$ und ihre Operationen durch zwei Stapel $S_1, S_2$ implementiert werden? (Zusätzliche Felder oder Objekte sind nicht erlaubt.)
+		Analysiere die Laufzeit jeder Operation.
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Nahezu eine ehemalige dänische Klausuraufgabe]
 	Sei $S$ ein Stapel.
-	Führe die folgenden Operationen von links nach rechts aus: Ein Buchstabe $i$ steht hierbei für $S.$\texttt{PUSH(}$i$\texttt{)} und * steht für $S.$\texttt{POP()}.
-	\[IFI*G**OE*THEU**NI\]
-	Gib die Sequenz der Buchstaben, die durch die Pop-Aufrufe ausgegeben werden, entsprechend der gegebenen an.
+	Führe die folgenden Operationen von links nach rechts aus: Ein Buchstabe $i$ steht hierbei für $S.$\texttt{PUSH(}$i$\texttt{)} und \verb|*| steht für $S.$\texttt{POP()}.
+	\begin{verbatim}
+		IFI*G**OE*THEU**NI
+	\end{verbatim}
+	Gib die Sequenz der Buchstaben an, die durch die \texttt{POP}-Aufrufe ausgegeben werden.
 \end{aufgabe}
 
-\begin{aufgabe}[Algorithmen auf verkettete Listen]
+\begin{aufgabe}[Algorithmen auf verketteten Listen]
 	Betrachte die Algorithmen \texttt{FOO} und \texttt{BAR} und die verkettete Liste darunter.
 	\begin{center}
 	\begin{minipage}{0.45\textwidth}
@@ -95,9 +97,9 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 	\end{center}
 
 	\begin{enumerate}
-		\item (\warmup) Führe \texttt{FOO}(head) händisch durch.
+		\item (\warmup) Führe \texttt{FOO}(head) händisch aus.
 		\item (\warmup) Erkläre was \texttt{FOO} berechnet.
-		\item Führe \texttt{BAR}(head,0) händisch durch.
+		\item Führe \texttt{BAR}(head, 0) händisch aus.
 		\item Erkläre was \texttt{BAR} berechnet.
 	\end{enumerate}
 \end{aufgabe}
@@ -133,29 +135,31 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 \end{aufgabe}
 }{}
 
+\section*{Donnerstag}
+
 \begin{aufgabe}[Sortierte verkettete Listen]
 	Sei $L$ eine einfach verkettete Liste von $n$ Integern in sortierter Reihenfolge.
 	Löse die folgenden Aufgaben.
 	\begin{enumerate}
 		\item Entwirf einen Algorithmus, der einen neuen Integer in $L$ einfügt, sodass die Liste danach noch sortiert ist.
-		\item Ein Freund schlägt vor binäre Suche zu verwenden um das Suchen in sortierten verketteten Listen zu beschleunigen. Wird das funktioniere? Begründe.
+		\item Ein Freund schlägt vor, binäre Suche zu verwenden, um das Suchen in sortierten verketteten Listen zu beschleunigen. Wird das funktionieren? Begründe.
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Eine Liste umkehren]
-	Entwirf einen Algorithmus, der eine verkettete Liste $L_{In}$ mit $n$ Elementen als Eingabe erhält und eine verkette Liste $L_{Out}$ ausgibt, die die Elemente $L_{In}$ in umgekehrter Reihenfolge enthält.
-	Der Algorithmus soll $O(n)$ Zeit benötigen und dabei, zusätzlich zur Ausgabe, nicht mehr als konstant viel zusätzlichen Speicherplatz benötigen\footnote{Zusätzlicher Speicherplatz hängt in keiner Weise von $n$ ab und wächst nicht mit einer längeren Eingabe.}.
+	Entwirf einen Algorithmus, der eine verkettete Liste $L_{\text{in}}$ mit $n$ Elementen als Eingabe erhält und eine verkette Liste $L_{\text{out}}$ ausgibt, die die Elemente $L_{\text{in}}$ in umgekehrter Reihenfolge enthält.
+	Der Algorithmus soll $O(n)$ Zeit benötigen und dabei, abgesehen von den beiden Listen, nicht mehr als konstant viel zusätzlichen Speicherplatz benötigen\footnote{Das heißt, der zusätzliche Speicherbedarf muss durch eine Konstante (unabhängig von $n$) beschränkt bleiben, selbst dann, wenn $n$ beliebig wächst.}.
 \end{aufgabe}
 
 \begin{aufgabe}
 	32 Inhaftierte sind zu lebenslänglicher Einzelhaft verurteilt.
 	Der Gefängnisdirektor schlägt den Inhaftierten einen Deal vor, der zwar nicht mit Menschenrechten, jedoch mit einer algorithmischen Fragestellung vereinbar ist.
-	Der Direktor hat eine Schüssel voll mit den Zellennummern aller Inhaftierten.
-	Jeden Tag zieht der Direktor eine Nummer und lässt die inhaftierte Person aus der korrespondierenden Zelle in das Vernehmungszimmer des Gefängnisses. Anschließend packt er die Zellennummer zurück in die Schüssel.
+	Der Direktor hat eine Schüssel voller Zettel mit den Zellennummern aller Inhaftierten.
+	Jeden Tag zieht der Direktor eine zufällige Nummer und lässt die inhaftierte Person aus der entsprechenden Zelle in das Vernehmungszimmer des Gefängnisses. Anschließend legt er die Zellennummer zurück in die Schüssel.
 	Das Vernehmungszimmer ist leer, abgesehen von $k$ Lichtschaltern.
 	Diese Lichtschalter können von den Inhaftierten an- und ausgeschaltet werden.
 	Der Direktor schlägt folgenden Deal vor:
-	Im Vernehmungszimmer angekommen, darf sich eine inhaftierte Person dazu entscheiden zu sagen, dass alle 32 Inhaftierte mindestens einmal im Zimmer gewesen sein müssen.
+	Im Vernehmungszimmer angekommen, darf sich eine inhaftierte Person dazu entscheiden, laut zu sagen, dass alle 32 Inhaftierte mindestens einmal im Zimmer gewesen sein müssen.
 	Liegt die Person mit ihrer Aussage richtig, werden alle Inhaftierten freigelassen.
 	Liegt die Person mit ihrer Aussage falsch, werden alle Inhaftierten hingerichtet.
 	Die Inhaftierten dürfen sich zu Beginn einmal treffen, um sich eine Strategie zu überlegen, bevor sie wieder voneinander isoliert werden.
@@ -169,16 +173,16 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 \end{aufgabe}
 
 \begin{aufgabe}[Dynamische Felder und Stapel]
-	Wir sind daran interessiert einen Stapel auf einem dynamischen Feld, ohne maximaler Feldgröße, zu implementieren.
+	Wir wollen Stapel durch dynamische Felder implementieren.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item (\hard) Verallgemeinere dynamische Felder, sodass diese für Stapel sowohl \texttt{PUSH} als auch \texttt{POP} Operationen unterstützen.
-		Die Laufzeit für jede Sequenz von $n$ Operationen soll hierbei in $\Theta(n)$ liegen und deine Lösung soll zu jedem Zeitpunkt in der Sequenz lineare Zeit, in der Anzahl der Elemente des Stapels, verwenden.
-		
-		\item (\veryhard) Zeige, wie man eine $O(1)$ Laufzeit für die Stapel-Operationen auf dynamischen Feldern erreichen kann.
-		Hierbei soll der benötigte Speicherplatz linear in der Anzahl der Element auf dem Stapel sein.
-		Beachte hierbei nur die \texttt{PUSH} Operation.
-		\textit{Hinweis:} Bedenke, wie der Aufwand gleichmäßig über alle Operationen verteilt werden kann.
+		\item (\hard) Verallgemeinere die Implementierung durch dynamische Felder aus den Folien, sodass diese für Stapel sowohl \texttt{PUSH} als auch \texttt{POP} Operationen unterstützen.
+		Wenn der Stapel anfangs leer ist und $n$ beliebige \texttt{PUSH}/\texttt{POP} Operationen ausgeführt werden, soll die Gesamtlaufzeit dieser $n$ Operationen $\Theta(n)$ betragen. Außerdem soll jede einzelne \texttt{PUSH} und \texttt{POP} Operation unabhängig vom Stapelinhalt maximale Laufzeit $O(n)$ haben.
+		\item (\veryhard) Betrachte der Einfachheit halber nur die \texttt{PUSH} Operation.
+		Zeige, wie man \texttt{PUSH} mithilfe dynamischer Felder so implementieren kann, dass die Laufzeit jeder einzelnen Operation $O(1)$ ist, also durch eine Konstante beschränkt.
+		Hierbei soll der Speicherplatz linear in der Anzahl der auf dem Stapel enthaltenen Elemente sein.
+		Wir nehmen für das Kostenmodell in dieser Aufgabe an, dass man ein Feld beliebiger Größe in Zeit $O(1)$ allokieren kann.\footnote{In C/C++ ist das einigermaßen realistisch, denn mit dem Codeschnipsel \texttt{int *array = malloc(n * sizeof(int))} sucht das Betriebssystem nach einem freien Speicherblock und allokiert diesen, ohne ihn zu durchlaufen. In Python stimmt das nicht, denn die ungefähr entsprechende Anweisung \texttt{array = [0 for \_ in range(n)]} läuft in linearer Zeit ab. Wenn Sie Python gewohnt sind, dürfen Sie sich für diese Aufgabe also vorstellen, dass diese Python-Anweisung konstante Zeit bräuchte.}
+		\textit{Hinweis:} Überlege, wie der Aufwand gleichmäßig über alle Operationen verteilt werden kann. 
 	\end{enumerate}
 \end{aufgabe}
 

@@ -1,0 +1,63 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{\emoji{star}-Aufgabe: Balance}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+Schreibe ein Programm in C/C\verb|++|, Java, Python, oder einer anderen üblichen Programmiersprache (kein Pseudocode), welches das folgende Problem in linearer Zeit löst:
+Entscheide, ob ein gegebener String von zwei verschiedenen Arten von Klammern \emph{balanciert} ist, das heißt, ob die zusammengehörigen öffnenden und schließenden Klammern richtig verschachtelt sind. Zum Beipiel ist \texttt{"([])()[]"} balanciert, aber \texttt{"(("} und \texttt{")("} und \texttt{"(]"} nicht.
+
+Um präzise zu sein: (i) der leere String ist balanciert; (ii) wenn $w$ balanciert ist, dann sind sowohl \texttt{(}$w$\texttt{)} als auch \texttt{[}$w$\texttt{]} balanciert; und (iii) wenn $w$ und $x$ balanciert sind, dann ist auch $wx$ balanciert.
+
+\textbf{Eingabe.}
+Die Eingabe besteht aus mehreren Zeilen. Jede Zeile ist eine Sequenz $w$, die nur Zeichen aus dem Alphabet $\{\texttt{[},\texttt{]},\texttt{(},\texttt{)}\}$ enthält.
+
+\textbf{Ausgabe.}
+Für jede Zeile $w$, die balanciert ist, gib \texttt{"1"} aus, und sonst \texttt{"0"}.
+
+\textbf{Beispiel.}
+Eine Eingabedatei könnte so aussehen:
+\begin{verbatim}
+([(())])[]
+)(
+[)
+((
+[(])
+[])[])
+(
+\end{verbatim}
+Dann soll die Ausgabe so aussehen:
+\begin{verbatim}
+1
+0
+0
+0
+0
+0
+0
+\end{verbatim}
+
+\textbf{Klassifierte Testfälle.}
+Teste dein Programm! Hier ist ein größeres Beispiel:
+\begin{itemize}[noitemsep]
+\item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-example.in}
+\item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-example.out}
+\end{itemize}
+Stell sicher, dass dein Programm bei Eingabe \texttt{balance-example.in} \emph{exakt} die Ausgabedatei \texttt{balance-example.out} erzeugt.
+
+\textbf{Hinweise.}
+Erinnere dich an die Themen der Woche. Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Nutze sie!
+
+\textbf{Hinweise zur Abgabe.}
+Die Abgabe soll wie immer per PDF erfolgen und die grobe Idee, den diesmal echten Code, den Korrektheitsbeweis und die Laufzeitanalyse enthalten.
+Diesmal ist außerdem beachten:
+\begin{itemize}
+\item Der Code darf maximal 80 Zeilen lang sein. Möglichst kurz und elegant! (Eine 15-Zeilen Lösung in Python ist möglich.)
+\item In der Programmiersprache eingebaute Datenstrukturen dürfen benutzt werden. ABER: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Zum Beispiel, falls eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
+\item Was ist die Ausgabe bei dieser Eingabe: \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-secret20.in}? Die abgegebene PDF-Datei soll die 20 ausgegebenen Zeilen (jeweils 0 oder 1) enthalten.
+\end{itemize}
+
+\end{document}

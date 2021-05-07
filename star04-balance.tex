@@ -18,8 +18,9 @@ Die Eingabe besteht aus mehreren Zeilen. Jede Zeile ist eine Sequenz $w$, die nu
 \textbf{Ausgabe.}
 Für jede Zeile $w$, die balanciert ist, gib \texttt{"1"} aus, und sonst \texttt{"0"}.
 
-\textbf{Beispiel.}
-Eine Eingabedatei könnte so aussehen:
+\textbf{Beispiel.}\\
+\begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+Eingabedatei:
 \begin{verbatim}
 ([(())])[]
 )(
@@ -29,7 +30,8 @@ Eine Eingabedatei könnte so aussehen:
 [])[])
 (
 \end{verbatim}
-Dann soll die Ausgabe so aussehen:
+&
+Ausgabedatei:
 \begin{verbatim}
 1
 0
@@ -39,6 +41,7 @@ Dann soll die Ausgabe so aussehen:
 0
 0
 \end{verbatim}
+\end{tabular}
 
 \textbf{Klassifierte Testfälle.}
 Teste dein Programm! Hier ist ein größeres Beispiel:
@@ -48,16 +51,16 @@ Teste dein Programm! Hier ist ein größeres Beispiel:
 \end{itemize}
 Stell sicher, dass dein Programm bei Eingabe \texttt{balance-example.in} \emph{exakt} die Ausgabedatei \texttt{balance-example.out} erzeugt.
 
-\textbf{Hinweise.}
+\textbf{Hinweis.}
 Erinnere dich an die Themen der Woche. Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Nutze sie!
 
 \textbf{Hinweise zur Abgabe.}
 Die Abgabe soll wie immer per PDF erfolgen und die grobe Idee, den diesmal echten Code, den Korrektheitsbeweis und die Laufzeitanalyse enthalten.
-Diesmal ist außerdem beachten:
+Außerdem: Welche 20 Zeilen (jeweils 0 oder 1) werden bei Eingabe \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-secret20.in} erzeugt? Die Ausgabe ist in der PDF einzufügen.
+Weiterhin zu beachten:
 \begin{itemize}
-\item Der Code darf maximal 80 Zeilen lang sein. Möglichst kurz und elegant! (Eine 15-Zeilen Lösung in Python ist möglich.)
-\item In der Programmiersprache eingebaute Datenstrukturen dürfen benutzt werden. ABER: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Zum Beispiel, falls eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
-\item Was ist die Ausgabe bei dieser Eingabe: \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-secret20.in}? Die abgegebene PDF-Datei soll die 20 ausgegebenen Zeilen (jeweils 0 oder 1) enthalten.
+\item Der Code darf maximal 80 Zeilen lang sein. Möglichst kurz und elegant! (Eine 15-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
+\item Falls die genutzte Datenstruktur in der Programmiersprache eingebaut ist, darf diese benutzt werden. Falls die Datenstruktur selbst implementiert wird, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
 \end{itemize}
 
 \end{document}

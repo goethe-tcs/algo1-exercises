@@ -1,7 +1,7 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
 \usepackage{algo121}
-\blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
+\blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -15,13 +15,13 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 	Betrachte die Graphen in Abbildung \ref{ex1graph}.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item (\warmup) Gib die Adjazenzlisten und Adjazenzmatritzen für die Graphen 1 und 2 an.
+		\item (\warmup) Gib die Adjazenzlisten und Adjazenzmatrizen für die Graphen 1 und 2 an.
 		\item (\warmup) Tiefensuche wird auf Graph 1, beginnend von Knoten 0, ausgeführt.
 		Die Adjazenzlisten sind hierbei aufsteigend sortiert.
-		Gib den Tiefensuchebaum, Entdeckungsreihenfolge und -zeitpunkte an.
+		Gib den Tiefensuchbaum, sowie die Entdeckungszeit und Endzeit an.
 		\item (\warmup) Breitensuche wird auf Graph 1, beginnend von Knoten 0, ausgeführt.
 		Die Adjazenzlisten sind hierbei aufsteigend sortiert.
-		Gib den Breitensuchebaum und die Distanz zum Startknoten für alle Knoten an.
+		Gib den Breitensuchbaum und die Distanz zum Startknoten für alle Knoten an.
 		\item Gib die Zusammenhangskomponenten der 3 Graphen an.
 		\item Welche der 3 Graphen sind bipartit?
 	\end{enumerate}
@@ -178,12 +178,8 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 
 
 \begin{aufgabe}[Buchstabenlabyrinth]
-	Algolina und ihre kleine Schwester spielen das Buchstabenlabyrinth Spiel.
-	In diesem Spiel wird, wie im Beispiel, eine $N\times N$ Matrix mit As und Bs gefüllt.
-	Die Herausforderung ist es einen kürzesten Pfad von oben links nach unten rechts zu finden.
-	Die Knoten auf dem Pfad müsssen dabei allerdings zwischen A und B alternieren, sprich die Buchstaben eines Pfades buchstabieren ABABABAB...
-	Der Pfad darf immer nur horizontal und vertikal gehen, diagonale Bewegungen sind also nicht erlaubt.
-	Im Beispiel sind die Buchstaben des kürzesten Pfads bold geschrieben.
+	Algolina und ihre kleine Schwester spielen \emph{Buchstabenlabyrinth}.
+	In diesem Spiel ist eine $N\times N$ Matrix gegeben, wo jeder Eintrag entweder A oder B ist. Zum Beispiel:
 	\begin{center}
 		\begin{tabular}{ccccc}
 			\textbf{A} & A & \textbf{A} & \textbf{B} & \textbf{A}\\
@@ -193,18 +189,23 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 			A & A & A & A & \textbf{A}
 		\end{tabular}
 	\end{center}
-	Da die Schwestern sich nicht sicher sind, ob sie auch tatsächlich den kürzesten Weg gefunden haben wollen sie ein Programm schreiben, das es für sie beantwortet.
-	Entwirf einen Algorithmus, der für eine, wie zuvor definierte, Matrix die Länge eines kürzesten Weges findet.
+
+	Die algorithmische Aufgabe ist es nun, einen kürzesten Pfad von oben links nach unten rechts zu finden.
+	Die Knoten auf dem Pfad müssen dabei allerdings zwischen A und B alternieren, sprich die Knoten eines Pfades buchstabieren ABABABAB$\ldots$.
+	Der Pfad darf in jedem Schritt immer nur horizontal oder vertikal gehen, diagonale Bewegungen sind also nicht erlaubt.
+	Im Beispiel sind die Buchstaben des kürzesten Pfads fett geschrieben.
+
+	Da die Schwestern sich nicht sicher sind, ob sie auch tatsächlich den kürzesten Weg gefunden haben, wollen sie ein Programm schreiben, das es für sie beantwortet.
+	Entwirf einen Algorithmus, der für eine gegebene AB-Matrix die Länge eines kürzesten Weges findet.
 	Implementiere den Algorithmus in einer Programmiersprache deiner Wahl.
-	%@Holger: Du wolltest ja eigentlich erstmal den Programmierteil aus den Übungen rausnehmen oder bring ich da was durcheinander?
 \end{aufgabe}
 
 \begin{aufgabe}[Tiefensuche mittels eines Stapels]
-	Erkläre wie Tiefensuche rekursionslos mit einem Stapel implementiert werden kann.
+	Erkläre, wie Tiefensuche ohne Rekursion mit einem Stapel implementiert werden kann.
 \end{aufgabe}
 
-\begin{aufgabe}[Wer nix weiß sucht einen Kreis]
-	Entwirf einen Algorithmus, der feststellt ob ein Graph einen Kreis enthält.
+\begin{aufgabe}[Wer nix weiß, sucht einen Kreis]
+	Entwirf einen Algorithmus, der feststellt, ob ein gegebener Graph einen Kreis enthält.
 	Wie schnell ist dein Algorithmus?
 \end{aufgabe}
 
@@ -439,81 +440,82 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 			\hspace*{\fill}
 			\caption{}
 		\end{subfigure}
-		\caption{(a) ein $6\times6$ Gittergraph. (b), (c) und (d) sind $6\times6$ Labyrinthe. (b) ist schön, (c) und (d) sind unschön. In (c) ist das Ende nicht erreichbar und (d) enthält einen Weg der im Kreis führt.}
-		\label{ex6mazes}
+		\caption{\label{ex6mazes}(a) ein $6\times6$ Gittergraph. (b), (c) und (d) sind $6\times6$ Labyrinthe. (b) ist schön, (c) und (d) sind unschön. In (c) ist das Ende nicht erreichbar und (d) enthält einen Weg der im Kreis führt.}
 	\end{figure}
 \end{center}
 
+\section*{Dienstag}
+
 \begin{aufgabe}[Labyrinthe und Gittergraphen]
-	Ein $k\times k$ Gittergraph ist ein Graph in dem die Knoten, wie in einem Netz, in $k$ Reihen mit jeweils $k$ Knoten angeordnet sind.
+	Ein $k\times k$ Gittergraph ist ein Graph, in dem die Knoten, wie in einem Netz, in $k$ Zeilen mit jeweils $k$ Knoten angeordnet sind.
 	Kanten dürfen sich hierbei nur zwischen Knoten befinden, die in horizontaler und vertikaler Richtung adjazent sind.
-	Siehe \ref{ex6mazes} (a).
+	Siehe Abbildung~\ref{ex6mazes} (a).
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
-		Drück $n$ und $m$ in asymptotischer Notation, im Bezug auf $k$, aus.
+		Drücke obere Schranken für $n$ und $m$ in asymptotischer Notation als Funktion von $k$ aus.
 	\end{enumerate}
-	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, bestehend aus $k^2$ Zellen, angeordnet aus $k$ Reihen mit jeweils $k$ Zellen.
-	Die vier Seiten eines Feldes sind jeweils entweder frei oder eine Wand.
-	Ein $walk$ im Labyrinth ist eine Sequenz $F$ von Zellen $f_1,..., f_\ell$, sodass aufeinanderfolgende Zellen $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und es sich keine Wand zwischen ihnen befindet.
+	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, die aus $k$ Zeilen mit jeweils $k$ Zellen besteht.
+	Jede Zelle wird durch vier Seiten begrenzt, und jede Seite ist entweder frei oder eine Wand.
+	Ein Pfad im Labyrinth ist eine Sequenz $F$ von Zellen $f_1,\ldots, f_\ell$, sodass aufeinanderfolgende Zellen $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und sich keine Wand zwischen ihnen befindet.
 	Eine spezielle Zelle ist als Start gekennzeichnet und eine weitere als Ziel.\\
-	Der Verein \glqq Daten- und Gartenbau\grqq{} bewertet ein Labyrinth als \textit{schön}, falls die folgenden Vorausetzungen eingehalten werden:
+	Der Verein \enquote{Daten- und Gartenbau} bewertet ein Labyrinth als \textit{schön}, falls die folgenden Voraussetzungen eingehalten werden:
 	\begin{itemize}
 		\item Es gibt genau einen Weg vom Start zum Ziel.
 		\item Es gibt einen Weg vom Start zu jeder anderen Zelle des Labyrinths.
 		\item Es gibt keinen Weg, der im Kreis führt.
 	\end{itemize}
-	Ein Labyrinth wird als \textit{unschön} bewertet, wenn min. einer dieser Punkte verletzt wird.
-	Siehe \ref{ex6mazes} (b)-(d).
+	Ein Labyrinth wird als \textit{unschön} bewertet, wenn mindestens einer dieser Punkte verletzt wird.
+	Siehe Abbildung~\ref{ex6mazes} (b)--(d).
 	\begin{enumerate}
 		\item[b)] Beschreibe wie man ein $k\times k$ Labyrinth als $k\times k$ Gittergraph modelliert.
-		\item[c)] Zeichne \ref{ex6mazes} (b) als Gittergraph.
-		\item[d)] Mit dem Aufschwung des Gärtnertums des letzten Jahres wurden nun so viele Labyrinthe eingereicht, dass der Verein Probleme hat mit der Bewertung hinterher zu kommen.
-		Entwirf einen Algorithmus, der für ein als $k\times k$ Gittergraph modelliertes $k\times k$ Labyrinth als Eingabe ausgibt, ob dieses schön ist.
-		Zeige die Korrektheit des Algorithmus\footnote{Beweis, dass die Ausgabe deines Algorithmus auf allen möglichen Eingaben richtig ist.} und gib eine Laufzeitanalyse mit der Asymptotik als Funktion von $k$.
+		\item[c)] Zeichne Abbildung~\ref{ex6mazes} (b) als Gittergraph.
+		\item[d)] Mit dem Aufschwung der Gärtnerei im letzten Jahr wurden nun so viele Labyrinthe eingereicht, dass der Verein es nun nicht mehr stemmen kann, jedes Labyrinth von Hand zu bewerten.
+		Entwirf einen Algorithmus, der als Eingabe einen $k\times k$ Gittergraph erhält, der ein $k\times k$ Labyrinth modelliert, und prüft, ob das Labyrinth schön ist.
+		Zeige die Korrektheit des Algorithmus\footnote{Beweis, dass die Ausgabe deines Algorithmus auf allen möglichen Eingaben richtig ist.} und gib eine Laufzeitanalyse an, in der die asymptotische Laufzeit als Funktion von $k$ beschreiben wird.
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Eulerkreis und Eulerpfad]
 	Sei $G$ ein zusammenhängender Graph mit $n$ Knoten und $m$ Kanten.
 	Ein Eulerpfad in $G$ ist ein Pfad, der alle Kanten genau ein mal enthält.
-	Ein Eulerkreis ist ein Eulerpfad der in dem selben Knoten beginnt und endet.
+	Ein Eulerkreis ist ein Eulerpfad, der in demselben Knoten beginnt und endet.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item (\hard) Zeige, dass $G$ einen Eulerkreis hat, genau dann wenn alle Knoten einen geraden Knotengrad haben.
-		\item (\hard) Zeige, dass $G$ einen Eulerpfad hat, genau dann wenn 0 oder 2 Knoten einen ungeraden Knotengrad haben.
-		\item Welche der Zeichnungen können gezeichnet werden ohne den Stift abzusetzen?
+		\item (\hard) Zeige, dass $G$ einen Eulerkreis hat genau dann, wenn alle Knoten einen geraden Knotengrad haben.
+		\item (\hard) Zeige, dass $G$ einen Eulerpfad hat genau dann, wenn 0 oder 2 Knoten einen ungeraden Knotengrad haben.
+		\item Welche dieser Zeichnungen können gezeichnet werden ohne den Stift abzusetzen?
 		Kannst du den Stift am selben Punkt auf- und absetzen?
 	\end{enumerate}
+	\begin{center}
+		\begin{tikzpicture}
+			% graph 1 has an euler tour :D
+			% no dont tell them :(
+			\draw (0,0) -- (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1) -- (0,0);
+		\end{tikzpicture}
+		%
+		\hspace{1.5cm}
+		%
+		\begin{tikzpicture}
+			% graph 2 has an euler tour :D
+			\draw (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1);
+		\end{tikzpicture}
+		%
+		\hspace{1.5cm}
+		%
+		\begin{tikzpicture}
+			% graph 3 does not :D
+			\draw (1,-1) -- (3,-1) -- (3,1) -- (1,1) -- (1,-1);
+			\draw (1,-1) -- (3,1);
+			\draw (1,1) -- (3,-1);
+		\end{tikzpicture}
+	\end{center}
+	\begin{enumerate}[resume]
+		\item Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ einen Eulerkreis hat.
+		\item (\hard) Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen Eulerkreis findet, falls $G$ einen enthält.
+	\end{enumerate}	
 \end{aufgabe}
 
-\begin{center}
-	\begin{tikzpicture}
-		% graph 1 has an euler tour :D
-		% no dont tell them :(
-		\draw (0,0) -- (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1) -- (0,0);
-	\end{tikzpicture}
-	%
-	\hspace{1.5cm}
-	%
-	\begin{tikzpicture}
-		% graph 2 has an euler tour :D
-		\draw (1,-1) -- (2,0) -- (3,-1) -- (4,0) -- (3,1) -- (3,-1) -- (1,-1) -- (1,1) -- (2,0) -- (3,1) -- (1,1);
-	\end{tikzpicture}
-	%
-	\hspace{1.5cm}
-	%
-	\begin{tikzpicture}
-		% graph 3 does not :D
-		\draw (1,-1) -- (3,-1) -- (3,1) -- (1,1) -- (1,-1);
-		\draw (1,-1) -- (3,1);
-		\draw (1,1) -- (3,-1);
-	\end{tikzpicture}
-\end{center}
-\begin{enumerate}
-	\item[d)] Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ einen Eulerkreis hat.
-	\item[e)] (\hard) Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen Eulerkreis ermittelt, falls $G$ einen enthält.
-\end{enumerate}	
 
 \begin{aufgabe}[Durchmesser von Bäumen]
 	Sei $T$ ein binärer Baum mit $n$ Knoten.

@@ -1,18 +1,17 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
 \usepackage{algo121}
-\blattname{Wochenplan: Darstellung von Graphen, Breitensuche, Tiefensuche, Topologisches Sortieren}
+\blattname{Wochenplan: Gerichtete Graphen}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 \section*{Vorbereitung}
-Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 und schau das Video der Woche.
+Lies CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.4--B.5 und schau das Video der Woche.
 
 \section*{Dienstag}
 
-\begin{aufgabe}[Repräsentation, Eigenschaften und Algorithmen]
 \begin{center}
 	\begin{figure}[h]
 		\begin{subfigure}[b]{0.33\textwidth}
@@ -126,37 +125,39 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1 -- 22.4, sowie Appendix B.4 -- B.5 un
 			\hspace*{\fill}
 			\caption{}
 		\end{subfigure}
-		\caption{}
-		\label{digraph}
+		\caption{\label{digraph}Drei gerichtete Graphen.}
 	\end{figure}
 \end{center}
-Löse für die Graphen in Abbildung \ref{digraph} folgende Aufgaben:
+
+\begin{aufgabe}[Darstellung, Eigenschaften und Algorithmen]
+	Löse für die Graphen in Abbildung~\ref{digraph} folgende Aufgaben:
 	\begin{enumerate}
-		\item (\warmup) Zeige die Adjazenzlisten und Adjazenzmatrizen für Graph (a) und Graph (b)
+		\item (\warmup) Zeige die Adjazenzlisten und Adjazenzmatrizen für Graph (a) und Graph (b).
 		\item (\warmup) Führe die Breitensuche und Tiefensuche in den Graphen (a) und (c) aus.
 		Die Startknoten sind \textbf{Knoten 4 in Graph (a)} und \textbf{Knoten 5 in Graph (c)}
-		\item Welcher der Graphen (a) und (c) ist ein gerichteter, azyklischer Graph?
-		Wenn ein Graph ein gerichteter, azyklischer Graph ist, finde mithilfe des rekursiven Algorithmus für das topologische Sortieren eine topologische Reihenfolge der Knoten.
+		\item Welcher der Graphen (a) und (c) ist ein gerichteter azyklischer Graph?
+		Wenn ein Graph ein gerichteter azyklischer Graph ist, finde mithilfe des rekursiven Algorithmus für das topologische Sortieren eine topologische Ordnung der Knoten.
 		Finde ansonsten einen Kreis.
 		\item Gib die stark zusammenhängenden Komponenten der Graphen (a) und (c) an.
-		\item Wie viele verschiedene topologische Reihenfolgen hat Graph (b)?
+		\item Wie viele verschiedene topologische Ordnungen hat Graph (b)?
 		\item Wie viele stark zusammenhängende Komponenten hat ein gerichteter azyklischer Graph?
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Rolltreppen und Aale]
-	Rolltreppen und Aale ist ein klassisches Brettspiel.
-	Wir schauen und die folgende Variante an.
-	Das Spielbrett ist ein $n \times n$ Feld mit Zellen, die von $1$ bis $n^2$ in der Reihenfolge, wie in Abbildung \ref{snakesladders} gezeigt.
-	Bestimmte Zellpaare sind Aale, die nach unten führen, oder Leitern, die nach oben führen.
-	Eine Zelle kann nur der Endpunkt für entweder eine Aale \textbf{oder} eine Leiter sein.\\
+	\emph{Rolltreppen und Aale} ist ein klassisches Brettspiel (manchmal auch als \emph{Schlangen und Leitern} bekannt).
+	Wir schauen uns die folgende Variante an.
+	Das Spielbrett ist ein $n \times n$ Feld mit Zellen, die von $1$ bis $n^2$ in der Reihenfolge nummeriert sind, wie in Abbildung~\ref{snakesladders} dargestellt.
+	Bestimmte Zellpaare sind Aale (\emph{rote Pfeile}), die nach unten führen, oder Rolltreppen (\emph{blaue Pfeile}), die nach oben führen.
+	Eine Zelle kann nur der Endpunkt für \textbf{entweder} einen Aal \textbf{oder} eine Rolltreppe sein.
+
 	Das Ziel des Spiels ist es, sich von Zelle $1$ zu Zelle $n^2$ in möglichst wenig Runden zu bewegen.
-	Als erstes wird eine Spielfigur auf das Feld $1$ platziert.
+	Als Erstes wird eine Spielfigur auf das Feld $1$ platziert.
 	In jeder Runde kann die Figur um maximal $5$ Zellen nach vorne verschoben werden.
-	Wenn die Figur am oberen Ende einer Aale ankommt, wird sie zum unteren Ende dieser Aale bewegt.
-	Genauso wird eine Figur, die am unteren Ende einer Leiter ankommt, an ihr oberes Ende bewegt.
+	Wenn die Figur am oberen Ende eines Aals ankommt, wird sie zum unteren Ende dieses Aals bewegt.
+	Genauso wird eine Figur, die am unteren Ende einer Rolltreppe ankommt, an ihr oberes Ende bewegt.
 	\begin{enumerate}
-		\item Entwirf einen Algorithmus, der die geringste Anzahl an Runden berechnet, die benötigt werden um eine Spielfigur von Zelle $1$ zu Zelle $n^2$ zu bewegen.
+		\item Entwirf einen Algorithmus, der die geringste Anzahl an Runden berechnet, die benötigt werden, um eine Spielfigur von Zelle $1$ zu Zelle $n^2$ zu bewegen.
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}
@@ -184,40 +185,39 @@ Löse für die Graphen in Abbildung \ref{digraph} folgende Aufgaben:
 					\node (n_\x) at (-20.5 + \x, 4.5) {\x};
 				}
 				%
-				\draw [-stealth, red!50, thick] (n_19) to (n_1);
-				\draw [-stealth, red!50, thick] (n_22) to (n_18);
-				\draw [-stealth, red!50, thick] (n_16) to (n_8);
+				\draw [-stealth, red!50, very thick] (n_19) to (n_1);
+				\draw [-stealth, red!50, very thick] (n_22) to (n_18);
+				\draw [-stealth, red!50, very thick] (n_16) to (n_8);
 				%
-				\draw [-stealth, blue!50, thick] (n_11) to (n_21);
-				\draw [-stealth, blue!50, thick] (n_9) to (n_17);
-				\draw [-stealth, blue!50, thick] (n_4) to (n_13);
-				\draw [-stealth, blue!50, thick] (n_14) to (n_24);
+				\draw [-stealth, blue!50, very thick] (n_11) to (n_21);
+				\draw [-stealth, blue!50, very thick] (n_9) to (n_17);
+				\draw [-stealth, blue!50, very thick] (n_4) to (n_13);
+				\draw [-stealth, blue!50, very thick] (n_14) to (n_24);
 			\end{tikzpicture}
 			\hspace*{\fill}	
-			\caption{Rolltreppen und Aale}
-			\label{snakesladders}
+			\caption{\label{snakesladders}Rolltreppen und Aale}
 		\end{figure}
 	\end{center}
 \end{aufgabe}
 
-\begin{aufgabe}[Gerichtete azyklische Graphen und topologische Sortierung]
+\begin{aufgabe}[Gerichtete azyklische Graphen und topologische Sortierung]\mbox{}
 	\begin{enumerate}
-		\item Professorin Tina Opologisch schlägt folgenden neuen und einfachen Algorithmus zur Bestimmung einer topologischen Reihenfolge: führe die Breitensuche vom Knoten s mit Ein-Grad $0$ aus und sortiere die Knoten aufsteigend nach dem Abstand zu s. Funktioniert dieser Algorithmus?
-		\item Bestimme einen Algorithmus, der als Eingabe einen Graphen G und eine Reihenfolge S der Knoten in G erhält und bestimmt, ob S eine topologische Reihenfolge für G ist.
+		\item Professorin Tina Opologisch schlägt folgenden neuen und einfachen Algorithmus zur Bestimmung einer topologischen Ordnung vor: Führe eine Breitensuche von einem Knoten s mit Ein-Grad $0$ aus und sortiere die Knoten aufsteigend nach dem Abstand zu s. Funktioniert dieser Algorithmus?
+		\item Bestimme einen Algorithmus, der als Eingabe einen Graphen G und eine Reihenfolge S der Knoten in G erhält und bestimmt, ob S eine topologische Ordnung für G ist.
 		\item Gegeben ist ein gerichteter, azyklischer Graph G.
-		Gibt es eine topologische Reihenfolge von G, die nicht durch den rekursiven Algorithmus gefunden werden kann.
-		\item (\hard) Ein Hamilton-Weg ist ein Weg der alle Knoten genau einmal besucht.
-		Bestimme einen Algorithmus, der bestimmt, ob ein gerichteter, azyklischer Graph einen Hamilton-Weg enthält.
+		Gibt es eine topologische Ordnung von G, die nicht durch den rekursiven Algorithmus gefunden werden kann?
+		\item (\hard) Ein Hamilton-Weg ist ein Weg, der alle Knoten genau einmal besucht.
+		Bestimme einen Algorithmus, der feststellt, ob ein gerichteter, azyklischer Graph einen Hamilton-Weg enthält.
 	\end{enumerate}
 \end{aufgabe}
 
-
+\section*{Donnerstag}
 \begin{aufgabe}[Studiengangplanung]
 Algolina hat den gesamten Sommer damit verbracht sich zu überlegen, welche Kurse sie an der Universität der Algorithmen belegen möchte.
-Der Abschluss eines Kurses benötigt ein Semester (sie ist eine Super-Studentin und besteht jeden Kurs). Manche Kurse hängen von anderen Kursen ab.
-Daher ist es nicht erlaubt, diese im gleichen Semester zu belegen. Wenn Kurs i von Kurs j abhängt, muss Algolina Kurs j in einem früheren Semester als Kurs i belegen.
+Der Abschluss eines Kurses benötigt ein Semester. Sie ist zwar eine Super-Studentin und besteht jeden Kurs, aber manche Kurse hängen von anderen Kursen ab und die Universität erlaubt es nicht, solche Kurse im selben Semester zu belegen. Wenn Kurs i von Kurs j abhängt, muss Algolina Kurs j in einem früheren Semester als Kurs i belegen.
 Sie möchte ihr Studium in möglichst wenigen Semestern abschließen.
-Gegeben sind N Kurse (numeriert von $1$ bis $N$), die Algolina belegen möchte, und die jeweiligen Kurse von denen diese abhängen.
+
+Gegeben sind N Kurse (nummeriert von $1$ bis $N$), die Algolina belegen möchte, und die jeweiligen Kurse von denen diese abhängen.
 Ermittle die geringste Anzahl an Semestern, die Algolina braucht, um ihr Studium abzuschließen.
 (Da Algolina eine Super-Studentin ist, kann sie unendlich viele Kurse pro Semester belegen.)
 Es kann angenommen werden, dass es keine zyklischen Abhängigkeiten gibt.
@@ -225,7 +225,7 @@ Bestimme einen Algorithmus, um dieses Problem zu lösen. Implementiere diesen Al
 \end{aufgabe}
 
 
-\begin{aufgabe}[Ethnographen, hard]\footnote{Aus \textit{Algorithm Design}, Jon Kleinberg und Eva Tardos}
+\begin{aufgabe}[Ethnographen, \hard]\footnote{Aus \textit{Algorithm Design}, Jon Kleinberg und Eva Tardos}
 Du hilfst einer Gruppe von Ethnographen bei der Analyse mündlicher Geschichtsdaten, die sie durch die Befragung von Mitgliedern eines Dorfes gesammelt haben, um mehr über das Leben von Menschen zu erfahren, die in den letzten zweihundert Jahren dort gelebt haben.\\
 In diesen Interviews haben die Ethnographen herausgefunden, dass es eine Menge von n Menschen (die mittlerweile Verstorben sind) gibt, die als $P_1, P_2, \ldots, P_n$ notiert sind.
 Sie haben zudem Fakten darüber gesammelt, wann diese Menschen im Verhältnis zueinander gelebt haben. Jeder Fakt ist in einer der folgenden beiden Formen aufgeschrieben:
@@ -241,7 +241,7 @@ Bestimme einen effizienten Algorithmus, der diese Aufgabe löst: entweder sollte
 
 
 \begin{aufgabe}[Topologische Sortierung und gerichtete azyklische Graphen]
-Zeige, dass ein gerichteter Graph G genau dann ein gerichteter, azyklischer Graph ist, wenn G eine topologische Reihenfolge hat.
+Zeige, dass ein gerichteter Graph G genau dann ein gerichteter, azyklischer Graph ist, wenn G eine topologische Ordnung hat.
 \textit{Tipp: nutze das Lemma für die Korrektheit der topologischen Sortierung}
 \end{aufgabe}
 

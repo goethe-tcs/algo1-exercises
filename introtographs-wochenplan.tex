@@ -212,6 +212,38 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.4--B.5 und sc
 \begin{aufgabe}[Anzahl kürzester Wege]
 	Entwirf einen Algorithmus, der für einen Graphen $G$ und zwei Knoten $s,t$ die Anzahl der kürzesten Pfade zwischen $s$ und $t$ ausgibt.
 \end{aufgabe}
+
+\section*{Freitag}
+
+\begin{aufgabe}[Labyrinthe und Gittergraphen]
+	Ein $k\times k$ Gittergraph ist ein Graph, in dem die Knoten, wie in einem Netz, in $k$ Zeilen mit jeweils $k$ Knoten angeordnet sind.
+	Kanten dürfen sich hierbei nur zwischen Knoten befinden, die in horizontaler und vertikaler Richtung adjazent sind.
+	Siehe Abbildung~\ref{ex6mazes} (a).
+	Löse die folgenden Teilaufgaben.
+	\begin{enumerate}
+		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
+		Drücke obere Schranken für $n$ und $m$ in asymptotischer Notation als Funktion von $k$ aus.
+	\end{enumerate}
+	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, die aus $k$ Zeilen mit jeweils $k$ Zellen besteht.
+	Jede Zelle wird durch vier Seiten begrenzt, und jede Seite ist entweder frei oder eine Wand.
+	Ein Pfad im Labyrinth ist eine Sequenz $F$ von Zellen $f_1,\ldots, f_\ell$, sodass aufeinanderfolgende Zellen $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und sich keine Wand zwischen ihnen befindet.
+	Eine spezielle Zelle ist als Start gekennzeichnet und eine weitere als Ziel.\\
+	Der Verein \enquote{Daten- und Gartenbau} bewertet ein Labyrinth als \textit{schön}, falls die folgenden Voraussetzungen eingehalten werden:
+	\begin{itemize}
+		\item Es gibt genau einen Weg vom Start zum Ziel.
+		\item Es gibt einen Weg vom Start zu jeder anderen Zelle des Labyrinths.
+		\item Es gibt keinen Weg, der im Kreis führt.
+	\end{itemize}
+	Ein Labyrinth wird als \textit{unschön} bewertet, wenn mindestens einer dieser Punkte verletzt wird.
+	Siehe Abbildung~\ref{ex6mazes} (b)--(d).
+	\begin{enumerate}
+		\item[b)] Beschreibe wie man ein $k\times k$ Labyrinth als $k\times k$ Gittergraph modelliert.
+		\item[c)] Zeichne Abbildung~\ref{ex6mazes} (b) als Gittergraph.
+		\item[d)] Mit dem Aufschwung der Gärtnerei im letzten Jahr wurden nun so viele Labyrinthe eingereicht, dass der Verein es nun nicht mehr stemmen kann, jedes Labyrinth von Hand zu bewerten.
+		Entwirf einen Algorithmus, der als Eingabe einen $k\times k$ Gittergraph erhält, der ein $k\times k$ Labyrinth modelliert, und prüft, ob das Labyrinth schön ist.
+		Zeige die Korrektheit des Algorithmus\footnote{Beweis, dass die Ausgabe deines Algorithmus auf allen möglichen Eingaben richtig ist.} und gib eine Laufzeitanalyse an, in der die asymptotische Laufzeit als Funktion von $k$ beschreiben wird.
+	\end{enumerate}
+\end{aufgabe}
 \begin{center}
 	\begin{figure}[h]
 		\begin{subfigure}[b]{0.24\textwidth}
@@ -443,38 +475,6 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.4--B.5 und sc
 		\caption{\label{ex6mazes}(a) ein $6\times6$ Gittergraph. (b), (c) und (d) sind $6\times6$ Labyrinthe. (b) ist schön, (c) und (d) sind unschön. In (c) ist das Ende nicht erreichbar und (d) enthält einen Weg der im Kreis führt.}
 	\end{figure}
 \end{center}
-
-\section*{Freitag}
-
-\begin{aufgabe}[Labyrinthe und Gittergraphen]
-	Ein $k\times k$ Gittergraph ist ein Graph, in dem die Knoten, wie in einem Netz, in $k$ Zeilen mit jeweils $k$ Knoten angeordnet sind.
-	Kanten dürfen sich hierbei nur zwischen Knoten befinden, die in horizontaler und vertikaler Richtung adjazent sind.
-	Siehe Abbildung~\ref{ex6mazes} (a).
-	Löse die folgenden Teilaufgaben.
-	\begin{enumerate}
-		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
-		Drücke obere Schranken für $n$ und $m$ in asymptotischer Notation als Funktion von $k$ aus.
-	\end{enumerate}
-	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, die aus $k$ Zeilen mit jeweils $k$ Zellen besteht.
-	Jede Zelle wird durch vier Seiten begrenzt, und jede Seite ist entweder frei oder eine Wand.
-	Ein Pfad im Labyrinth ist eine Sequenz $F$ von Zellen $f_1,\ldots, f_\ell$, sodass aufeinanderfolgende Zellen $f_i, f_{i+1}$ mit $1 \leq i < \ell$ horizontal oder vertikal adjazent sind und sich keine Wand zwischen ihnen befindet.
-	Eine spezielle Zelle ist als Start gekennzeichnet und eine weitere als Ziel.\\
-	Der Verein \enquote{Daten- und Gartenbau} bewertet ein Labyrinth als \textit{schön}, falls die folgenden Voraussetzungen eingehalten werden:
-	\begin{itemize}
-		\item Es gibt genau einen Weg vom Start zum Ziel.
-		\item Es gibt einen Weg vom Start zu jeder anderen Zelle des Labyrinths.
-		\item Es gibt keinen Weg, der im Kreis führt.
-	\end{itemize}
-	Ein Labyrinth wird als \textit{unschön} bewertet, wenn mindestens einer dieser Punkte verletzt wird.
-	Siehe Abbildung~\ref{ex6mazes} (b)--(d).
-	\begin{enumerate}
-		\item[b)] Beschreibe wie man ein $k\times k$ Labyrinth als $k\times k$ Gittergraph modelliert.
-		\item[c)] Zeichne Abbildung~\ref{ex6mazes} (b) als Gittergraph.
-		\item[d)] Mit dem Aufschwung der Gärtnerei im letzten Jahr wurden nun so viele Labyrinthe eingereicht, dass der Verein es nun nicht mehr stemmen kann, jedes Labyrinth von Hand zu bewerten.
-		Entwirf einen Algorithmus, der als Eingabe einen $k\times k$ Gittergraph erhält, der ein $k\times k$ Labyrinth modelliert, und prüft, ob das Labyrinth schön ist.
-		Zeige die Korrektheit des Algorithmus\footnote{Beweis, dass die Ausgabe deines Algorithmus auf allen möglichen Eingaben richtig ist.} und gib eine Laufzeitanalyse an, in der die asymptotische Laufzeit als Funktion von $k$ beschreiben wird.
-	\end{enumerate}
-\end{aufgabe}
 
 \begin{aufgabe}[Eulerkreis und Eulerpfad]
 	Sei $G$ ein zusammenhängender Graph mit $n$ Knoten und $m$ Kanten.

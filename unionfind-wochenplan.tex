@@ -25,21 +25,21 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 	Sieh dir die folgende Sequenz an Operationen an:
 	\texttt{Init(7), Union(3,4),  Union(5,0), Union(4,5), Union(4,3), Union(0,1), Union(2,6), Union(0,4)} und \texttt{Union(6,0)}
 	\begin{enumerate}
-		\item (\warmup) Führe die Sequenz mittels \qfind von Hand durch.
+		\item (\warmup) Führe die Sequenz mittels \qfind{} von Hand durch.
 		Zeige, wie die Inhalte des $id$ Feldes nach jedem Schritt aussehen.
 		Die \texttt{Union($i,j$)} Operation aktualisiert hierbei immer $id$ für die Menge, die durch $i$ gegeben wird.
-		\item (\warmup) Führe die Sequenz mittels \qunion von Hand durch.
+		\item (\warmup) Führe die Sequenz mittels \qunion{} von Hand durch.
 		Zeige, wie der Baum nach jedem Schritt aussehen.
 		Die \texttt{Union($i,j$)} Operation setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$.
-		\item Führe die Sequenz mittels \wqunion von Hand durch.
+		\item Führe die Sequenz mittels \wqunion{} von Hand durch.
 		Zeige, wie der Baum nach jedem Schritt aussehen.
 		Die \texttt{Union($i,j$)} Operation setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$, wenn die Größe der beiden Bäume gleich ist.
-		\item Zeige das Resultat von \pathcomp auf einem der Bäume aus a) und b) nach einer \texttt{Find($x$)} Operation, für die Fälle, dass $x$ ein Blatt ist, $x$ ein innerer Knoten mit Tiefe 1 ist oder $x$ ein innerer Knoten mit Höhe 1 ist 
+		\item Zeige das Resultat von \pathcomp{} auf einem der Bäume aus a) und b) nach einer \texttt{Find($x$)} Operation, für die Fälle, dass $x$ ein Blatt ist, $x$ ein innerer Knoten mit Tiefe 1 ist oder $x$ ein innerer Knoten mit Höhe 1 ist 
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Alternative zum \qfind Algorithmus]
-	Eine Kommilitonin stellt die folgende, intuitive Variante von \qfind \texttt{Union} vor.
+\begin{aufgabe}[Alternative zum \qfind{} Algorithmus]
+	Eine Kommilitonin stellt die folgende, intuitive Variante von \qfind{} \texttt{Union} vor.
 	Funktioniert sie?
 	\begin{algorithmic}
 		\STATE \texttt{Union}(i,j)
@@ -62,9 +62,9 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 \begin{aufgabe}[Implememtierung von Union-Find]
 	Wir wollen Datenstrukturen für Union-Find in einer beliebigen Programmiersprache implementieren, die \texttt{Init}, \texttt{Union} und \texttt{Find} unterstützen.
 	\begin{enumerate}
-		\item Implementiere \qunion
-		\item Erweitere deine Implementierung mit \wqunion
-		\item Erweitere deine Implementierung mit \pathcomp
+		\item Implementiere \qunion{}
+		\item Erweitere deine Implementierung mit \wqunion{}
+		\item Erweitere deine Implementierung mit \pathcomp{}
 	\end{enumerate}
 \end{aufgabe}
 }{}
@@ -137,11 +137,11 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 \end{aufgabe}
 
 \begin{aufgabe}[Rekursive \pathcomp, \hard]
-	Entwirf eine rekursive Variante von \pathcomp in Pseudo-Code.
+	Entwirf eine rekursive Variante von \pathcomp{} in Pseudo-Code.
 \end{aufgabe}
 
 \begin{aufgabe}[Union-Find mit verketteten Listen und Gewichtungen]
-	Wir wollen eine Variante von \qfind mittels verketteten Listen auf die folgende Art und Weise implementieren.
+	Wir wollen eine Variante von \qfind{} mittels verketteten Listen auf die folgende Art und Weise implementieren.
 	Jede Menge wird durch eine einfach verkettete Liste repräsentiert.
 	Der Repräsentant jeder Menge ist das erste Element der respektiven Liste und jedes Element der Liste hat einen Pointer auf den Repräsentanten.
 	Des weiteren haben wir einen Pointer \textit{tail} auf das letzte Element der Liste.

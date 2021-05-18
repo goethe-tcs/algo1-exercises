@@ -108,67 +108,70 @@ Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 				\end{subfigure}
 			\end{figure}
 		\end{center}
-				\item (\warmup) Welche der, durch die folgenden Feldern repräsentierten, Bäume erfüllen die Heap-Eigenschaft?
+				\item (\warmup) Welche der durch folgende Felder repräsentierten Bäume erfüllen die Heap-Eigenschaft?
 		Index 0 wird nicht benutzt und ist deshalb mit -- markiert.
 		\begin{center}
-			$A = [$ --$,9,7,8,3,4]$\hspace*{10pt}$B = [$ --$,12,4,7,1,2,10]$\hspace*{10pt}$C = [$ --$,5,7,8,3]$
+			$A = [\text{--},9,7,8,3,4]$\hspace*{3em}$B = [\text{--},12,4,7,1,2,10]$\hspace*{3em}$C = [\text{--},5,7,8,3]$
 		\end{center}
-		\item (\warmup) Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen wobei eine Zahl für das Einfügen dieser Zahl steht und $\star$ für eine \texttt{ExtractMax} Operation steht.
-		Wie sieht der Heap $H$ nach den einzelnen Operationen der jeweiligen Sequenzen aus, wenn $H$ für jede Sequenz initial leer ist?
+		\item (\warmup) Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen, wobei eine Zahl für das Einfügen dieser Zahl in den Heap steht und $\star$ für eine \texttt{ExtractMax} Operation.
+		Wie sieht der Heap $H$ nach jeder einzelnen Operation aus, wenn $H$ anfangs leer ist?
 		\item Erfüllt ein sortiertes Feld die Heap-Eigenschaft?
 		\item Wo befindet sich in einem (Max-)Heap das kleinste Element?
-		\item Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heapstruktur aufrechterhalten.
-    \item (\hard) Angenommen wir haben $k$ sortierte Felder mit \textbf{insgesamt} $n$ Elementen.
-		Zeige, wie sich alle Felder in Zeit $O(n\log k)$ zu einem einzelnen sortierten Feld verflechten lassen.
+		\item Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heap-Eigenschaft aufrechterhalten.
+    \item (\hard) Angenommen wir erhalten $k$ sortierte Felder mit \textbf{insgesamt} $n$ Elementen als Eingabe.
+		Zeige, wie sich alle Felder in Zeit $O(n\log k)$ zu einem einzelnen sortierten Feld der Länge~$n$ verflechten lassen.
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Wahlgorithmen und Statenstrukturen, \warmup]
-	Die Kakistokratische Partei will deine Hilfe im ihre neue \glqq Frischluft\grqq{}-Politik umzusetzen.
-	Designe ein Bürgerregister, dass die Bürger:innen und ihre Gehälter beinhaltet, sodass man die Person mit dem geringsten Einkommen schnell finden und ausbürgern kann.\\
+	Die Kakistokratische Partei will deine Hilfe um ihre neue \enquote{Frischluft}-Politik umzusetzen.
+	Entwirf ein Bürgerregister, das alle Bürger:innen und ihre Gehälter so speichert, dass man die Person mit dem geringsten Einkommen möglichst schnell finden und ausbürgern kann.
+
 	Das System soll die folgenden Operationen unterstützen:
 	\begin{itemize}
 		\item \texttt{Insert(c,i)} fügt eine Person mit der Sozialversicherungsnummer $c$ und dem jährlichen Gehalt $i$ ein.
 		\item \texttt{DeportLowestIncome()} Gibt die Person mit dem niedrigsten Einkommen aus und entfernt sie aus dem System.
 	\end{itemize}
-	Design eine möglichst effiziente Lösung für das System.
+	Entwirf eine möglichst effiziente Datenstruktur, die das System implementiert.
 \end{aufgabe}
 
 \begin{aufgabe}[Operationen für Prioritätswarteschlangen]
-	Wir wollten die Menge an zur Verfügung stehenden Operationen für Prioritätswarteschlangen vergrößern.\\
+	Wir wollen nun die Menge an zur Verfügung stehenden Operationen für Prioritätswarteschlangen vergrößern.
 	Wir interessieren uns hierbei für die folgenden Operationen:
 	\begin{itemize}
-		\item \texttt{RemoveLargest($m$)} entfernt das $m$-größte Element der Prioritätswarteschlange.
+		\item \texttt{RemoveLargest($m$)} entfernt das $m$t-größte Element der Prioritätswarteschlange.
 		\item \texttt{Delete($x$)} entfernt Element $x$ aus der Prioritätswarteschlange.
-		\item \texttt{Fusion($x,y$)} entfent Elemente $x$ und $y$ aus der Prioritätswarteschlange und fügt Element $z$, mit Schlüssel $x$.key + $y$.key, ein.
-		\item \texttt{FindLargest($x$r)} gibt all jene Elemente der Prioritätswarteschlange aus, deren Schlüssel $\geq x$ ist.
+		\item \texttt{Fusion($x,y$)} entfernt Elemente $x$ und $y$ aus der Prioritätswarteschlange und fügt ein neues Element~$z$ mit Schlüssel $x$.key + $y$.key ein.
+		\item \texttt{FindLarger($k$)} gibt all jene Elemente der Prioritätswarteschlange aus, deren Schlüssel mindestens so groß wie $k$ ist.
 		\item \texttt{ExtractMin()} gibt das Element der Prioritätswarteschlange mit dem kleinsten Schlüssel aus und entfernt es.
 	\end{itemize}
-	Wir wollen diese Operationen effizient nutzen können, ohne das sich die Komplexität der Standardoperationen ändert.
+	Wir wollen diese Operationen effizient implementieren, ohne dass sich die Komplexität der Standardoperationen \texttt{Insert}, \texttt{IncreaseKey}, \texttt{Max} und \texttt{ExtractMax} ändert.
+
 	Sei $n$ die Anzahl der Elemente in der Prioritätswarteschlange.
-	löse die folgenden Teilaufgaben:
+	Löse die folgenden Teilaufgaben:
 	\begin{enumerate}
 		\item Erkläre wie sich \texttt{RemoveLargest($m$)} mit Zeitbedarf $O(m\log n)$ implementieren lässt.
 		\item Erkläre wie sich \texttt{Delete($x$)} und \texttt{Fusion($x,y$)} mit Zeitbedarf $O(\log n)$ implementieren lässt.
-		\item (\hard) Erkläre wie sich \texttt{FindLargest($x$)} mit Zeitbedarf $O(m)$, wobei $m$ die Anzahl der Elemente mit Schlüssel $\geq x$ ist, implementieren lässt.
-		\item (\hard) Erkläre wie sich \texttt{ExtractMin()} mit Zeit bedarf $O(\log n)$ implementieren lässt.
+		\item (\hard) Erkläre wie sich \texttt{FindLarger($k$)} mit Zeitbedarf $O(m)$ implementieren lässt, wobei $m$ die Anzahl der Elemente mit Schlüssel $\geq k$ ist.
+		\item (\hard) Erkläre wie sich \texttt{ExtractMin()} mit Zeitbedarf $O(\log n)$ implementieren lässt.
 	\end{enumerate}
 \end{aufgabe}
 
+\section*{Donnerstag}
 \begin{aufgabe}[Satellitendaten]
 	Sei $A[0..n-1]$ ein als Feld gespeicherter Heap.
-	Jedes Element $x$ in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel, der in $A[i]$ liegt.
-	Es ist oftmals nützlich zusätzliche Informationen (Satellitendaten), die mit einem Element assoziert sind, zu speichern.
-	Zeige, wie wir Zugang zu den Satellitendaten das Element mit Index $i$ in Zeit $O(1)$ ermöglichen können, ohne hierbei die Laufzeiten der Standardoperationen des Heaps zu verändern.
+	Jedes Element~$x$ in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel, der als $A[i]$ gespeichert ist.
+	Es ist oftmals nützlich, zusätzliche Informationen (=Satellitendaten) zu speichern, die mit einem Element assoziiert sind.
+	Modifiziere die Datenstruktur so, dass eine neue Operation \texttt{SatelliteData$(i)$} in Zeit~$O(1)$ die Satellitendaten des Elements mit Index $i$ zurückliefert. Hierbei dürfen sich die asymptotischen Laufzeiten der Standardoperationen des Heaps nicht verändern.
 \end{aufgabe}
 
 \begin{aufgabe}[Eigenschaften von Heaps]
-	Sei $T = (V,E)$ ein vollständiger Binärbaum mit Höhe $h$.
+	Sei $T = (V,E)$ ein vollständiger Binärbaum von Höhe~$h$.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item Zeige, dass die Anzahl an Knoten $|V| = 2^{h+1} - 1$ ist.\\
-		\textit{Hinweis: Begründe, dass $|V| = 1 + 2 + 4 + \hdots + 2^h$ und betrachte diesen Wert als Binärzahl.}
-		\item Zeige, dass die Summe, $S = n / 4 \cdot 1 + n / 8 \cdot 2 + n / 16 \cdot 3 + n / 32 \cdot 4 + \hdots = \Theta(n)$.\\
+		\item Zeige, dass für die Anzahl an Knoten $|V| = 2^{h+1} - 1$ gilt.\\
+		\textit{Hinweis: Begründe, dass $|V| = 1 + 2 + 4 + \hdots + 2^h$ gilt und betrachte diesen Wert als Binärzahl.}
+		\item Zeige: Für die Summe $S$ mit $S = n / 4 \cdot 1 + n / 8 \cdot 2 + n / 16 \cdot 3 + n / 32 \cdot 4 + \hdots$ gilt $S = \Theta(n)$.\\
 		\textit{Hinweis: Berechne $S - S/2$}
 	\end{enumerate}
 \end{aufgabe}
@@ -177,14 +180,14 @@ Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 \begin{aufgabe}[Implementierung von Heaps]
 	Wir interessieren uns dafür eine Prioritätswarteschlange mittels eines Heap auf einem Feld zu implementieren.
 	\begin{enumerate}
-		\item Implementiere die zuvor genante Datenstruktur mitsamt \texttt{Insert} und \texttt{ExtractMax} Operationen in einer Programmiersprache deiner Wahl.
+		\item Implementiere die zuvor genannte Datenstruktur mitsamt \texttt{Insert} und \texttt{ExtractMax} Operationen in einer Programmiersprache deiner Wahl.
 	\end{enumerate}
 \end{aufgabe}
 }{}
 
 \begin{aufgabe}[Summen]
-	Sei $A[0..n-1]$ ein Feld von Integern.
-	Wir interessieren uns für die foglenden Operationen:
+	Sei $A[0..n-1]$ ein Feld von ganzen Zahlen.
+	Wir interessieren uns für die folgenden Operationen:
 	\begin{itemize}
 		\item \texttt{Sum($i,j$)} gibt $A[i] + A[i+1] + \hdots + A[j]$ aus.
 		\item \texttt{Change($i,x$)} setzt $A[i]$ auf den Wert $x$.

@@ -158,11 +158,11 @@ Lies CLRS Kapitel 6, sowie Appendix B.5 und schau das Video der Woche.
 \end{aufgabe}
 
 \section*{Donnerstag}
-\begin{aufgabe}[Satellitendaten]
+\begin{aufgabe}[Zusätzliche Daten]
 	Sei $A[0..n-1]$ ein als Feld gespeicherter Heap.
-	Jedes Element~$x$ in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel, der als $A[i]$ gespeichert ist.
-	Es ist oftmals nützlich, zusätzliche Informationen (=Satellitendaten) zu speichern, die mit einem Element assoziiert sind.
-	Modifiziere die Datenstruktur so, dass eine neue Operation \texttt{SatelliteData$(i)$} in Zeit~$O(1)$ die Satellitendaten des Elements mit Index $i$ zurückliefert. Hierbei dürfen sich die asymptotischen Laufzeiten der Standardoperationen des Heaps nicht verändern.
+	Jedes Element~\texttt{x} in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel \texttt{x.key}, der als $A[i]$ gespeichert ist.
+	Es ist oftmals nützlich, zusätzliche Daten \texttt{x.data} zu speichern, die mit einem Element \texttt{x} assoziiert sind.
+	Modifiziere die Datenstruktur so, dass eine neue Operation \texttt{Data$(i)$} in Zeit~$O(1)$ die zusätzlichen Daten des Elements mit Index $i$ zurückliefert. Hierbei dürfen sich die asymptotischen Laufzeiten der Standardoperationen des Heaps nicht verändern.
 \end{aufgabe}
 
 \begin{aufgabe}[Eigenschaften von Heaps]

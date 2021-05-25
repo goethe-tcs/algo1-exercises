@@ -14,7 +14,14 @@ GITINFOS=$(patsubst %.tex,%.gitinfo,$(SOURCES))
 
 .PHONY: all
 all: $(TARGETS)
-	@(test -d $(WWWDIR) && cp voraussetzungen.pdf star*.pdf *-wochenplan.pdf $(WWWDIR)/) || true
+	@if test -d $(WWWDIR); then \
+		for f in $(TARGETS); do \
+			if ! diff $$f $(WWWDIR)/$$f &> /dev/null; then \
+				cp $$f $(WWWDIR)/$$f; \
+				echo "Copied $$f to WWWDIR."; \
+			fi; \
+		done \
+	fi
 
 .PHONY: gitinfo
 gitinfo: $(GITINFOS)

@@ -62,7 +62,6 @@
 \usepackage{lastpage}
 \cfoot{Seite \thepage\ von \pageref*{LastPage}}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\Hinweis}[1]{
@@ -149,6 +148,10 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 \newcommand{\lecture}[2]{%
 \def\uebcs@lecture{#1}%
 \def\uebcs@lectureurl{#2}%
+}
+
+\newcommand{\giturl}[1]{%
+\def\uebcs@giturl{#1}%
 }
 
 \newcommand{\myparagraph}[1]{{\bf #1}}
@@ -248,9 +251,6 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 
 \newcommand{\loesungnotiz}[1]{\ifthenelse{\boolean{loesung}}{#1}{}}
 
-\specialcomment{honeypot}
-{\begingroup\small\par\textbf{Honeypot Notice:}\par}
-{\endgroup}
 
 \AtBeginDocument{%
 \ifthenelse{\boolean{loesung}}%
@@ -261,7 +261,7 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 \AtBeginDocument{%
 	\ifthenelse{\boolean{loesung}}%
 	{\renewcommand{\new}{}}%
-	{\excludecomment{honeypot}}
+	{}
 }
 
 
@@ -287,6 +287,9 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 \def\debugbox#1{#1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Read git info if available
+\IfFileExists{\jobname.gitinfo}{\input{\jobname.gitinfo}}{}
+%
 
 \def\uebcs@uebungheader{{
 \ifthenelse{\boolean{loesung}}{
@@ -310,6 +313,9 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 %\uebcs@@assignment\ \arabic{uebungnr}%
 %}{%
 {\Large\bfseries\uebcs@blattname}%
+\ifdef{\gitAbbrevHash}{\hfill\textit{\footnotesize Revision \texttt{%
+\ifdef{\uebcs@giturl}{\href{\uebcs@giturl/\gitHash}{\gitAbbrevHash}}{\gitAbbrevHash}%
+} (\gitAuthorDate)}}{}
 %}
 %}}
 %\hfill

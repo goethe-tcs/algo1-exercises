@@ -17,7 +17,7 @@ The formula for the quotient is
 where $s_i$ is the number of seats allocated to party $i$ so far, initially $0$ for all parties.
 
 \paragraph{Input.}
-On the first line of input: the number $n$ of parties and $m$ of seats, with $n,m\in\{1 ,\ldots, 20\,000\}$, separated by a single space.
+On the first line of input: the number $n$ of parties and $m$ of seats, with $n,m\in\{1 ,\ldots, 2\,000\,000\}$, separated by a single space.
 On each of the following $n$ lines, the integer $v_i$, satisfying $1\leq v_i\leq 50\,000\,000$  and $v_1+\cdots +v_n\geq m$.
 We also promise that the inputs are constructed so that the final seat can be uniquely determined---no tie breaking will be necessary.
 
@@ -112,23 +112,26 @@ In total, Party~1 gets 3 seats and Party~2 gets 1 seat.
 \end{verbatim}
 \end{tabular}
 
-\textbf{Größeres Beispiel.}
-Teste dein Programm! Hier ist ein größeres Beispiel:
-\begin{itemize}[noitemsep]
-\item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-example1.in}
-\item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-example1.ans}
-\end{itemize}
-Stell sicher, dass dein Programm bei Eingabe \texttt{seatallocation-exampleX.in} \emph{exakt} die Ausgabedatei \texttt{seatallocation-exampleX.ans} erzeugt.
+\textbf{Größere Beispiele.}
+Teste dein Programm! Hier sind größere Beispiele:
+\url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-tests.zip}
 
-\textbf{Hinweis.}
-Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Nutze sie.
+Stell sicher, dass dein Programm für alle Eingaben \texttt{X.in} \emph{exakt} die entsprechende Ausgabedatei \texttt{X.ans} erzeugt.
+
+\textbf{Tipps.}
+Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Achte auf Rundungsfehler und möglichen Überlauf von \texttt{int}s.
 
 \textbf{Hinweise zur Abgabe.}
-Die Abgabe soll wie immer per PDF erfolgen und die grobe Idee, den diesmal echten Code, den Korrektheitsbeweis und die Laufzeitanalyse enthalten.
-Außerdem: Welche 20 Zeilen (jeweils 0 oder 1) werden bei Eingabe \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-secret.in} erzeugt? Die Ausgabe ist in der PDF einzufügen.
+Die Datei \texttt{015-secret.ans} fehlt. Deine Abgabe soll die
+SHA1-Summe der korrekten Datei enthalten. Zum Beispiel erhält man die SHA1-Summe der Datei \texttt{014-19.ans} wie folgt:
+\begin{verbatim}
+$ sha1sum 014-19.ans 
+c9e309dac08bd3e8b405a6fd98b7483cb6f84841  014-19.ans
+\end{verbatim}
+Deine Abgabe soll wie immer per PDF erfolgen und die grobe Idee, den diesmal echten Code, den Korrektheitsbeweis, die Laufzeitanalyse, und die SHA1-Summe von \texttt{015-secret.ans} enthalten.
 Weiterhin zu beachten:
 \begin{itemize}
-\item Der Code darf maximal 60 Zeilen lang sein (jede Zeile mit maximal 100 Zeichen). Möglichst kurz und elegant! (Eine 20-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
+\item Der Code darf maximal \textbf{60} Zeilen lang sein (jede Zeile mit maximal 100 Zeichen). Möglichst kurz und elegant! (Eine 20-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
 \item Falls die genutzte Datenstruktur in der Programmiersprache eingebaut ist, darf diese benutzt werden. Falls die Datenstruktur selbst implementiert wird, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
 \end{itemize}
 

@@ -5,25 +5,31 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-Consider an election where $n$ parties run for $m$ seats in parliament.
-Let $v_i$ be the number of votes cast for party $i\in\{1,\ldots,n\}$.
-To allocate the $m$~seats to the parties, roughly proportional to their share of votes, one can use a system called \emph{D'Hondt's method}.
-It works like this:
-A quotient is calculated for each party, initially $v_i/1$, the number of votes.
-The party with the largest quotient wins one seat, and its quotient is recalculated.
-This is repeated until all $m$ seats is filled.
-The formula for the quotient is
-\[\frac{v_i}{s_i+1}\]
-where $s_i$ is the number of seats allocated to party $i$ so far, initially $0$ for all parties.
+Schreibe ein Programm in C/C++, Java, Python oder einer anderen gängigen Programmiersprache (kein Pseudocode), welches das folgende Problem löst: 
+Verteile die $m$ Sitze in einem Parlament nach einer Wahl auf $n$ Parteien.\\[0.25cm]
+Die Platzvergabe verläuft nach dem \emph{D'Hondt-Verfahren}:
+für $i \in \{1, \dots, n\}$ bezeichne $v_i \in \mathbb N$ die Anzahl der Stimmen für Partei $i$.
+Für jede Partei $i$ wird ein Quotient $q_i$ berechnet, welcher initial auf $q_i := v_i/1$ gesetzt wird.
+Hat Partei $j$ den größten Quotienten, wird ihr ein Sitz zugeteilt.
+Anschließend wird ihr Quotient folgendermaßen aktualisiert:
+\begin{align*}
+    q_j := \frac{v_j}{s_j + 1},
+\end{align*}
+wobei $s_j$ die Anzahl der Sitze, welche bisher Partei $j$ zugeordnet wurden, bezeichnet.
+Initial wird die Anzahl der zugeordneten Sitze für alle Parteien auf $0$ gesetzt.
+Dieser Vorgang wird wiederholt, bis alle der $m$ verfügbaren Sitze vergeben sind.
 
-\paragraph{Input.}
-On the first line of input: the number $n$ of parties and $m$ of seats, with $n,m\in\{1 ,\ldots, 2\,000\,000\}$, separated by a single space.
-On each of the following $n$ lines, the integer $v_i$, satisfying $1\leq v_i\leq 50\,000\,000$  and $v_1+\cdots +v_n\geq m$.
-We also promise that the inputs are constructed so that the final seat can be uniquely determined---no tie breaking will be necessary.
+\textbf{Eingabe.}
+Die Datei besteht aus mehreren Zeilen.
+In der ersten Zeile sind $n$ und $m$ durch ein Leerzeichen getrennt gegeben.
+Beide Zahlen sind in der Menge $\{1, \dots, 2\,000\,000\}$ enthalten.
+In der $i$-ten der $n$ darauffolgenden Zeilen ist die ganze Zahl $v_i$ gegeben.
+Jede Partei erhält mindestens eine und höchstens 50\,000\,000 Stimmen.
+Die Anzahl aller Stimmen ist mindestens so groß wie die Anzahl der zu verteilenden Sitze, es gilt also $v_1 + \dots + v_n \geq m$.
+Unsere Eingaben sind so konstruiert, dass der letzte Sitz eindeutig zugeordnet werden kann -- es muss keine Logik eingebaut werden, welche bei Gleichstand entscheidet.
 
-\paragraph{Output.}
-The seat distribution, one per line, in the format shown in the example.
-The order is the same as in the input.
+\textbf{Ausgabe.}
+Die Sitzverteilung, wobei sich die Reihenfolge in der Ausgabe mit der Reihenfolge in der Eingabe vertragen soll. Betrachte hierzu die Beispiele.
 
 \textbf{Beispiele.}\\
 \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
@@ -86,12 +92,16 @@ The order is the same as in the input.
 \end{verbatim}
 \end{tabular}
 
-\paragraph{Explanation of Sample Input 4}
-Party~1 gets the first seat because it has the most votes; its quotient is recalculated to $\frac{17}{2}$.
-Party~2 gets the next seat because $10>\frac{17}{2}$; its quotient is recalculated to $\frac{10}{2}=5$.
-The third seat goes to Party~1, because $\frac{17}{2}>5$, and the new quotient is $\frac{17}{3}$.
-Even the final seat goes to Party~1, because $\frac{17}{3}>5$.
-In total, Party~1 gets 3 seats and Party~2 gets 1 seat.
+\textbf{Erklärung zu Beispiel 4.}
+Es traten 2 Parteien zur Wahl an, und insgesamt sollen 4 Sitze vergeben werden.
+Partei 1 erhält den ersten Sitz, da sie die meisten Stimmen erhalten hat. 
+Anschließend wird ihr Quotient auf $q_1 = \frac{17}{2}$ gesetzt.
+Partei 2 erhält den nächsten Sitz, denn $10 > \frac{17}{2}$.
+Anschließend wird ihr Quotient auf $q_2 = \frac{10}{2} = 5$ gesetzt.
+Der dritte Sitz geht an Partei 1, denn es gilt $q_1 = \frac{17}{2} > 5 = q_1$.
+Der Quotient von Partei 1 wird anschließend auf $q_1 = \frac{17}{3}$ gesetzt.
+Auch der letzte Sitz geht an Partei 1, denn es gilt $q_1 = \frac{17}{3} > 5 = q_2$.
+Insgesamt erhält Partei 1 also drei Sitze und Partei 2 erhält einen.
 
 \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
 \texttt{5.in}

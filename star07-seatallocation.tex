@@ -5,7 +5,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-Schreibe ein Programm in C/C++, Java, Python oder einer anderen gängigen Programmiersprache (kein Pseudocode), welches das folgende Problem löst: 
+Schreibe ein Programm in C/C\texttt{++}, Java, Python oder einer anderen gängigen Programmiersprache (kein Pseudocode), welches das folgende Problem löst: 
 Verteile die $m$ Sitze in einem Parlament nach einer Wahl auf $n$ Parteien.\\[0.25cm]
 Die Platzvergabe verläuft nach dem \emph{D'Hondt-Verfahren}:
 für $i \in \{1, \dots, n\}$ bezeichne $v_i \in \mathbb N$ die Anzahl der Stimmen für Partei $i$.
@@ -16,8 +16,8 @@ Anschließend wird ihr Quotient folgendermaßen aktualisiert:
     q_j := \frac{v_j}{s_j + 1},
 \end{align*}
 wobei $s_j$ die Anzahl der Sitze, welche bisher Partei $j$ zugeordnet wurden, bezeichnet.
-Initial wird die Anzahl der zugeordneten Sitze für alle Parteien auf $0$ gesetzt.
-Dieser Vorgang wird wiederholt, bis alle der $m$ verfügbaren Sitze vergeben sind.
+Anfangs wird die Anzahl der zugeordneten Sitze für alle Parteien auf $0$ gesetzt.
+Dieser Vorgang wird wiederholt, bis alle $m$ verfügbaren Sitze vergeben sind.
 
 \textbf{Eingabe.}
 Die Datei besteht aus mehreren Zeilen.

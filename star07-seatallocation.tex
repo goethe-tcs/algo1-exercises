@@ -9,7 +9,7 @@ Schreibe ein Programm in C/C\texttt{++}, Java, Python oder einer anderen gängig
 Verteile die $m$ Sitze in einem Parlament nach einer Wahl auf $n$ Parteien.\\[0.25cm]
 Die Platzvergabe verläuft nach dem \emph{D'Hondt-Verfahren}:
 für $i \in \{1, \dots, n\}$ bezeichne $v_i \in \mathbb N$ die Anzahl der Stimmen für Partei $i$.
-Für jede Partei $i$ wird ein Quotient $q_i$ berechnet, welcher initial auf $q_i := v_i/1$ gesetzt wird.
+Für jede Partei $i$ wird ein Quotient $q_i$ berechnet, welcher anfangs auf $q_i := v_i/1$ gesetzt wird.
 Hat Partei $j$ den größten Quotienten, wird ihr ein Sitz zugeteilt.
 Anschließend wird ihr Quotient folgendermaßen aktualisiert:
 \begin{align*}

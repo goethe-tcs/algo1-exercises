@@ -1,0 +1,135 @@
+% !TeX spellcheck = de_DE
+\documentclass{uebung_cs}
+\usepackage{algo121}
+\blattname{\emoji{star}-Aufgabe: Sitze im Römer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+Consider an election where $n$ parties run for $m$ seats in parliament.
+Let $v_i$ be the number of votes cast for party $i\in\{1,\ldots,n\}$.
+To allocate the $m$~seats to the parties, roughly proportional to their share of votes, one can use a system called \emph{D'Hondt's method}.
+It works like this:
+A quotient is calculated for each party, initially $v_i/1$, the number of votes.
+The party with the largest quotient wins one seat, and its quotient is recalculated.
+This is repeated until all $m$ seats is filled.
+The formula for the quotient is
+\[\frac{v_i}{s_i+1}\]
+where $s_i$ is the number of seats allocated to party $i$ so far, initially $0$ for all parties.
+
+\paragraph{Input.}
+On the first line of input: the number $n$ of parties and $m$ of seats, with $n,m\in\{1 ,\ldots, 20\,000\}$, separated by a single space.
+On each of the following $n$ lines, the integer $v_i$, satisfying $1\leq v_i\leq 50\,000\,000$  and $v_1+\cdots +v_n\geq m$.
+We also promise that the inputs are constructed so that the final seat can be uniquely determined---no tie breaking will be necessary.
+
+\paragraph{Output.}
+The seat distribution, one per line, in the format shown in the example.
+The order is the same as in the input.
+
+\textbf{Beispiele.}\\
+\begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+\texttt{1.in}
+\begin{verbatim}
+2 2
+10
+10000000
+\end{verbatim}
+&
+\texttt{1.ans}
+\begin{verbatim}
+0
+2
+\end{verbatim}
+\end{tabular}
+
+\begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+\texttt{2.in}
+\begin{verbatim}
+2 3
+12
+11
+\end{verbatim}
+&
+\texttt{2.ans}
+\begin{verbatim}
+2
+1
+\end{verbatim}
+\end{tabular}
+
+\begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+\texttt{3.in}
+\begin{verbatim}
+2 4
+12
+11
+\end{verbatim}
+&
+\texttt{3.ans}
+\begin{verbatim}
+2
+2
+\end{verbatim}
+\end{tabular}
+
+\begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+\texttt{4.in}
+\begin{verbatim}
+2 4
+17
+10
+\end{verbatim}
+&
+\texttt{4.ans}
+\begin{verbatim}
+3
+1
+\end{verbatim}
+\end{tabular}
+
+\paragraph{Explanation of Sample Input 4}
+Party~1 gets the first seat because it has the most votes; its quotient is recalculated to $\frac{17}{2}$.
+Party~2 gets the next seat because $10>\frac{17}{2}$; its quotient is recalculated to $\frac{10}{2}=5$.
+The third seat goes to Party~1, because $\frac{17}{2}>5$, and the new quotient is $\frac{17}{3}$.
+Even the final seat goes to Party~1, because $\frac{17}{3}>5$.
+In total, Party~1 gets 3 seats and Party~2 gets 1 seat.
+
+\begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+\texttt{5.in}
+\begin{verbatim}
+4 14
+38
+35
+36
+37
+\end{verbatim}
+&
+\texttt{5.ans}
+\begin{verbatim}
+4
+3
+3
+4
+\end{verbatim}
+\end{tabular}
+
+\textbf{Größeres Beispiel.}
+Teste dein Programm! Hier ist ein größeres Beispiel:
+\begin{itemize}[noitemsep]
+\item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-example1.in}
+\item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-example1.ans}
+\end{itemize}
+Stell sicher, dass dein Programm bei Eingabe \texttt{seatallocation-exampleX.in} \emph{exakt} die Ausgabedatei \texttt{seatallocation-exampleX.ans} erzeugt.
+
+\textbf{Hinweis.}
+Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Nutze sie.
+
+\textbf{Hinweise zur Abgabe.}
+Die Abgabe soll wie immer per PDF erfolgen und die grobe Idee, den diesmal echten Code, den Korrektheitsbeweis und die Laufzeitanalyse enthalten.
+Außerdem: Welche 20 Zeilen (jeweils 0 oder 1) werden bei Eingabe \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/seatallocation-secret.in} erzeugt? Die Ausgabe ist in der PDF einzufügen.
+Weiterhin zu beachten:
+\begin{itemize}
+\item Der Code darf maximal 60 Zeilen lang sein (jede Zeile mit maximal 100 Zeichen). Möglichst kurz und elegant! (Eine 20-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
+\item Falls die genutzte Datenstruktur in der Programmiersprache eingebaut ist, darf diese benutzt werden. Falls die Datenstruktur selbst implementiert wird, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
+\end{itemize}
+
+\end{document}

@@ -9,7 +9,19 @@
 \section*{Vorbereitung}
 Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau das Video der Woche.
 
-\vspace*{20pt}
+\section*{Dienstag}
+\begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}\mbox{}
+	\begin{enumerate}
+		\item (\warmup) Gegeben sei der Graph aus Abbildung~\ref{example_graph}.
+		Zeige den Baum kürzester Wege für den Graphen (bei Startknoten 0).
+		Schreibe die Länge des kürzesten Weges von Knoten 0 zu jedem Knoten.
+		\item Gib einen Beispielgraphen an, der negative Kantengewichte aber keine negativen Kreise hat, und der für eine falsche Ausgabe von Dijkstras Algorithmus sorgt.
+		\item Gegeben sei nun ein Graph $G$ mit $n$ Knoten und $m$ Kanten, und ein Baum $T$ in $G$, dessen Wurzel Knoten $s$ sei.
+		Zeige, wie man in Zeit $\O(n+m)$ feststellt, ob $T$ ein Baum kürzester Wege mit Startknoten $s$ ist.
+		\item Sei $T$ ein Baum kürzester Wege von Knoten $s$ in einem Graphen~$G$.
+		Ist $T$ immer noch ein Baum kürzester Wege, wenn wir auf alle Kantengewichte eine Konstante $c$ addieren?
+	\end{enumerate}
+\end{aufgabe}
 \begin{figure}[h]
 	\begin{center}
 		\begin{tikzpicture}
@@ -37,63 +49,49 @@ Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau da
 			}
 			%
 		\end{tikzpicture}
-		\caption{Gerichtet und gewichtet}
-		\label{digraph}
+		\caption{\label{example_graph}Ein gerichteter, gewichteter Beispielgraph.}
 	\end{center}
 \end{figure}
-
-\section*{Dienstag}
-\begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}
-	\begin{enumerate}
-		\item (\warmup) Gegeben sei der Graph aus Abbildung 1.
-		Zeige den Baum der kürzesten Wege für den Graphen (Startknoten 0).
-		Schreibe die Länge des kürzesten Weges von Knoten 0 zu jedem Knoten.
-		\item Gib einen Beispiel-Graphen mit negativen Kanten, aber ohne negative Kreise, der für eine falsche Ausgabe des Dijkstra Algorithmus sorgt.
-		\item Gegeben sei nun ein Graph $G$ mit $n$ Knoten und $m$ Kanten, und ein Baum $T$ in $G$ mit Wurzel in Knoten $s$.
-		Zeige, wie man in $\O (n+m)$ feststellt, ob $T$ der Baum der kürzesten Wege mit Startknoten $s$ ist.
-		\item Sei $T$ der Baum der kürzesten Wege von Knoten $s$ in Graph $G$.
-		Ist $T$ immer noch der Baum der kürzesten Wege, wenn wir auf alle Kantengewichte eine Konstante $c$ addieren?
-	\end{enumerate}
-\end{aufgabe}
 
 \begin{aufgabe}[Noch mehr Kabel]
 	Die Kabelfernsehen-Firma AlgoMedia überträgt Kabelfernsehen an alle Häuser in Algo-Stadt.
 	Sie übermitteln die TV Signale von ihrem Hauptsitz mittels eines Kabelnetzwerks, wobei die Länge jedes Kabels bekannt ist.
-	Die Kabel verlaufen zwischen einer Menge an Boxen.
-	Es gibt eine Box in jedem Haus, eine in dem Hauptsitz und sonst keine weiteren Boxen.
-	Jede Box kann mit mehreren Kabeln verbunden werden. Es gibt $X$ Häuser und $K$ Kabel im Netzwerk.\\
+	Die Kabel verlaufen zwischen Verteilerkästen:
+	Es gibt einen Kasten in jedem Haus, einen Kasten im Hauptsitz der Firma, und sonst keine weiteren Kästen.
+	Jeder Kasten ist durch direkte Kabel mit einem oder mehreren anderen Kästen verbunden. Es gibt $X$ Häuser und $K$ Kabel im Netzwerk.
+
 	Löse folgende Aufgaben:
 	\begin{enumerate}
 		\item AlgoMedia möchte, dass alle Kund:innen das bestmögliche Signal erhalten.
 		Die Signalqualität sinkt proportional zur Länge des Kabels.
-		Gib einen Algorithmus zur Bestimmung der besten Möglichkeit für die Signalstrecken zur Maximierung der Qualität an.
-		\item Nach genauerer Betrachtung bemerkt AlgoMedia, dass die Qualität eines Signals, wenn es durch eine Box geht so sinkt, wie bei 5 Metern Kabellänge.
-		Gib einen Algorithmus zur Bestimmung der besten Möglichkeit für die Signalstrecken zur Maximierung der Qualität in diesem Szenario an.
-		\item Nach Kürzungen bei staatlichen Mitteln versucht AlgoMedia Geld zu sparen.
-		Aktuell geben sie 42.000 Euro im Jahr für ein Meter Kabel aus.
-		Gib einen Algorithmus zur Bestimmung der günstigsten Möglichkeit, um alle Häuser in Algo-Stadt mit einem Signal zu versorgen.
+		Gib einen Algorithmus an, der die Signale so von Kasten zu Kasten leitet, dass die Signalqualität für jeden Empfängerkasten maximiert wird.
+		\item Nach genauerer Betrachtung bemerkt AlgoMedia, dass die Qualität eines Signals, wenn es durch einen einzelnen Kasten läuft, genauso sinkt, als hätte es 5 Meter Kabellänge durchlaufen.
+		Passe deinen Algorithmus so an, dass er in diesem Szenario die Signale so leitet, dass die Empfangsqualität an jedem Kasten maximiert wird.
+		\item Nach Kürzungen von staatlichen Mitteln versucht AlgoMedia, Geld zu sparen und also nur absolut notwendige Kabel zu behalten.
+		Aktuell geben sie 42,000 Euro im Jahr für jeden Meter Kabel aus.
+		Gib einen Algorithmus an, der die günstigste Möglichkeit berechnet, sodass alle Häuser in Algo-Stadt mit einem Signal versorgt werden können.
 	\end{enumerate}
 \end{aufgabe}
 
 
-\begin{aufgabe}[Längster Pfad in gerichteten azyklischen Graphen]
-	Bestimme einen Algorithmus, um den längsten Weg in einem gerichteten, kreisfreien Graphen zu finden.
+\begin{aufgabe}[Längster Pfad in gerichteten, kreisfreien Graphen]
+	Bestimme einen Algorithmus, um den \emph{längsten} Weg in einem gerichteten, kreisfreien Graphen zu finden.
 \end{aufgabe}
 
-\begin{aufgabe}[Dijkstra und die Knotengewichte]
-	Sei $G$ ein gerichteter Graph bei dem alle Knoten ein nicht-negatives Gewicht haben.
-	Das Gewicht eines Weges in $G$ ist die Summe der Gewichte der Knoten auf dem Weg.
+\newpage\section*{Donnerstag}
+\begin{aufgabe}[Dijkstra und Knotengewichte]
+	Sei $G$ ein gerichteter Graph, bei dem alle \emph{Knoten} ein nicht-negatives Gewicht haben.
+	Das Gewicht eines Weges in $G$ ist jetzt die Summe der Gewichte der Knoten auf dem Weg.
 	Bestimme einen Algorithmus, um den kürzesten Weg zwischen zwei Knoten in $G$ zu bestimmen.
 \end{aufgabe}
 
-\begin{aufgabe}[Reiseplanung in Zombie-Zeiten, \hard]
+\begin{aufgabe}[Reiseplanung in Zombiezeiten, \hard]
 	Scheinbar hat deine Gruppe es geschafft der brenzligen Zombiesituation des Union-Find Blattes zu entkommen.
 	Jetzt müsst ihr den sichersten Weg zwischen zwei Städten finden, um hoffentlich nicht von Zombies gegessen zu werden.
-	Der Graph $G$, in dem jeder Knoten eine Stadt und jede Kante eine Straße zwischen zwei Städten. Für jede Kante $e$ gibt es eine Wahrscheinlichkeit $s(e), 0 \leq s(e) \leq 1$, die angibt, ob man das überqueren der Straße überlebt.
-	Die Wahrscheinlichkeiten für die Kanten sind unabhängig und die Wahrscheinlichkeit, auf einem Pfad $P$ zu überleben ist das Produkt über die Wahrscheinlichkeiten der einzelnen Kanten/Straßen.
+	Der Graph $G$ sei gegeben: Jeder Knoten ist eine Stadt und jede Kante ist eine Straße zwischen zwei Städten. Für jede Kante $e$ gibt es eine Wahrscheinlichkeit $s(e)$ mit $0 \leq s(e) \leq 1$, die angibt, ob man die Benutzung der Straße überlebt.
+	Die Wahrscheinlichkeiten für die Kanten sind unabhängig und die Wahrscheinlichkeit, auf einem Pfad $P$ zu überleben, ist das Produkt über die Wahrscheinlichkeiten der einzelnen Kanten.
 	\begin{center}
-	\scalebox{0.8}{
-	\begin{tikzpicture}[->, auto]
+	\begin{tikzpicture}[-latex, thick, auto]
 		\tikzstyle{vertex} = [circle, draw]
 		\node[vertex](A) at (0,5) {1};
 		\node[vertex](B) at (2.25,2.5) {3};
@@ -106,27 +104,23 @@ Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau da
 		\path  (C) edge node {0.2} (A);
 		\path  (A) edge node {0.5} (D);
 	\end{tikzpicture}
-	}
 	\end{center}
-	Der obige Graph ist ein Beispielgraph.
-	Wenn man direkt von Knoten 2 zu Knoten 4 geht, hat man eine 50\% Chance zu überleben.
-	Wenn man aber die Route $2\rightarrow 3 \rightarrow 4$ nimmt, hat man eine $0.7\cdot 0.9 = 0.63 = 63\%$ Chance zu überleben.
-	Entwirf einen Algorithmus, der den sichersten Weg zwischen zwei Knoten $s$ und $t$ für einen beliebigen Eingabegraphen bestimmt.
+	Wenn man in diesem Beispiel direkt von Knoten 2 zu Knoten 4 geht, hat man eine Wahrscheinlichkeit von 50\%, zu überleben.
+	Wenn man aber den Pfad $2\rightarrow 3 \rightarrow 4$ nimmt, hat man eine Wahrscheinlichkeit von $0.7\cdot 0.9 = 0.63 = 63\%$, zu überleben.
+	Entwirf einen Algorithmus, der für einen beliebigen, gegebenen Eingabegraphen den sichersten Weg zwischen zwei Knoten $s$ und $t$ bestimmt.
 \end{aufgabe}
 
-
 \begin{aufgabe}[Tiefhängende Äste]
-	Eine Weide ist ein gewichteter, gerichteter Graph, der aus einem Binärbaum erstellt wird, indem man für jedes Blatt jeweils eine zur Wurzel gerichtete Kante einfügt.
+	Eine \emph{Weide} ist ein gewichteter, gerichteter Graph, den man aus einem Binärbaum erhält, indem man für jedes Blatt jeweils eine zur Wurzel gerichtete Kante einfügt.
 	Alle Kanten haben nicht-negative Gewichte.
 	% Hier tikz Zaubereien
 	Betrachte eine Weide mit $n$ Knoten.
 	Wir wollen für einen gegebenen Knoten $s$ die kürzesten Wege zu allen anderen Knoten ermitteln.
 	\begin{enumerate}
-		\item Wie lange braucht der Dijkstra Algorithmus um dieses Problem zu lösen?
-		Gib die Laufzeit im Verhältnis zu $n$ an.
+		\item Wie lange braucht Dijkstras Algorithmus, um dieses Problem zu lösen?
+		Gib die Laufzeit als Funktion von $n$ an.
 		\item (\hard) Entwirf einen schnelleren Algorithmus. 
 	\end{enumerate} 
 \end{aufgabe}
-
 
 \end{document}

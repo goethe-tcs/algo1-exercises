@@ -21,9 +21,9 @@ Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
 \begin{aufgabe}[Von Hand laufen lassen und Eigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Füge die Schlüsselsequenz $7, 18, 2, 3, 14, 25, 1, 11, 12, 1332$ in eine Hashtabelle der Länge 11 ein, die verkettetes Hashing und die Hashfunktion $f(k) = k \mod 11$ benutzt.
-		\item\label{hand-sondieren} (\warmup) Füge die Schlüsselsequenz $2, 32, 43, 16, 77, 51, 1, 17, 42, 111$ in eine Hashtabelle der Länge 17 ein, die lineares Sondieren und die Hashfunktion $f(k) = k \mod 17$ benutzt.
-		\item Lösche 111 und 51 aus der in~\ref{hand-sondieren} erzeugten Hashtabelle.
-		\item\label{wrong-delete} Angenommen, wir löschen ein Element~$x$ bei linearem Sondieren, ohne die Elemente im Cluster rechts von~$x$ wieder neu einzufügen.
+		\item\label{hand_sondieren} (\warmup) Füge die Schlüsselsequenz $2, 32, 43, 16, 77, 51, 1, 17, 42, 111$ in eine Hashtabelle der Länge 17 ein, die lineares Sondieren und die Hashfunktion $f(k) = k \mod 17$ benutzt.
+		\item Lösche 111 und 51 aus der in~\ref{hand_sondieren} erzeugten Hashtabelle.
+		\item\label{wrong_delete} Angenommen, wir löschen ein Element~$x$ bei linearem Sondieren, ohne die Elemente im Cluster rechts von~$x$ wieder neu einzufügen.
 		Gib eine kürzestmögliche Sequenz von Wörterbuchoperationen an, sodass diese modifizierte Variante zu einem falschen Ergebnis führt.
 		\item Sei $S$ eine Sequenz von Schlüsseln, die in einer Hashtabelle $A$ mittels verkettetem Hashing gespeichert sind.
 		Gegeben $A$, ist es möglich den größten Schlüssel aus $S$ effizient zu finden?
@@ -39,7 +39,7 @@ Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
 \end{aufgabe}
 
 \begin{aufgabe}[Faules Löschen bei linearem Sondieren]
-	Die Methode aus~\ref{tue-first}\ref{wrong-delete} hat nicht funktioniert, wir versuchen es also nochmal anders.
+	Die Methode aus~\ref{tue-first}\ref{wrong_delete} hat nicht funktioniert, wir versuchen es also nochmal anders.
 	Wenn wir ein Element an Position $p$ löschen, dann hinterlassen wir jetzt eine Markierung, dass dort ein Element gelöscht worden ist.
 	\begin{enumerate}
 		\item Erkläre, wie \texttt{Search} und \texttt{Insert} modifiziert werden können, damit diese Methode funktioniert.

@@ -34,6 +34,8 @@
 
 \RequirePackage[shortlabels,inline]{enumitem}
 \setlist{nosep,itemsep=2pt}
+\setenumerate[1]{label={\alph*)}}
+\setenumerate[2]{label={\arabic*)}}
 
 \RequirePackage{tikz}
 \RequirePackage{tikz-qtree}

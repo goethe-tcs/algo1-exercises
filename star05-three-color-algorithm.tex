@@ -37,7 +37,7 @@ Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Gr
 \end{algorithmic}
 \end{tabular}
 
-\begin{enumerate}[(a)]
+\begin{enumerate}
     \item\label{Farbinvariante} Beweise, dass \textsc{ThreeColorSearch} zu jedem Zeitpunkt die folgende Invariante erhält: Kein schwarzer Knoten ist zu einem weißen Knoten benachbart. \emph{(Hinweis: Das sollte einfach sein.)}
     \item Beweise Folgendes: Wenn \textsc{ThreeColorSearch}$(s)$ terminiert, dann sind alle von $s$ erreichbaren Knoten schwarz, alle nicht von $s$ erreichbaren Knoten weiß, und die zu den Eltern zeigenden Kanten $(v, v.\pi)$ definieren einen Baum, der alle Knoten der Zusammenhangskomponente von $s$ aufspannt.
     \emph{(Hinweis: Wenn man den Algorithmus mit DFS/BFS vergleicht, kann man sich intuitiv vorstellen, dass die schwarzen Knoten \enquote{markiert} sind und die grauen Knoten \enquote{auf dem Stapel/in der Warteschlange}. Ein Unterschied ist, dass \textsc{ThreeColorStep} nicht im selben Aufruf \emph{alle} Kanten abarbeiten muss, die aus einem Knoten $v$ rausgehen.)}
@@ -71,7 +71,7 @@ Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Gr
         \end{algorithmic}
         \end{tabular}
 
-    \item Die folgende Variante von \textsc{ThreeColorSearch} verwaltet die grauen Knoten in einer Warteschlange.
+    \item\label{notBFS} Die folgende Variante von \textsc{ThreeColorSearch} verwaltet die grauen Knoten in einer Warteschlange.
     Beweise, dass diese Variante \emph{\textbf{nicht}} äquivalent zu BFS ist.
     \emph{Hinweis: Die Reihenfolge der letzten zwei Zeilen von \textsc{ThreeColorQueueStep} ist nicht wichtig!}
     
@@ -164,6 +164,6 @@ Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Gr
 \end{enumerate}
 
 \textbf{Hinweise zur Abgabe.}
-Die Abgabe soll wie immer per PDF erfolgen, allerdings sind diesmal ausschließlich mathematische Beweise gefordert. Um einen \emoji{star} zu erhalten, müssen (a) bis (d) zielgerichtet, nachvollziehbar, lesbar, vollständig, und korrekt gelöst sein.
+Die Abgabe soll wie immer per PDF erfolgen, allerdings sind diesmal ausschließlich mathematische Beweise gefordert. Um einen \emoji{star} zu erhalten, müssen~\ref{Farbinvariante} bis~\ref{notBFS} zielgerichtet, nachvollziehbar, lesbar, vollständig, und korrekt gelöst sein.
 Zielgerichtet heißt, dass alle Sätze und Satzteile in der Abgabe aktiv zum Ziel hinführen, nämlich der Lösung der jeweiligen Aufgabe.
 \end{document}

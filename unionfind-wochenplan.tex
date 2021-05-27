@@ -13,7 +13,7 @@
 \newcommand{\qfind}{\textit{\textbf{Quick Find}}}
 \newcommand{\qunion}{\textit{\textbf{Quick Union}}}
 \newcommand{\wqunion}{\textit{\textbf{Weighted Quick Union}}}
-\newcommand{\pathcomp}{\textit{\textbf{Path Compression}}}
+\newcommand{\pathcomp}{\textit{\textbf{Pfadverkürzung}}}
 
 
 \begin{document}
@@ -22,19 +22,22 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 
 \section*{Dienstag}
 \begin{aufgabe}[Union Find von Hand laufen lassen]\label{tue-first}
-	Sieh dir die folgende Sequenz an Operationen an:
-	\texttt{Init(7), Union(3,4),  Union(5,0), Union(4,5), Union(4,3), Union(0,1), Union(2,6), Union(0,4)} und \texttt{Union(6,0)}
+	Betrachte die folgende Sequenz von Operationen:
+	\texttt{Init(7)}, \texttt{Union(3,4)}, \texttt{Union(5,0)}, \texttt{Union(4,5)}, \texttt{Union(4,3)}, \texttt{Union(0,1)}, \texttt{Union(2,6)}, \texttt{Union(0,4)} und \texttt{Union(6,0)}.
 	\begin{enumerate}
 		\item (\warmup) Führe die Sequenz mittels \qfind{} von Hand durch.
-		Zeige, wie die Inhalte des $id$ Feldes nach jedem Schritt aussehen.
-		Die \texttt{Union($i,j$)} Operation aktualisiert hierbei immer $id$ für die Menge, die durch $i$ gegeben wird.
+		Zeige, wie die Inhalte des Feldes \texttt{id} nach jedem Schritt aussehen.
+		Die Operation \texttt{Union($i,j$)} verändert \texttt{id} hierbei immer für die Menge, die durch $i$ gegeben ist.
 		\item (\warmup) Führe die Sequenz mittels \qunion{} von Hand durch.
-		Zeige, wie der Baum nach jedem Schritt aussehen.
-		Die \texttt{Union($i,j$)} Operation setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$.
+		Zeige, wie der Baum nach jedem Schritt aussieht.
+		Die Operation \texttt{Union($i,j$)} setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$.
 		\item Führe die Sequenz mittels \wqunion{} von Hand durch.
-		Zeige, wie der Baum nach jedem Schritt aussehen.
-		Die \texttt{Union($i,j$)} Operation setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$, wenn die Größe der beiden Bäume gleich ist.
-		\item Zeige das Resultat von \pathcomp{} auf einem der Bäume aus a) und b) nach einer \texttt{Find($x$)} Operation, für die Fälle, dass $x$ ein Blatt ist, $x$ ein innerer Knoten mit Tiefe 1 ist oder $x$ ein innerer Knoten mit Höhe 1 ist 
+		Zeige, wie der Baum nach jedem Schritt aussieht.
+		Die Operation \texttt{Union($i,j$)} setzt hierbei immer die Wurzel von Baum von $i$ als ein Kind der Wurzel des Baumes von $j$, wenn die Größe der beiden Bäume gleich ist.
+		\item Zeige das Resultat der \pathcomp{} nach einer Operation \texttt{Find($x$)} in einem der Bäume aus den Beispielen in a) und b), wobei $x$ einmal ein Blatt sein soll, einmal ein interner Knoten von Tiefe~$1$, und einmal ein interner Knoten mit Höhe~$1$.
+		\item Gib eine Sequenz von Operationen an, die in einem Baum maximaler Tiefe resultieren, wenn die abstrakte Datenstruktur durch \qunion{} implementiert ist.
+		\item Gib eine Sequenz von Operationen an, die in einem Baum maximaler Tiefe resultieren, wenn die abstrakte Datenstruktur durch \wqunion{} implementiert ist.
+		\item Schreibe den Pseudo-Code für~\pathcomp{}. \emph{Hinweis: Durchlaufe den Pfad zweimal.}
 	\end{enumerate}
 \end{aufgabe}
 
@@ -42,36 +45,38 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 	Eine Kommilitonin stellt die folgende, intuitive Variante von \qfind{} \texttt{Union} vor.
 	Funktioniert sie?
 	\begin{algorithmic}
-		\STATE \texttt{Union}(i,j)
+		\STATE \texttt{Union}(i, j)
 		\IF{\texttt{Find}($i$) $\neq$ \texttt{Find}($j$)}
 			\FOR{$k = 0$ \textbf{to} $n - 1$}
-				\IF{$id[k] == id[i]$}
-					\STATE $id[k] = id[j]$
+				\IF{\texttt{id[k] == id[i]}}
+					\STATE \texttt{id[k] = id[j]}
 				\ENDIF
 			\ENDFOR
 		\ENDIF
 	\end{algorithmic}
 \end{aufgabe}
 
-\begin{aufgabe}[Dynamische Zusammenhangskomponente und Suche in Graphen]
-	Mittels Tiefen- und Breitensuche können wir die Zusammenhangskomponente eines Graphs finden.
-	Entwirf eine einfache Lösung für die dynamische Zusammenhangskomponente mittels Suche in Graphen und vergleichedie Komplexität deiner Lösung mit der auf Union-Find basierenden Lösung.
+\begin{aufgabe}[Dynamische Zusammenhangskomponente und Suche in Graphen]\mbox{}\\
+	Mit Tiefen- und Breitensuche können wir die Zusammenhangskomponenten eines Graphen finden.
+	Entwirf einen einfache Implementierung der abstrakten Datenstruktur für den dynamischen Zusammenhang (mit den Operationen \textsc{Init}, \textsc{Connectected}, \textsc{Insert}) mittels Suche in Graphen und vergleiche die Komplexität deiner Lösung mit der auf Union-Find basierenden Lösungen.
 \end{aufgabe}
+\newpage
+\section*{Freitag}
 
-\ifthenelse{\boolean{programming}}{
-\begin{aufgabe}[Implememtierung von Union-Find]
-	Wir wollen Datenstrukturen für Union-Find in einer beliebigen Programmiersprache implementieren, die \texttt{Init}, \texttt{Union} und \texttt{Find} unterstützen.
+\begin{aufgabe}[Implementierung von Union-Find, alleine probieren]
+	Wir wollen Datenstrukturen für Union-Find (mit den Operationen \texttt{Init}, \texttt{Union} und \texttt{Find}) in einer beliebigen Programmiersprache implementieren.
 	\begin{enumerate}
-		\item Implementiere \qunion{}
-		\item Erweitere deine Implementierung mit \wqunion{}
-		\item Erweitere deine Implementierung mit \pathcomp{}
+		\item Implementiere \qunion{}.
+		\item Erweitere deine Implementierung mit \wqunion{}.
+		\item Erweitere deine Implementierung mit \pathcomp{}.
 	\end{enumerate}
 \end{aufgabe}
-}{}
 
-\begin{aufgabe}[Zombie Invasion, \hard]
-	In der post-apokalyptischen Zukunft (ein unaufmerksamer Student hat bei Zombieduel-Experimenten versehentlich einige freigelassen) haben du und eine kleine Gruppe an Überlebenden sich in einem kleinen Gebäude verbarrikadiert.
-	Das einzige was zwischen euch und einer hungrigen Horde Zombies steht ist ein Grid von $k\times k$ Wänden.\\\\
+\begin{aufgabe}[Zombieinvasion, \hard]
+	Der erkenntnisgierige Prof.~Dr.~Regloh hat bei unethischen Zombieduellexperimenten versehentlich einige Zombies entkommen lassen und damit die postapokalyptische Zukunft eingeläutet.
+	Du hast dich mit einer kleinen Gruppe an Überlebenden in einem kleinen Gebäude verbarrikadiert.
+	Das Einzige, das zwischen euch und einer brutalen und hungrigen Horde Zombies steht, ist eine starke Befestigung. Die Befestigung besteht aus einem $k\times k$ Gitter von Wänden, hier illustriert durch ein $6\times 6$ Gitter von Wänden (\emph{graue Rechtecke}):
+
 	\begin{center}
 		\newcommand{\wallAt}[2]{
 			% draws 1x0.6 wall at (#1,#2)
@@ -129,11 +134,11 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 			\draw[->, line width=2pt, red] (0, 6*0.7) -- (0,3*0.7) -- (4,3*0.7) -- (4,2*0.7) -- (5,2*0.7) -- (5,-0.7); 
 		\end{tikzpicture}
 	\end{center}
-	Oberhalb des Grids warten die Zombies, während deine Gruppe und du unterhalb sind.
-	Unglücklicherweise sind die Wände alt und spröde und stürzen regelmäßig ein.
-	Sobald ein Pfad von ganz oben nach ganz unten verläuft kommen die Zombies durch.
-	Um eure Evakuierung vorzubereiten willst du permanent überprüfen, ob es einen entsprechenden Pfad durch das Grid gibt.
-	Entwirf eine Datenstruktur, die es effizient den Überblick behält, während die Wände (Zellen des Grids) eine nach der anderen einstürzen.
+	Oberhalb des Gitters warten die Zombies, während deine Gruppe und du unterhalb sind.
+	Unglücklicherweise sind die Wände alt und spröde, und stürzen regelmäßig ein.
+	Sobald ein Pfad von ganz oben nach ganz unten verläuft, kommen die Zombies durch.
+	Um eure Evakuierung vorzubereiten, willst du durchgehend überwachen, ob es derzeit einen Pfad durch die Befestigung gibt.
+	Entwirf eine Datenstruktur, die effizient den Überblick behält, während die Wände (Zellen des Gitters) eine nach der anderen einstürzen.
 \end{aufgabe}
 
 \begin{aufgabe}[Rekursive \pathcomp, \hard]
@@ -143,9 +148,9 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 \begin{aufgabe}[Union-Find mit verketteten Listen und Gewichtungen]
 	Wir wollen eine Variante von \qfind{} mittels verketteten Listen auf die folgende Art und Weise implementieren.
 	Jede Menge wird durch eine einfach verkettete Liste repräsentiert.
-	Der Repräsentant jeder Menge ist das erste Element der respektiven Liste und jedes Element der Liste hat einen Pointer auf den Repräsentanten.
-	Des weiteren haben wir einen Pointer \textit{tail} auf das letzte Element der Liste.
-	Zum Beispiel eine Datenstruktur für die Menge $\{1,4,7,8,14\}$ mit Repräsentant $7$ könnte wie folgt aussehen:
+	Der Repräsentant jeder Menge ist das erste Element der jeweiligen Liste und jedes Element der Liste hat einen Zeiger auf den Repräsentanten.
+	Des Weiteren haben wir einen Zeiger \texttt{tail} auf das letzte Element der Liste.
+	Zum Beispiel könnte die Datenstruktur für die Menge $\{1,4,7,8,14\}$ mit Repräsentant $7$ wie folgt aussehen:
 	\begin{center}
 		\begin{tikzpicture}
 			\usetikzlibrary{arrows.meta}
@@ -204,17 +209,17 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 			\listNxtPtr{14}{4}{20}
 			\listNxtPtr{4}{8}{20}
 			% head ptr, tail ptr
-			\node (headptr) at (-0.5, 1.5) {\small head};
-			\node (tailptr) at (14.5, 1.5) {\small tail};
+			\node (headptr) at (-0.5, 1.5) {\texttt{\small head}};
+			\node (tailptr) at (14.5, 1.5) {\texttt{\small tail}};
 			\draw[-Stealth] (headptr) -- (-0.1, 0.4);
 			\draw[-Stealth] (tailptr) -- (14.1, 0.4);
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}
-		\item Zeige, unter Benutzung der Repräsentation, wie \texttt{Init($n$)} in Zeit $O(n)$, \texttt{Find($i$)} in Zeit $O(1)$ und \texttt{Union($i,j$)} in Zeit $O(|S(i)|)$, wobei $S(i)$ die Menge mit $i$ ist.
-		\item Zeige, wie man die Lösung erweitern kann, sodass \texttt{Init} und \texttt{Find} dieselbe Zeitkomplexität haben, aber \texttt{Union($i,j$)} in Zeit $O(\min(|S(i)|, |S(j)|))$ benötigt.\\
-		\textit{Hinweis: Speichere ein paar Zusatzinformationen}
-		\item (\hard) Zeige, dass für $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen die zuvorige Lösung eine Laufzeit in $O(p + m\log n)$ benötigt.
+		\item Zeige wie man mit dieser Darstellung der Mengen die Operationen \texttt{Init($n$)} in Zeit $O(n)$, \texttt{Find($i$)} in Zeit $O(1)$ und \texttt{Union($i,j$)} in Zeit $O(|S(i)|)$ implementieren kann, wobei $S(i)$ diejenige Menge ist, die $i$ enthält.
+		\item\label{min} Zeige, wie man die Lösung erweitern kann, sodass \texttt{Init} und \texttt{Find} dieselbe Zeitkomplexität haben, aber \texttt{Union($i,j$)} nun nur Zeit $O(\min(|S(i)|, |S(j)|))$ benötigt.
+		\textit{Hinweis: Speichere ein paar Zusatzinformationen.}
+		\item (\hard) Zeige, dass für die Lösung aus \ref{min} jede Sequenz von $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen eine Laufzeit von $O(p + m\log n)$ hat.
 	\end{enumerate}
 \end{aufgabe}
 

@@ -114,6 +114,48 @@ Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau da
 	Eine \emph{Weide} ist ein gewichteter, gerichteter Graph, den man aus einem Binärbaum erhält, indem man für jedes Blatt jeweils eine zur Wurzel gerichtete Kante einfügt.
 	Alle Kanten haben nicht-negative Gewichte.
 	% Hier tikz Zaubereien
+	\begin{center}
+		\begin{tikzpicture}
+			\usetikzlibrary{arrows.meta}
+			%
+			\def\nodes {root/0/3, l/-1/2, ll/-2/1, lr/0/1, lll/-3/0, r/1/2, rr/2/1, rrl/1/0, rrr/3/0};
+			% leaves: lll, lr, rrl, rrr
+			% draw nodes of the weide
+			\foreach \label\x\y in \nodes{
+				\node[draw,circle] (\label) at (\x,\y) {};
+			}
+			% draw ``inner'' edges of the weide
+			\def\edges {root/l/left/5, l/ll/left/17, l/lr/right/0, ll/lll/left/23, root/r/right/8, r/rr/right/1, rr/rrl/left/9, rr/rrr/right/14};
+			\foreach \s\t\labelside\weight in \edges{
+				\draw[-latex] (\s) -- (\t) node[midway, above \labelside] {$\weight$};
+			}
+			% draw bendy bendy edges from leaves to wurzel of the weide
+			\draw[-latex] 
+				(lll) 
+				.. controls (-4,1) and (-2,3) 
+				.. (root)
+			node [midway, right] {$4$};
+			\draw[-latex, rounded corners=40] 
+				(lr)
+				.. controls (-1,0) 
+				.. (-4,-1)
+				.. controls (-4,3)
+				.. (root)
+			node [midway, below] {$16$};
+			\draw[-latex] 
+				(rrr) 
+				.. controls (4,1) and (2,3) 
+				.. (root)
+			node [midway, left] {$42$};
+			\draw[-latex, rounded corners=40] 
+				(rrl)
+				.. controls (1,-1) 
+				.. (4,-1)
+				.. controls (4,3)
+				.. (root)
+			node [midway, below] {$16$};
+		\end{tikzpicture}
+	\end{center}
 	Betrachte eine Weide mit $n$ Knoten.
 	Wir wollen für einen gegebenen Knoten $s$ die kürzesten Wege zu allen anderen Knoten ermitteln.
 	\begin{enumerate}

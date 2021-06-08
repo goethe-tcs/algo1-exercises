@@ -7,17 +7,17 @@
 
 \begin{document}
 \section*{Vorbereitung}
-Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau das Video der Woche.
+Lies \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson, Kapitel 8 ohne 8.7} (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau das Video der Woche.
 
 \section*{Dienstag}
 \begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Gegeben sei der Graph aus Abbildung~\ref{example_graph}.
-		Zeige den Baum kürzester Wege für den Graphen (bei Startknoten 0).
+		Zeichne einen Baum kürzester Wege für den Graphen (bei Startknoten 0).
 		Schreibe die Länge des kürzesten Weges von Knoten 0 zu jedem Knoten.
-		\item Gib einen Beispielgraphen an, der negative Kantengewichte aber keine negativen Kreise hat, und der für eine falsche Ausgabe von Dijkstras Algorithmus sorgt.
-		\item Gegeben sei nun ein Graph $G$ mit $n$ Knoten und $m$ Kanten, und ein Baum $T$ in $G$, dessen Wurzel Knoten $s$ sei.
-		Zeige, wie man in Zeit $\O(n+m)$ feststellt, ob $T$ ein Baum kürzester Wege mit Startknoten $s$ ist.
+		\item Gib einen Beispielgraphen an, der negative Kantengewichte aber keine negativen Kreise hat, und auf dem Dijkstras Algorithmus eine falsche Ausgabe erzeugt.
+		\item Gegeben sei nun ein Graph $G$ mit $n$ Knoten und $m$ Kanten und ein Baum $T$ in $G$, dessen Wurzel Knoten $s$ sei.
+		Entwirf einen Algorithmus, der in Zeit $\O(n+m)$ feststellt, ob $T$ ein Baum kürzester Wege mit Startknoten $s$ ist.
 		\item Sei $T$ ein Baum kürzester Wege von Knoten $s$ in einem Graphen~$G$.
 		Ist $T$ immer noch ein Baum kürzester Wege, wenn wir auf alle Kantengewichte eine Konstante $c$ addieren?
 	\end{enumerate}
@@ -55,7 +55,7 @@ Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau da
 
 \begin{aufgabe}[Noch mehr Kabel]
 	Die Kabelfernsehen-Firma AlgoMedia überträgt Kabelfernsehen an alle Häuser in Algo-Stadt.
-	Sie übermitteln die TV Signale von ihrem Hauptsitz mittels eines Kabelnetzwerks, wobei die Länge jedes Kabels bekannt ist.
+	Sie übermitteln die TV-Signale von ihrem Hauptsitz mittels eines Kabelnetzwerks, wobei die Länge jedes Kabels bekannt ist.
 	Die Kabel verlaufen zwischen Verteilerkästen:
 	Es gibt einen Kasten in jedem Haus, einen Kasten im Hauptsitz der Firma, und sonst keine weiteren Kästen.
 	Jeder Kasten ist durch direkte Kabel mit einem oder mehreren anderen Kästen verbunden. Es gibt $X$ Häuser und $K$ Kabel im Netzwerk.
@@ -68,25 +68,27 @@ Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau da
 		\item Nach genauerer Betrachtung bemerkt AlgoMedia, dass die Qualität eines Signals, wenn es durch einen einzelnen Kasten läuft, genauso sinkt, als hätte es 5 Meter Kabellänge durchlaufen.
 		Passe deinen Algorithmus so an, dass er in diesem Szenario die Signale so leitet, dass die Empfangsqualität an jedem Kasten maximiert wird.
 		\item Nach Kürzungen von staatlichen Mitteln versucht AlgoMedia, Geld zu sparen und also nur absolut notwendige Kabel zu behalten.
-		Aktuell geben sie 42,000 Euro im Jahr für jeden Meter Kabel aus.
+		Aktuell geben sie 42.000 Euro im Jahr für jeden Meter Kabel aus.
 		Gib einen Algorithmus an, der die günstigste Möglichkeit berechnet, sodass alle Häuser in Algo-Stadt mit einem Signal versorgt werden können.
 	\end{enumerate}
 \end{aufgabe}
 
 
-\begin{aufgabe}[Längster Pfad in gerichteten, kreisfreien Graphen]
-	Bestimme einen Algorithmus, um den \emph{längsten} Weg in einem gerichteten, kreisfreien Graphen zu finden.
+\begin{aufgabe}[Längster Weg in gerichteten, kreisfreien Graphen]
+	Entwirf einen Algorithmus, um den \emph{längsten} Weg in einem gerichteten, kreisfreien Graphen zu finden.
 \end{aufgabe}
 
-\newpage\section*{Donnerstag}
+\vspace{1cm}
+\section*{Donnerstag}
 \begin{aufgabe}[Dijkstra und Knotengewichte]
 	Sei $G$ ein gerichteter Graph, bei dem alle \emph{Knoten} ein nicht-negatives Gewicht haben.
 	Das Gewicht eines Weges in $G$ ist jetzt die Summe der Gewichte der Knoten auf dem Weg.
-	Bestimme einen Algorithmus, um den kürzesten Weg zwischen zwei Knoten in $G$ zu bestimmen.
+	Entwirf einen Algorithmus, um den kürzesten Weg zwischen zwei Knoten in $G$ zu bestimmen.
 \end{aufgabe}
 
 \begin{aufgabe}[Reiseplanung in Zombiezeiten, \hard]
-	Scheinbar hat deine Gruppe es geschafft der brenzligen Zombiesituation des Union-Find Blattes zu entkommen.
+	\mbox{}\\
+	Scheinbar hat deine Gruppe es geschafft, der brenzligen Zombiesituation des Union-Find Blattes zu entkommen.
 	Jetzt müsst ihr den sichersten Weg zwischen zwei Städten finden, um hoffentlich nicht von Zombies gegessen zu werden.
 	Der Graph $G$ sei gegeben: Jeder Knoten ist eine Stadt und jede Kante ist eine Straße zwischen zwei Städten. Für jede Kante $e$ gibt es eine Wahrscheinlichkeit $s(e)$ mit $0 \leq s(e) \leq 1$, die angibt, ob man die Benutzung der Straße überlebt.
 	Die Wahrscheinlichkeiten für die Kanten sind unabhängig und die Wahrscheinlichkeit, auf einem Pfad $P$ zu überleben, ist das Produkt über die Wahrscheinlichkeiten der einzelnen Kanten.
@@ -107,7 +109,7 @@ Lies E Kapitel 8 ohne 8.7 (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau da
 	\end{center}
 	Wenn man in diesem Beispiel direkt von Knoten 2 zu Knoten 4 geht, hat man eine Wahrscheinlichkeit von 50\%, zu überleben.
 	Wenn man aber den Pfad $2\rightarrow 3 \rightarrow 4$ nimmt, hat man eine Wahrscheinlichkeit von $0.7\cdot 0.9 = 0.63 = 63\%$, zu überleben.
-	Entwirf einen Algorithmus, der für einen beliebigen, gegebenen Eingabegraphen den sichersten Weg zwischen zwei Knoten $s$ und $t$ bestimmt.
+	Entwirf einen Algorithmus, der für einen beliebigen, gegebenen Eingabegraphen den sichersten Pfad zwischen zwei Knoten $s$ und $t$ bestimmt.
 \end{aufgabe}
 
 \begin{aufgabe}[Tiefhängende Äste]

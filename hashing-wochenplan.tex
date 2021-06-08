@@ -5,14 +5,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newboolean{programming}
-\setboolean{programming}{false}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Makros für noch nicht übersetzte Begrifflichkeiten
-\newcommand{\dynset}{\textit{\textbf{dynamische Menge}}}
-
-
 \begin{document}
 \section*{Vorbereitung}
 Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
@@ -59,15 +51,23 @@ Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
 
 \begin{aufgabe}[Bitvektoren]
 	Computer werden	oft als $w$-\textit{Bit Computer} bezeichnet, beispielsweise sind die meisten modernen Computer $64$-Bit Computer.
-	Das bedeutet, dass die Register und Speicherzellen jeweils $w$-Bits speichern und primitive Datentypen wie Integer, Gleitkommazahlen und Zeiger mit $w$ Bits dargestellt werden.
-	Manche Programmiersprachen unterstützen Bit-Manipulationen mit konstantem Zeitaufwand, wie Shifting (\verb$<<$ und \verb$>>$) und bitweise logische Operationen (\verb$|&^$).
+	Das bedeutet, dass die Register und Speicherzellen jeweils $w$ Bits speichern und primitive Datentypen wie Integer, Gleitkommazahlen und Zeiger mit $w$ Bits dargestellt werden.
+	Viele Programmiersprachen unterstützen Bit-Manipulationen mit konstantem Zeitaufwand, wie \emph{bit shifts} (\verb$<<$ und \verb$>>$) und bitweise logische Operationen (\verb$|&^$).
 	Wir wollen diese nutzen, um effizient Felder von Bits, also Elemente $B\in\{0,1\}^n$, als sogenannte \textit{Bitvektoren} zu implementieren.
 	Angenommen wir arbeiten auf einem $w$-Bit Computer.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
+		\item(\warmup{}) Für $w=8$, schreibe $2^4$, \verb$1<<4$, $2^8-1$,
+		$(2^7 \verb$^$ 2^4$) und
+		$(2^8-1)$ \verb$&$ $2^4$ in Binärdarstellung.
 		\item Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
-		\item Zeige, wie ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
-		\item Zeige, wie ein Bitvektor genutzt werden kann, um eine \dynset{} $S\subseteq\{0,\dots,t\}$ darzustellen.
+		\item Wie kann ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
+		\item Entwirf eine Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
+		\begin{itemize}
+			\item \texttt{insert$(a)$} fügt der Menge $a$ hinzu, setzt also $S\gets S\cup \{a\}$.
+			\item \texttt{remove$(a)$} löscht $a$ aus der Menge, setzt also $S\gets S\setminus \{a\}$.
+			\item \texttt{has$(a)$} liefert $1$ wenn $a\in S$ und $0$ sonst.
+		\end{itemize}
 	\end{enumerate}
 \end{aufgabe}
 
@@ -77,9 +77,9 @@ Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
 \end{aufgabe}
 
 \begin{aufgabe}[Nicht initialisierte Felder, \veryhard]
-	Wir wollen ein \textit{riesiges} Feld $A$ implementieren, desen Einträge wir effizient auslesen und ändern können.
+	Wir wollen ein \textit{riesiges} Feld $A$ implementieren, dessen Einträge wir effizient auslesen und ändern können.
 	Anfangs enthalten die Einträge von $A$ \enquote{Müll}, und wegen der Größe des Feldes wollen wir beim Erzeugen des Feldes keine Zeit darauf verschwenden, alle Einträge zu initialisieren.
-	Gib eine Datenstruktur an, die linearen Platz in der Länge des Feldes benötigt, Auslesen und Ändern in konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
+	Entwirf eine Datenstruktur, die linearen Platz in der Länge des Feldes benötigt, Auslesen und Ändern in konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
 \end{aufgabe}
 
 \end{document}

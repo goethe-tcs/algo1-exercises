@@ -45,14 +45,15 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 	Eine Kommilitonin stellt die folgende, intuitive Variante von \qfind{} \texttt{Union} vor.
 	Funktioniert sie?
 	\begin{algorithmic}
-		\STATE \texttt{Union}(i, j)
-		\IF{\texttt{Find}($i$) $\neq$ \texttt{Find}($j$)}
-			\FOR{$k = 0$ \textbf{to} $n - 1$}
-				\IF{\texttt{id[k] == id[i]}}
-					\STATE \texttt{id[k] = id[j]}
-				\ENDIF
-			\ENDFOR
-		\ENDIF
+		\Procedure{Union}{$i, j$}
+		\If{\Call{Find}{$i$} $\neq$ \Call{Find}{$j$}}
+			\ForAll{$k \in \{0,\dots,n-1\}$}
+				\If{\texttt{id[$k$] == id[$i$]}}
+					\State \texttt{id[$k$] = id[$j$]}
+				\EndIf
+			\EndFor
+		\EndIf
+		\EndProcedure
 	\end{algorithmic}
 \end{aufgabe}
 
@@ -60,7 +61,7 @@ Lies CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) und schau das 
 	Mit Tiefen- und Breitensuche können wir die Zusammenhangskomponenten eines Graphen finden.
 	Entwirf einen einfache Implementierung der abstrakten Datenstruktur für den dynamischen Zusammenhang (mit den Operationen \textsc{Init}, \textsc{Connected}, \textsc{Insert}) mittels Suche in Graphen und vergleiche die Komplexität deiner Lösung mit der auf Union-Find basierenden Lösungen.
 \end{aufgabe}
-\newpage
+
 \section*{Freitag}
 
 \begin{aufgabe}[Implementierung von Union-Find, alleine probieren]

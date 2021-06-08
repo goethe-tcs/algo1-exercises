@@ -11,7 +11,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uebung_cs}[2021/04/12 v0]
-\PassOptionsToClass{a4paper,11pt,parskip=half}{scrartcl}
+\PassOptionsToClass{a4paper,fontsize=11pt,parskip=half}{scrartcl}
 \LoadClass{scrartcl}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage[a4paper,left=1in,right=1in,bottom=1.5in,top=1in]{geometry}
@@ -54,7 +54,7 @@
   stringstyle=\color{black!90},
   tabsize=2%
 }
-\RequirePackage{algorithmic}
+\RequirePackage{algpseudocodex}
 
 \usetikzlibrary{shapes,arrows,decorations,decorations.pathmorphing,decorations.pathreplacing,plotmarks}
 \RequirePackage{wrapfig}

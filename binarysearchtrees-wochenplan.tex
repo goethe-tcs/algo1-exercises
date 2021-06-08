@@ -47,11 +47,11 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 	Des weiteren hat jeder Knoten $x$ eine $x.size$ Variable, die auf einen Integer gesetzt werden kann.
 	Betrachte den folgenden Algorithmus.
 	\begin{algorithmic}
-		\STATE {\texttt{ZERO}($x$)}
-		\IF{$x\neq null$}
-			\STATE{\texttt{ZERO}($x.left$)}
-			\STATE{\texttt{ZERO}($x.right$)}
-		\ENDIF
+		\State {\texttt{ZERO}($x$)}
+		\If{$x\neq null$}
+			\State{\texttt{ZERO}($x.left$)}
+			\State{\texttt{ZERO}($x.right$)}
+		\EndIf
 	\end{algorithmic}
 		
 	\begin{enumerate}
@@ -93,16 +93,16 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 	Des weiteren hat jeder Knoten $x$ eine $x.label$ Variable, die auf einen einzelnen Buchstaben ($character$) speichert.
 	Betrachte den folgenden Algorithmus und Binärbaum.
 	\begin{algorithmic}
-		\STATE {\texttt{PrintTree}($x$)}
-		\IF{$x\neq null$}
-			\PRINT{$x.label$}
-			\IF{$x.left \neq null$}
-				\STATE{\texttt{PrintTree}($x.left$)}
-			\ENDIF
-			\IF{$x.right \neq null$}
-				\STATE{\texttt{PrintTree}($x.right$)}
-			\ENDIF
-		\ENDIF
+		\State {\texttt{PrintTree}($x$)}
+		\If{$x\neq null$}
+			\Output{$x.label$}
+			\If{$x.left \neq null$}
+				\State{\texttt{PrintTree}($x.left$)}
+			\EndIf
+			\If{$x.right \neq null$}
+				\State{\texttt{PrintTree}($x.right$)}
+			\EndIf
+		\EndIf
 	\end{algorithmic}
 		
 	\begin{enumerate}

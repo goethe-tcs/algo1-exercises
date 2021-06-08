@@ -14,26 +14,28 @@ Eine Klasse von Suchalgorithmen auf Graphen, die Breitensuche und Tiefensuche ve
 Anstatt markierte und unmarkierte Knoten zu verwalten, verwaltet ihr Algorithmus eine Farbe für jeden Knoten, entweder weiß, grau oder schwarz.
 Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Graphen $G$ vor.
 
-\begin{tabular}{p{0.4\textwidth}p{0.49\textwidth}}
+\begin{tabular}{p{0.44\textwidth}p{0.49\textwidth}}
 \mbox{}\begin{algorithmic}
-    \STATE{\textsc{ThreeColorSearch}$(s)$:}
-    \STATE{färbe alle Knoten weiß}
-    \STATE{färbe $s$ grau}
-    \WHILE{mindestens ein Knoten ist grau}
-        \STATE{\textsc{ThreeColorStep()}}
-    \ENDWHILE{}
+    \Procedure{ThreeColorSearch}{s}
+    \State{färbe alle Knoten weiß}
+    \State{färbe $s$ grau}
+    \While{mindestens ein Knoten ist grau}
+        \State{\Call{ThreeColorStep}{}}
+    \EndWhile{}
+    \EndProcedure{}
 \end{algorithmic}
 &
 \mbox{}\begin{algorithmic}
-    \STATE{\textsc{ThreeColorStep}$()$:}
-    \STATE{$v\gets$ irgendein grauer Knoten}
-    \IF{$v$ hat keine weißen Nachbarn}
-        \STATE{färbe $v$ schwarz}
-    \ELSE
-        \STATE{$w\gets$irgendein weißer Nachbar von $v$}
-        \STATE{$w.\pi\gets v$} \COMMENT{Hier speichern wir $v$ als Elternknoten von $w$.}
-        \STATE{färbe $w$ grau}
-    \ENDIF{}
+    \Procedure{ThreeColorStep}{}
+    \State{$v\gets$ irgendein grauer Knoten}
+    \If{$v$ hat keine weißen Nachbarn}
+        \State{färbe $v$ schwarz}
+    \Else{}
+        \State{$w\gets$irgendein weißer Nachbar von $v$}
+        \State{$w.\pi\gets v$} \Comment{$v$ ist der Elternknoten von $w$.}
+        \State{färbe $w$ grau}
+    \EndIf{}
+    \EndProcedure{}
 \end{algorithmic}
 \end{tabular}
 
@@ -45,29 +47,31 @@ Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Gr
     Beweise, dass diese Variante äquivalent zu DFS ist, das heißt, die Knoten werden in genau derselben Reihenfolge entdeckt und die Elternbeziehungen sind identisch.
     \emph{Hinweis: Die Reihenfolge der letzten zwei Zeilen von \textsc{ThreeColorStackStep} ist wichtig!}
 
-    \begin{tabular}{p{0.4\textwidth}p{0.49\textwidth}}
+    \begin{tabular}{p{0.44\textwidth}p{0.49\textwidth}}
         \mbox{}\begin{algorithmic}
-            \STATE{\textsc{ThreeColorStackSearch}$(s)$:}
-            \STATE{färbe alle Knoten weiß}
-            \STATE{färbe $s$ grau}
-            \STATE{\fett{lege $s$ auf den Stapel}}
-            \WHILE{mindestens ein Knoten ist grau}
-                \STATE{\textsc{ThreeColorStackStep()}}
-            \ENDWHILE{}
+            \Procedure{ThreeColorStackSearch}{$s$}
+            \State{färbe alle Knoten weiß}
+            \State{färbe $s$ grau}
+            \State{\fett{lege $s$ auf den Stapel}}
+            \While{mindestens ein Knoten ist grau}
+                \State{\Call{ThreeColorStackStep}{}}
+            \EndWhile{}
+            \EndProcedure{}
         \end{algorithmic}
         &
         \mbox{}\begin{algorithmic}
-            \STATE{\textsc{ThreeColorStackStep}$()$:}
-            \STATE{\fett{nimm $v$ vom Stapel}}
-            \IF{$v$ hat keine weißen Nachbarn}
-                \STATE{färbe $v$ schwarz}
-            \ELSE
-                \STATE{$w\gets$irgendein weißer Nachbar von $v$}
-                \STATE{$w.\pi\gets v$}
-                \STATE{färbe $w$ grau}
-                \STATE{\fett{lege $v$ auf den Stapel}}
-                \STATE{\fett{lege $w$ auf den Stapel}}
-            \ENDIF{}
+            \Procedure{ThreeColorStackStep}{}
+            \State{\fett{nimm $v$ vom Stapel}}
+            \If{$v$ hat keine weißen Nachbarn}
+                \State{färbe $v$ schwarz}
+            \Else{}
+                \State{$w\gets$irgendein weißer Nachbar von $v$}
+                \State{$w.\pi\gets v$}
+                \State{färbe $w$ grau}
+                \State{\fett{lege $v$ auf den Stapel}}
+                \State{\fett{lege $w$ auf den Stapel}}
+            \EndIf{}
+            \EndProcedure{}
         \end{algorithmic}
         \end{tabular}
 
@@ -75,29 +79,31 @@ Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Gr
     Beweise, dass diese Variante \emph{\textbf{nicht}} äquivalent zu BFS ist.
     \emph{Hinweis: Die Reihenfolge der letzten zwei Zeilen von \textsc{ThreeColorQueueStep} ist nicht wichtig!}
     
-        \begin{tabular}{p{0.4\textwidth}p{0.49\textwidth}}
+        \begin{tabular}{p{0.44\textwidth}p{0.49\textwidth}}
             \mbox{}\begin{algorithmic}
-                \STATE{\textsc{ThreeColorQueueSearch}$(s)$:}
-                \STATE{färbe alle Knoten weiß}
-                \STATE{färbe $s$ grau}
-                \STATE{\fett{schiebe $s$ in die Warteschlange}}
-                \WHILE{mindestens ein Knoten ist grau}
-                    \STATE{\textsc{ThreeColorQueueStep()}}
-                \ENDWHILE{}
+                \Procedure{ThreeColorQueueSearch}{$s$}
+                \State{färbe alle Knoten weiß}
+                \State{färbe $s$ grau}
+                \State{\fett{schiebe $s$ in die Warteschlange}}
+                \While{mindestens ein Knoten ist grau}
+                    \State{\Call{ThreeColorQueueStep}{}}
+                \EndWhile{}
+                \EndProcedure{}
             \end{algorithmic}
             &
             \mbox{}\begin{algorithmic}
-                \STATE{\textsc{ThreeColorQueueStep}$()$:}
-                \STATE{\fett{ziehe $v$ aus der Warteschlange}}
-                \IF{$v$ hat keine weißen Nachbarn}
-                    \STATE{färbe $v$ schwarz}
-                \ELSE
-                    \STATE{$w\gets$irgendein weißer Nachbar von $v$}
-                    \STATE{$w.\pi\gets v$}
-                    \STATE{färbe $w$ grau}
-                    \STATE{\fett{schiebe $v$ in die Warteschlange}}
-                    \STATE{\fett{schiebe $w$ in die Warteschlange}}
-                \ENDIF{}
+                \Procedure{ThreeColorQueueStep}{}
+                \State{\fett{ziehe $v$ aus der Warteschlange}}
+                \If{$v$ hat keine weißen Nachbarn}
+                    \State{färbe $v$ schwarz}
+                \Else{}
+                    \State{$w\gets$irgendein weißer Nachbar von $v$}
+                    \State{$w.\pi\gets v$}
+                    \State{färbe $w$ grau}
+                    \State{\fett{schiebe $v$ in die Warteschlange}}
+                    \State{\fett{schiebe $w$ in die Warteschlange}}
+                \EndIf{}
+                \EndProcedure{}
             \end{algorithmic}
             \end{tabular}
 
@@ -105,60 +111,64 @@ Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Gr
     
     Wenn der andere Prozess auf die Farbinvariante Rücksicht nimmt und diese explizit wiederherstellt, wann immer sie verletzt würde, dann können wir den \textsc{ThreeColorSearch} Algorithmus trotzdem sicher verwenden. Das möchten wir jetzt zeigen. Um die zwei parallelen Algorithmen zu modellieren, verwenden wir die \emph{either/or} Syntax in \textsc{GarbageCollect}; wie bei \emph{if/then/else} verzweigt das Programm hier, aber welcher Zweig verfolgt wird, wird nicht vom Programm selbst entschieden, sondern vom Betriebssystem.\footnote{Das ist eine dramatische Vereinfachung, sowohl von paralleler Programmierung als auch von \emph{garbage collection}. Mehrfädige Programmiersprachen wie Lua und Go benutzen einen viel komplexeren \emph{mark and sweep} Algorithmus als \emph{garbage collector}. Mathematisch wichtig für \emph{either/or} ist, dass das Betriebssystem zwar nicht garantiert, wie oft hintereinander und in welcher Reihenfolge die zwei Programmzweige gewählt werden. Aber jeder Zweig wird immer wieder \emph{irgendwann} gewählt, das heißt, nach endlicher Zeit. --- Das Betriebsystem darf also \emph{\textbf{nicht}} für immer den einen Zweig wählen und den anderen \enquote{vergessen}.}
 
-    \begin{tabular}{p{0.4\textwidth}p{0.49\textwidth}}
+    \begin{tabular}{p{0.44\textwidth}p{0.49\textwidth}}
         \mbox{}\begin{algorithmic}
-            \STATE{\textsc{GarbageCollect}$(s)$:}
-            \STATE{färbe alle Knoten weiß}
-            \STATE{färbe $s$ grau}
-            \WHILE{mindestens ein Knoten ist grau}
-                \STATE{\fett{either}}
-                    \STATE{\quad\textsc{CollectStep()}}
-                \STATE{\fett{or}}
-                    \STATE{\quad\fett{\textsc{Mutate()}}}
-            \ENDWHILE{}
+            \Procedure{GarbageCollect}{$s$}
+            \State{färbe alle Knoten weiß}
+            \State{färbe $s$ grau}
+            \While{mindestens ein Knoten ist grau}
+                \State{\fett{either}}
+                    \State{\quad\Call{CollectStep}{}}
+                \State{\fett{or}}
+                    \State{\quad\fett{\Call{Mutate}{}}}
+            \EndWhile{}
+            \EndProcedure{}
         \end{algorithmic}
         &
         \mbox{}\begin{algorithmic}
-            \STATE{\textsc{CollectStep}$()$:}
-            \STATE{$v\gets$ irgendein grauer Knoten}
-            \IF{$v$ hat keine weißen Nachbarn}
-                \STATE{färbe $v$ schwarz}
-            \ELSE
-                \STATE{$w\gets$irgendein weißer Nachbar von $v$}
-                \STATE{färbe $w$ grau}
-            \ENDIF{}
+            \Procedure{CollectStep}{}
+            \State{$v\gets$ irgendein grauer Knoten}
+            \If{$v$ hat keine weißen Nachbarn}
+                \State{färbe $v$ schwarz}
+            \Else{}
+                \State{$w\gets$irgendein weißer Nachbar von $v$}
+                \State{färbe $w$ grau}
+            \EndIf{}
+            \EndProcedure{}
         \end{algorithmic}\\
         \mbox{}\begin{algorithmic}
-            \STATE{\textsc{Mutate}$()$:}
-            \STATE{$u\gets$ irgendein Knoten}
-            \STATE{$w\gets$ irgendein Knoten}
-            \IF{$(u,w)$ ist keine Kante}
-                \STATE{füge $(u,w)$ als Kante hinzu}
-                \IF{$u$ ist schwarz und $w$ ist weiß}
-                \STATE{färbe $u$ grau}
-                \ENDIF
-                \IF{$u$ ist weiß und $w$ ist schwarz}
-                \STATE{färbe $w$ grau}
-                \ENDIF
-            \ENDIF{}
+            \Procedure{Mutate}{}
+            \State{$u\gets$ irgendein Knoten}
+            \State{$w\gets$ irgendein Knoten}
+            \If{$(u,w)$ ist keine Kante}
+                \State{füge $(u,w)$ als Kante hinzu}
+                \If{$u$ ist schwarz und $w$ ist weiß}
+                \State{färbe $u$ grau}
+                \EndIf{}
+                \If{$u$ ist weiß und $w$ ist schwarz}
+                \State{färbe $w$ grau}
+                \EndIf{}
+            \EndIf{}
+            \EndProcedure{}
         \end{algorithmic}
         \end{tabular}
 
         Beweise, dass \textsc{GarbageCollect} irgendwann terminiert, und dass dann jeder von $s$ erreichbare Knoten schwarz gefärbt ist und jeder von $s$ nicht erreichbare Knoten weiß gefärbt ist.
     \item (\veryhard) Hier sei $G$ wieder ein gerichteter Graph. Anstatt schwarze Knoten grau zu färben, soll \textsc{Mutate} jetzt die Farbinvariante aufrechterhalten, indem manche \emph{weißen} Knoten grau gefärbt werden:
     \begin{algorithmic}
-        \STATE{\textsc{Mutate}$()$:}
-        \STATE{$u\gets$ irgendein Knoten}
-        \STATE{$w\gets$ irgendein Knoten}
-        \IF{$(u,w)$ ist keine Kante}
-            \STATE{füge $(u,w)$ als Kante hinzu}
-            \IF{$u$ ist schwarz und $w$ ist weiß}
-            \STATE{\fett{färbe $w$ grau}}
-            \ENDIF
-            \IF{$u$ ist weiß und $w$ ist schwarz}
-            \STATE{\fett{färbe $u$ grau}}
-            \ENDIF
-        \ENDIF{}
+        \Procedure{Mutate}{}
+        \State{$u\gets$ irgendein Knoten}
+        \State{$w\gets$ irgendein Knoten}
+        \If{$(u,w)$ ist keine Kante}
+            \State{füge $(u,w)$ als Kante hinzu}
+            \If{$u$ ist schwarz und $w$ ist weiß}
+            \State{\fett{färbe $w$ grau}}
+            \EndIf{}
+            \If{$u$ ist weiß und $w$ ist schwarz}
+            \State{\fett{färbe $u$ grau}}
+            \EndIf{}
+        \EndIf{}
+        \EndProcedure{}
     \end{algorithmic}
     Beweise, dass \textsc{GarbageCollect} irgendwann terminiert, und dass dann $s$ schwarz gefärbt ist, jeder von einem schwarzen Knoten erreichbare Knoten wiederum schwarz ist, und jeder nicht von einem schwarzen Knoten erreichbare Knoten weiß ist.
 \end{enumerate}

@@ -40,29 +40,31 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 \end{aufgabe}
 
 \begin{aufgabe}[Algorithmen auf verketteten Listen]
-	Betrachte die Algorithmen \texttt{FOO} und \texttt{BAR} und die verkettete Liste darunter.
+	Betrachte die Algorithmen \textsc{Foo} und \textsc{Bar} und die verkettete Liste darunter.
 	\begin{center}
 	\begin{minipage}{0.45\textwidth}
 		\begin{algorithmic}
-			\STATE \texttt{FOO}$(head)$
-			\STATE $x = head$
-			\STATE $c = 0$
-			\WHILE{$x \neq null$}
-				\STATE $x = x.next$
-				\STATE $c = c + 1$
-			\ENDWHILE
-			\RETURN c
+			\Procedure{Foo}{head}
+			\State $x \gets$ head
+			\State $c \gets 0$
+			\While{$x \neq \text{null}$}
+				\State $x \gets x.\text{next}$
+				\State $c \gets c + 1$
+			\EndWhile
+			\Return c
+			\EndProcedure
 		\end{algorithmic}
 	\end{minipage}%
 		\hfill
 	\begin{minipage}{0.45\textwidth}
 		\begin{algorithmic}
-			\STATE \texttt{BAR}$(x,s)$
-			\IF{$x == null$}
-				\RETURN s
-			\ELSE
-				\RETURN \texttt{Bar}$(x.next, s + x.key)$
-			\ENDIF
+			\Procedure{Bar}{$x,s$}
+			\If{$x == \text{null}$}
+				\Return $s$
+			\Else{}
+				\Return \Call{Bar}{$x.\text{next}, s + x.\text{key}$}
+			\EndIf
+			\EndProcedure
 		\end{algorithmic}
 	\end{minipage}\\%
 	\end{center}
@@ -96,10 +98,10 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 	\end{center}
 
 	\begin{enumerate}
-		\item (\warmup) Führe \texttt{FOO}(head) händisch aus.
-		\item (\warmup) Erkläre was \texttt{FOO} berechnet.
-		\item Führe \texttt{BAR}(head, 0) händisch aus.
-		\item Erkläre was \texttt{BAR} berechnet.
+		\item (\warmup) Führe \textsc{Foo}(head) händisch aus.
+		\item (\warmup) Erkläre was \textsc{Foo} berechnet.
+		\item Führe \textsc{Bar}(head, 0) händisch aus.
+		\item Erkläre was \textsc{Bar} berechnet.
 	\end{enumerate}
 \end{aufgabe}
 

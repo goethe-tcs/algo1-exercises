@@ -17,13 +17,16 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 \section*{Dienstag}
 \begin{aufgabe}[Binärbaumeigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
-		\item (\warmup) Welche der Bäume sind binäre Suchbäume?
+		\item (\warmup) Welche der folgenden Bäume sind binäre Suchbäume?
+		% tikz magic
 		\item (\warmup) Wo in einem Baum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
-		\item (\warmup) Gib die Reihenfolge, in der die Knoten traversiert werden für Präorder, Inorder und Postorder für Baum b) an.
-		\item Verleich die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
-		\item Schreibe Pseudocode für eine iterative Variante der Knotentraversierung in Inorder.
-		\item (\hard) Beweise oder widerlege.
-		Wenn Knoten $v$ zwei Kinder hat, dann hat das Element mit dem nächstgrößeren Schlüssel kein linkes Kind und das Element mit dem nächstkleineren Schlüssel kein rechtes Kind.
+		\item Betrachte die Schlüsselmenge $\{1, 4, 5, 10, 16, 17, 21\}$. Zeichne binäre Suchbäume der Höhe 2, 3, 4, 5 und 6, die jeweils genau diese Schlüssel enthalten.
+		\item (\warmup) Gib die Reihenfolge an, in der die Knoten von Baum b) in inorder, preorder und postorder traversiert werden.
+		\item Verleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
+		\item Schreibe Pseudocode für eine iterative Variante der Inorder-Traversierung.
+		\item Sei $T$ ein binärer Suchbaum, in dem alle Schlüssel verschieden sind.
+		Beweise die folgende Aussage mit einem Widerspruchsbeweis:
+		Wenn ein Knoten $v$ zwei Kinder hat, dann hat das Element mit dem nächstgrößeren Schlüssel kein linkes Kind und das Element mit dem nächstkleineren Schlüssel kein rechtes Kind.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -34,85 +37,86 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 		Schreibe deine Lösung in Pseudocode auf.
 		\item Entwirf einen rekursiven Algorithmus, der für Eingabe $w$ die Höhe von $T$ ausgibt.
 		Schreibe deine Lösung in Pseudocode auf.
-		\ifthenelse{\boolean{programming}}{
-		\item Implementiere deine Lösung in einer Sprache deiner Wahl.
-		}{}
+		\item Implementiere deine Lösungen in einer Sprache deiner Wahl.
 	\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Mehr Rekursionen auf Bäumen]
 	Sei $T$ ein Binärbaum.
-	Jeder Knoten $x$ von $T$ hat die Variablen $x.parent$, $x.left$ und $x.right$, welche respektiv auf den Elterknoten sowie linkes und rechtes Kind von $x$ verweisen.
-	Wenn der Knoten keine Kinder (z.B. Blätter) oder keinen Elternknoten (Wurzel $root$) hat wird der jeweilige Wert auf $null$ gesetzt.
-	Des weiteren hat jeder Knoten $x$ eine $x.size$ Variable, die auf einen Integer gesetzt werden kann.
+	Jeder Knoten $x$ von $T$ hat die Eigenschaften $x.\texttt{parent}$, $x.\texttt{left}$ und $x.\texttt{right}$, welche auf den Elternknoten sowie auf das linke und rechte Kind von $x$ verweisen.
+	Wenn der Knoten keine Kinder hat (z.B. die Blätter) oder keinen Elternknoten (Wurzel \texttt{root}) hat, wird der jeweilige Wert auf \texttt{null} gesetzt.
+	Des Weiteren hat jeder Knoten $x$ eine Eigenschaft $x.\texttt{size}$, die auf einen Integer gesetzt werden kann.
 	Betrachte den folgenden Algorithmus.
 	\begin{algorithmic}
-		\State {\texttt{ZERO}($x$)}
-		\If{$x\neq null$}
-			\State{\texttt{ZERO}($x.left$)}
-			\State{\texttt{ZERO}($x.right$)}
+		\Procedure{Zero}{$x$}
+		\If{$x\neq \texttt{null}$}
+			\State{\Call{Zero}{$x.\texttt{left}$}}
+			\State{\Call{Zero}{$x.\texttt{right}$}}
 		\EndIf
+		\EndProcedure
 	\end{algorithmic}
-		
 	\begin{enumerate}
-		\item Analysiere die Laufzeit des Algorithmus für den Aufruf mit Knoten $x$, der Wuzel eines (Teil-)Baums mit $n$ Knoten ist.
+		\item Analysiere die Laufzeit von \textsc{Zero}$(x)$, wenn das Argument $x$ die Wurzel eines Teilbaums mit $n$ Knoten ist.
 		\item Sei $T(x)$ der Teilbaum mit Wurzel $x$ und sei $|T(x)|$ die Anzahl an Knoten in $T(x)$.
-		Entwirf einen Algorithmus \texttt{InitSize($x$)}, der gegeben einen Knoten $x$ für allen Knoten $y$ in $T(x)$ die Variable $y.size$ auf $|T(y)|$ setzt.
-		Schreibe den Algorithmus in Pseudocode auf und analysiere die Laufzeit im Verhältnis zu $|T(x)|$.
-		\item Wir bezeichnen eine Kante von Elternknoten $u$ zu Kind $v$, ($u$,$v$), als $rot$ genau dann wenn $|T(x)| \geq 2\cdot|T(y)|$.
-		Entwirf einen rekursiven Algorithmus \texttt{RedEdge($x$)}, der die Anzahl an als rot klassifizierten Kanten des Teilbaums $T(x)$ berechnet.
-		Schreibe den Algorithmus in Pseudocode auf und analysiere die Laufzeit im Verhältnis zu $|T(x)|$.
-		\item Gib eine obere und untere Schranke, in Groß-O Notation, für die Anzahl an roten Kanten, in einem Pfad von der Wurzel zu einem Blatt, an.
+		Entwirf einen rekursiven Algorithmus \textsc{InitSize$(x)$}, der für einen gegebenen Knoten $x$ und alle Knoten~$y$ im Teilbaum $T(x)$ die Variable $y.\texttt{size}$ auf $|T(y)|$ setzt.
+		Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
+		\item Wir bezeichnen eine Kante $(x,y)$ von Knoten $x$ zu einem seiner Kinder $y$ als \emph{rot} genau dann, wenn $|T(x)| \geq 2\cdot|T(y)|$.
+		Entwirf einen rekursiven Algorithmus \textsc{RedEdge$(x)$}, der die Anzahl an roten Kanten im Teilbaum $T(x)$ berechnet.
+		Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
+		\item Wie viele rote Kanten treten in einem Pfad von der Wurzel zu einem Blatt auf?
+		Gib asymptotische obere und untere Schranken an.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Traversierung von binären Suchbäumen]
+\begin{aufgabe}[Traversierung von binären Suchbäumen]\mbox{}
 	\begin{enumerate}
-		\item Entwirf einen Algorithmus, der für einen binären Suchbaum $T$ mit Schlüssel für alle Knoten ermittelt, ob $T$ die Suchbaumeigenschaft erfüllt.
-		\item Entwirf einen Algorithmus, der für einen binären Suchbaum $T$ einen \textit{umgedrehten binären Suchbaum} $T^R$ aufbaut.
-		$T^R$ soll ein binärer Suchbaum sein mit den selben Schlüsseln wie in $T$.
-		Für jeden Knoten $v$ mit Schlüssel $s$ in $T^R$ gilt, dass alle Knoten im linken Teilbaum von $v$ Schlüssel haben, die größer gleich $s$ sind, und alle Knoten im linken Teilbaum von $v$ Schlüssel haben, die kleiner gleich $s$ sind.
-		\item (\hard) Entwirf einen Algorithmus, der gegeben zwei binäre Suchbäume $T_1$ und $T_2$ einen einzigen binären Suchbaum mit den Elementen aus $T_1$ und $T_2$ macht.
+		\item Entwirf einen Algorithmus, der für einen binären Baum $T$ (mit einem Schlüssel $x.\texttt{key}$ an jedem Knoten) ermittelt, ob $T$ ein binärer Suchbaum ist.
+		\item Entwirf einen Algorithmus, der für einen binären Suchbaum $T$ einen \textit{umgedrehten binären Suchbaum} $T^R$ aufbaut:
+		$T^R$ soll ein binärer Baum sein, in dem genau dieselben Schlüssel vorkommen wie in $T$.
+		Für jeden Knoten $v$ in $T^R$ soll zudem gelten, dass alle Knoten im linken Unterbaum von $v$ Schlüssel haben, die größer gleich $v.\texttt{key}$ sind, und dass alle Knoten im rechten Unterbaum von $v$ Schlüssel haben, die kleiner gleich $v.\texttt{key}$ sind.
+		\item (\hard) Entwirf einen Algorithmus, der zwei gegebene binäre Suchbäume $T_1$ und $T_2$ zu einem einzigen binären Suchbaum $T$ mit denselben Elementen verschmilzt.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Ausbalancierte binäre Suchbäume]
-	Sei $A$ ein sortiertes Feld mit $n = 2^{h+1}-1$ paarweise unterschiedlichen Nummern.
-	Gib eine Sequenz an Feldindizes, sodass das Einfügen der korrespondierenden Nummern aus $A$ in einen binären Suchbaum in der Konstruktion eines vollständigen Binärbaums resultiert.
+\begin{aufgabe}[Vollständige binäre Suchbäume]
+	Sei $A$ ein sortiertes Feld mit $n = 2^{h+1}-1$ paarweise verschiedenen Zahlen.
+	In welcher Reihenfolge müssen wir die Elemente in einen zunächst leeren binären Suchbaum einfügen, sodass der Suchbaum am Ende ein \emph{vollständiger} Binärbaum ist?
+	Gib die Reihenfolge als eine Sequenz von Feldindizes an.
 \end{aufgabe}
 
-\begin{aufgabe}[Preorder Traversierung]
-	Entwirf einen rekursiven Algorithmus für preorder Traversierung.
-	\ifthenelse{\boolean{programming}}{Implementiere den Algorithmus in einer Sprache deiner Wahl.}{}
+\begin{aufgabe}[Preorder-Traversierung]
+	Entwirf einen rekursiven Algorithmus, der die Preorder-Traversierung eines binären Baums~$T$ durchführt.
+	Schreib den Algorithmus in Pseudocode auf.
 \end{aufgabe}
 
-\begin{aufgabe}[Noch mehr rekursion auf Bäumen]
+\begin{aufgabe}[Noch mehr Rekursion auf Bäumen]
 	Sei $T$ ein Binärbaum.
-	Jeder Knoten $x$ von $T$ hat die Variablen $x.parent$, $x.left$ und $x.right$, welche respektiv auf den Elterknoten sowie linkes und rechtes Kind von $x$ verweisen.
-	Wenn der Knoten keine Kinder (z.B. Blätter) oder keinen Elternknoten (Wurzel $root$) hat wird der jeweilige Wert auf $null$ gesetzt.
-	Des weiteren hat jeder Knoten $x$ eine $x.label$ Variable, die auf einen einzelnen Buchstaben ($character$) speichert.
-	Betrachte den folgenden Algorithmus und Binärbaum.
+	Jeder Knoten $x$ von $T$ hat die Eigenschaften $x.\texttt{parent}$, $x.\texttt{left}$ und $x.\texttt{right}$, welche auf den Elternknoten sowie auf das linke und rechte Kind von $x$ verweisen.
+	Wenn der Knoten keine Kinder hat (z.B. die Blätter) oder keinen Elternknoten (Wurzel \texttt{root}) hat, wird der jeweilige Wert auf \texttt{null} gesetzt.
+	Des Weiteren hat jeder Knoten $x$ eine Eigenschaft $x.\texttt{label}$, die einen einzelnen Buchstaben speichert.
+	Betrachte den folgenden Algorithmus und den Baum.
 	\begin{algorithmic}
-		\State {\texttt{PrintTree}($x$)}
-		\If{$x\neq null$}
-			\Output{$x.label$}
-			\If{$x.left \neq null$}
-				\State{\texttt{PrintTree}($x.left$)}
+		\Procedure{PrintTree}{$x$}
+		\If{$x\neq \texttt{null}$}
+			\State{\textbf{print} {$x.\texttt{label}$}}
+			\If{$x.\texttt{left} \neq \texttt{null}$}
+				\State{\Call{PrintTree}{$x.\texttt{left}$}}
 			\EndIf
-			\If{$x.right \neq null$}
-				\State{\texttt{PrintTree}($x.right$)}
+			\If{$x.\texttt{right} \neq \texttt{null}$}
+				\State{\Call{PrintTree}{$x.\texttt{right}$}}
 			\EndIf
 		\EndIf
+		\EndProcedure
 	\end{algorithmic}
-		
+	% tikz magic
 	\begin{enumerate}
-		\item Wenn wir \texttt{PrintTree} mit der Wurzel aufrufen wird \glqq CROOL\grqq{} in unsere Konsole geprintet.
-		Wie muss \texttt{PrintTree} modifiziert werden, sodass wir stattdessen \glqq COLOR\grqq{} bekommen.
-		\item Entwirf einen rekursiven Algorithmus \texttt{Internal}($x$), der die Anzahl an Knoten in dem in $x$ verwurzelten Teilbaum $T(x)$ berechnet.
-		Schreibe deinen Algorithmus in Pseudocode und analysiere die Laufzeit als Funktion 
-		\item Wir sagen, das ein Baum einen \textit{R-Pfad} hat, wenn es einen Pfad von der Wurzel zu einem Blatt gibt, sodass alle Knoten $v$ im Pfad $v.label = 'R'$ haben.
-		Entwirf einen rekursiven Algorithmus \texttt{RPfad($x$)}, der für Knoten $x$ ermittelt, ob es einen R-Pfad in $T(x)$ gibt.
-		Schreibe den Algorithmus in Pseudocode auf und analysiere die Laufzeit im Verhältnis zu $|T(x)|$.
+		\item Wenn wir \textsc{PrintTree} mit der Wurzel des Baums aufrufen, wird \enquote{CROOL} auf die Konsole ausgegeben.
+		Wie muss \textsc{PrintTree} modifiziert werden, sodass wir bei derselben Eingabe stattdessen \enquote{COLOR} erhalten?
+		\item Entwirf einen rekursiven Algorithmus \textsc{Internal}$(x)$, der die Wurzel $x$ des Baums als Eingabe erhält und die Anzahl der internen Knoten des Baums berechnet.
+		Schreib deinen Algorithmus in Pseudocode auf und analysiere die Laufzeit als Funktion von $n$, wobei $n$ die Anzahl der Knoten des Baums ist.
+		\item Wir sagen, dass ein Baum einen \textit{R-Pfad} hat, wenn es einen Pfad von der Wurzel zu einem Blatt gibt, sodass alle Knoten $v$ im Pfad $v.\texttt{label} = \texttt{'R'}$ erfüllen.
+		Entwirf einen rekursiven Algorithmus \texttt{RPfad($x$)}, der für den gegebenen Wurzelknoten $x$ ermittelt, ob es einen R-Pfad im Baum gibt.
+		Schreib den Algorithmus in Pseudocode auf und analysiere die Laufzeit im Verhältnis zu $|T(x)|$.
 	\end{enumerate}
 \end{aufgabe}
 

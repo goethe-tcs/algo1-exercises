@@ -10,6 +10,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\tikzset{every tree node/.style={minimum width=25pt,draw,circle},
+blank/.style={draw=none},
+edge from parent/.style=
+{draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+level distance=1.5cm}
+
 \begin{document}
 \section*{Vorbereitung}
 Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
@@ -18,7 +24,91 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 \begin{aufgabe}[Binärbaumeigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Welche der folgenden Bäume sind binäre Suchbäume?
-		% tikz magic
+		\begin{center}
+			\begin{figure}[h]
+				\begin{subfigure}[b]{0.33\textwidth}
+					\hspace*{\fill}
+					\scalebox{0.6}
+					{
+						\begin{tikzpicture}[sibling distance=20pt]
+							\Tree
+							[.15 
+								[.12
+									[.1
+										\edge[blank]; \node[blank]{};
+										\edge[]; {7}
+									] 
+									10
+								]
+								[.19
+									17
+									20
+								]
+							]
+						\end{tikzpicture}
+					}
+					\hspace*{\fill}
+					\caption*{Baum 1}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.33\textwidth}
+					\hspace*{\fill}
+					\scalebox{0.6}
+					{
+						\begin{tikzpicture}[sibling distance=20pt]
+							\Tree
+							[.10 
+								[.8
+									[.3
+										\edge[]; {2}
+										\edge[blank]; \node[blank]{};
+									] 
+									9
+								]
+								[.18
+									[.14
+										\edge[]; {11}
+										\edge[blank]; \node[blank]{};
+									]
+									19
+								]
+							]
+						\end{tikzpicture}
+					}
+					\hspace*{\fill}
+					\caption*{Baum 2}
+				\end{subfigure}
+				\begin{subfigure}[b]{0.33\textwidth}
+					\hspace*{\fill}
+					\scalebox{0.6}
+					{
+						\begin{tikzpicture}[sibling distance=20pt]
+							\Tree
+							[.15
+								[.12
+									[.1
+										\edge[blank]; \node[blank]{};
+										\edge[]; {2}
+									] 
+									[.14
+										\edge[]; {6}
+										\edge[blank]; \node[blank]{};
+									]
+								]
+								[.13
+									[.10
+										\edge[]; {9}
+										\edge[blank]; \node[blank]{};
+									]
+									\edge[blank]; \node[blank]{};
+								]
+							]
+						\end{tikzpicture}
+					}
+					\hspace*{\fill}
+					\caption*{Baum 3}
+				\end{subfigure}
+			\end{figure}
+		\end{center}
 		\item (\warmup) Wo in einem Baum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
 		\item Betrachte die Schlüsselmenge $\{1, 4, 5, 10, 16, 17, 21\}$. Zeichne binäre Suchbäume der Höhe 2, 3, 4, 5 und 6, die jeweils genau diese Schlüssel enthalten.
 		\item (\warmup) Gib die Reihenfolge an, in der die Knoten von Baum b) in inorder, preorder und postorder traversiert werden.
@@ -108,7 +198,20 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 		\EndIf
 		\EndProcedure
 	\end{algorithmic}
-	% tikz magic
+	\begin{center}
+		\begin{tikzpicture}
+			\node[draw, circle, minimum width=25pt] (c) at (0,6) {C};
+			\node[draw, circle, minimum width=25pt] (r) at (-2,4) {R};
+			\node[draw, circle, minimum width=25pt] (o1) at (2,4) {O};
+			\node[draw, circle, minimum width=25pt] (o2) at (0,2) {O};
+			\node[draw, circle, minimum width=25pt] (l) at (4,2) {L};
+
+			\draw (c) -- (r);
+			\draw (c) -- (o1);
+			\draw (o1) -- (o2);
+			\draw (o1) -- (l);
+		\end{tikzpicture}
+	\end{center}
 	\begin{enumerate}
 		\item Wenn wir \textsc{PrintTree} mit der Wurzel des Baums aufrufen, wird \enquote{CROOL} auf die Konsole ausgegeben.
 		Wie muss \textsc{PrintTree} modifiziert werden, sodass wir bei derselben Eingabe stattdessen \enquote{COLOR} erhalten?

@@ -129,33 +129,33 @@ Lies \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-Jef
 			% draw ``inner'' edges of the weide
 			\def\edges {root/l/left/5, l/ll/left/17, l/lr/right/0, ll/lll/left/23, root/r/right/8, r/rr/right/1, rr/rrl/left/9, rr/rrr/right/14};
 			\foreach \s\t\labelside\weight in \edges{
-				\draw[-latex] (\s) -- (\t) node[midway, above \labelside] {$\weight$};
+				\draw[-latex] (\s) -- (\t) node[midway, above \labelside] {\small $\weight$};
 			}
 			% draw bendy bendy edges from leaves to wurzel of the weide
 			\draw[-latex] 
 				(lll) 
 				.. controls (-4,1) and (-2,3) 
 				.. (root)
-			node [midway, right] {$4$};
+			node [midway, right] {\small $4$};
 			\draw[-latex, rounded corners=40] 
 				(lr)
 				.. controls (-1,0) 
 				.. (-4,-1)
 				.. controls (-4,3)
 				.. (root)
-			node [midway, below] {$16$};
+			node [midway, below] {\small $16$};
 			\draw[-latex] 
 				(rrr) 
 				.. controls (4,1) and (2,3) 
 				.. (root)
-			node [midway, left] {$42$};
+			node [midway, left] {\small $42$};
 			\draw[-latex, rounded corners=40] 
 				(rrl)
 				.. controls (2,-1) 
 				.. (4,-1)
 				.. controls (4,3)
 				.. (root)
-			node [midway, below] {$7$};
+			node [midway, below] {\small $7$};
 		\end{tikzpicture}
 	\end{center}
 	Betrachte eine Weide mit $n$ Knoten.

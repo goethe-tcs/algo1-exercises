@@ -14,6 +14,12 @@ GITINFOS=$(patsubst %.tex,%.gitinfo,$(SOURCES))
 
 .PHONY: all
 all: $(TARGETS)
+
+.PHONY: gitinfo
+gitinfo: $(GITINFOS)
+
+.PHONY: deploy
+deploy: all
 	@if test -d $(WWWDIR); then \
 		for f in $(TARGETS); do \
 			if ! diff $$f $(WWWDIR)/$$f &> /dev/null; then \
@@ -22,9 +28,7 @@ all: $(TARGETS)
 			fi; \
 		done \
 	fi
-
-.PHONY: gitinfo
-gitinfo: $(GITINFOS)
+	@cd $(WWWDIR) && yarn build && yarn upload
 
 .PHONY: clean
 clean:

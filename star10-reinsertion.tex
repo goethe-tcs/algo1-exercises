@@ -9,7 +9,7 @@
 Sei $G$ ein stark zusammenhängender, gerichteter Graph mit nicht-negativen Kantengewichten, und seien $s$ und $t$ Knoten aus $G$.
 Weiterhin sei $H$ ein Untergraph von $G$, der dieselbe Knotenmenge hat wie $G$ (also $V(H)=V(G)$), bei dem aber manche Kanten gelöscht wurden (also $E(H)\subsetneq E(G)$).
 
-Wir wollen genau eine Kante aus $E(G)\setminus E(H)$ wieder in $H$ einfügen, sodass in dem neuen Graph der kürzeste Weg von $s$ nach $t$ so klein wie möglich ist.
+Wir wollen genau eine Kante aus $E(G)\setminus E(H)$ wieder in $H$ einfügen, sodass in dem neuen Graph die Länge des kürzesten Weges von $s$ nach $t$ so klein wie möglich ist (diese Länge könnte auch $\infty$ sein).
 Beschreibe und analysiere einen Algorithmus, der für gegebenes $(G,H,s,t)$ die beste Kante zum Wiedereinfügen auswählt, und der in Zeit $O(m\log n)$ läuft.
 
 \emph{Hinweis: Du kannst einen bereits bekannten Algorithmus mit geschickt gewählten Eingaben benutzen, oder du kannst einen bereits bekannten Algorithmus modifizieren. Meistens ist das Benutzen einfacher und eleganter!}

@@ -30,11 +30,11 @@ Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b
     Finde eine kurze Formel in Abhängigkeit von $p$ für die Wahrscheinlichkeit $\pr_{a,b}(h_{a,b}(x)=i)$, und beweise deine Antwort. (Mit anderen Worten, beweise dass die Annahme des einfachen gleichmäßigen Hashings für die zufällige Hashfunktion $h_{a,b}$ im Erwartungswert gilt.)
     \item Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $x\ne y$.
     Beweise, dass \[\pr_{a,b}(h_{a,b}(x)=h_{a,b}(y))=\frac{1}{p^2}\] gilt. (Mit anderen Worten, beweise dass die Kollisionswahrscheinlichkeit $\frac{1}{p^2}$ ist.)
-    \item Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $p_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
-    \[p_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
+    \item Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
+    \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
     Beweise, dass folgende Ungleichungen gelten:
     \[
-        \left(1-\frac{k}{p}\right)^k\le p_k \leq e^{-(k-1)k/(2p)}\,.
+        \left(1-\frac{k}{p}\right)^k\le q_k \leq e^{-(k-1)k/(2p)}\,.
     \]
     (Das heißt, wir müssen bereits für $k=\Theta(\sqrt{p})$ mit Kollisionen rechnen.)\\
     \emph{Hinweis: Die Ungleichung $(1-x)\le e^{-x}$ gilts stets und darf benutzt werden.}

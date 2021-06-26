@@ -33,13 +33,13 @@ Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b
     Beweise, dass für alle natürlichen $x,y$ mit $x<y<p$ gilt:
     \[\pr_{a,b}(h'_{a,b}(x)=h'_{a,b}(y))=\frac{1}{p-1}\,.\]
     (Mit anderen Worten, beweise, dass die Kollisionswahrscheinlichkeit $\frac{1}{p-1}$ ist.)
-    \item Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k\le p$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
-    \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
+    \item Sei $0\le k\le m$. Wir ziehen $k$ zufällige Elemente $z_1,\dots,z_k\in \{0,\dots,m-1\}$ unabhängig und gleichverteilt aus $\{0,\dots,m-1\}$ (``mit Zurücklegen''). Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
+    \[q_k=\pr_{z_1,\dots,z_k}\Big(\forall i,j\in \{1,\dots,k\}\colon i\ne j \implies z_i\ne z_j\Big)\,.\]
     Beweise, dass folgende Ungleichungen gelten:
     \[
-        \left(1-\frac{k}{p}\right)^k\le q_k \leq e^{-(k-1)k/(2p)}\,.
+        \left(1-\frac{k}{m}\right)^k\le q_k \leq e^{-(k-1)k/(2m)}\,.
     \]
-    (Das heißt, wir müssen bereits für $k=\Theta(\sqrt{p})$ mit Kollisionen rechnen.)\\
+    (Das heißt, selbst in dem idealen Fall, dass $k$ Schlüssel \emph{perfekt zufällig} auf $m$ Buckets verteilt werden, müssen wir bereits für $k=\Theta(\sqrt{m})$ mit mindestens einer Kollision rechnen.)\\
     \emph{Hinweis: Die Ungleichung $(1-x)\le e^{-x}$ gilts stets und darf benutzt werden.}
 \end{enumerate}
 

@@ -28,8 +28,11 @@ Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b
 \begin{enumerate}
     \item Sei $x$ eine beliebige natürliche Zahl ungleich $0$ und sei $i$ ein beliebiges Element aus $\{0,\dots,p-1\}$.
     Finde eine kurze Formel in Abhängigkeit von $p$ für die Wahrscheinlichkeit $\pr_{a,b}(h_{a,b}(x)=i)$, und beweise deine Antwort. (Mit anderen Worten, beweise, dass die Annahme des einfachen gleichmäßigen Hashings für die zufällige Hashfunktion $h_{a,b}$ im Erwartungswert gilt.)
-    \item Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $0\le x<y<p$.
-    Beweise, dass \[\pr_{a,b}(h_{a,b}(x)=h_{a,b}(y))=\frac{1}{p-1}\] gilt. (Mit anderen Worten, beweise, dass die Kollisionswahrscheinlichkeit $\frac{1}{p-1}$ ist.)
+    \item Sei $m\in\mathbb N$ mit $m<p$.
+    Als eigentliche Hashfunktion $h'_{a,b}\colon\{0,\dots,p-1\}\to\{0,\dots,m\}$ definieren wir nun $h'_{a,b}(x)=(h_{a,b}(x) \bmod m)$.
+    Beweise, dass für alle natürlichen $x,y$ mit $x<y<p$ gilt:
+    \[\pr_{a,b}(h'_{a,b}(x)=h'_{a,b}(y))=\frac{1}{p-1}\,.\]
+    (Mit anderen Worten, beweise, dass die Kollisionswahrscheinlichkeit $\frac{1}{p-1}$ ist.)
     \item Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k\le p$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
     \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
     Beweise, dass folgende Ungleichungen gelten:
@@ -42,6 +45,6 @@ Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b
 
 \paragraph*{Hinweise zur Abgabe.}
 Bitte schreib deine Beweise möglichst kurz und elegant auf.
-Den \emoji{star} erhälst du für die vollständige und weitgehend korrekte Bearbeitung der Aufgabenteile~a) und~b). Aufgabenteil c) gibt einen Bonus in der Bewertung.
+Den \emoji{star} erhälst du für die vollständige und korrekte Bearbeitung von Aufgabenteil~a). Aufgabenteile b) und c) geben einen Bonus in der Bewertung.
 
 \end{document}

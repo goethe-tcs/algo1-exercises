@@ -32,7 +32,7 @@ Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b
     Als eigentliche Hashfunktion $h'_{a,b}\colon\{0,\dots,p-1\}\to\{0,\dots,m-1\}$ definieren wir nun $h'_{a,b}(x)=(h_{a,b}(x) \bmod m)$.
     Beweise, dass für alle natürlichen $x,y$ mit $x<y<p$ gilt:
     \[\pr_{a,b}(h'_{a,b}(x)=h'_{a,b}(y))\le\frac{1}{m}\,.\]
-    (Mit anderen Worten, beweise, dass die Kollisionswahrscheinlichkeit $\frac{1}{p-1}$ ist.)
+    (Mit anderen Worten, beweise, dass die Kollisionswahrscheinlichkeit höchstens $\frac{1}{m}$ ist.)
     \item Sei $0\le k\le m$. Wir ziehen $k$ zufällige Elemente $z_1,\dots,z_k\in \{0,\dots,m-1\}$ unabhängig und gleichverteilt aus $\{0,\dots,m-1\}$ (``mit Zurücklegen''). Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
     \[q_k=\pr_{z_1,\dots,z_k}\Big(\forall i,j\in \{1,\dots,k\}\colon i\ne j \implies z_i\ne z_j\Big)\,.\]
     Beweise, dass folgende Ungleichungen gelten:

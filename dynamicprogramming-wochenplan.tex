@@ -8,17 +8,6 @@
 Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
 
 \section*{Dienstag}
-\begin{aufgabe}\mbox{}
-    \begin{enumerate}
-        \item(\warmup) Welche Editiersequenz ist hier visualisiert und wie viele Editieroperationen wurden benutzt?
-        \begin{verbatim}
-            P   L U   T   O
-            P L A   N E T
-        \end{verbatim}
-        \item(\warmup) Fülle alle 25 Einträge der Tabelle \texttt{Edit[i,j]} mit $A=\texttt{PLUTO}$ und $B=\texttt{PLANET}$ aus. Gib die optimale Editiersequenz an.
-        \item s
-    \end{enumerate}
-\end{aufgabe}
 
 \begin{aufgabe}[Pascalsches Dreieck]\mbox{}\\
     Für die Binomialkoeffizienten gilt folgende Rekursionsformel:
@@ -34,8 +23,22 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
     \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}[Editieren]\mbox{}
+    \begin{enumerate}
+        \item(\warmup) Welche Editiersequenz ist hier visualisiert und wie viele Editieroperationen wurden benutzt?
+        \begin{verbatim}
+            P   L U   T   O
+            P L A   N E T
+        \end{verbatim}
+        \item(\warmup) Füll alle 25 Einträge der Tabelle \texttt{Edit[i,j]} mit $A=\texttt{PLUTO}$ und $B=\texttt{PLANET}$ aus. Gib die optimale Editiersequenz an.
+        \item Die Tabelle \texttt{Edit[i,j]} hat $mn$ Einträge und braucht daher $O(mn)$ Platz. Wie kann das dynamische Programm für die Editiersequenz \emph{platzsparend} gemacht werden, sodass zu jedem Zeitpunkt nur noch ${O(\min\{m,n\})}$ Platz gebraucht wird? Die Laufzeit soll dabei asymptotisch gleich bleiben.
+    \end{enumerate}
+\end{aufgabe}
+
+
 \begin{aufgabe}[RNA]
-    Die RNA eines RNA-Virus besteht aus den Molekülen Guanin, Adenin, Cytosin und Uracil, die in einer Kette angeordnet sind. Wir repräsentieren die RNA-Sequenz als eine Zeichenkette, die nur Zeichen aus dem Alphabet $\{\texttt{G}, \texttt{A}, \texttt{C}, \texttt{U}\}$ enthält, zum Beispiel \verb|AGACUAGUUAC|.
+    \emph{Ribonucleic acid} (RNA) ist eine lange Kette von Millionen Nukleotiden von vier verschiedenen Typen:
+    Adenin (\verb|A|), Cytosin (\verb|C|), Guanin (\verb|G|), und Uracil (\verb|U|). Die \emph{Sequenz} eines RNA-Moleküls ist eine Zeichenkette $b[1\dots n]$, wobei jedes Zeichen $b[u]\in\{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}$ zu einem Nukleotid korrespondiert.
         Manchmal mutiert ein Virus und die RNA-Sequenz verändert sich leicht. Deine Aufgabe ist es nun, für zwei gegebene RNA-Sequenzen herauszufinden, wie ähnlich diese sich sind; damit kann man Rückschlüsse ziehen darauf, wie ähnlich sich zwei Virusvarianten sind. Aber nicht jede Änderung in der RNA ist gleich wahrscheinlich! Wir haben nun folgende (fiktive) Ähnlichkeitsmatrix $M[a,b]$ gegeben, die für jede Punktmutation (=Substitution) angibt, wie wahrscheinlich diese ist:
 
         \begin{tabular}{ccccc}
@@ -46,7 +49,7 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
            U & -4 &-3 &  0 &  8\\
         \end{tabular}
 
-        Je größer die Zahl ist, desto wahrscheinlich soll die entsprechende Substitution sein.
+        Je größer die Zahl ist, desto wahrscheinlicher soll die entsprechende Substitution sein.
         Zum Beispiel hat eine Substitution von C auf G einen Ähnlichkeitwert von -5, aber ein korrektes Alignment von G mit G hat einen Ähnlichkeitswert von 7.
         Außerdem definieren wir noch einen Wert $d=-5$, der den Ähnlichkeitswert einer Einfügen oder Löschen Operation auf $-5$ setzt.
         Der Ähnlichkeitswert einer Editiersequenz ist die Summe der Ähnlichkeitswerte für jede Spalte.
@@ -59,8 +62,50 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
             \item Wie muss das dynamische Programm für die Edit Distance angepasst werden, um eine Editiersequenz zu berechnen, die einen möglichst großen Ähnlichkeitswert erzeugt?
         \end{enumerate}
 \end{aufgabe}
+
+\begin{aufgabe}[Genaues Rückgeld]
+    In einem früheren Leben hast du als Kassierer:in in der verlorenen antarktischen Kolonie Nadiria gearbeitet, wo du die meiste Zeit des Tages Rückgeld an deine Kund:innen gegeben hast.
+    Weil Papier ein knappes und wertvolles Gut in der Antarktis ist, gab es das Gesetz, dass Kassierer:innen immer die kleinstmögliche Anzahl an Geldscheinen zurückgeben müssen.
+    Die Währung von Nadiria heißt Traumdollar und war in den folgenden Scheinen verfügbar:
+    \$1,
+    \$4,
+    \$7,
+    \$13,
+    \$28,
+    \$52,
+    \$91,
+    \$365.
+    \begin{enumerate}
+        \item(\warmup) Der gierige Wechselalgorithmus nimmt immer den größten Schein, der kleiner ist als das noch zu gebende Rückgeld. Zum Beispiel, um \$122 mit dem gierigen Algorithmus zurückzugeben, nehmen wir zuerst einen \$91 Schein, dann einen \$28 Schein, und am Ende drei \$1 Scheine. Gib ein Beispiel an, in dem der gierige Algorithmus mehr Traumdollarscheine als Wechselgeld gibt als die minimal mögliche Anzahl. \emph{Hinweis: Es könnte einfacher sein, ein kleines Programm zu schreiben, als von Hand ein Beispiel zu konstruieren.}
+        \item Beschreibe und analysiere einen rekursiven Algorithmus, der für eine gegebene Zahl $k$ die kleinste Anzahl an Scheinen berechnet, die benötigt werden, um $k$ Traumdollar Rückgeld zu geben. (Mach dir erstmal keine Gedanken darüber, wie man den Algorithmus schnell macht; stell einfach sicher, dass er korrekt ist.)
+        \item Beschreibe einen Algorithmus, der mithilfe von dynamischer Programmierung dasselbe algorithmische Problem löst. (Dieser Algorithmus soll schnell sein.)
+    \end{enumerate}
+\end{aufgabe}
+
 \section*{Donnerstag}
-\begin{aufgabe}[test]
+
+\begin{aufgabe}[Maximales Teilfeld II]
+    Erinnere dich zurück an die Aufgabe zu den maximalen Teilfeldern (Aufgabe 6 in Woche 3).
+    Eine Lösung nutzt eine rekursive Funktion
+    \Call{MaxTeilfeld}{$j$}, die die Summe eines maximalen Teilfelds ausrechnet, das in $j$ endet. Das heißt, die Funktion liefert unter den Teilfeldern $A[0..j]$, $A[1..j]$, $\dots$, $A[j..j]$ die maximale Summe.
+    Ohne auf deine Notizen zu schauen, stelle die rekursive Gleichung für diese Funktion auf und löse das Problem dann effizient mit dynamischer Programmierung. Hier ist noch einmal der Text aus der Aufgabenstellung:
+
+    Sei $A \in \mathbb{Z}^n$ als ein Feld $A[0, \dots, n-1]$ gespeichert.
+	Ein Teilfeld von $A$ ist ein genau dann ein \textit{maximales Teilfeld} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + \cdots + A[j]$ maximal über alle möglichen Teilfelder ist.
+    Beschreibe und analysiere einen Algorithmus, der mithilfe von dynamischer Programmierung die Summe eines maximalen Teilfelds von $A$ in Zeit $O(n)$ berechnet.
+\end{aufgabe}
+
+\begin{aufgabe}[Palindromische Wege II]
+    Erinnere dich zurück an die Aufgabe zu den palindromischen Wegen (\emoji{star} in Woche 6).
+    Eine Lösung benutzt eine rekursive Funktion \Call{HasPalindromicWalk}{$u,v,i$}, die feststellt, ob es einen palindromischen Weg von $u$ nach $v$ der Länge $i$ gibt.
+    Ohne auf deine Notizen zu schauen, stelle die rekursive Gleichung erneut auf und löse das Problem dann effizient mit dynamischer Programmierung. Hier ist noch einmal der Text aus der Aufgabenstellung:
+
+    Ein \emph{Palindrom} über dem Alphabet $\{\texttt{R},\texttt{B}\}$ ist eine Zeichenkette $s_1,s_2,s_3,\dots,s_n\in\{\texttt{R},\texttt{B}\}$, sodass $s_i=s_{n-i+1}$ für alle $i\in\{1,\dots,n\}$. Zum Beispiel sind \texttt{BRBRB} und \texttt{RBBR} Palindrome, aber \texttt{RBB} und \texttt{BRRR} nicht.
+
+Sei $G$ ein beliebiger gerichteter Graph, in dem jede Kante entweder rot oder blau gefärbt ist, und seien $s,t$ zwei Knoten.
+Beschreibe einen Algorithmus, der entweder einen Weg von $s$ nach $t$ berechnet, für den die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+
+\emph{Zur Erinnerung:} Ein Weg von $s$ nach $t$ darf sich selbst überlappen, das heißt, ein Weg muss nicht unbedingt einfach sein.
 \end{aufgabe}
 
 \end{document}

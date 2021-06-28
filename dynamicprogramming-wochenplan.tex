@@ -88,7 +88,7 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
     Erinnere dich zurück an die Aufgabe zu den maximalen Teilfeldern (Aufgabe 6 in Woche 3).
     Eine Lösung nutzt eine rekursive Funktion
     \Call{MaxTeilfeld}{$j$}, die die Summe eines maximalen Teilfelds ausrechnet, das in $j$ endet. Das heißt, die Funktion liefert unter den Teilfeldern $A[0..j]$, $A[1..j]$, $\dots$, $A[j..j]$ die maximale Summe.
-    Ohne auf deine Notizen zu schauen, stelle die rekursive Gleichung für diese Funktion auf und löse das Problem dann effizient mit dynamischer Programmierung. Hier ist noch einmal der Text aus der Aufgabenstellung:
+    Ohne auf deine Notizen zu schauen, stelle zunächst einen einfachen rekursiven Algorithmus für diese Funktion auf. Wende dann dynamische Programmierung an, um den Algorithmus effizient zu machen. Hier ist noch einmal der Text aus der Aufgabenstellung:
 
     Sei $A \in \mathbb{Z}^n$ als ein Feld $A[0, \dots, n-1]$ gespeichert.
 	Ein Teilfeld von $A$ ist ein genau dann ein \textit{maximales Teilfeld} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + \cdots + A[j]$ maximal über alle möglichen Teilfelder ist.
@@ -98,7 +98,7 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
 \begin{aufgabe}[Palindromische Wege II]
     Erinnere dich zurück an die Aufgabe zu den palindromischen Wegen (\emoji{star} in Woche 6).
     Eine Lösung benutzt eine rekursive Funktion \Call{HasPalindromicWalk}{$u,v,i$}, die feststellt, ob es einen palindromischen Weg von $u$ nach $v$ der Länge $i$ gibt.
-    Ohne auf deine Notizen zu schauen, stelle die rekursive Gleichung erneut auf und löse das Problem dann effizient mit dynamischer Programmierung. Hier ist noch einmal der Text aus der Aufgabenstellung:
+    Ohne auf deine Notizen zu schauen, stelle den rekursiven Algorithmus für diese Funktion erneut auf. Wende dann dynamische Programmierung an, um den Algorithmus effizient zu machen. Hier ist noch einmal der Text aus der Aufgabenstellung:
 
     Ein \emph{Palindrom} über dem Alphabet $\{\texttt{R},\texttt{B}\}$ ist eine Zeichenkette $s_1,s_2,s_3,\dots,s_n\in\{\texttt{R},\texttt{B}\}$, sodass $s_i=s_{n-i+1}$ für alle $i\in\{1,\dots,n\}$. Zum Beispiel sind \texttt{BRBRB} und \texttt{RBBR} Palindrome, aber \texttt{RBB} und \texttt{BRRR} nicht.
 

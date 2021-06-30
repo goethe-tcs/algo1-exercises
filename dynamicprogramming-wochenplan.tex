@@ -9,6 +9,18 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
 
 \section*{Dienstag}
 
+\begin{aufgabe}[Editieren]\mbox{}
+    \begin{enumerate}
+        \item(\warmup) Welche Editiersequenz ist hier visualisiert und wie viele Editieroperationen wurden benutzt?
+        \begin{verbatim}
+            P   L U   T   O
+            P L A   N E T
+        \end{verbatim}
+        \item(\warmup) Füll alle 25 Einträge der Tabelle \texttt{Edit[i,j]} mit $A=\texttt{PLUTO}$ und $B=\texttt{PLANET}$ aus. Gib die optimale Editiersequenz an.
+        \item Die Tabelle \texttt{Edit[i,j]} hat $mn$ Einträge und braucht daher $O(mn)$ Platz. Wie kann das dynamische Programm für die Editiersequenz \emph{platzsparend} gemacht werden, sodass zu jedem Zeitpunkt nur noch ${O(\min\{m,n\})}$ Platz gebraucht wird? Die Laufzeit soll dabei asymptotisch gleich bleiben.
+    \end{enumerate}
+\end{aufgabe}
+
 \begin{aufgabe}[Pascalsches Dreieck]\mbox{}\\
     Für die Binomialkoeffizienten gilt folgende Rekursionsformel:
     \begin{align*}
@@ -23,44 +35,14 @@ Lies E Kapitel 3 ohne 3.6 und 3.9 und schau das Video der Woche.
     \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Editieren]\mbox{}
-    \begin{enumerate}
-        \item(\warmup) Welche Editiersequenz ist hier visualisiert und wie viele Editieroperationen wurden benutzt?
-        \begin{verbatim}
-            P   L U   T   O
-            P L A   N E T
-        \end{verbatim}
-        \item(\warmup) Füll alle 25 Einträge der Tabelle \texttt{Edit[i,j]} mit $A=\texttt{PLUTO}$ und $B=\texttt{PLANET}$ aus. Gib die optimale Editiersequenz an.
-        \item Die Tabelle \texttt{Edit[i,j]} hat $mn$ Einträge und braucht daher $O(mn)$ Platz. Wie kann das dynamische Programm für die Editiersequenz \emph{platzsparend} gemacht werden, sodass zu jedem Zeitpunkt nur noch ${O(\min\{m,n\})}$ Platz gebraucht wird? Die Laufzeit soll dabei asymptotisch gleich bleiben.
-    \end{enumerate}
-\end{aufgabe}
-
-
-\begin{aufgabe}[RNA]
-    \emph{Ribonucleic acid} (RNA) ist eine lange Kette von Millionen Nukleotiden von vier verschiedenen Typen:
-    Adenin (\verb|A|), Cytosin (\verb|C|), Guanin (\verb|G|), und Uracil (\verb|U|). Die \emph{Sequenz} eines RNA-Moleküls ist eine Zeichenkette $b[1\dots n]$, wobei jedes Zeichen $b[u]\in\{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}$ zu einem Nukleotid korrespondiert.
-        Manchmal mutiert ein Virus und die RNA-Sequenz verändert sich leicht. Deine Aufgabe ist es nun, für zwei gegebene RNA-Sequenzen herauszufinden, wie ähnlich diese sich sind; damit kann man Rückschlüsse ziehen darauf, wie ähnlich sich zwei Virusvarianten sind. Aber nicht jede Änderung in der RNA ist gleich wahrscheinlich! Wir haben nun folgende (fiktive) Ähnlichkeitsmatrix $M[a,b]$ gegeben, die für jede Punktmutation (=Substitution) angibt, wie wahrscheinlich diese ist:
-
-        \begin{tabular}{ccccc}
-             & A  & G &  C & U\\
-           A & 10 &-1 & -3 & -4\\
-           G & -1 & 7 & -5 & -3\\
-           C & -3 &-5 &  9 &  0\\
-           U & -4 &-3 &  0 &  8\\
-        \end{tabular}
-
-        Je größer die Zahl ist, desto wahrscheinlicher soll die entsprechende Substitution sein.
-        Zum Beispiel hat eine Substitution von C auf G einen Ähnlichkeitwert von -5, aber ein korrektes Alignment von G mit G hat einen Ähnlichkeitswert von 7.
-        Außerdem definieren wir noch einen Wert $d=-5$, der den Ähnlichkeitswert einer Einfügen oder Löschen Operation auf $-5$ setzt.
-        Der Ähnlichkeitswert einer Editiersequenz ist die Summe der Ähnlichkeitswerte für jede Spalte.
-        \begin{enumerate}
-            \item(\warmup) Was ist der Ähnlichkeitswert dieser Editiersequenz?
-            \begin{verbatim}
-                G A U  
-                C   C G
-            \end{verbatim}
-            \item Wie muss das dynamische Programm für die Edit Distance angepasst werden, um eine Editiersequenz zu berechnen, die einen möglichst großen Ähnlichkeitswert erzeugt?
-        \end{enumerate}
+\begin{aufgabe}[Betriebsfeier]
+    Du organisierst die jährliche Betriebsfeier bei der Algorithmen-Bank (AB).
+    Die Mitarbeiter:innen der Bank sind in einer strikten Hierarchie angeordnet: ein Baum, in dem die Eigentümerin der Bank die Wurzel darstellt.
+    Die allwissende Personalabteilung hat für jede:n Angestellte:n eine reelle Zahl berechnet, die angibt, wie \enquote{lustig} diese Person ist.
+    Damit die Feier entspannt bleibt, gibt es folgende Einschränkung für die Gästeliste:
+    ein:e Mitarbeiter:in darf nicht an der Feier teilnehmen, wenn seine:ihre direkte Vorgesetze teilnimmt.
+    Andererseits \emph{muss} die Eigentümerin an der Feier teilnehmen, obwohl sie nicht besonders lustig ist; es ist ja schließlich auch ihre Firma.
+    Beschreibe und analysiere einen Algorithmus, der diejenige Gästeliste für die Betriebsfeier berechnet, die die Summe aller \enquote{lustig} Bewertungen der Gäste maximiert.
 \end{aufgabe}
 
 \section*{Donnerstag}
@@ -108,13 +90,30 @@ Beschreibe einen Algorithmus, der entweder einen Weg von $s$ nach $t$ berechnet,
 \emph{Zur Erinnerung:} Ein Weg von $s$ nach $t$ darf sich selbst überlappen, das heißt, ein Weg muss nicht unbedingt einfach sein.
 \end{aufgabe}
 
-\begin{aufgabe}[Betriebsfeier]
-    Du organisierst die jährliche Betriebsfeier bei der Algorithmen-Bank (AB).
-    Die Mitarbeiter:innen der Bank sind in einer strikten Hierarchie angeordnet: ein Baum, in dem die Eigentümerin der Bank die Wurzel darstellt.
-    Die allwissende Personalabteilung hat für jede:n Angestellte:n eine reelle Zahl berechnet, die angibt, wie \enquote{lustig} diese Person ist.
-    Damit die Feier entspannt bleibt, gibt es folgende Einschränkung für die Gästeliste:
-    ein:e Mitarbeiter:in darf nicht an der Feier teilnehmen, wenn seine:ihre direkte Vorgesetze teilnimmt.
-    Andererseits \emph{muss} die Eigentümerin an der Feier teilnehmen, obwohl sie nicht besonders lustig ist; es ist ja schließlich auch ihre Firma.
-    Beschreibe und analysiere einen Algorithmus, der diejenige Gästeliste für die Betriebsfeier berechnet, die die Summe aller \enquote{lustig} Bewertungen der Gäste maximiert.
+\begin{aufgabe}[RNA]
+    \emph{Ribonucleic acid} (RNA) ist eine lange Kette von Millionen Nukleotiden von vier verschiedenen Typen:
+    Adenin (\verb|A|), Cytosin (\verb|C|), Guanin (\verb|G|), und Uracil (\verb|U|). Die \emph{Sequenz} eines RNA-Moleküls ist eine Zeichenkette $b[1\dots n]$, wobei jedes Zeichen $b[u]\in\{\texttt{A}, \texttt{C}, \texttt{G}, \texttt{U}\}$ zu einem Nukleotid korrespondiert.
+        Manchmal mutiert ein Virus und die RNA-Sequenz verändert sich leicht. Deine Aufgabe ist es nun, für zwei gegebene RNA-Sequenzen herauszufinden, wie ähnlich diese sich sind; damit kann man Rückschlüsse ziehen darauf, wie ähnlich sich zwei Virusvarianten sind. Aber nicht jede Änderung in der RNA ist gleich wahrscheinlich! Wir haben nun folgende (fiktive) Ähnlichkeitsmatrix $M[a,b]$ gegeben, die für jede Punktmutation (=Substitution) angibt, wie wahrscheinlich diese ist:
+
+        \begin{tabular}{ccccc}
+             & A  & G &  C & U\\
+           A & 10 &-1 & -3 & -4\\
+           G & -1 & 7 & -5 & -3\\
+           C & -3 &-5 &  9 &  0\\
+           U & -4 &-3 &  0 &  8\\
+        \end{tabular}
+
+        Je größer die Zahl ist, desto wahrscheinlicher soll die entsprechende Substitution sein.
+        Zum Beispiel hat eine Substitution von C auf G einen Ähnlichkeitwert von -5, aber ein korrektes Alignment von G mit G hat einen Ähnlichkeitswert von 7.
+        Außerdem definieren wir noch einen Wert $d=-5$, der den Ähnlichkeitswert einer Einfügen oder Löschen Operation auf $-5$ setzt.
+        Der Ähnlichkeitswert einer Editiersequenz ist die Summe der Ähnlichkeitswerte für jede Spalte.
+        \begin{enumerate}
+            \item(\warmup) Was ist der Ähnlichkeitswert dieser Editiersequenz?
+            \begin{verbatim}
+                G A U  
+                C   C G
+            \end{verbatim}
+            \item Wie muss das dynamische Programm für die Edit Distance angepasst werden, um eine Editiersequenz zu berechnen, die einen möglichst großen Ähnlichkeitswert erzeugt?
+        \end{enumerate}
 \end{aufgabe}
 \end{document}

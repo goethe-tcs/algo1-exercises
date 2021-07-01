@@ -162,9 +162,14 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 	Gib die Reihenfolge als eine Sequenz von Feldindizes an.
 \end{aufgabe}
 
-\begin{aufgabe}[Preorder-Traversierung]
-	Entwirf einen rekursiven Algorithmus, der die Preorder-Traversierung eines binären Baums~$T$ durchführt.
-	Schreib den Algorithmus in Pseudocode auf.
+\begin{aufgabe}[Rank/Select]
+	Die binären Suchbäume implementieren eine dynamische Menge $S$, die die Operationen \Call{Insert}{}, \Call{Delete}{}, \Call{Predecessor}{} und \Call{Successor}{} in Zeit $O(h)$ unterstützt, wobei $h$ die Höhe des Baums ist.
+	Modifiziere die Datenstruktur nun so, dass die folgenden zwei Operationen ebenfalls in $O(h)$ Zeit unterstützt werden:
+	\begin{enumerate}
+		\item $\Call{Rank}{x}$ liefert die Anzahl der Elemente von $S$ mit kleinerem Schlüssel, also die Zahl $\#\{y\;|\;y.\texttt{key} < x.\texttt{key}\}$.
+		\item $\Call{Select}{i}$ liefert das $i$-te Element der Menge $S$, also das Element $x$, mit $\Call{Rank}{x}=i$.
+	\end{enumerate}
+	Die existierenden Operationen \Call{Insert}{} und \Call{Delete}{} müssen hierzu modifiziert werden, müssen aber weiterhin in Zeit $O(h)$ laufen.
 \end{aufgabe}
 
 \begin{aufgabe}[Mehr Rekursionen auf Bäumen]

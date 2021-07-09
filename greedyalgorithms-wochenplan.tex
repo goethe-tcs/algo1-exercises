@@ -5,14 +5,45 @@
 
 \begin{document}
 \section*{Vorbereitung}
-Lies CLRS Kapitel 16 bis 16.3 und schau das Video der Woche.
+Lies E Kapitel 4 und schau das Video der Woche.
 
 \section*{Dienstag}
-\begin{aufgabe}[test]
+\begin{aufgabe}[Dateien auf Band]
+    Auf einem Magnetband sind $n$ Dateien gespeichert.
+    Die Längen der Dateien sind durch ein Feld $L[1..n]$ gegeben, das heißt, die $i$-te auf dem Band gespeicherte Datei hat Länge $L[i]$.
+    Um Datei $k$ zu lesen, muss das Band alle Dateien von $1$ bis $k$ lesen.
+    \begin{enumerate}
+        \item(\warmup) Betrachte ein Band, auf dem sechs Dateien mit $L=[8,3,1,6,4,2]$ gespeichert sind. Zum Beispiel hat Datei $1$ die Länge $8$.
+        Wie hoch sind die Kosten, um Datei $4$ zu lesen?
+        \item(\warmup) Wie hoch sind die erwarteten Kosten bei a), wenn ein sechsseitiger Würfel geworfen wird und die damit indizierte Datei gelesen wird?
+        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am Besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten, um Datei~$k$ zu lesen, sind
+        \[\sum_{i=1}^k F[i]\cdot L[i]\,.\]
+        In welcher Reihenfolge müssen wir die Dateien jetzt sortieren, damit die erwarteten Kosten so klein wie möglich sind?
+    \end{enumerate}
 \end{aufgabe}
 
+
+\begin{aufgabe}[Scheduling]
+\end{aufgabe}
+
+
+\begin{aufgabe}[Huffman-Codierung]
+    Betrachte das Alphabet $\{\texttt{a},\dots,\texttt{g}\}$ mit der folgenden Häufigkeitstabelle:
+	\begin{center}
+		\begin{tabular}{ccccccc}
+			\texttt{a}&\texttt{b}&\texttt{c}&\texttt{d}&\texttt{e}&\texttt{f}&\texttt{g}\\\hline
+			3&3&1&1&7&2&4\\
+		\end{tabular}
+	\end{center}
+    \begin{enumerate}
+        \item Führe den Algorithmus zur Huffman-Codierung für diese Häufigkeitstabelle aus und gib jeden Zwischenschritt an.
+        \item Gib einen optimalen binären Code an. Gib für jedes Zeichen das zugehörige Codewort an, und male den zugehörigen Binärbaum.
+    \end{enumerate}
+\end{aufgabe}
+
+
 \section*{Donnerstag}
-\begin{aufgabe}[test]
+\begin{aufgabe}[Stabiles Matching]
 \end{aufgabe}
 
 \end{document}

@@ -8,11 +8,92 @@
 Lies CLRS Kapitel 16 bis 16.3 und schau das Video der Woche.
 
 \section*{Dienstag}
-\begin{aufgabe}[test]
+\begin{aufgabe}[Huffman-Code]\phantom{.}
+    \begin{enumerate}
+        \item (\warmup) Ist der folgende Code präfixfrei?
+        \begin{center}
+            { \ttfamily
+            \begin{tabular}{c|c|c|c|c|c}
+                L & R & U & D & A & B \\ \hline
+                00 & 01 & 10 & 11 & 0 & 1 
+            \end{tabular}
+            }
+        \end{center}
+        \item Gegeben ist die folgende Zeichenkette $s$ über dem Alphabet:
+        $$
+            s = \texttt{ALGO1\textvisiblespace IST\textvisiblespace TOLL}
+        $$
+        \begin{enumerate}
+            \item[i.] Bestimme die Häufigkeit aller Buchstaben in $s$ und erstelle den Baum des zugehörigen Huffman-Codes. Gehe dabei folgendermaßen vor:
+            
+            Beim Verschmelzen zweier Symbole mit minimaler Häufigkeit wird das resultierende Symbol durch eine lexikographisch geordnete Liste der Buchstaben beider Symbole dargestellt. Stehen mehrere Symbole mit minimaler Häufigkeit zur Auswahl, wähle diejenigen aus, welche unter der lexikographischen Ordnung am kleinsten sind. Hierbei ist für die einzelnen Buchstaben die folgende Ordnung vorgegeben:
+            \begin{center}
+                {\ttfamily \textvisiblespace\ $\leq$ 1 $\leq$ A $\leq$ G $\leq$ I $\leq$ L $\leq$ O $\leq$ S $\leq$ T}.
+            \end{center}
+            \item[ii.] Erstelle noch einen Huffman-Code, diesmal unter Verwendung der folgenden Ordnung:
+            \begin{center}
+                {\ttfamily \textvisiblespace\ $\leq$ T $\leq$ O $\leq$ A $\leq$ S $\leq$ L $\leq$ G $\leq$ I $\leq$ 1}.
+            \end{center}
+        \end{enumerate}
+        \item Codiere die folgende Zeichenkette unter Verwendung des Huffman-Codes aus Teilaufgabe b) i.:
+        \begin{center}
+            \ttfamily 1\textvisiblespace TOAST\textvisiblespace TATTOO
+        \end{center}
+    \end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Per Hand laufen lassen]\phantom{.}
+    \begin{enumerate}
+        \item Verwende den gierigen Algorithmus aus der Vorlesung, um auf der folgenden Eingabe einen maximalen konfliktfreien Stundenplan $\{s_{i_1}, s_{i_2}, \dots, s_{i_k}\}$ zu bestimmen:
+        \begin{center}
+            \begin{tikzpicture}
+                \draw (0,4) rectangle node{$s_1$} (2,3.6);
+                \draw (2.2,4) rectangle node{$s_2$} (3,3.6);
+                \draw (3.2,4) rectangle node{$s_3$} (4,3.6);
+                \draw (4.2,4) rectangle node{$s_4$} (4.7,3.6);
+                \draw (4.9,4) rectangle node{$s_5$} (5.4,3.6);
+                \draw (5.6,4) rectangle node{$s_6$} (6.1,3.6);
+
+                \draw (0.2,3.5) rectangle node{$s_7$} (1.5,3.1);
+                \draw (1.7,3.5) rectangle node{$s_8$} (2.8,3.1);
+                \draw (3,3.5) rectangle node{$s_9$} (4.4,3.1);
+                \draw (4.8,3.5) rectangle node{$s_{10}$} (5.8,3.1);
+
+                \draw (-0.3,3) rectangle node{$s_{11}$} (1.8,2.6);
+                \draw (2,3) rectangle node{$s_{12}$} (3.3,2.6);
+                \draw (3.7,3) rectangle node{$s_{13}$} (4.7,2.6);
+                \draw (5,3) rectangle node{$s_{14}$} (6.5,2.6);
+
+                \draw (-0.5,2.5) rectangle node{$s_{15}$} (6.8,2.1);
+            \end{tikzpicture}
+        \end{center}
+        \item Verwende den gierigen Algorithmus aus der Vorlesung, um auf dem folgenden Graphen ein stabiles Matching zu bestimmen:
+    \end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Andere Scheduling-Strategie]\phantom{.}
+    \begin{enumerate}
+        \item Verwende folgende gierige Strategie, um auf der folgenden Eingabe einen Stundenplan zu berechnen:
+        \begin{itemize}
+            \item[-] Sortiere die Vorlesungen absteigend nach dem Zeitpunkt ihres Endes
+            \item[-] Belege die nächste konfliktfreie Vorlesung
+            \item[-] Wiederhole 
+        \end{itemize}
+        \item Finde eine Eingabe, auf der die Strategie aus der vorigen Teilaufgabe einen Stundenplan berechnet, welcher \textbf{nicht} maximal ist.
+    \end{enumerate}
 \end{aufgabe}
 
 \section*{Donnerstag}
-\begin{aufgabe}[test]
+\begin{aufgabe}[Maximum Cut]
+
+\end{aufgabe}
+
+\begin{aufgabe}[Balance]
+    
+\end{aufgabe}
+
+\begin{aufgabe}[One Last Time]
+    
 \end{aufgabe}
 
 \end{document}

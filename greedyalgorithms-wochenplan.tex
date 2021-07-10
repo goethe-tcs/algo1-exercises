@@ -116,7 +116,7 @@ Lies E Kapitel 4 und schau das Video der Woche.
     \newcommand{\cbr}{\textcolor{red}{\texttt )}}
     Wir erinnern uns zurück an die \emoji{star}-Aufgabe von Woche 4 (``Balance'').
     Diesmal betrachten wir Strings mit nur einem Klammertyp.
-    Ein String $w$ von Klammern \obr und \cbr ist \emph{balanciert}, wenn er eine der folgenden Bedingungen erfüllt:
+    Ein String $w$ von Klammern \obr\ und \cbr\ ist \emph{balanciert}, wenn er eine der folgenden Bedingungen erfüllt:
     \begin{itemize}
         \item $w$ ist der leere String
         \item $w = \obr x \cbr$ für einen balancierten String $x$
@@ -124,8 +124,23 @@ Lies E Kapitel 4 und schau das Video der Woche.
     \end{itemize}
     Beispielsweise ist der String \obr \obr \cbr \cbr \obr \obr \obr \cbr \obr \cbr \cbr \cbr\ balanciert, während weder \obr \cbr \cbr, noch \obr \cbr \cbr \obr\ balanciert sind.
 
-    \textbf{Beschreibe} einen gierigen Algorithmus mit Laufzeit $\mathcal O(n)$, welcher die Länge eines längsten balancierten Teilstrings berechnet.
+    \textbf{Beschreibe} einen gierigen Algorithmus mit Laufzeit $\mathcal O(n)$, welcher die Länge eines längsten balancierten Teilstrings in einem String der Länge $n$ berechnet.
     Dein Algorithmus soll ein Feld $w[1..n]$ entgegennehmen, wobei für jeden Index $i$ entweder $w[i] = \obr$ oder $w[i] = \cbr$ gilt.
+\end{aufgabe}
+
+\begin{aufgabe}[Schuldenerlass]
+    Aglot aus der Algorithmen-Bank schuldet seiner Kollegin Aifos 500.000€. Zum Erlassen seiner Schulden bietet sie Aglot folgenden Deal an:
+
+    In einem blickdichten Beutel befindet sich eine Murmel, die entweder rot oder blau ist.
+    Aglot kennt die Farbe der Murmel nicht, er weiß lediglich, dass beide Farben mit gleicher Wahrscheinlichkeit auftreten.
+    Nun legt Aifos eine rote Murmel in den Beutel und schüttelt diesen einmal durch.
+    Anschließend zieht sie rein zufällig eine Murmel aus dem Beutel.
+    Nun muss Aglot die Farbe der im Beutel verbliebenen Murmel erraten.
+    Liegt er richtig, erlässt Aifos seine Schulden, andernfalls werden die Schulden verdoppelt.
+
+    Selbstverständlich nimmt Aglot den Deal an.
+    Aifos legt die rote Murmel in den Beutel, mischt die Murmeln durch, und zieht anschließend eine rote Murmel aus dem Beutel.
+    Welche Farbe sollte Aglot nun raten?
 \end{aufgabe}
 
 \end{document}

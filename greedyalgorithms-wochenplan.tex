@@ -22,37 +22,17 @@ Lies E Kapitel 4 und schau das Video der Woche.
     \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Huffman-Code]\phantom{.}
+\begin{aufgabe}[Huffman-Codierung]
+    Betrachte das Alphabet $\{\texttt a,\dots,\texttt g\}$ mit der folgenden Häufigkeitstabelle:
+	\begin{center}
+		\begin{tabular}{ccccccc}
+			\texttt{a}&\texttt{b}&\texttt{c}&\texttt{d}&\texttt{e}&\texttt{f}&\texttt{g}\\\hline
+			3&3&1&1&7&2&4\\
+		\end{tabular}
+	\end{center}
     \begin{enumerate}
-        \item (\warmup) Ist der folgende Code präfixfrei?
-        \begin{center}
-            { \ttfamily
-            \begin{tabular}{c|c|c|c|c|c}
-                L & R & U & D & A & B \\ \hline
-                00 & 01 & 10 & 11 & 0 & 1 
-            \end{tabular}
-            }
-        \end{center}
-        \item Gegeben ist die folgende Zeichenkette $s$ über dem Alphabet:
-        $$
-            s = \texttt{ALGO1\textvisiblespace IST\textvisiblespace TOLL}
-        $$
-        \begin{enumerate}
-            \item[i.] Bestimme die Häufigkeit aller Buchstaben in $s$ und erstelle den Baum des zugehörigen Huffman-Codes. Gehe dabei folgendermaßen vor:
-            
-            Beim Verschmelzen zweier Symbole mit minimaler Häufigkeit wird das resultierende Symbol durch eine lexikographisch geordnete Liste der Buchstaben beider Symbole dargestellt. Stehen mehrere Symbole mit minimaler Häufigkeit zur Auswahl, wähle diejenigen aus, welche unter der lexikographischen Ordnung am kleinsten sind. Hierbei ist für die einzelnen Buchstaben die folgende Ordnung vorgegeben:
-            \begin{center}
-                {\ttfamily \textvisiblespace\ $\leq$ 1 $\leq$ A $\leq$ G $\leq$ I $\leq$ L $\leq$ O $\leq$ S $\leq$ T}.
-            \end{center}
-            \item[ii.] Erstelle noch einen Huffman-Code, diesmal unter Verwendung der folgenden Ordnung:
-            \begin{center}
-                {\ttfamily \textvisiblespace\ $\leq$ T $\leq$ O $\leq$ A $\leq$ S $\leq$ L $\leq$ G $\leq$ I $\leq$ 1}.
-            \end{center}
-        \end{enumerate}
-        \item Codiere die folgende Zeichenkette unter Verwendung des Huffman-Codes aus Teilaufgabe b) i.:
-        \begin{center}
-            \ttfamily 1\textvisiblespace TOAST\textvisiblespace TATTOO
-        \end{center}
+        \item Führe den Algorithmus zur Huffman-Codierung für diese Häufigkeitstabelle aus und gib jeden Zwischenschritt an.
+        \item Gib einen optimalen binären Code an. Gib für jedes Zeichen das zugehörige Codewort an, und male den zugehörigen Binärbaum.
     \end{enumerate}
 \end{aufgabe}
 
@@ -104,22 +84,6 @@ Lies E Kapitel 4 und schau das Video der Woche.
         \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
     \end{enumerate}
 \end{aufgabe}
-
-
-\begin{aufgabe}[Huffman-Codierung]
-    Betrachte das Alphabet $\{\texttt a,\ \texttt l,\ \texttt g,\ \texttt o,\ \texttt t,\ \texttt i,\ \texttt s\}$ mit der folgenden Häufigkeitstabelle:
-	\begin{center}
-		\begin{tabular}{ccccccc}
-			\texttt{a}&\texttt{l}&\texttt{g}&\texttt{o}&\texttt{t}&\texttt{i}&\texttt{s}\\\hline
-			3&3&1&1&7&2&4\\
-		\end{tabular}
-	\end{center}
-    \begin{enumerate}
-        \item Führe den Algorithmus zur Huffman-Codierung für diese Häufigkeitstabelle aus und gib jeden Zwischenschritt an.
-        \item Gib einen optimalen binären Code an. Gib für jedes Zeichen das zugehörige Codewort an, und male den zugehörigen Binärbaum.
-    \end{enumerate}
-\end{aufgabe}
-
 
 \section*{Donnerstag}
 \begin{aufgabe}[Maximum Cut]

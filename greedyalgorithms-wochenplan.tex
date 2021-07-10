@@ -36,6 +36,14 @@ Lies E Kapitel 4 und schau das Video der Woche.
     \end{enumerate}
 \end{aufgabe}
 
+\begin{aufgabe}[Scheduling]
+    Gegeben sind Startzeiten $S[1..n]$ und Endzeiten $F[1..n]$ von $n$ Vorlesungen.
+    \begin{enumerate}
+        \item(\warmup) Beschreibe mathematisch (also durch eine logische Formel, die $S$ und $F$ benutzt), was es heißt, dass die Zeiten von Vorlesung $i$ und $j$ sich überlappen.
+        \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
+    \end{enumerate}
+\end{aufgabe}
+
 \begin{aufgabe}[Per Hand laufen lassen]\phantom{.}
     \begin{enumerate}
         \item Verwende den gierigen Algorithmus aus der Vorlesung, um auf der folgenden Eingabe einen maximalen konfliktfreien Stundenplan $\{s_{i_1}, s_{i_2}, \dots, s_{i_k}\}$ zu bestimmen:
@@ -62,26 +70,6 @@ Lies E Kapitel 4 und schau das Video der Woche.
             \end{tikzpicture}
         \end{center}
         \item Verwende den gierigen Algorithmus aus der Vorlesung, um auf dem folgenden Graphen ein stabiles Matching zu bestimmen:
-    \end{enumerate}
-\end{aufgabe}
-
-\begin{aufgabe}[Andere Scheduling-Strategie]\phantom{.}
-    \begin{enumerate}
-        \item Verwende folgende gierige Strategie, um auf der folgenden Eingabe einen Stundenplan zu berechnen:
-        \begin{itemize}
-            \item[-] Sortiere die Vorlesungen absteigend nach dem Zeitpunkt ihres Endes
-            \item[-] Belege die nächste konfliktfreie Vorlesung
-            \item[-] Wiederhole 
-        \end{itemize}
-        \item Finde eine Eingabe, auf der die Strategie aus der vorigen Teilaufgabe einen Stundenplan berechnet, welcher \textbf{nicht} maximal ist.
-    \end{enumerate}
-\end{aufgabe}
-
-\begin{aufgabe}[Scheduling]
-    Gegeben sind Startzeiten $S[1..n]$ und Endzeiten $F[1..n]$ von $n$ Vorlesungen.
-    \begin{enumerate}
-        \item(\warmup) Beschreibe mathematisch (also durch eine logische Formel, die $S$ und $F$ benutzt), was es heißt, dass die Zeiten von Vorlesung $i$ und $j$ sich überlappen.
-        \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
     \end{enumerate}
 \end{aufgabe}
 

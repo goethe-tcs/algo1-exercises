@@ -91,15 +91,41 @@ Lies E Kapitel 4 und schau das Video der Woche.
 \end{aufgabe}
 
 \section*{Donnerstag}
-\begin{aufgabe}[Maximum Cut]
-
+\begin{aufgabe}[Antipathien]
+    In der Algorithmen-Bank gab es während der Betriebsfeier viele Streitigkeiten zwischen den Angestellten. Daher wurde nach der Betriebsfeier ein Antipathie-Graph $G=(V,E)$ erstellt in dem jede:r Angestellte:r durch einen Knoten der Menge $V=\{v_1,\ldots , v_n\}$ dargestellt wird. Eine ungerichtete Kante zwischen zwei Knoten bedeutet, dass sich diese beiden Angestellten nicht leiden können.\\
+    Nun möchte man einen neuen Standort eröffnen. Um das Konkurrenzdenken zwischen den Standorten zu verstärken, möchte man die Angestellten in zwei Gruppen aufteilen, sodass die Anzahl an Antipathien (Kanten) zwischen den Gruppen maximal ist.\\
+    Zur Bestimmung dieser Gruppen schlägt der Angestellte Aglot den folgenden gierigen Algorithmus vor:
+    \begin{enumerate}
+        \item[1.] Weise $v_1$ der Menge $A$ zu.
+        \item[2.] für $i=2,\ldots , n$:
+        \begin{itemize}
+            \item[] Seien $a_i$ und $b_i$ die Anzahlen der Nachbarn von $v_i$ die bereits in $A$ oder $B$ sind
+            \item[] Weise $v_i$ der Menge $A$ zu, wenn $a_i \leq b_i$ sonst weise $v_i$ der Menge $B$ zu 
+        \end{itemize}
+    \end{enumerate}
+    \textbf{Zeige} oder \textbf{widerlege} folgende Aussagen:
+    \begin{enumerate}[label=(\alph*)]
+        \item Der gierige Algorithmus arbeitet optimal
+        \item Der gierige Algorithmus kann mit Laufzeit $\mathcal{O}(n+m)$ implementiert werden, sofern $G$ in Adjazenzlistendarstellung gegeben ist.
+        \item Der gierige Algorithmus findet eine Gruppenkonstellation mit mindestens $\frac{|E|}{2}$ Kanten zwischen den Gruppen.
+    \end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Balance]
-    
-\end{aufgabe}
-    
-\begin{aufgabe}[Stabiles Matching]
+    \newcommand{\obr}{\textcolor{blue}{\texttt (}}
+    \newcommand{\cbr}{\textcolor{red}{\texttt )}}
+    Wir erinnern uns zurück an die \emoji{star}-Aufgabe von Woche 4 (``Balance'').
+    Diesmal betrachten wir Strings mit nur einem Klammertyp.
+    Ein String $w$ von Klammern \obr und \cbr ist \emph{balanciert}, wenn er eine der folgenden Bedingungen erfüllt:
+    \begin{itemize}
+        \item $w$ ist der leere String
+        \item $w = \obr x \cbr$ für einen balancierten String $x$
+        \item $w = xy$ für balancierte Strings $x$ und $y$.
+    \end{itemize}
+    Beispielsweise ist der String \obr \obr \cbr \cbr \obr \obr \obr \cbr \obr \cbr \cbr \cbr\ balanciert, während weder \obr \cbr \cbr, noch \obr \cbr \cbr \obr\ balanciert sind.
+
+    \textbf{Beschreibe} einen gierigen Algorithmus mit Laufzeit $\mathcal O(n)$, welcher die Länge eines längsten balancierten Teilstrings berechnet.
+    Dein Algorithmus soll ein Feld $w[1..n]$ entgegennehmen, wobei für jeden Index $i$ entweder $w[i] = \obr$ oder $w[i] = \cbr$ gilt.
 \end{aufgabe}
 
 \end{document}

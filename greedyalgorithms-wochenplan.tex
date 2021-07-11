@@ -16,8 +16,8 @@ Lies E Kapitel 4 und schau das Video der Woche.
         \item(\warmup) Betrachte ein Band, auf dem sechs Dateien mit $L=[8,3,1,6,4,2]$ gespeichert sind. Zum Beispiel hat Datei $1$ die Länge $8$.
         Wie hoch sind die Kosten, um Datei $4$ zu lesen?
         \item(\warmup) Wie hoch sind die erwarteten Kosten bei a), wenn ein sechsseitiger Würfel geworfen wird und die damit indizierte Datei gelesen wird?
-        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am Besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten, um Datei~$k$ zu lesen, sind
-        \[\sum_{i=1}^k F[i]\cdot L[i]\,.\]
+        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am Besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten sind
+          \[\sum_{k=1}^n \sum_{i=1}^k F[k]\cdot L[i]\,.\]
         In welcher Reihenfolge müssen wir die Dateien jetzt sortieren, damit die erwarteten Kosten so klein wie möglich sind?
     \end{enumerate}
 \end{aufgabe}
@@ -92,7 +92,7 @@ Lies E Kapitel 4 und schau das Video der Woche.
 
 \section*{Donnerstag}
 \begin{aufgabe}[Antipathien]
-    In der Algorithmen-Bank gab es während der Betriebsfeier viele Streitigkeiten zwischen den Angestellten. Daher wurde nach der Betriebsfeier ein Antipathie-Graph $G=(V,E)$ erstellt in dem jede:r Angestellte durch einen Knoten der Menge $V=\{v_1,\ldots , v_n\}$ dargestellt wird. Eine ungerichtete Kante zwischen zwei Knoten bedeutet, dass sich diese beiden Angestellten nicht leiden können.\\
+    In der Algorithmen-Bank gab es während der Betriebsfeier viele Streitigkeiten zwischen den Angestellten. Daher wurde nach der Betriebsfeier ein Antipathie-Graph $G=(V,E)$ erstellt, in dem jede:r Angestellte durch einen Knoten der Menge $V=\{v_1,\ldots , v_n\}$ dargestellt wird. Eine ungerichtete Kante zwischen zwei Knoten bedeutet, dass sich diese beiden Angestellten nicht leiden können.\\
     Nun möchte man einen neuen Standort eröffnen. Um das Konkurrenzdenken zwischen den Standorten zu verstärken, möchte man die Angestellten in zwei Gruppen aufteilen, sodass die Anzahl an Antipathien (Kanten) zwischen den Gruppen maximal ist.\\
     Zur Bestimmung dieser Gruppen schlägt der Angestellte Aglot den folgenden gierigen Algorithmus vor:
     \begin{enumerate}

@@ -5,47 +5,19 @@
 
 \begin{document}
 \section*{Vorbereitung}
-Lies E Kapitel 4 und schau das Video der Woche.
+Lies E Kapitel 4 und schau die Videos der Woche.
 
 \section*{Dienstag}
-\begin{aufgabe}[Dateien auf Band]
-    Auf einem Magnetband sind $n$ Dateien gespeichert.
-    Die Längen der Dateien sind durch ein Feld $L[1..n]$ gegeben, das heißt, die $i$-te auf dem Band gespeicherte Datei hat Länge $L[i]$.
-    Um Datei $k$ zu lesen, muss das Band alle Dateien von $1$ bis $k$ lesen.
-    \begin{enumerate}
-        \item(\warmup) Betrachte ein Band, auf dem sechs Dateien mit $L=[8,3,1,6,4,2]$ gespeichert sind. Zum Beispiel hat Datei $1$ die Länge $8$.
-        Wie hoch sind die Kosten, um Datei $4$ zu lesen?
-        \item(\warmup) Wie hoch sind die erwarteten Kosten bei a), wenn ein sechsseitiger Würfel geworfen wird und die damit indizierte Datei gelesen wird?
-        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am Besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten sind
-          \[\sum_{k=1}^n \sum_{i=1}^k F[k]\cdot L[i]\,.\]
-        In welcher Reihenfolge müssen wir die Dateien jetzt sortieren, damit die erwarteten Kosten so klein wie möglich sind?
-    \end{enumerate}
-\end{aufgabe}
-
-\begin{aufgabe}[Huffman-Codierung]
-    Betrachte das Alphabet $\{\texttt a,\dots,\texttt g\}$ mit der folgenden Häufigkeitstabelle:
-	\begin{center}
-		\begin{tabular}{ccccccc}
-			\texttt{a}&\texttt{b}&\texttt{c}&\texttt{d}&\texttt{e}&\texttt{f}&\texttt{g}\\\hline
-			3&3&1&1&7&2&4\\
-		\end{tabular}
-	\end{center}
-    \begin{enumerate}
-        \item Führe den Algorithmus zur Huffman-Codierung für diese Häufigkeitstabelle aus und gib jeden Zwischenschritt an.
-        \item Gib einen optimalen binären Code an. Gib für jedes Zeichen das zugehörige Codewort an, und male den zugehörigen Binärbaum.
-    \end{enumerate}
-\end{aufgabe}
-
-\begin{aufgabe}[Scheduling]
-    Gegeben sind Startzeiten $S[1..n]$ und Endzeiten $F[1..n]$ von $n$ Vorlesungen.
-    \begin{enumerate}
-        \item(\warmup) Beschreibe mathematisch (also durch eine logische Formel, die $S$ und $F$ benutzt), was es heißt, dass die Zeiten von Vorlesung $i$ und $j$ sich überlappen.
-        \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
-    \end{enumerate}
-\end{aufgabe}
 
 \begin{aufgabe}[Per Hand laufen lassen]\phantom{.}
     \begin{enumerate}
+        \item(\warmup) Verwende den Algorithmus zur Huffman-Codierung aus der Vorlesung, um auf der folgenden Häufigkeitstabelle für das Alphabet $\{\texttt a,\dots,\texttt g\}$ einen optimalen präfixfreien Binärcode zu berechnen; zeichne dabei den Code-Baum, und gib am Schluss den berechneten optimalen binären Code an:
+        \begin{center}
+            \begin{tabular}{ccccccc}
+                \texttt{a}&\texttt{b}&\texttt{c}&\texttt{d}&\texttt{e}&\texttt{f}&\texttt{g}\\\hline
+                3&3&1&1&7&2&4\\
+            \end{tabular}
+        \end{center}
         \item (\warmup) Verwende den gierigen Algorithmus aus der Vorlesung, um auf der folgenden Eingabe einen maximalen konfliktfreien Stundenplan $\{s_{i_1}, s_{i_2}, \dots, s_{i_k}\}$ zu bestimmen:
         \begin{center}
             \begin{tikzpicture}
@@ -90,6 +62,33 @@ Lies E Kapitel 4 und schau das Video der Woche.
         Hierbei sollen A, B, C und D Angebote machen, welche von x, y, z und w angenommen oder abgelehnt werden können.
     \end{enumerate}
 \end{aufgabe}
+
+\begin{aufgabe}[Stabiles Matching]
+    Konstruiere Präferenzen für Ärzt:innen und Krankenhäuser, sodass der Gale-Shapley Algorithmus aus der Vorlesung auf derselben Eingabe zwei verschiedene stabile Matchings konstruiert, abhängig davon, ob die Krankenhäuser die Angebote machen oder ob die Ärzt:innen die Angebote machen. 
+\end{aufgabe}
+
+\begin{aufgabe}[Dateien auf Band]
+    Auf einem Magnetband sind $n$ Dateien gespeichert.
+    Die Längen der Dateien sind durch ein Feld $L[1..n]$ gegeben, das heißt, die $i$-te auf dem Band gespeicherte Datei hat Länge $L[i]$.
+    Um Datei $k$ zu lesen, muss das Band alle Dateien von $1$ bis $k$ lesen.
+    \begin{enumerate}
+        \item(\warmup) Betrachte ein Magnetband, auf dem sechs Dateien mit $L=[8,3,1,6,4,2]$ gespeichert sind. Zum Beispiel hat Datei $1$ die Länge $8$.
+        Wie hoch sind die Kosten, um Datei $4$ zu lesen?
+        \item(\warmup) Wie hoch sind die erwarteten Kosten bei a), wenn ein sechsseitiger Würfel geworfen wird und die damit indizierte Datei gelesen wird?
+        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am Besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten sind
+          \[\sum_{k=1}^n \sum_{i=1}^k F[k]\cdot L[i]\,.\]
+        In welcher Reihenfolge müssen wir die Dateien jetzt sortieren, damit die erwarteten Kosten so klein wie möglich sind? Begründe deine Antwort.
+    \end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Scheduling]
+    Gegeben sind Startzeiten $S[1..n]$ und Endzeiten $F[1..n]$ von $n$ Vorlesungen.
+    \begin{enumerate}
+        \item(\warmup) Beschreibe mathematisch (also durch eine logische Formel, die $S$ und $F$ benutzt), was es heißt, dass die Zeiten von Vorlesung $i$ und $j$ sich überlappen.
+        \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
+    \end{enumerate}
+\end{aufgabe}
+
 
 \section*{Donnerstag}
 \begin{aufgabe}[Antipathien]

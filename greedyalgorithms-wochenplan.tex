@@ -75,7 +75,7 @@ Lies E Kapitel 4 und schau die Videos der Woche.
         \item(\warmup) Betrachte ein Magnetband, auf dem sechs Dateien mit $L=[8,3,1,6,4,2]$ gespeichert sind. Zum Beispiel hat Datei $1$ die Länge $8$.
         Wie hoch sind die Kosten, um Datei $4$ zu lesen?
         \item(\warmup) Wie hoch sind die erwarteten Kosten bei a), wenn ein sechsseitiger Würfel geworfen wird und die damit indizierte Datei gelesen wird?
-        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am Besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten sind
+        \item Wenn jede Datei $k$ mit Wahrscheinlichkeit $1/n$ angefragt wird, sortieren wir die Dateien am besten der Größe nach. Jetzt aber sind manche Dateien beliebter als andere: Datei $k$ wird mit Wahrscheinlichkeit $F[k]$ angefragt. Das heißt, $F[1..n]$ ist eine Wahrscheinlichkeitsverteilung über $\{1,\dots,n\}$ und die erwarteten Kosten sind
           \[\sum_{k=1}^n \sum_{i=1}^k F[k]\cdot L[i]\,.\]
         In welcher Reihenfolge müssen wir die Dateien jetzt sortieren, damit die erwarteten Kosten so klein wie möglich sind? Begründe deine Antwort.
     \end{enumerate}
@@ -85,7 +85,7 @@ Lies E Kapitel 4 und schau die Videos der Woche.
     Gegeben sind Startzeiten $S[1..n]$ und Endzeiten $F[1..n]$ von $n$ Vorlesungen.
     \begin{enumerate}
         \item(\warmup) Beschreibe mathematisch (also durch eine logische Formel, die $S$ und $F$ benutzt), was es heißt, dass die Zeiten von Vorlesung $i$ und $j$ sich überlappen.
-        \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
+        \item Professorin S. Chedule hat folgende Idee, um den gierigen Algorithmus für das Scheduling zu vereinfachen: Anstatt nach den Endzeiten, sortieren wir die Vorlesung nach den Startzeiten, und nehmen also immer die erste Vorlesung in den Stundenplan auf, die als Nächstes startet und keinen Konflikt verursacht. Finde ein Gegenbeispiel, in dem dieser Algorithmus fehlschlägt.
     \end{enumerate}
 \end{aufgabe}
 
@@ -94,17 +94,17 @@ Lies E Kapitel 4 und schau die Videos der Woche.
     In der Algorithmen-Bank gab es während der Betriebsfeier viele Streitigkeiten zwischen den Angestellten. Daher wurde nach der Betriebsfeier ein Antipathie-Graph $G=(V,E)$ erstellt, in dem jede:r Angestellte durch einen Knoten der Menge $V=\{v_1,\ldots , v_n\}$ dargestellt wird. Eine ungerichtete Kante zwischen zwei Knoten bedeutet, dass sich diese beiden Angestellten nicht leiden können.\\
     Nun möchte man einen neuen Standort eröffnen. Um das Konkurrenzdenken zwischen den Standorten zu verstärken, möchte man die Angestellten in zwei Gruppen aufteilen, sodass die Anzahl an Antipathien (Kanten) zwischen den Gruppen maximal ist.\\
     Zur Bestimmung dieser Gruppen schlägt der Angestellte Aglot den folgenden gierigen Algorithmus vor:
-    \begin{enumerate}
-        \item[1.] Weise $v_1$ der Menge $A$ zu.
-        \item[2.] für $i=2,\ldots , n$:
+    \begin{enumerate}[1.]
+        \item Weise $v_1$ der Menge $A$ zu.
+        \item Für $i=2,\ldots , n$:
         \begin{itemize}
-            \item[] Seien $a_i$ und $b_i$ die Anzahlen der Nachbarn von $v_i$ die bereits in $A$ oder $B$ sind
-            \item[] Weise $v_i$ der Menge $A$ zu, wenn $a_i \leq b_i$ sonst weise $v_i$ der Menge $B$ zu 
+            \item Seien $a_i$ und $b_i$ die Anzahlen der Nachbarn von $v_i$ die bereits in $A$ oder $B$ sind
+            \item Weise $v_i$ der Menge $A$ zu, wenn $a_i \leq b_i$ sonst weise $v_i$ der Menge $B$ zu 
         \end{itemize}
     \end{enumerate}
     \textbf{Zeige} oder \textbf{widerlege} folgende Aussagen:
-    \begin{enumerate}[label=(\alph*)]
-        \item Der gierige Algorithmus arbeitet optimal
+    \begin{enumerate}
+        \item Der gierige Algorithmus arbeitet optimal.
         \item Der gierige Algorithmus kann mit Laufzeit $\mathcal{O}(n+m)$ implementiert werden, sofern $G$ in Adjazenzlistendarstellung gegeben ist.
         \item Der gierige Algorithmus findet eine Gruppenkonstellation mit mindestens $\frac{|E|}{2}$ Kanten zwischen den Gruppen.
     \end{enumerate}
@@ -127,7 +127,7 @@ Lies E Kapitel 4 und schau die Videos der Woche.
     \textbf{Beschreibe} einen gierigen Algorithmus mit Laufzeit $\mathcal O(n)$, welcher die Länge eines längsten balancierten Teilstrings in einem String der Länge $n$ berechnet.
     Dein Algorithmus soll ein Feld $w[1..n]$ entgegennehmen, wobei für jeden Index $i$ entweder $w[i] = \obr$ oder $w[i] = \cbr$ gilt.
 
-    \emph{Hinweis: Welche elementare Datensturktur wurde damals in der \emoji{star}-Aufgabe verwendet?}
+    \emph{Hinweis: Welche elementare Datenstruktur wurde damals in der \emoji{star}-Aufgabe verwendet?}
 \end{aufgabe}
 
 \begin{aufgabe}[Schuldenerlass]

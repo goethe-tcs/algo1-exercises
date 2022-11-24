@@ -16,14 +16,24 @@
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage[a4paper,left=1in,right=1in,bottom=1.5in,top=1in]{geometry}
 \RequirePackage{ifthen}
+
 \RequirePackage{amsmath,amsfonts,amssymb,ragged2e}
-\RequirePackage[ngerman]{babel}
-\RequirePackage[utf8]{inputenc}
+\RequirePackage{mathtools}
+\RequirePackage[english,ngerman]{babel}
+
+\RequirePackage{iftex}
+\ifPDFTeX
+	\RequirePackage[utf8]{inputenc}
+	\RequirePackage[T1]{fontenc}
+	\RequirePackage{mathpazo} % palatino fonts
+\else
+	\RequirePackage{fontspec}
+	% \setmainfont{TeX Gyre Pagella} % palatino clone
+\fi
 \usepackage[babel,german=quotes]{csquotes}
 \RequirePackage{microtype}
-\RequirePackage{mathpazo}% palatino fonts
+\RequirePackage{unicode-math}
 \RequirePackage{epic,graphicx,xcolor}
-\RequirePackage[T1]{fontenc}
 \RequirePackage{comment}
 \RequirePackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \RequirePackage{booktabs}
@@ -106,8 +116,15 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\NP}[0]{$\mathcal{NP}$}
-\newcommand{\NPv}[0]{$\mathcal{NP}$-vollst"andig}
+\newcommand{\cc}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\pp}[1]{\textup{#1}}
+\renewcommand{\P}{\cc{P}}
+\newcommand{\NP}{\cc{NP}}
+\newcommand{\NPv}[0]{\NP-vollst"andig}
+\newcommand{\FPT}{\cc{FPT}}
+\newcommand{\W}{\cc{W[1]}}
+\DeclareMathOperator{\poly}{poly}
+
 \newcommand{\Problem}[1]{\textsc{#1}}
 \newcommand{\pr}{\ensuremath{\mathbb P}}
 \newcommand{\Oh}[0]{\ensuremath{\mathcal{O}}}
@@ -303,6 +320,9 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 	\huge\uebcs@lecture\\[1mm]%
 	\small\uebcs@semester%
 	\ifthenelse{\equal{\uebcs@staff}{}}{}{\vskip5mm\large\uebcs@staff}%
+	\ifdef{\gitAbbrevHash}{\ $\cdot$ \gitAuthorDate{}\ $\cdot$ \textit{\texttt{%
+\ifdef{\uebcs@giturl}{\href{\uebcs@giturl/\gitHash}{\gitAbbrevHash}}{\gitAbbrevHash}%
+}}}{}
 }
 \hfill
 \parbox[c]{18mm}{
@@ -315,9 +335,6 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 %\uebcs@@assignment\ \arabic{uebungnr}%
 %}{%
 {\Large\bfseries\uebcs@blattname}%
-\ifdef{\gitAbbrevHash}{\hfill\textit{\footnotesize Revision \texttt{%
-\ifdef{\uebcs@giturl}{\href{\uebcs@giturl/\gitHash}{\gitAbbrevHash}}{\gitAbbrevHash}%
-} (\gitAuthorDate)}}{}
 %}
 %}}
 %\hfill

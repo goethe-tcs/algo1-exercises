@@ -5,72 +5,72 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-Prüfen Sie mit diesen Aufgaben selbst, ob Sie bereit sind, am Kurs \emph{Algorithmen und Datenstrukturen 1} teilzunehmen, oder ob Sie einzelne Konzepte noch nacharbeiten müssen.
-Bei den Aufgaben gehen Sie bitte wie folgt vor:
+Prüfe mit diesen Aufgaben selbst, ob Du bereit bist, am Kurs \emph{Algorithmen und Datenstrukturen~1} teilzunehmen, oder ob Du einzelne Konzepte noch nacharbeiten musst.
+Geh am Besten wie folgt vor:
 \begin{itemize}
-    \item Lesen Sie sich jede Aufgabe ganz aufmerksam durch. Wenn Sie die Lösungsidee mental vor sich sehen und sich sicher sind, dass sie diese korrekt umsetzen können, brauchen Sie nichts weiter zu tun.
-    \item Wenn Sie sich nicht sicher sind, nehmen Sie sich etwas Zeit und lösen Sie die Aufgabe schriftlich. Bei den Programmieraufgaben schreiben Sie das Programm in einer Sprache Ihrer Wahl und lassen Sie es laufen.
-    \item Wenn Sie mit mehreren Aufgaben Schwierigkeiten haben, müssen Sie vermutlich Ihre mathematischen Grundkenntnisse oder Ihre Programmierkenntnisse auffrischen. Hierzu empfiehlt sich der Vorsemesterkurs Informatik [\href{http://www-stud.informatik.uni-frankfurt.de/~lz_inf/Vorkurs/WS2021/webseite.html}{url}], oder ein kompakter Text zu den einführenden Aspekten des jeweiligen Themas, beispielsweise \emph{Introduction to Programming in Java} von Sedgewick und Wayne [\href{https://introcs.cs.princeton.edu/java/home/chapter1.pdf}{pdf}], oder das Vorlesungsskript \emph{Diskrete Modellierung} von Schnitger und Schweikardt [\href{http://algo.cs.uni-frankfurt.de/lehre/dismod/material/skript1920.pdf}{pdf}].
+    \item Lies Dir jede Aufgabe ganz aufmerksam durch. Wenn Du die Lösungsidee mental vor Dir siehst und Dir sicher bist, dass Du sie korrekt umsetzen kannst, brauchst Du nichts weiter zu tun.
+    \item Wenn Du Dir nicht sicher sind, nimm Dir etwas Zeit und löse die Aufgabe schriftlich. Bei den Programmieraufgaben, schreib das Programm in einer Sprache Deiner Wahl und lass es auch wirklich laufen, um es zu testen.
+    \item Wenn Du mit mehreren Aufgaben Schwierigkeiten hast, musst Du vermutlich Deine mathematischen Grundkenntnisse oder Deine Programmierkenntnisse auffrischen. Hierzu empfiehlt sich der Vorsemesterkurs Informatik [\href{http://www-stud.informatik.uni-frankfurt.de/~lz_inf/Vorkurs/WS2021/webseite.html}{url}], oder ein kompakter Text zu den einführenden Aspekten des jeweiligen Themas, beispielsweise \emph{Introduction to Programming in Java} von Sedgewick und Wayne [\href{https://introcs.cs.princeton.edu/java/home/chapter1.pdf}{pdf}], oder das Vorlesungsskript \emph{Diskrete Modellierung} von Schnitger und Schweikardt [\href{http://algo.cs.uni-frankfurt.de/lehre/dismod/material/skript1920.pdf}{pdf}].
 \end{itemize}
 
 \begin{aufgabe}[Subtraktion]
-    Schreib eine Funktion \texttt{sub}, die zwei ganze Zahlen $a$ und $b$ als Argument nimmt, und $a-b$ zurückgibt.
+    Schreib eine Funktion \texttt{sub}$(a,b)$, die zwei ganze Zahlen $a$ und $b$ als Argument nimmt, und $a-b$ zurückgibt.
 \end{aufgabe}
 
 \begin{aufgabe}[Cut-off]
-    Schreib eine Funktion \texttt{cut-off}, die ein Feld von Zahlen und eine Zahl $k$ als Eingabe nimmt und alle Einträge in $A$, die Wert $>k$ haben, auf $k$ setzt.
+    Schreib eine Funktion \texttt{cut-off}$(A,k)$, die ein Array~$A$ von ganzen Zahlen und eine ganze Zahl $k$ als Argument nimmt und alle Einträge in $A$, die Wert größer als $k$ haben, auf $k$ setzt.
 \end{aufgabe}
 
 \begin{aufgabe}[Eingabe und Ausgabe]\mbox{}
     \begin{enumerate}
-        \item Schreib ein Programm, dass \texttt{Hallo Welt} auf die Konsole ausgibt.
-        \item Schreib ein Programm, das als Kommandozeilenargument eine Zeichenkette $s$ nimmt und \texttt{Hallo $s$} auf die Konsole ausgibt.
+        \item Schreib ein Programm, das \texttt{Hallo Welt} auf die Konsole ausgibt.
+        \item Schreib ein Programm, das als Kommandozeilenargument eine Zeichenkette $s$ liest und \texttt{Hallo $s$} auf die Konsole ausgibt.
         \item Schreib ein Programm \texttt{interaction}, das eine Zeichenkette $s$ von der Konsole liest (also von \texttt{stdin}) und \texttt{Hallo $s$} ausgibt.
     \end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Summe]
-    Schreib eine Funktion \texttt{sum}, die eine positive ganze Zahl $x$ als Argument erwartet und die Summe $\sum_{i=1}^x i = 1+\cdots+x$ ausgibt.
+    Schreib eine Funktion \texttt{sum}$(x)$, die eine positive ganze Zahl $x$ als Argument erwartet und die Summe $\sum_{i=1}^x i = 1+\cdots+x$ ausgibt.
 \end{aufgabe}
 
 \begin{aufgabe}[Sortiertheit prüfen]
-    Schreib eine Funktion \texttt{inorder}, die drei ganze Zahlen $a,b,c$ als Argument erwartet und \texttt{true} zurückgibt, wenn die Werte streng monoton wachsend oder streng monoton fallend sind (das heißt, $a<b<c$ oder $a>b>c$), und ansonsten \texttt{false}.
+    Schreib eine Funktion \texttt{inorder}$(a,b,c)$, die drei ganze Zahlen $a,b,c$ als Argument erwartet und \texttt{true} zurückgibt, wenn die Werte streng monoton wachsend oder streng monoton fallend sind (das heißt, $a<b<c$ oder $a>b>c$), und ansonsten \texttt{false}.
 \end{aufgabe}
 
 \begin{aufgabe}[Elemente tauschen]\mbox{}
     \begin{enumerate}
-        \item Schreib eine Funktion \texttt{swap}, die ein Feld $A$ und zwei Indizes $i$ und $j$ als Argument erwartet und die Werte an den Stellen $i$ und $j$ in $A$ vertauscht. Gib die Elemente von $A$ vor und nach dem Tausch aus.
-        \item Schreib eine Funktion \texttt{reverse}, die ein Feld $A$ als Argument erwartet und die Reihenfolge der Elemente von $A$ umkehrt.
+        \item Schreib eine Funktion \texttt{swap}$(A,i,j)$, die ein Array $A$ und zwei Indizes $i$ und $j$ als Argument erwartet und die Werte an den Stellen $i$ und $j$ in $A$ vertauscht. Gib die Elemente von $A$ vor und nach dem Tausch aus.
+        \item Schreib eine Funktion \texttt{reverse}$(A)$, die ein Array $A$ als Argument erwartet und die Reihenfolge der Elemente von $A$ umkehrt.
     \end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Abstand]
-    Schreib eine Funktion \texttt{dist}, die zwei Zahlen $x$ und $y$ als Argument erwartet und den Euklidischen Abstand zwischen den Punkten $(0,0)$ und $(x,y)$ in der Ebene zurückgibt.
+    Schreib eine Funktion \texttt{dist}$(x,y)$, die zwei Zahlen $x$ und $y$ als Argument erwartet und den Euklidischen Abstand zwischen den Punkten $(0,0)$ und $(x,y)$ in der Ebene zurückgibt.
 \end{aufgabe}
 
-\begin{aufgabe}[Drei Sortieren]
-    Schreib eine Funktion \texttt{sort}, die drei ganze Zahlen $a,b,c$ nimmt und diese Zahlen in aufsteigender Reihenfolge ausgibt. Benutze hierfür \texttt{Math.max()} und \texttt{Math.min()} (oder ähnliche Funktionen in der Programmiersprache deiner Wahl).
+\begin{aufgabe}[Drei-Sortieren]
+    Schreib eine Funktion \texttt{sort}$(a,b,c)$, die drei ganze Zahlen $a,b,c$ nimmt und diese Zahlen in aufsteigender Reihenfolge ausgibt. Benutze hierfür \texttt{Math.max()} und \texttt{Math.min()} (oder ähnliche Funktionen in der Programmiersprache deiner Wahl).
 \end{aufgabe}
 
 \begin{aufgabe}[Fakultät]
-    Schreib eine Funktion \texttt{fact}, die eine Zahl $x$ als Eingabe nimmt und $x!=x\cdot (x-1)\cdot\ldots\cdot 1$ ausgibt.
+    Schreib eine Funktion \texttt{fact}$(x)$, die eine Zahl $x$ als Eingabe nimmt und $x!=x\cdot (x-1)\cdot\ldots\cdot 1$ ausgibt.
     Die Funktion soll rekursiv sein, das heißt, die Funktion \texttt{fact} muss $x!$ ausrechnen, indem sie sich selbst aufruft.
 \end{aufgabe}
 
 \begin{aufgabe}[Kopf oder Zahl]
-    Schreib eine Funktion \texttt{flip}, die eine Zahl $n$ und eine Wahrscheinlichkeit $p$ nimmt und $n$ unabhängige Münzwürfe simuliert, mit einer Münze, die mit Wahrscheinlichkeit $p$ Kopf zeigt. Gib die Sequenz der gefallenen Münzwürfe aus.
+    Schreib eine Funktion \texttt{flip}$(n,p)$, die eine Zahl $n$ und eine Wahrscheinlichkeit $p$ nimmt und $n$ unabhängige Münzwürfe simuliert, mit einer Münze, die mit Wahrscheinlichkeit $p$ Kopf zeigt. Gib die Sequenz der gefallenen Münzwürfe aus.
 \end{aufgabe}
 
 \begin{aufgabe}[Binärzahlen]
-    Schreib eine Funktion \texttt{bin}, die eine positive Zahl $x$ nimmt und ihre Binärdarstellung ausgibt.
+    Schreib eine Funktion \texttt{bin}$(x)$, die eine positive Zahl $x$ nimmt und ihre Binärdarstellung ausgibt.
 \end{aufgabe}
 
 \begin{aufgabe}[Matrixmultiplikation]
-    Schreib eine Funktion \texttt{matrixMul}, die zwei $n\times n$ Matrizen $A$ und $B$ als zweidimensionale Felder nimmt und das Matrixprodukt $AB$ berechnet.
+    Schreib eine Funktion \texttt{matrixMul}$(A,B)$, die zwei $n\times n$ Matrizen $A$ und $B$ als zweidimensionale Arrays nimmt und das Matrixprodukt $AB$ berechnet.
 \end{aufgabe}
 
 \begin{aufgabe}[Längste Hochebene]
-    Schreib eine Funktion \texttt{plateau}, die ein Feld $A$ von ganzen Zahlen nimmt und die längste zusammenhängende Teilsequenz von gleichen Zahlen findet, wobei die Zahl direkt vorher und die Zahl direkt nachher kleiner sind.
+    Schreib eine Funktion \texttt{plateau}$(A)$, die ein Array $A$ von ganzen Zahlen nimmt und die längste zusammenhängende Teilsequenz von gleichen Zahlen findet, wobei die Zahl direkt vorher und die Zahl direkt nachher kleiner sind.
 \end{aufgabe}
 
 \begin{aufgabe}[Logarithmus]\mbox{}

@@ -1,6 +1,6 @@
 % $Id: uebung_cs.cls 507 2009-04-15 15:40:29Z beckmann $
 % (C) Copyright 2007 Andreas Beckmann <beckmann@ae.cs.uni-frankfurt.de>
-% Some Updates (2021) by Holger Dell <dell@cs..>, use at own risk.
+% Some Updates (2021) by Holger Dell <dell@..>, use at own risk.
 
 % according to http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=445839
 % it's incorrect to include text with \AtEndDocument, so as a workaround

@@ -13,36 +13,48 @@
 \ProvidesClass{uebung_cs}[2021/04/12 v0]
 \PassOptionsToClass{a4paper,fontsize=11pt,parskip=half}{scrartcl}
 \LoadClass{scrartcl}
-\RequirePackage{scrlayer-scrpage}
-\RequirePackage[a4paper,left=1in,right=1in,bottom=1in,top=1in]{geometry}
-\RequirePackage{ifthen}
-
-\RequirePackage{amsmath,amsfonts,amssymb,ragged2e}
-\RequirePackage{mathtools}
-\RequirePackage[english,ngerman]{babel}
 
 \RequirePackage{iftex}
 \ifPDFTeX
 	\RequirePackage[utf8]{inputenc}
-	\RequirePackage[T1]{fontenc}
 \fi
+\RequirePackage[T1]{fontenc}
+\RequirePackage{microtype}
 
-% Set serif font:
-\RequirePackage{newpxtext,newpxmath} % palatino fonts
-% \RequirePackage[lining,semibold,scaled=1.05]{ebgaramond}
+\RequirePackage{scrlayer-scrpage}
+\RequirePackage[a4paper,left=1in,right=1in,bottom=1in,top=1in]{geometry}
 
-% Set monospace font:
+\RequirePackage{ifthen}
+
+\RequirePackage{amsmath,amsfonts,amssymb,ragged2e}
+\RequirePackage{mathtools}
+
+% Fonts (Palatino)
+% \RequirePackage[vvarbb]{newpxmath}
+% \RequirePackage[no-math]{newpxtext}
+% \RequirePackage[scale=0.9]{sourcecodepro}
+% Fonts (Garamond)
+\RequirePackage[lining,semibold,scaled=1.05]{ebgaramond}
 \RequirePackage[scale=0.85]{sourcecodepro}
+\RequirePackage[ebgaramond,vvarbb,subscriptcorrection]{newtxmath}
 
-% \RequirePackage{unicode-math}
+% Multilanguage support
+\RequirePackage[english,ngerman,shorthands=off]{babel}
+
+\addtokomafont{disposition}{\rmfamily}
+\addtokomafont{title}{\let\huge\Large}
+\addtokomafont{section}{\large}
+\addtokomafont{subsection}{\normalsize}
+\addtokomafont{subsubsection}{\normalfont\itshape}
+\addtokomafont{author}{\normalsize}
+\addtokomafont{date}{\normalsize}
 
 \RequirePackage[babel,german=quotes]{csquotes}
-\RequirePackage{microtype}
 \RequirePackage{epic,graphicx,xcolor}
 \RequirePackage{comment}
 
 \definecolor{GoetheBlue}{rgb}{0,0.38,0.56}
-\RequirePackage[colorlinks=GoetheBlue,linkcolor=GoetheBlue,urlcolor=GoetheBlue,citecolor=GoetheBlue]{hyperref}
+\RequirePackage[colorlinks=true,linkcolor=GoetheBlue,urlcolor=GoetheBlue,citecolor=GoetheBlue,unicode]{hyperref}
 \renewcommand\UrlFont{\normalfont\small}
 \renewcommand\path[1]{{\normalfont\small\detokenize{#1}}}
 \usepackage[nameinlink,capitalise]{cleveref}
@@ -67,13 +79,11 @@
   mathescape=true,
   inputencoding=utf8,
   numbers=left,
-  numberstyle=\color{gray},
   xleftmargin=\parindent,
   basicstyle=\footnotesize\ttfamily,
   keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\normalfont\itshape\color{black!60},
-  identifierstyle=\color{blue},
-  stringstyle=\color{black!90},
+  commentstyle=\itshape\color{black!60},
+  stringstyle=\color{orange},
   tabsize=2%
 }
 \RequirePackage{algpseudocodex}

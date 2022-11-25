@@ -1,20 +1,20 @@
-% !TeX spellcheck = de_DE
+% LTeX: language=de-DE
 \documentclass{uebung_cs}
 \usepackage{algo123}
-\blattname{Übungen zum Wiederholen vorausgesetzter Fähigkeiten}
+\blattname{Übungen zur Vorbereitung auf ALGO1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-Prüfe mit diesen Aufgaben selbst, ob Du bereit bist, am Kurs \emph{Algorithmen und Datenstrukturen~1} teilzunehmen, oder ob Du einzelne Konzepte noch nacharbeiten musst.
-Geh am Besten wie folgt vor:
+Mit diesen Aufgaben kannst Du selbst prüfen, ob Du die nötigen Kenntnisse und Fähigkeiten besitzt, am Kurs \emph{Algorithmen und Datenstrukturen~1} teilzunehmen, oder ob Du einzelne Konzepte noch nacharbeiten musst.
+Geh am besten wie folgt vor:
 \begin{itemize}
     \item Lies Dir jede Aufgabe ganz aufmerksam durch. Wenn Du die Lösungsidee mental vor Dir siehst und Dir sicher bist, dass Du sie korrekt umsetzen kannst, brauchst Du nichts weiter zu tun.
-    \item Wenn Du Dir nicht sicher sind, nimm Dir etwas Zeit und löse die Aufgabe schriftlich. Bei den Programmieraufgaben, schreib das Programm in einer Sprache Deiner Wahl und lass es auch wirklich laufen, um es zu testen.
+    \item Wenn Du Dir nicht sicher sind, nimm Dir etwas Zeit und löse die Aufgabe schriftlich. Bei den Programmieraufgaben, schreib das Programm in einer Sprache Deiner Wahl (z.B.~Python) und lass es auch wirklich laufen, um es zu testen.
     \item Wenn Du mit mehreren Aufgaben Schwierigkeiten hast, musst Du vermutlich Deine mathematischen Grundkenntnisse oder Deine Programmierkenntnisse auffrischen. Hierzu empfiehlt sich der Vorsemesterkurs Informatik [\href{http://www-stud.informatik.uni-frankfurt.de/~lz_inf/Vorkurs/WS2021/webseite.html}{url}], oder ein kompakter Text zu den einführenden Aspekten des jeweiligen Themas, beispielsweise \emph{Introduction to Programming in Java} von Sedgewick und Wayne [\href{https://introcs.cs.princeton.edu/java/home/chapter1.pdf}{pdf}], oder das Vorlesungsskript \emph{Diskrete Modellierung} von Schnitger und Schweikardt [\href{http://algo.cs.uni-frankfurt.de/lehre/dismod/material/skript1920.pdf}{pdf}].
 \end{itemize}
 
 \begin{aufgabe}[Subtraktion]
-    Schreib eine Funktion \texttt{sub}$(a,b)$, die zwei ganze Zahlen $a$ und $b$ als Argument nimmt, und $a-b$ zurückgibt.
+    Schreib eine Funktion \texttt{sub}$(a,b)$, die zwei Zahlen $a$ und $b$ als Argument nimmt, und $a-b$ zurückgibt.
 \end{aufgabe}
 
 \begin{aufgabe}[Cut-off]
@@ -34,7 +34,7 @@ Geh am Besten wie folgt vor:
 \end{aufgabe}
 
 \begin{aufgabe}[Sortiertheit prüfen]
-    Schreib eine Funktion \texttt{inorder}$(a,b,c)$, die drei ganze Zahlen $a,b,c$ als Argument erwartet und \texttt{true} zurückgibt, wenn die Werte streng monoton wachsend oder streng monoton fallend sind (das heißt, $a<b<c$ oder $a>b>c$), und ansonsten \texttt{false}.
+    Schreib eine Funktion \texttt{inorder}$(a,b,c)$, die drei Zahlen $a,b,c$ als Argument erwartet und \texttt{true} zurückgibt, wenn die Werte streng monoton wachsend oder streng monoton fallend sind (das heißt, $a<b<c$ oder $a>b>c$), und ansonsten \texttt{false}.
 \end{aufgabe}
 
 \begin{aufgabe}[Elemente tauschen]\mbox{}
@@ -49,12 +49,12 @@ Geh am Besten wie folgt vor:
 \end{aufgabe}
 
 \begin{aufgabe}[Drei-Sortieren]
-    Schreib eine Funktion \texttt{sort}$(a,b,c)$, die drei ganze Zahlen $a,b,c$ nimmt und diese Zahlen in aufsteigender Reihenfolge ausgibt. Benutze hierfür \texttt{Math.max()} und \texttt{Math.min()} (oder ähnliche Funktionen in der Programmiersprache deiner Wahl).
+    Schreib eine Funktion \texttt{sort}$(a,b,c)$, die drei Zahlen $a,b,c$ nimmt und diese Zahlen in aufsteigender Reihenfolge ausgibt. Benutze hierfür \texttt{Math.max()} und \texttt{Math.min()} (oder ähnliche Funktionen in der Programmiersprache Deiner Wahl).
 \end{aufgabe}
 
 \begin{aufgabe}[Fakultät]
     Schreib eine Funktion \texttt{fact}$(x)$, die eine Zahl $x$ als Eingabe nimmt und $x!=x\cdot (x-1)\cdot\ldots\cdot 1$ ausgibt.
-    Die Funktion soll rekursiv sein, das heißt, die Funktion \texttt{fact} muss $x!$ ausrechnen, indem sie sich selbst aufruft.
+    Die Funktion soll rekursiv sein, das heißt, die Funktion \texttt{fact} muss~$x!$ ausrechnen, indem sie sich selbst aufruft.
 \end{aufgabe}
 
 \begin{aufgabe}[Kopf oder Zahl]
@@ -73,26 +73,49 @@ Geh am Besten wie folgt vor:
     Schreib eine Funktion \texttt{plateau}$(A)$, die ein Array $A$ von ganzen Zahlen nimmt und die längste zusammenhängende Teilsequenz von gleichen Zahlen findet, wobei die Zahl direkt vorher und die Zahl direkt nachher kleiner sind.
 \end{aufgabe}
 
-\begin{aufgabe}[Logarithmus]\mbox{}
+\begin{aufgabe}[Potenzen und Logarithmen]\mbox{}
     \begin{enumerate}
         \item Vereinfache die folgenden Ausdrücke:
+        $2^{10}$,\;
+        $n^{10}\cdot n^{3}$,\;
+        $\big(n^{10}\big)^{3}$,\;
+        $n^{10} \cdot n^{-10}$,\;
+        $n\cdot\sqrt{n}\cdot n^{-1/2}$,\;
         $\log_{10}(10000)$,\;
         $\log_2(2^n)$,\;
         $2^{\log_2 n}$,\;
         $\log_2(n^2)$,\;
         $\log_a(b^c)$.
-        \item Welche der Identitäten ist im Allgemeinen richtig und welche falsch?
-        \begin{enumerate}
-            \item $\log_a(x+y)= \log_a x+ \log_a y$
-            \item $\log_a(x+y)= \log_a x \cdot \log_a y$
-            \item $\log_a(xy)= \log_a x\cdot \log_a y$
-            \item $\log_a(xy)= \log_a x+ \log_a y$
-        \end{enumerate}
+        \item Welche der folgenden Identitäten ist im Allgemeinen richtig und welche falsch? (Überlege es Dir selbst, ohne irgendwo nachzulesen.)
+        \begin{alignat*}{2}
+            n^{a+b} &= n^a + n^b
+            \qquad&\qquad
+            n^{ab} &= n^a + n^b
+            \\
+            n^{a+b} &= n^a n^b
+            \qquad&\qquad
+            n^{ab} &= n^a n^b
+            \\
+            (a+b)^n &= a^n + b^n
+            \qquad&\qquad
+            (ab)^n &= a^n + b^n
+            \\
+            (a+b)^n &= a^n b^n
+            \qquad&\qquad
+            (ab)^n &= a^n b^n
+            \\
+            \log_a(x+y)&= \log_a x+ \log_a y
+            \qquad&\qquad
+            \log_a(xy)&= \log_a x+ \log_a y\\
+            \log_a(x+y)&= \log_a x \cdot \log_a y
+            \qquad&\qquad
+            \log_a(xy)&= \log_a x\cdot \log_a y
+        \end{alignat*}
     \end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe}[Summen]
-    Gib geschlossene Ausdrücke für die folgenden Summen an, und beweise formal die Gleichheit:
+    Gib geschlossene Ausdrücke an, und beweise die Gleichheit (z.B.~durch vollständige Induktion über~$n$):\quad
     \begin{enumerate*}
         \item $\sum_{i=1}^n i$,\;
         \item $\sum_{i=0}^n 2^{i}$,\;

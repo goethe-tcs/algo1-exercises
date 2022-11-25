@@ -14,7 +14,7 @@
 \PassOptionsToClass{a4paper,fontsize=11pt,parskip=half}{scrartcl}
 \LoadClass{scrartcl}
 \RequirePackage{scrlayer-scrpage}
-\RequirePackage[a4paper,left=1in,right=1in,bottom=1.5in,top=1in]{geometry}
+\RequirePackage[a4paper,left=1in,right=1in,bottom=1in,top=1in]{geometry}
 \RequirePackage{ifthen}
 
 \RequirePackage{amsmath,amsfonts,amssymb,ragged2e}
@@ -25,22 +25,34 @@
 \ifPDFTeX
 	\RequirePackage[utf8]{inputenc}
 	\RequirePackage[T1]{fontenc}
-	\RequirePackage{mathpazo} % palatino fonts
-\else
-	\RequirePackage{fontspec}
-	% \setmainfont{TeX Gyre Pagella} % palatino clone
 \fi
-\usepackage[babel,german=quotes]{csquotes}
+
+% Set serif font:
+\RequirePackage{newpxtext,newpxmath} % palatino fonts
+% \RequirePackage[lining,semibold,scaled=1.05]{ebgaramond}
+
+% Set monospace font:
+\RequirePackage[scale=0.85]{sourcecodepro}
+
+% \RequirePackage{unicode-math}
+
+\RequirePackage[babel,german=quotes]{csquotes}
 \RequirePackage{microtype}
-\RequirePackage{unicode-math}
 \RequirePackage{epic,graphicx,xcolor}
 \RequirePackage{comment}
-\RequirePackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+\definecolor{GoetheBlue}{rgb}{0,0.38,0.56}
+\RequirePackage[colorlinks=GoetheBlue,linkcolor=GoetheBlue,urlcolor=GoetheBlue,citecolor=GoetheBlue]{hyperref}
+\renewcommand\UrlFont{\normalfont\small}
+\renewcommand\path[1]{{\normalfont\small\detokenize{#1}}}
+\usepackage[nameinlink,capitalise]{cleveref}
+
 \RequirePackage{booktabs}
 \RequirePackage{tcolorbox}
-\RequirePackage{cleveref}
 
 \RequirePackage{subcaption}
+
+\RequirePackage{bm}% bold math, load after all math packages
 
 \RequirePackage[shortlabels,inline]{enumitem}
 \setlist{nosep,itemsep=2pt}

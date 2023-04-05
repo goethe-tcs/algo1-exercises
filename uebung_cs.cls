@@ -22,7 +22,7 @@
 \RequirePackage{microtype}
 
 \RequirePackage{scrlayer-scrpage}
-\RequirePackage[a4paper,left=1in,right=1in,bottom=1in,top=1in]{geometry}
+\RequirePackage[a4paper,margin=1in]{geometry}
 
 \RequirePackage{ifthen}
 

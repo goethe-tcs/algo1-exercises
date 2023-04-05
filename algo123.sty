@@ -1,6 +1,6 @@
 \ProvidesPackage{algo123}[2023/04/01 v0.01]
 
-\uebung{}{}{}
+% \uebung{}{}{}
 \chair{}
 \institute{}
 \staff{}{}
@@ -16,9 +16,18 @@
 \def\R{\mathbb{R}}
 \def\Z{\mathbb{Z}}
 
-% Can be used to include emojis. Each emoji must be manually downloaded as png.
-\newcommand{\emoji}[1]{%
-  \raisebox{-0.1em}{\includegraphics[height=0.9em]{#1.png}}%
-}
+\usepackage{emoji}
+\setemojifont{Twemoji Mozilla}
+% \setemojifont{Apple Color Emoji}
 
+% Can be used to include emojis. Each emoji must be manually downloaded as png.
+% \newcommand{\emoji}[1]{%
+%   \raisebox{-0.1em}{\includegraphics[height=0.9em]{#1.png}}%
+% }
+\RequirePackage{xspace}
+\def\schriftlich{\emoji{pencil}\xspace}
+\def\bestehen{\emoji{key}\xspace}
+\def\mittel{\emoji{balance-scale}\xspace}
+\def\note{\emoji{telescope}\xspace}
+\def\spass{\emoji{rainbow}\xspace}
 \endinput

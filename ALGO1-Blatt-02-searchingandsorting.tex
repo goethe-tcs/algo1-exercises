@@ -1,19 +1,32 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Suchen und Sortieren}
+\usepackage{algo123}
+\uebung{2}{}{}
+\blattname{Suchen und Sortieren (Woche 2)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 
-\section*{Vorbereitung}
-Lies CLRS Kapitel 2 und schau dir die Videos der Woche an.
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} CLRS Kapitel 2 und schau dir die \emoji{television} Videos der Woche an.
+%Beantworte dabei die folgenden Leitfragen:
+%\begin{enumerate}
+%	\item %TODO
+%\end{enumerate}
 
-\section*{Dienstag}
+\textbf{Zeichenlegende:}
+\legende{}
 
-\begin{aufgabe}[Von Hand laufen lassen und Eigenschaften]\label{tue-first}\mbox{}
+
+%  \schriftlich
+%  \bestehen
+%  \mittel
+%  \note
+%  \spass
+
+\begin{aufgabe}[Von Hand laufen lassen und Eigenschaften \bestehen]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Beschreibe den Ablauf von insertion sort, wenn die Eingabe ein Feld $A=[31,41,59,26,41,58]$ ist.
 		\item (\warmup) Verändere den Pseudocode für insertion sort, um das Eingabefeld monoton fallend anstatt monoton wachsend zu ordnen.	
@@ -24,7 +37,7 @@ Lies CLRS Kapitel 2 und schau dir die Videos der Woche an.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Duplikate und nahe Nachbarn]
+\begin{aufgabe}[Duplikate und nahe Nachbarn \mittel]
 	Sei $A[0..n-1]$ ein Feld von ganzen Zahlen.
 	\begin{enumerate}
 		\item (\warmup) Ein \emph{Duplikat} in $A$ ist ein Paar $(i,j)$ von unterschiedlichen Indizes mit $A[i]=A[j]$. Entwirf einen Algorithmus an, der in Zeit $O(n^2)$ findet, ob $A$ ein Duplikat hat.
@@ -34,23 +47,23 @@ Lies CLRS Kapitel 2 und schau dir die Videos der Woche an.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Korrektheit von Merge Sort]
+\begin{aufgabe}[Korrektheit von Merge Sort \mittel]
 	Beweise, dass Merge Sort alle gegebenen Felder korrekt sortiert. Hierbei darfst du annehmen, dass die Verflechtungsoperation \textsc{Merge} auf sortierten Feldern korrekt arbeitet.
 	\emph{Hinweis: benutze vollständige Induktion.}
 \end{aufgabe}
-
-\section*{Donnerstag}
 
 \begin{aufgabe}[2-Summe und 3-Summe]
 	Sei $A[0..n-1]$ ein Feld von ganzen Zahlen (positive und negative Zahlen sind erlaubt).
 	Das Feld $A$ hat eine \emph{2-Summe}, wenn es zwei Einträge $i$ und~$j$ gibt mit $A[i]+A[j]=0$.
 	Analog hat $A$ eine \emph{3-Summe}, wenn es drei Einträge $i$, $j$, und $k$ gibt, sodass $A[i]+A[j]+A[k]=0$.
 	\begin{enumerate}
-		\item (\warmup) Gib einen einfachen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 2-Summe hat.
-		\item Gib einen Algorithmus an, der in Zeit $O(n\log n)$ feststellt, ob $A$ eine 2-Summe hat. \emph{Hinweis: binäre Suche.}
-		\item (\warmup) Gib einen Algorithmus an, der in Zeit $O(n^3)$ feststellt, ob $A$ eine 3-Summe hat.
-		\item Gib einen Algorithmus an, der in Zeit $O(n^2\log n)$ feststellt, ob $A$ eine 3-Summe hat. \emph{Hinweis: binäre Suche.}
-		\item (\veryhard) Gib einen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 3-Summe hat.
+		\item \bestehen %(\warmup)
+    Gib einen einfachen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 2-Summe hat.
+		\item \mittel Gib einen Algorithmus an, der in Zeit $O(n\log n)$ feststellt, ob $A$ eine 2-Summe hat. \emph{Hinweis: binäre Suche.}
+		\item \bestehen %(\warmup)
+    Gib einen Algorithmus an, der in Zeit $O(n^3)$ feststellt, ob $A$ eine 3-Summe hat.
+		\item \mittel Gib einen Algorithmus an, der in Zeit $O(n^2\log n)$ feststellt, ob $A$ eine 3-Summe hat. \emph{Hinweis: binäre Suche.}
+		\item \note (\veryhard) Gib einen Algorithmus an, der in Zeit $O(n^2)$ feststellt, ob $A$ eine 3-Summe hat.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -59,14 +72,15 @@ Sei $A[0..n-1]$ ein Feld von unterschiedlichen ganzen Zahlen.
 Der Eintrag von \emph{Rang $k$} in $A$ ist die $k$t kleinste Zahl unter den Zahlen in $A$.
 Der \emph{Median} von $A$ ist die Zahl von Rang $\lceil(n/2)\rceil$.
 \begin{enumerate}
-	\item Gib einen Algorithmus mit Laufzeit $O(n\log n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
+	\item \mittel Gib einen Algorithmus mit Laufzeit $O(n\log n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
 \end{enumerate}
-Eine \emph{Partition} von $A$ ist eine Aufteilung in Felder $A_\text{low}$ und $A_\text{high}$, sodass $A_\text{low}$ alle Zahlen von $A$ enthält, die kleiner oder gleich dem Median von $A$ sind, und $A_\text{high}$ enthält alle Zahlen von $A$, die größer sind als der Median von $A$.
+Eine \emph{Partition} von $A$ ist eine Aufteilung in Felder $A_{\text{low}}$ und $A_{\text{high}}$, sodass $A_{\text{low}}$ alle Zahlen von $A$ enthält, die kleiner oder gleich dem Median von $A$ sind, und $A_{\text{high}}$ alle Zahlen von $A$ enthält, die größer sind als der Median von $A$.
 Es gibt einen Linearzeitalgorithmus, der den Median eines Feldes findet; diesen Algorithmus darfst du im Folgenden einfach annehmen.
 \begin{enumerate}[resume]
-	\item Gib einen Algorithmus an, der eine Partition von $A$ in Zeit $O(n)$ ausrechnet.
-	\item (\hard) Gib einen Algorithmus an, der $A$ in Zeit $O(n\log n)$ sortiert, indem er rekursiv partitioniert.
-	\item (\veryhard) Gib einen Algorithmus mit Laufzeit $O(n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
+	\item \bestehen Gib einen Algorithmus an, der eine Partition von $A$ in Zeit $O(n)$ ausrechnet.
+	\item \note %(\hard)
+  Gib einen Algorithmus an, der $A$ in Zeit $O(n\log n)$ sortiert, indem er rekursiv partitioniert.
+	\item \note (\veryhard) Gib einen Algorithmus mit Laufzeit $O(n)$ an, der $A$ und $k$ als Eingabe nimmt und die Zahl in $A$ ausgibt, die Rang $k$ hat.
 \end{enumerate}
 \end{aufgabe}
 
@@ -76,9 +90,10 @@ Es gibt einen Linearzeitalgorithmus, der den Median eines Feldes findet; diesen 
 	3-Merge Sort funktioniert genau wie das uns bekannte Merge Sort, nur wird rekursiv in drei Teile anstatt zwei aufgeteilt, die daraufhin sortiert und wieder verflochten werden.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item Zeige, dass sich drei sortierte Felder in asymptotischer Linearzeit verflechten lassen.
-		\item Führe eine Laufzeitanalyse für 3-Merge Sort durch. Stelle hierzu die Rekursionsgleichung für die Laufzeit $T(n)$ auf und löse diese.
-		\item (\hard) Verallgemeinere den Algorithmus und die Analyse von 3-Merge Sort zu $k$-Merge Sort für $k>3$.\\
+		\item \mittel Zeige, dass sich drei sortierte Felder in asymptotischer Linearzeit verflechten lassen.
+		\item \bestehen Führe eine Laufzeitanalyse für 3-Merge Sort durch. Stelle hierzu die Rekursionsgleichung für die Laufzeit $T(n)$ auf und löse diese.
+		\item \note %(\hard)
+    Verallgemeinere den Algorithmus und die Analyse von 3-Merge Sort zu $k$-Merge Sort für $k>3$.\\
 		Hat Prof.\ M.\ Erge den Durchbruch geschafft?
 		Stellt $k$-Merge Sort eine Verbesserung gegenüber dem klassischen 2-Merge Sort dar?
 	\end{enumerate}

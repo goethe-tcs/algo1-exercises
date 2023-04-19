@@ -1,23 +1,39 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Analyse von Algorithmen}
+\usepackage{algo123}
+\uebung{3}{}{}
+\blattname{Analyse von Algorithmen}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
-\section*{Vorbereitung}
-Lies CLRS Kapitel 3 sowie 4.3--4.5 und schau das Video der Woche.
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} CLRS Kapitel 3 sowie 4.3--4.5 und schau dir das \emoji{television} Video der Woche an.
+%TODO
+%Beantworte dabei folgende Leitfragen:
+%\begin{enumerate}
+%  \item 
+%\end{enumerate}
 
-\section*{Dienstag}
-\begin{aufgabe}[Asymptotisches Wachstum, \warmup]\label{tue-first}\mbox{}
+\textbf{Zeichenlegende:}
+\legende{}
+
+%  \schriftlich
+%  \bestehen
+%  \mittel
+%  \note
+%  \spass
+
+
+\begin{aufgabe}[Asymptotisches Wachstum, \bestehen%\warmup
+]\label{tue-first}\mbox{}
 	Ordne die folgenden Funktionen in aufsteigender Reihenfolge nach ihrem asymptotischem Wachstum.
 	Das heißt, $f(n)$ kommt vor $g(n)$, wenn $f(n) = o(g(n))$ gilt.
 	\[n \log n\hspace*{15pt} n^2\hspace*{15pt} 2^n\hspace*{15pt} n^3\hspace*{15pt} \sqrt{n}\hspace*{15pt} n\]
 \end{aufgabe}
 
-\begin{aufgabe}[$\Theta$-Notation]
+\begin{aufgabe}[$\Theta$-Notation, \bestehen]
 	Vereinfache die folgenden Funktionen in $\Theta$-Notation.
 	\begin{center}
 		\begin{tabular}{ccc}
@@ -37,7 +53,7 @@ Lies CLRS Kapitel 3 sowie 4.3--4.5 und schau das Video der Woche.
 	\end{center}
 \end{aufgabe}
 
-\begin{aufgabe}[Looping Louie]
+\begin{aufgabe}[Looping Louie, \bestehen]
 	Analysiere die Laufzeit für die folgenden Funktionen in $n$ und gib das Ergebnis in $O$-Notation an.
 	\begin{center}\mbox{}\\[-2\baselineskip]
 		\begin{tabular}{ccccc}
@@ -78,7 +94,7 @@ return
 	\end{center}
 \end{aufgabe}
 
-\begin{aufgabe}[Asymptotische Aussagen]
+\begin{aufgabe}[Asymptotische Aussagen, \bestehen]
 	Sind die folgenden Aussagen wahr oder falsch?
 	\begin{center}
 		\begin{tabular}{ccc}
@@ -105,7 +121,7 @@ return
 	\end{center}
 \end{aufgabe}
 
-\begin{aufgabe}[Master der Asymptotik]
+\begin{aufgabe}[Master der Asymptotik, \bestehen]
 	Löse die folgenden Rekursionsgleichungen in $\Theta$-Notation als Funktion von~$n$.
 	Benutze Rekursionsbäume um die Gleichungen für $A,B,C$ zu lösen, und für $D,E,F$ benutze das Mastertheorem.
 
@@ -126,9 +142,7 @@ return
 	\end{center}
 \end{aufgabe}
 
-\section*{Donnerstag}
-
-\begin{aufgabe}[Verdopplungen]
+\begin{aufgabe}[Verdopplungen, \bestehen]
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item (\warmup) Algorithmus $A$ benötigt genau $7n^3$ Operationen für eine Eingabe der Länge $n$.
@@ -153,12 +167,13 @@ return
 \begin{aufgabe}[Asymptotische Eigenschaften]
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item Seien $f(n)$ und $g(n)$ asymptotisch nicht negative Funktionen.
-		Beweise, dass folgendes gilt: $\max(f(n),g(n)) = \Theta(f(n) + g(n))$
-		\item Erkläre warum die Aussage \enquote{Die Laufzeit von Algorithmus $D$ ist mindestens $O(n^2)$} keinen Sinn ergibt.
-		\item Gilt $2^{n+1} = O(2^n)$? Gilt $2^{2n} = O(2^n)$? Beweise deine Behauptung.
-		\item Beweise, dass $\log_2(n!) = O(n \log n)$ gilt.
-		\item (\hard) Beweise, dass $\log_2(n!) = \Omega(n\log n)$ gilt.
+		\item \bestehen Seien $f(n)$ und $g(n)$ asymptotisch nicht negative Funktionen.
+		Beweise, dass folgendes gilt: $\max(f(n),g(n)) = \Theta(f(n) + g(n))$.
+		\item \bestehen Erkläre warum die Aussage \enquote{Die Laufzeit von Algorithmus $D$ ist mindestens $O(n^2)$} keinen Sinn ergibt.
+		\item \bestehen Gilt $2^{n+1} = O(2^n)$? Gilt $2^{2n} = O(2^n)$? Beweise deine Behauptung.
+		\item \bestehen Beweise, dass $\log_2(n!) = O(n \log n)$ gilt.
+		\item \note %(\hard)
+    Beweise, dass $\log_2(n!) = \Omega(n\log n)$ gilt.
 		Beweise, dass $\log_2(n!) = \Theta(n\log n)$ gilt.
 	\end{enumerate}
 \end{aufgabe}
@@ -168,10 +183,33 @@ return
 	Ein Teilfeld von $A$ ist ein genau dann ein \textit{maximales Teilfeld} $A[i..j]$ mit $0\leq i\leq j\leq n-1$, wenn die Summe $A[i] + A[i+1] + \cdots + A[j]$ maximal über alle möglichen Teilfelder ist.
 	Löse die folgenden Aufgaben.
 	\begin{enumerate}
-		\item (\warmup) Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^3)$ findet.
-		\item Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^2)$ findet.
-		\item (\hard) Schreib einen \textit{Divide and Conquer} Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n\log n)$ findet.
-		\item (\veryhard) Schreib einen Algorithmus, der einen maximales Teilfeld von $A$ in Laufzeit $O(n)$ findet.
+		\item \bestehen %(\warmup)
+    Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^3)$ findet.
+		\item \bestehen Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^2)$ findet.
+		\item \mittel (\hard) Schreib einen \textit{Divide and Conquer} Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n\log n)$ findet.
+		\item \mittel (\veryhard) Schreib einen Algorithmus, der einen maximales Teilfeld von $A$ in Laufzeit $O(n)$ findet.
 	\end{enumerate}
 \end{aufgabe}
+
+\begin{aufgabe}[Fehlende Bitstrings \schriftlich]
+  Seien $n,k,\ell$ positive ganze Zahlen mit $n=2^\ell-k$.
+  Die Elemente von $\{0,1\}^\ell$ heißen \emph{Bitstrings der Länge~$\ell$}.
+  Ein Wesen namens Regloh besitzt ein unsortiertes Feld $A[1..n]$ von $n$ \emph{unterschiedlichen} Bitstrings der Länge~$\ell$; das heißt, genau $k$ Bitstrings der Länge $\ell$ kommen \emph{nicht} in $A$ vor.
+  Regloh erlaubt Zugriff auf das Feld \emph{\textbf{nur}} über eine Funktion \textsc{FetchBit}$(i,j)$, welche das $j$te Bit des Strings $A[i]$ zurückliefert.
+  \begin{enumerate}
+    \item \mittel Im Fall $k=1$ fehlt dem Feld $A$ genau ein Bitstring. Beschreibe einen Algorithmus, der für eine Eingabe mit $k=1$ den fehlenden Bitstring ausgibt und dabei nur $O(n)$ oft auf \textsc{FetchBit} zugreift.
+    \item \note (\hard) Beschreibe einen Algorithmus, der für eine beliebige Eingabe mit $k\ge 1$ alle fehlenden Bitstrings ausgibt und dabei nur $O(n\log k)$ oft auf \textsc{FetchBit} zugreift.
+  \end{enumerate}
+
+  \paragraph{Beispiel für b).}
+  Im Fall $k=3$, $n=5$, $\ell=3$ und $A=$\texttt{["100", "010", "110", "000", "111"]}
+  wäre \textsc{FetchBit}$(2,2)=1$ und \textsc{FetchBit}$(4,1)=0$, und der Algorithmus soll \texttt{011}, \texttt{101} und \texttt{001} ausgeben.
+
+  \hinweis{
+    %Wie immer werden grobe Idee, formale Beschreibung, Korrektheitsbeweis, und Laufzeitanalyse erwartet, wobei in dieser Aufgabe die Laufzeitanalyse besonders wichtig ist: In der Laufzeitanalyse, muss die Zahl der Zugriffe auf \textsc{FetchBit} beschränkt werden, d.h.\ alle anderen Schritte, die der Algorithmus ausführt, zählen diesmal nicht mit.
+    In dieser Aufgabe liegt der Fokus auf der Laufzeitanalyse: Dabei soll die Zahl der Zugriffe auf \textsc{FetchBit} beschränkt werden, d.h.\ alle anderen Schritte, die der Algorithmus ausführt, zählen diesmal nicht mit.
+    %Die Abgabe wird \emph{akzeptiert}, wenn Aufgabe a) oder b) vollständig und korrekt gelöst wurde und dabei fast keine Abstriche in den allgemeinen Bewertungskriterien erkennbar sind. Aufgabe b) korrekt zu lösen erhöht den Lernerfolg, wird das Lehrpersonal freuen, und gibt einen kleinen Vorteil in der Bewertung.
+  }
+\end{aufgabe}
+
 \end{document}

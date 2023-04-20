@@ -1,7 +1,8 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Stapel, Warteschlangen, Verkettete Listen und Bäume}
+\usepackage{algo123}
+\uebung{4}{}{}
+\blattname{Stapel, Warteschlangen, Verkettete Listen und Bäume}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -12,10 +13,8 @@
 
 \begin{document}
 
-\section*{Vorbereitung}
-Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.4.1, und schau das Video der Woche.
-
-\section*{Dienstag}
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.4.1 und schau dir das \emoji{television} Video der Woche an.
 
 \begin{aufgabe}[Stapel und Warteschlangen]
 	Löse die Teilaufgaben.
@@ -136,8 +135,6 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 \end{aufgabe}
 }{}
 
-\section*{Donnerstag}
-
 \begin{aufgabe}[Sortierte verkettete Listen]
 	Sei $L$ eine einfach verkettete Liste von $n$ Integern in sortierter Reihenfolge.
 	Löse die folgenden Aufgaben.
@@ -185,6 +182,65 @@ Lies CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.
 		Wir nehmen für das Kostenmodell in dieser Aufgabe an, dass man ein Feld beliebiger Größe in Zeit $O(1)$ allokieren kann.\footnote{In C/C++ ist das einigermaßen realistisch, denn mit dem Codeschnipsel \texttt{int *array = malloc(n * sizeof(int))} sucht das Betriebssystem nach einem freien Speicherblock und allokiert diesen, ohne ihn zu durchlaufen. In Python stimmt das nicht, denn die ungefähr entsprechende Anweisung \texttt{array = [None for \_ in range(n)]} läuft in linearer Zeit ab. Wenn Sie Python gewohnt sind, dürfen Sie sich für diese Aufgabe also vorstellen, dass diese Python-Anweisung konstante Zeit bräuchte. Beachten Sie ansonsten, dass Sie Python-Operationen wie \texttt{list.push(x)} oder Ähnliches nicht verwenden, da diese intern nicht unbedingt konstante Zeit brauchen.}
 		\textit{Hinweis:} Überlege, wie der Aufwand gleichmäßig über alle Operationen verteilt werden kann. 
 	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Balance \schriftlich]
+  Schreibe ein Programm in C/C\verb|++|, Java, Python, oder einer anderen üblichen Programmiersprache (kein Pseudocode), welches das folgende Problem in linearer Zeit löst:
+  Entscheide, ob ein gegebener String von zwei verschiedenen Arten von Klammern \emph{balanciert} ist, das heißt, ob die zusammengehörigen öffnenden und schließenden Klammern richtig verschachtelt sind. Zum Beipiel ist \texttt{"([])()[]"} balanciert, aber \texttt{"(("} und \texttt{")("} und \texttt{"(]"} nicht.
+  
+  Um präzise zu sein: (i) der leere String ist balanciert; (ii) wenn $w$ balanciert ist, dann sind sowohl \texttt{(}$w$\texttt{)} als auch \texttt{[}$w$\texttt{]} balanciert; und (iii) wenn $w$ und $x$ balanciert sind, dann ist auch $wx$ balanciert.
+  
+  \textbf{Eingabe.}
+  Die Eingabe besteht aus mehreren Zeilen. Jede Zeile ist eine Sequenz $w$, die nur Zeichen aus dem Alphabet $\{\texttt{[},\texttt{]},\texttt{(},\texttt{)}\}$ enthält.
+  
+  \textbf{Ausgabe.}
+  Für jede Zeile $w$, die balanciert ist, gib \texttt{"1"} aus, und sonst \texttt{"0"}.
+  
+  \textbf{Beispiel.}\\
+  \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+  Eingabedatei:
+  \begin{verbatim}
+  ([(())])[]
+  )(
+  [)
+  ((
+  [(])
+  [])[])
+  (
+  \end{verbatim}
+  &
+  Ausgabedatei:
+  \begin{verbatim}
+  1
+  0
+  0
+  0
+  0
+  0
+  0
+  \end{verbatim}
+  \end{tabular}
+  
+  \textbf{Klassifierte Testfälle.}
+  Teste dein Programm! Hier ist ein größeres Beispiel:
+  \begin{itemize}[noitemsep]
+  \item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-example.in}
+  \item \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-example.out}
+  \end{itemize}
+  Stell sicher, dass dein Programm bei Eingabe \texttt{balance-example.in} \emph{exakt} die Ausgabedatei \texttt{balance-example.out} erzeugt.
+  
+  \textbf{Hinweis.}
+  Erinnere dich an die Themen der Woche. Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Nutze sie!
+  
+  \textbf{Hinweise zur Abgabe.}
+  Die Abgabe soll wie immer per PDF erfolgen und die grobe Idee, den diesmal echten Code, den Korrektheitsbeweis und die Laufzeitanalyse enthalten.
+  Außerdem: Welche 20 Zeilen (jeweils 0 oder 1) werden bei Eingabe \url{https://tcs.uni-frankfurt.de/teaching/summer21/algo1/balance-secret20.in} erzeugt? Die Ausgabe ist in der PDF einzufügen.
+  Weiterhin zu beachten:
+  \begin{itemize}
+  \item Der Code darf maximal 80 Zeilen lang sein. Möglichst kurz und elegant! (Eine 15-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
+  \item Falls die genutzte Datenstruktur in der Programmiersprache eingebaut ist, darf diese benutzt werden. Falls die Datenstruktur selbst implementiert wird, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
+  \end{itemize}
+
 \end{aufgabe}
 
 \end{document}

@@ -1,16 +1,18 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Gerichtete Graphen}
+\usepackage{algo123}
+\uebung{6}{}{}
+\blattname{Gerichtete Graphen}
+
+\usepackage{etoolbox}\AtBeginEnvironment{algorithmic}{\small}
+\newcommand{\fett}[1]{\textbf{\boldmath\color{red!60!black}#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
-\section*{Vorbereitung}
-Lies CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.4--B.5 und schau das Video der Woche.
-
-\section*{Dienstag}
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.4--B.5 und schau dir das \emoji{television} Video der Woche an.
 
 \begin{aufgabe}[Darstellung, Eigenschaften und Algorithmen]
 	Löse für die Graphen in Abbildung~\ref{digraph} folgende Aufgaben:
@@ -208,7 +210,6 @@ Lies CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.4--B.5 und sc
 	\end{enumerate}
 \end{aufgabe}
 
-\section*{Donnerstag}
 \begin{aufgabe}[Studiengangplanung]
 Algolina hat den gesamten Sommer damit verbracht, sich zu überlegen, welche Kurse sie an der Universität der Algorithmen belegen möchte.
 Der Abschluss eines Kurses benötigt ein Semester. Sie ist zwar eine Super-Studentin und besteht jeden Kurs, aber manche Kurse hängen von anderen Kursen ab und die Universität erlaubt es nicht, solche Kurse im selben Semester zu belegen. Wenn Kurs $i$ von Kurs $j$ abhängt, muss Algolina Kurs $j$ in einem früheren Semester als Kurs $i$ belegen.
@@ -258,6 +259,19 @@ Es kann kein Wasser nachgefüllt oder ausgeschüttet werden.
 	Bestimme einen Algorithmus, um die geringste Anzahl an Füllungen/Leerungen von Flaschen zum Erreichen des Zielvolumens zu bestimmen.
 	\textit{Tipp: Modelliere das Problem als impliziten Graphen.}
 \end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Palindromische Wege \schriftlich]
+  \textit{\footnotesize For an English version of this exercise, see [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, page 222]}.
+
+  Ein \emph{Palindrom} über dem Alphabet $\{\texttt{R},\texttt{B}\}$ ist eine Zeichenkette $s_1,s_2,s_3,\dots,s_n\in\{\texttt{R},\texttt{B}\}$, sodass $s_i=s_{n-i+1}$ für alle $i\in\{1,\dots,n\}$. Zum Beispiel sind \texttt{BRBRB} und \texttt{RBBR} Palindrome, aber \texttt{RBB} und \texttt{BRRR} nicht.
+  
+  Sei $G$ ein beliebiger gerichteter Graph, in dem jede Kante entweder rot oder blau gefärbt ist, und seien $s,t$ zwei Knoten.
+  \begin{enumerate}
+      \item Beschreibe einen Algorithmus, der entweder einen Weg von $s$ nach $t$ berechnet, für den die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+      \item Beschreibe einen Algorithmus, der entweder einen \emph{kürzesten} Weg von $s$ nach $t$ berechnet unter allen Wegen, für die die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+  \end{enumerate}
+  
 \end{aufgabe}
 
 \end{document}

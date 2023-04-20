@@ -1,15 +1,15 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Wörterbücher, Hashing}
+\usepackage{algo123}
+\uebung{11}{}{}
+\blattname{Wörterbücher, Hashing}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\section*{Vorbereitung}
-Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television} Video der Woche an.
 
-\section*{Dienstag}
 \begin{aufgabe}[Von Hand laufen lassen und Eigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Füge die Schlüsselsequenz $7, 18, 2, 3, 14, 25, 1, 11, 12, 1332$ in eine Hashtabelle der Länge 11 ein, die verkettetes Hashing und die Hashfunktion $f(k) = k \mod 11$ benutzt.
@@ -39,7 +39,6 @@ Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
 	\end{enumerate}
 \end{aufgabe}
 
-\section*{Donnerstag}
 \begin{aufgabe}[Spielserverstatistiken]
 	Für dein neues, extrem erfolgreiches Onlinespiel \emph{Hashnite} willst du ermitteln, ob die vielen gespielten Spielsitzungen von einer kleinen Gruppe extrem aktiver Spieler:innen kommt oder aus einer großen Gruppe verschiedener Spieler:innen, die unregelmäßig spielen.
 	Jede Spieler:in hat eine eindeutige ID, und von deinem Spieleserver aus kannst du auf die Liste aller IDs aus allen vergangenen Spielesitzungen zugreifen.
@@ -80,6 +79,49 @@ Lies CLRS Kapitel 11 ohne 11.5 und schau das Video der Woche.
 	Wir wollen ein \textit{riesiges} Feld $A$ implementieren, dessen Einträge wir effizient auslesen und ändern können.
 	Anfangs enthalten die Einträge von $A$ \enquote{Müll}, und wegen der Größe des Feldes wollen wir beim Erzeugen des Feldes keine Zeit darauf verschwenden, alle Einträge zu initialisieren.
 	Entwirf eine Datenstruktur, die linearen Platz in der Länge des Feldes benötigt, Auslesen und Ändern in erwarteter konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
+\end{aufgabe}
+
+\newpage
+\begin{aufgabe}[Zufällige Hashfunktionen \schriftlich]
+  Oft benutzen wir nicht etwa feste Hashfunktionen, sondern zufällige.
+  Nur so können wir garantieren, dass die gewählte Hashfunktion die für Hashtabellen so wichtigen Eigenschaften auch wirklich haben, wie etwa die Annahme des einfachen gleichmäßigen Hashings.
+  
+  Sei $p$ eine Primzahl.
+  Wir ziehen zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}$.
+  Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b\bmod p$.
+  % Betrachte die Prozedur:
+  % \begin{algorithmic}
+  %     \Procedure{Func}{$x_1,\dots,x_n$}
+  %     \State{Initialisiere ein Feld $T[0..p-1]$, in dem alle Einträge 0 sind.}
+  %     \State{Wähle zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}.$}
+  %     \State{Sei $h:\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h(x)=ax+b\bmod p$.}
+  %     \ForAll{$i\in\{1,\dots,n\}$}
+  %     \State $T[h(x_i)]\gets T[h(x_i)]+1$
+  %     \EndFor
+  %     \EndProcedure
+  % \end{algorithmic}
+  
+  % Wir führen \Call{Func}{$x_1,\dots,x_n$} aus.
+  % Beweise:
+  \begin{enumerate}
+      \item Sei $x$ eine beliebige natürliche Zahl ungleich $0$ und sei $i$ ein beliebiges Element aus $\{0,\dots,p-1\}$.
+      Finde eine kurze Formel in Abhängigkeit von $p$ für die Wahrscheinlichkeit $\pr_{a,b}(h_{a,b}(x)=i)$, und beweise deine Antwort. (Mit anderen Worten, beweise dass die Annahme des einfachen gleichmäßigen Hashings für die zufällige Hashfunktion $h_{a,b}$ im Erwartungswert gilt.)
+      \item Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $x\ne y$.
+      Beweise, dass \[\pr_{a,b}(h_{a,b}(x)=h_{a,b}(y))=\frac{1}{p^2}\] gilt. (Mit anderen Worten, beweise dass die Kollisionswahrscheinlichkeit $\frac{1}{p^2}$ ist.)
+      \item Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
+      \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
+      Beweise, dass folgende Ungleichungen gelten:
+      \[
+          \left(1-\frac{k}{p}\right)^k\le q_k \leq e^{-(k-1)k/(2p)}\,.
+      \]
+      (Das heißt, wir müssen bereits für $k=\Theta(\sqrt{p})$ mit Kollisionen rechnen.)\\
+      \emph{Hinweis: Die Ungleichung $(1-x)\le e^{-x}$ gilts stets und darf benutzt werden.}
+  \end{enumerate}
+  
+%  \paragraph*{Hinweise zur Abgabe.}
+%  Bitte schreib deine Beweise möglichst kurz und elegant auf.
+%  Den \emoji{star} erhälst du für die vollständige und weitgehend korrekte Bearbeitung der Aufgabenteile~a) und~b). Aufgabenteil c) gibt einen Bonus in der Bewertung.
+
 \end{aufgabe}
 
 \end{document}

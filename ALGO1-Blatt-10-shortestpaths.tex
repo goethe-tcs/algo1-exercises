@@ -1,15 +1,15 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Dijkstras Algorithmus}
+\usepackage{algo123}
+\uebung{10}{}{}
+\blattname{Dijkstras Algorithmus}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\section*{Vorbereitung}
-Lies \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson, Kapitel 8 ohne 8.7} (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau das Video der Woche.
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson, Kapitel 8 ohne 8.7} (oder CLRS Kapitel 24 ohne 24.1 und 24.4) und schau dir das \emoji{television} Video der Woche an.
 
-\section*{Dienstag}
 \begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Gegeben sei der Graph aus Abbildung~\ref{example_graph}.
@@ -78,8 +78,7 @@ Lies \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-Jef
 	Entwirf einen Algorithmus, um den \emph{längsten} Weg in einem gerichteten, kreisfreien Graphen zu finden.
 \end{aufgabe}
 
-\vspace{1cm}
-\section*{Donnerstag}
+%\vspace{1cm}
 \begin{aufgabe}[Dijkstra und Knotengewichte]
 	Sei $G$ ein gerichteter Graph, bei dem alle \emph{Knoten} ein nicht-negatives Gewicht haben.
 	Das Gewicht eines Weges in $G$ ist jetzt die Summe der Gewichte der Knoten auf dem Weg.
@@ -165,6 +164,17 @@ Lies \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-Jef
 		Gib die Laufzeit als Funktion von $n$ an.
 		\item (\hard) Entwirf einen schnelleren Algorithmus. 
 	\end{enumerate} 
+\end{aufgabe}
+
+\begin{aufgabe}[Wiedereinfügen \schriftlich]
+  Sei $G$ ein stark zusammenhängender, gerichteter Graph mit nicht-negativen Kantengewichten, und seien $s$ und $t$ Knoten aus $G$.
+  Weiterhin sei $H$ ein Untergraph von $G$, der dieselbe Knotenmenge hat wie $G$ (also $V(H)=V(G)$), bei dem aber manche Kanten gelöscht wurden (also $E(H)\subsetneq E(G)$).
+  
+  Wir wollen genau eine Kante aus $E(G)\setminus E(H)$ wieder in $H$ einfügen, sodass in dem neuen Graph die Länge des kürzesten Weges von $s$ nach $t$ so klein wie möglich ist (diese Länge könnte auch $\infty$ sein).
+  Beschreibe und analysiere einen Algorithmus, der für gegebenes $(G,H,s,t)$ die beste Kante zum Wiedereinfügen auswählt, und der in Zeit $O(m\log n)$ läuft.
+  
+  \emph{Hinweis: Du kannst einen bereits bekannten Algorithmus mit geschickt gewählten Eingaben benutzen, oder du kannst einen bereits bekannten Algorithmus modifizieren. Meistens ist das Benutzen einfacher und eleganter!}
+
 \end{aufgabe}
 
 \end{document}

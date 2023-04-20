@@ -1,7 +1,8 @@
 % !TeX spellcheck = de_DE
 \documentclass{uebung_cs}
-\usepackage{algo121}
-\blattname{Wochenplan: Traversierung, Binäre Suchbäume}
+\usepackage{algo123}
+\uebung{12}{}{}
+\blattname{Traversierung, Binäre Suchbäume}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -17,10 +18,9 @@ edge from parent/.style=
 level distance=1.5cm}
 
 \begin{document}
-\section*{Vorbereitung}
-Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
+\textbf{Eigenständige Vorbereitung:}\\
+Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television} Video der Woche an.
 
-\section*{Dienstag}
 \begin{aufgabe}[Binärbaumeigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Welche der folgenden Bäume sind binäre Suchbäume?
@@ -145,7 +145,6 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 	\end{enumerate}
 \end{aufgabe}
 
-\section*{Donnerstag}
 \begin{aufgabe}[Traversierung von binären Suchbäumen]\mbox{}
 	\begin{enumerate}
 		\item Entwirf einen Algorithmus, der für einen binären Baum $T$ (mit einem Schlüssel $x.\texttt{key}$ an jedem Knoten) ermittelt, ob $T$ ein binärer Suchbaum ist.
@@ -209,6 +208,34 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 		Entwirf einen rekursiven Algorithmus \texttt{RPfad($x$)}, der für den gegebenen Wurzelknoten $x$ ermittelt, ob es einen R-Pfad im Baum gibt.
 		Schreib den Algorithmus in Pseudocode auf und analysiere die Laufzeit im Verhältnis zu $|T(x)|$.
 	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}[Rekursionen auf Bäumen \schriftlich]
+  Sei $T$ ein Binärbaum.
+  Jeder Knoten $x$ von $T$ hat die Eigenschaften $x.\texttt{parent}$, $x.\texttt{left}$ und $x.\texttt{right}$, welche auf den Elternknoten sowie auf das linke und rechte Kind von $x$ verweisen.
+  Wenn der Knoten keine Kinder hat (z.B. die Blätter) oder keinen Elternknoten hat (die Wurzel \texttt{root}), wird der jeweilige Wert auf \texttt{null} gesetzt.
+  Des Weiteren hat jeder Knoten $x$ eine Eigenschaft $x.\texttt{size}$, die auf einen Integer gesetzt werden kann.
+  Betrachte den folgenden Algorithmus.
+  \begin{algorithmic}
+      \Procedure{Zero}{$x$}
+      \If{$x\neq \texttt{null}$}
+          \State{\Call{Zero}{$x.\texttt{left}$}}
+          \State{\Call{Zero}{$x.\texttt{right}$}}
+      \EndIf
+      \EndProcedure
+  \end{algorithmic}
+  \begin{enumerate}
+      \item Analysiere die Laufzeit von \textsc{Zero}$(x)$, wenn das Argument $x$ die Wurzel eines Teilbaums mit $n$ Knoten ist.
+      \item Sei $T(x)$ der Teilbaum mit Wurzel $x$ und sei $|T(x)|$ die Anzahl an Knoten in $T(x)$.
+      Entwirf einen rekursiven Algorithmus \textsc{InitSize$(x)$}, der für einen gegebenen Knoten $x$ und alle Knoten~$y$ im Teilbaum $T(x)$ die Variable $y.\texttt{size}$ auf $|T(y)|$ setzt.
+      Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
+      \item Wir bezeichnen eine Kante $(x,y)$ von Knoten $x$ zu einem seiner Kinder $y$ als \emph{rot} genau dann, wenn $|T(x)| \geq 2\cdot|T(y)|$.
+      Entwirf einen rekursiven Algorithmus \textsc{RedEdge$(x)$}, der die Anzahl an roten Kanten im Teilbaum $T(x)$ berechnet.
+      Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
+      \item Wie viele rote Kanten treten in einem Pfad von der Wurzel zu einem Blatt auf?
+      Gib asymptotische obere und untere Schranken an. Begründe deine Antwort.
+  \end{enumerate}
+
 \end{aufgabe}
 
 \end{document}

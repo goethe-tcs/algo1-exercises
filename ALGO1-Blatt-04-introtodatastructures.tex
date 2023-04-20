@@ -19,17 +19,20 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 \begin{aufgabe}[Stapel und Warteschlangen]
 	Löse die Teilaufgaben.
 	\begin{enumerate}
-		\item (\warmup) Betrachte einen anfangs leeren Stapel, auf dem die Operationen \texttt{PUSH(4)}, \texttt{PUSH(1)}, \texttt{PUSH(3)}, \texttt{POP()}, \texttt{PUSH(8)}, \texttt{POP()} ausgeführt werden. Wie sieht der Stapel nach jeder Operation aus, wenn dieser durch ein festes Feld der Länge 6 implementiert wurde?
-		\item Wie können \emph{zwei} Stapel $S_1, S_2$ auf \emph{einem} festen Feld $A$ der Länge $N$ implementiert werden?
+		\item \bestehen %(\warmup)
+    Betrachte einen anfangs leeren Stapel, auf dem die Operationen \texttt{PUSH(4)}, \texttt{PUSH(1)}, \texttt{PUSH(3)}, \texttt{POP()}, \texttt{PUSH(8)}, \texttt{POP()} ausgeführt werden. Wie sieht der Stapel nach jeder Operation aus, wenn dieser durch ein festes Feld der Länge 6 implementiert wurde?
+		\item \mittel Wie können \emph{zwei} Stapel $S_1, S_2$ auf \emph{einem} festen Feld $A$ der Länge $N$ implementiert werden?
 		Es darf hierbei zu keinem Überlauf kommen, es sei denn die Anzahl der Elemente in~$S_1$ und~$S_2$ ist größer als $N$.
 		Die \texttt{PUSH} und \texttt{POP} Operationen sollen $O(1)$ Zeit benötigen.
-		\item (\warmup) Betrachte eine anfangs leere Warteschlange, auf der die Operationen \texttt{ENQUEUE(4)}, \texttt{ENQUEUE(1)}, \texttt{ENQUEUE(3)}, \texttt{DEQUEUE()}, \texttt{ENQUEUE(8)}, \texttt{DEQUEUE()} ausgeführt werden. Wie sieht die Warteschlange nach jeder Operation aus, wenn diese auf einem festen Feld der Länge 6 implementiert wurde?
-		\item (\hard) Wie können eine Warteschlange $Q$ und ihre Operationen durch zwei Stapel $S_1, S_2$ implementiert werden? (Zusätzliche Felder oder Objekte sind nicht erlaubt.)
+		\item \bestehen %(\warmup)
+    Betrachte eine anfangs leere Warteschlange, auf der die Operationen \texttt{ENQUEUE(4)}, \texttt{ENQUEUE(1)}, \texttt{ENQUEUE(3)}, \texttt{DEQUEUE()}, \texttt{ENQUEUE(8)}, \texttt{DEQUEUE()} ausgeführt werden. Wie sieht die Warteschlange nach jeder Operation aus, wenn diese auf einem festen Feld der Länge 6 implementiert wurde?
+		\item \note %(\hard)
+    Wie können eine Warteschlange $Q$ und ihre Operationen durch zwei Stapel $S_1, S_2$ implementiert werden? (Zusätzliche Felder oder Objekte sind nicht erlaubt.)
 		Analysiere die Laufzeit jeder Operation.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Nahezu eine ehemalige dänische Klausuraufgabe]
+\begin{aufgabe}[Nahezu eine ehemalige dänische Klausuraufgabe \bestehen]
 	Sei $S$ ein Stapel.
 	Führe die folgenden Operationen von links nach rechts aus: Ein Buchstabe $i$ steht hierbei für $S.$\texttt{PUSH(}$i$\texttt{)} und \verb|*| steht für $S.$\texttt{POP()}.
 	\begin{verbatim}
@@ -38,7 +41,7 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 	Gib die Sequenz der Buchstaben an, die durch die \texttt{POP}-Aufrufe ausgegeben werden.
 \end{aufgabe}
 
-\begin{aufgabe}[Algorithmen auf verketteten Listen]
+\begin{aufgabe}[Algorithmen auf verketteten Listen \bestehen]
 	Betrachte die Algorithmen \textsc{Foo} und \textsc{Bar} und die verkettete Liste darunter.
 	\begin{center}
 	\begin{minipage}{0.45\textwidth}
@@ -97,14 +100,16 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 	\end{center}
 
 	\begin{enumerate}
-		\item (\warmup) Führe \textsc{Foo}(head) händisch aus.
-		\item (\warmup) Erkläre was \textsc{Foo} berechnet.
+		\item %(\warmup)
+    Führe \textsc{Foo}(head) händisch aus.
+		\item %(\warmup)
+    Erkläre was \textsc{Foo} berechnet.
 		\item Führe \textsc{Bar}(head, 0) händisch aus.
 		\item Erkläre was \textsc{Bar} berechnet.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Implementierung verketteter Listen, \warmup]
+\begin{aufgabe}[Implementierung verketteter Listen \bestehen]%, \warmup]
 	Sei $x$ ein Element in einer einfach verketteten Liste wie in den Folien beschrieben.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
@@ -126,7 +131,7 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 \end{aufgabe}
 
 \ifthenelse{\boolean{programming}}{
-\begin{aufgabe}[Implementierung von Stapeln und Warteschlangen]
+\begin{aufgabe}[Implementierung von Stapeln und Warteschlangen \bestehen]
 	Implementiere die folgenden Datenstrukturen in einer Programmiersprache deiner Wahl.
 	\begin{enumerate}
 		\item Ein Stapel für Integer mittels einer einfach verketteten Liste.
@@ -135,7 +140,7 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 \end{aufgabe}
 }{}
 
-\begin{aufgabe}[Sortierte verkettete Listen]
+\begin{aufgabe}[Sortierte verkettete Listen \mittel]
 	Sei $L$ eine einfach verkettete Liste von $n$ Integern in sortierter Reihenfolge.
 	Löse die folgenden Aufgaben.
 	\begin{enumerate}
@@ -144,12 +149,12 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Eine Liste umkehren]
+\begin{aufgabe}[Eine Liste umkehren \mittel]
 	Entwirf einen Algorithmus, der eine einfach verkettete Liste $L$ mit $n$ Elementen als Eingabe erhält und diese umkehrt, das heißt, nach der Ausführung soll die Liste $L$ dieselben Elemente, jedoch in umgekehrter Reihenfolge enthalten.
 	Der Algorithmus soll $O(n)$ Zeit brauchen und höchstens konstant viel zusätzlichen Speicherplatz benötigen.\footnote{Das heißt, der zusätzliche Speicherbedarf muss durch eine Konstante (unabhängig von $n$) beschränkt bleiben, selbst dann, wenn $n$ beliebig wächst.}
 \end{aufgabe}
 
-\begin{aufgabe}
+\begin{aufgabe}[Lichtschalter im Gefängnis \spass]
 	32 Inhaftierte sind zu lebenslänglicher Einzelhaft verurteilt.
 	Der Gefängnisdirektor schlägt den Inhaftierten einen Deal vor, der zwar nicht mit Menschenrechten, jedoch mit einer algorithmischen Fragestellung vereinbar ist.
 	Der Direktor hat eine Schüssel voller Zettel mit den Zellennummern aller Inhaftierten.
@@ -170,16 +175,20 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Dynamische Felder und Stapel]
+\begin{aufgabe}[Dynamische Felder und Stapel \note]
 	Wir wollen Stapel durch dynamische Felder implementieren.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item (\hard) Verallgemeinere die Implementierung durch dynamische Felder aus den Folien, sodass diese für Stapel sowohl \texttt{PUSH} als auch \texttt{POP} Operationen unterstützen.
+		\item %(\hard)
+    Verallgemeinere die Implementierung durch dynamische Felder aus den Folien, sodass diese für Stapel sowohl \texttt{PUSH} als auch \texttt{POP} Operationen unterstützen.
 		Wenn der Stapel anfangs leer ist und $n$ beliebige \texttt{PUSH}/\texttt{POP} Operationen ausgeführt werden, soll die Gesamtlaufzeit dieser $n$ Operationen $\Theta(n)$ betragen. Außerdem soll jede einzelne \texttt{PUSH} und \texttt{POP} Operation unabhängig vom Stapelinhalt maximale Laufzeit $O(n)$ haben.
 		\item (\veryhard) Betrachte der Einfachheit halber nur die \texttt{PUSH} Operation.
 		Zeige, wie man \texttt{PUSH} mithilfe dynamischer Felder so implementieren kann, dass die Laufzeit jeder einzelnen Operation $O(1)$ ist, also durch eine Konstante beschränkt.
 		Hierbei soll der Speicherplatz linear in der Anzahl der auf dem Stapel enthaltenen Elemente sein.
-		Wir nehmen für das Kostenmodell in dieser Aufgabe an, dass man ein Feld beliebiger Größe in Zeit $O(1)$ allokieren kann.\footnote{In C/C++ ist das einigermaßen realistisch, denn mit dem Codeschnipsel \texttt{int *array = malloc(n * sizeof(int))} sucht das Betriebssystem nach einem freien Speicherblock und allokiert diesen, ohne ihn zu durchlaufen. In Python stimmt das nicht, denn die ungefähr entsprechende Anweisung \texttt{array = [None for \_ in range(n)]} läuft in linearer Zeit ab. Wenn Sie Python gewohnt sind, dürfen Sie sich für diese Aufgabe also vorstellen, dass diese Python-Anweisung konstante Zeit bräuchte. Beachten Sie ansonsten, dass Sie Python-Operationen wie \texttt{list.push(x)} oder Ähnliches nicht verwenden, da diese intern nicht unbedingt konstante Zeit brauchen.}
+		Wir nehmen für das Kostenmodell in dieser Aufgabe an, dass man ein Feld beliebiger Größe in Zeit $O(1)$ allokieren kann.\footnote{In C/C++ ist das einigermaßen realistisch, denn mit dem Codeschnipsel \texttt{int *array = malloc(n * sizeof(int))} sucht das Betriebssystem nach einem freien Speicherblock und allokiert diesen, ohne ihn zu durchlaufen.
+    In Python stimmt das nicht, denn die ungefähr entsprechende Anweisung \texttt{array = [None for \_ in range(n)]} läuft in linearer Zeit ab.
+    Wenn Du Python gewohnt bist, kanst du dir für diese Aufgabe also vorstellen, dass diese Python-Anweisung konstante Zeit bräuchte.
+    Beachte ansonsten, dass Du Python-Operationen wie \texttt{list.push(x)} oder Ähnliches nicht verwendest, da diese intern nicht unbedingt konstante Zeit brauchen.}
 		\textit{Hinweis:} Überlege, wie der Aufwand gleichmäßig über alle Operationen verteilt werden kann. 
 	\end{enumerate}
 \end{aufgabe}

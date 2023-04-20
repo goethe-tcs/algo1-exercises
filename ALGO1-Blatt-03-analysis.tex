@@ -10,11 +10,12 @@
 \begin{document}
 \textbf{Eigenständige Vorbereitung:}\\
 Lies \emoji{book} CLRS Kapitel 3 sowie 4.3--4.5 und schau dir das \emoji{television} Video der Woche an.
-%TODO
-%Beantworte dabei folgende Leitfragen:
-%\begin{enumerate}
-%  \item 
-%\end{enumerate}
+Beantworte dabei folgende Leitfragen:
+\begin{enumerate}
+  \item Was misst eine Rekursionsgleichung?
+  \item Wie kann man die Laufzeit eines Programmes experimentell bestimmen?
+  \item Welche andere Größen als die Laufzeit können durch den asymptotischen Ausdruck $O(n^2)$ gemeint sein?
+\end{enumerate}
 
 \textbf{Zeichenlegende:}
 \legende{}
@@ -171,7 +172,7 @@ return
 		Beweise, dass folgendes gilt: $\max(f(n),g(n)) = \Theta(f(n) + g(n))$.
 		\item \bestehen Erkläre warum die Aussage \enquote{Die Laufzeit von Algorithmus $D$ ist mindestens $O(n^2)$} keinen Sinn ergibt.
 		\item \bestehen Gilt $2^{n+1} = O(2^n)$? Gilt $2^{2n} = O(2^n)$? Beweise deine Behauptung.
-		\item \bestehen Beweise, dass $\log_2(n!) = O(n \log n)$ gilt.
+		\item \mittel Beweise, dass $\log_2(n!) = O(n \log n)$ gilt.
 		\item \note %(\hard)
     Beweise, dass $\log_2(n!) = \Omega(n\log n)$ gilt.
 		Beweise, dass $\log_2(n!) = \Theta(n\log n)$ gilt.
@@ -187,7 +188,7 @@ return
     Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^3)$ findet.
 		\item \bestehen Schreib einen Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n^2)$ findet.
 		\item \mittel (\hard) Schreib einen \textit{Divide and Conquer} Algorithmus, der ein maximales Teilfeld von $A$ in Laufzeit $O(n\log n)$ findet.
-		\item \mittel (\veryhard) Schreib einen Algorithmus, der einen maximales Teilfeld von $A$ in Laufzeit $O(n)$ findet.
+		\item \note (\veryhard) Schreib einen Algorithmus, der einen maximales Teilfeld von $A$ in Laufzeit $O(n)$ findet.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -211,5 +212,7 @@ return
     %Die Abgabe wird \emph{akzeptiert}, wenn Aufgabe a) oder b) vollständig und korrekt gelöst wurde und dabei fast keine Abstriche in den allgemeinen Bewertungskriterien erkennbar sind. Aufgabe b) korrekt zu lösen erhöht den Lernerfolg, wird das Lehrpersonal freuen, und gibt einen kleinen Vorteil in der Bewertung.
   }
 \end{aufgabe}
+
+\input{allgemeine-kriterien-23.inc}
 
 \end{document}

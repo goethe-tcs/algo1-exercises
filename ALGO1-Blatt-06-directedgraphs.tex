@@ -23,11 +23,13 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 %  \note
 %  \spass
 
-\begin{aufgabe}[Darstellung, Eigenschaften und Algorithmen]
+\begin{aufgabe}[Darstellung, Eigenschaften und Algorithmen \bestehen]
 	Löse für die Graphen in Abbildung~\ref{digraph} folgende Aufgaben:
 	\begin{enumerate}
-		\item (\warmup) Zeige die Adjazenzlisten und Adjazenzmatrizen für Graph (a) und Graph (b).
-		\item (\warmup) Führe die Breitensuche und Tiefensuche in den Graphen (a) und (c) aus.
+		\item %(\warmup)
+    Gib die Adjazenzlisten und Adjazenzmatrizen für Graph (a) und Graph (b) an.
+		\item %(\warmup)
+    Führe die Breitensuche und Tiefensuche in den Graphen (a) und (c) aus.
 		Die Startknoten sind \textbf{Knoten 4 in Graph (a)} und \textbf{Knoten 5 in Graph (c)}
 		\item Welcher der Graphen (a) und (c) ist ein gerichteter azyklischer Graph?
 		Wenn ein Graph ein gerichteter azyklischer Graph ist, finde mithilfe des rekursiven Algorithmus für das topologische Sortieren eine topologische Ordnung der Knoten.
@@ -155,7 +157,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	\end{figure}
 \end{center}
 
-\begin{aufgabe}[Rolltreppen und Aale]
+\begin{aufgabe}[Rolltreppen und Aale \mittel]
 	\emph{Rolltreppen und Aale} ist ein klassisches Brettspiel (manchmal auch als \emph{Schlangen und Leitern} bekannt).
 	Wir schauen uns die folgende Variante an.
 	Das Spielbrett ist ein $n \times n$ Feld mit Zellen, die von $1$ bis $n^2$ in der Reihenfolge nummeriert sind, wie in Abbildung~\ref{snakesladders} dargestellt.
@@ -210,16 +212,17 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	\end{figure}
 \begin{aufgabe}[Gerichtete azyklische Graphen und topologische Sortierung]\mbox{}
 	\begin{enumerate}
-		\item Professorin Tina Opologisch schlägt folgenden neuen und einfachen Algorithmus zur Bestimmung einer topologischen Ordnung vor: Führe eine Breitensuche von einem Knoten $s$ mit Ein-Grad $0$ aus und sortiere die Knoten aufsteigend nach dem Abstand zu s. Funktioniert dieser Algorithmus?
-		\item Bestimme einen Algorithmus, der als Eingabe einen Graphen $G$ und eine Reihenfolge $S$ der Knoten in $G$ erhält und bestimmt, ob $S$ eine topologische Ordnung für $G$ ist.
-		\item Gegeben ist ein gerichteter, azyklischer Graph $G$.
+		\item \bestehen Professorin Tina Opologisch schlägt folgenden neuen und einfachen Algorithmus zur Bestimmung einer topologischen Ordnung vor: Führe eine Breitensuche von einem Knoten $s$ mit Ein-Grad $0$ aus und sortiere die Knoten aufsteigend nach dem Abstand zu s. Funktioniert dieser Algorithmus?
+		\item \bestehen Bestimme einen Algorithmus, der als Eingabe einen Graphen $G$ und eine Reihenfolge $S$ der Knoten in $G$ erhält und bestimmt, ob $S$ eine topologische Ordnung für $G$ ist.
+		\item \bestehen Gegeben ist ein gerichteter, azyklischer Graph $G$.
 		Gibt es eine topologische Ordnung von~$G$, die nicht durch den rekursiven Algorithmus gefunden werden kann?
-		\item (\hard) Ein Hamilton-Weg ist ein Weg, der jeden Knoten genau einmal besucht.
+		\item \note %(\hard)
+    Ein Hamilton-Weg ist ein Weg, der jeden Knoten genau einmal besucht.
 		Bestimme einen Algorithmus, der feststellt, ob ein gerichteter, azyklischer Graph einen Hamilton-Weg enthält.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Studiengangplanung]
+\begin{aufgabe}[Studiengangplanung \mittel]
 Algolina hat den gesamten Sommer damit verbracht, sich zu überlegen, welche Kurse sie an der Universität der Algorithmen belegen möchte.
 Der Abschluss eines Kurses benötigt ein Semester. Sie ist zwar eine Super-Studentin und besteht jeden Kurs, aber manche Kurse hängen von anderen Kursen ab und die Universität erlaubt es nicht, solche Kurse im selben Semester zu belegen. Wenn Kurs $i$ von Kurs $j$ abhängt, muss Algolina Kurs $j$ in einem früheren Semester als Kurs $i$ belegen.
 Sie möchte ihr Studium in möglichst wenigen Semestern abschließen.
@@ -232,7 +235,7 @@ Bestimme einen Algorithmus, um dieses Problem zu lösen. Implementiere diesen Al
 \end{aufgabe}
 
 
-\begin{aufgabe}[Ethnographen, \hard]
+\begin{aufgabe}[Ethnographen \note]%, \hard]
 Du hilfst einer Gruppe von Ethnographen bei der Analyse mündlicher Geschichtsdaten, die sie durch die Befragung von Dorfbewohner:innen gesammelt haben. Das Ziel der Studie war es, mehr über das Leben von den Menschen zu erfahren, die in den letzten zweihundert Jahren in dem Dorf gelebt haben.
 
 In den Interviews haben die Ethnographen herausgefunden, dass es eine Menge von $n$ mittlerweile verstorbenen Personen gab, die als $P_1, P_2, \ldots, P_n$ notiert sind.
@@ -249,20 +252,22 @@ Bestimme einen effizienten Algorithmus, der diese Aufgabe löst: entweder sollte
 \end{aufgabe}
 
 
-\begin{aufgabe}[Topologische Sortierung und gerichtete azyklische Graphen]
+\begin{aufgabe}[Topologische Sortierung und gerichtete azyklische Graphen \mittel]
 Zeige, dass ein gerichteter Graph G genau dann ein gerichteter, azyklischer Graph ist, wenn G eine topologische Ordnung hat.
 \textit{Tipp: Nutze das Lemma für die Korrektheit des rekursiven Algorithmus der topologischen Sortierung}
 \end{aufgabe}
 
 
-\begin{aufgabe}[Drei Flaschen]
+\begin{aufgabe}[Drei Flaschen \note]
 Du hast drei Flaschen mit einer Kapazität von 8, 5 und 3 Litern.
 Zu Beginn ist die 8 Liter Flasche mit Wasser gefüllt und die anderen beiden sind leer.
 Dein Ziel ist es, am Ende genau 4 Liter in einer der Flaschen zu haben. Du kannst dafür Wasser von einer Flasche in eine andere gießen, aber musst so lange weitermachen, bis entweder die Flasche, aus der du das Wasser entnimmst, leer ist oder die Flasche, in die du es füllst, voll ist.
 Es kann kein Wasser nachgefüllt oder ausgeschüttet werden.
 \begin{enumerate}
-	\item (\hard) Zeige, dass das möglich ist. Gib die geringste Anzahl an Füllungen/Leerungen von Flaschen an, die du finden kannst.
-	\item (\hard) Nimm nun an, dass du $n$ Flaschen mit einer Kapazität von $d_1, \ldots, d_n$ Litern hast und ein Zielvolumen von $x$ Litern Wasser, die am Ende in einer der Flaschen sein soll.
+	\item %(\hard)
+  Zeige, dass das möglich ist. Gib die geringste Anzahl an Füllungen/Leerungen von Flaschen an, die du finden kannst.
+	\item %(\hard)
+  Nimm nun an, dass du $n$ Flaschen mit einer Kapazität von $d_1, \ldots, d_n$ Litern hast und ein Zielvolumen von $x$ Litern Wasser, die am Ende in einer der Flaschen sein soll.
 	Zu Begin ist nur die Flasche mit dem größten Volumen gefüllt.
 	Es kann kein Wasser nachgefüllt oder ausgeschüttet werden.\\
 	Bestimme einen Algorithmus, um die geringste Anzahl an Füllungen/Leerungen von Flaschen zum Erreichen des Zielvolumens zu bestimmen.
@@ -277,8 +282,8 @@ Es kann kein Wasser nachgefüllt oder ausgeschüttet werden.
   
   Sei $G$ ein beliebiger gerichteter Graph, in dem jede Kante entweder rot oder blau gefärbt ist, und seien $s,t$ zwei Knoten.
   \begin{enumerate}
-      \item Beschreibe einen Algorithmus, der entweder einen Weg von $s$ nach $t$ berechnet, für den die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
-      \item Beschreibe einen Algorithmus, der entweder einen \emph{kürzesten} Weg von $s$ nach $t$ berechnet unter allen Wegen, für die die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+      \item \mittel Beschreibe einen Algorithmus, der entweder einen Weg von $s$ nach $t$ berechnet, für den die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+      \item \note Beschreibe einen Algorithmus, der entweder einen \emph{kürzesten} Weg von $s$ nach $t$ berechnet unter allen Wegen, für die die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
   \end{enumerate}
   
 \end{aufgabe}

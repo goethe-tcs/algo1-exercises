@@ -30,7 +30,7 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 %  \note
 %  \spass
 
-\begin{aufgabe}[Union Find von Hand laufen lassen]\label{tue-first}
+\begin{aufgabe}[Union Find von Hand laufen lassen \bestehen]\label{tue-first}
 	Betrachte die folgende Sequenz von Operationen:
 	\texttt{Init(7)}, \texttt{Union(3,4)}, \texttt{Union(5,0)}, \texttt{Union(4,5)}, \texttt{Union(4,3)}, \texttt{Union(0,1)}, \texttt{Union(2,6)}, \texttt{Union(0,4)} und \texttt{Union(6,0)}.
 	\begin{enumerate}
@@ -50,7 +50,7 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Alternative zum \qfind{} Algorithmus]
+\begin{aufgabe}[Alternative zum \qfind{} Algorithmus \mittel]
 	Eine Kommilitonin stellt die folgende, intuitive Variante von \qfind{} \texttt{Union} vor.
 	Funktioniert sie?
 	\begin{algorithmic}
@@ -66,13 +66,13 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 	\end{algorithmic}
 \end{aufgabe}
 
-\begin{aufgabe}[Dynamische Zusammenhangskomponente und Suche in Graphen]\mbox{}\\
+\begin{aufgabe}[Dynamische Zusammenhangskomponente und Suche in Graphen \mittel]\mbox{}\\
 	Mit Tiefen- und Breitensuche können wir die Zusammenhangskomponenten eines Graphen finden.
-	Entwirf einen einfache Implementierung der abstrakten Datenstruktur für den dynamischen Zusammenhang (mit den Operationen \textsc{Init}, \textsc{Connected}, \textsc{Insert}) mittels Suche in Graphen und vergleiche die Komplexität deiner Lösung mit der auf Union-Find basierenden Lösungen.
+	Entwirf eine einfache Implementierung der abstrakten Datenstruktur für den dynamischen Zusammenhang (mit den Operationen \textsc{Init}, \textsc{Connected}, \textsc{Insert}) mittels Suche in Graphen und vergleiche die Komplexität deiner Lösung mit der auf Union-Find basierenden Lösungen.
 \end{aufgabe}
 
 
-\begin{aufgabe}[Implementierung von Union-Find, alleine probieren]
+\begin{aufgabe}[Implementierung von Union-Find, alleine probieren \mittel]
 	Wir wollen Datenstrukturen für Union-Find (mit den Operationen \texttt{Init}, \texttt{Union} und \texttt{Find}) in einer beliebigen Programmiersprache implementieren.
 	\begin{enumerate}
 		\item Implementiere \qunion{}.
@@ -81,7 +81,7 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Zombieinvasion, \hard]
+\begin{aufgabe}[Zombieinvasion \spass]%, \hard]
 	Der erkenntnisgierige Prof.~Dr.~Regloh hat bei unethischen Zombieduellexperimenten versehentlich einige Zombies entkommen lassen und damit die postapokalyptische Zukunft eingeläutet.
 	Du hast dich mit einer kleinen Gruppe an Überlebenden in einem kleinen Gebäude verbarrikadiert.
 	Das Einzige, das zwischen euch und einer brutalen und hungrigen Horde Zombies steht, ist eine starke Befestigung. Die Befestigung besteht aus einem $k\times k$ Gitter von Wänden, hier illustriert durch ein $6\times 6$ Gitter von Wänden (\emph{graue Rechtecke}):
@@ -150,7 +150,7 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 	Entwirf eine Datenstruktur, die effizient den Überblick behält, während die Wände (Zellen des Gitters) eine nach der anderen einstürzen.
 \end{aufgabe}
 
-\begin{aufgabe}[Rekursive \pathcomp, \hard]
+\begin{aufgabe}[Rekursive \pathcomp \note]%, \hard]
 	Entwirf eine rekursive Variante von \pathcomp{} in Pseudo-Code.
 \end{aufgabe}
 
@@ -225,10 +225,10 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}
-		\item Zeige wie man mit dieser Darstellung der Mengen die Operationen \texttt{Init($n$)} in Zeit $O(n)$, \texttt{Find($i$)} in Zeit $O(1)$ und \texttt{Union($i,j$)} in Zeit $O(|S(i)|)$ implementieren kann, wobei $S(i)$ diejenige Menge ist, die $i$ enthält.
-		\item\label{min} Zeige, wie man die Lösung erweitern kann, sodass \texttt{Init} und \texttt{Find} dieselbe Zeitkomplexität wie zuvor haben, aber \texttt{Union($i,j$)} nun nur Zeit $O(\min(|S(i)|, |S(j)|))$ benötigt.
+		\item \mittel Zeige wie man mit dieser Darstellung der Mengen die Operationen \texttt{Init($n$)} in Zeit $O(n)$, \texttt{Find($i$)} in Zeit $O(1)$ und \texttt{Union($i,j$)} in Zeit $O(|S(i)|)$ implementieren kann, wobei $S(i)$ diejenige Menge ist, die $i$ enthält.
+		\item\label{min} \mittel Zeige, wie man die Lösung erweitern kann, sodass \texttt{Init} und \texttt{Find} dieselbe Zeitkomplexität wie zuvor haben, aber \texttt{Union($i,j$)} nun nur Zeit $O(\min(|S(i)|, |S(j)|))$ benötigt.
 			\textit{Hinweis: Speichere ein paar Zusatzinformationen.}
-		\item (\hard) Zeige, dass für die Lösung aus \ref{min} jede Sequenz von $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen eine Laufzeit von $O(p + m\log n)$ hat.
+		\item \note %(\hard) Zeige, dass für die Lösung aus \ref{min} jede Sequenz von $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen eine Laufzeit von $O(p + m\log n)$ hat.
 		Zu Beginn der Sequenz sind alle Mengen einelementig.
 	\end{enumerate}
 \end{aufgabe}

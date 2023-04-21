@@ -31,7 +31,8 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 \begin{aufgabe}[Heap-Eigenschaften]\label{tue-first}
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item (\warmup) Welche der folgenden Bäume erfüllen die Heap-Eigenschaft?
+		\item \bestehen %(\warmup)
+    Welche der folgenden Bäume erfüllen die Heap-Eigenschaft?
 		\begin{center}
 			\begin{figure}[h]
 				\begin{subfigure}[b]{0.3\textwidth}
@@ -117,22 +118,25 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 				\end{subfigure}
 			\end{figure}
 		\end{center}
-				\item (\warmup) Welche der durch folgende Felder repräsentierten Bäume erfüllen die Heap-Eigenschaft?
+				\item \bestehen %(\warmup)
+        Welche der durch folgende Felder repräsentierten Bäume erfüllen die Heap-Eigenschaft?
 		Index 0 wird nicht benutzt und ist deshalb mit -- markiert.
 		\begin{center}
 			$A = [\text{--},9,7,8,3,4]$\hspace*{3em}$B = [\text{--},12,4,7,1,2,10]$\hspace*{3em}$C = [\text{--},5,7,8,3]$
 		\end{center}
-		\item (\warmup) Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen, wobei eine Zahl für das Einfügen dieser Zahl in den Heap steht und $\star$ für eine \texttt{ExtractMax} Operation.
+		\item \bestehen %(\warmup)
+    Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen, wobei eine Zahl für das Einfügen dieser Zahl in den Heap steht und $\star$ für eine \texttt{ExtractMax} Operation.
 		Wie sieht der Heap $H$ nach jeder einzelnen Operation aus, wenn $H$ anfangs leer ist?
-		\item Erfüllt ein sortiertes Feld die Heap-Eigenschaft?
-		\item Wo befindet sich in einem (Max-)Heap das kleinste Element?
-		\item Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heap-Eigenschaft aufrechterhalten.
-    \item (\hard) Angenommen wir erhalten $k$ sortierte Felder mit \textbf{insgesamt} $n$ Elementen als Eingabe.
+		\item \bestehen Erfüllt ein sortiertes Feld die Heap-Eigenschaft?
+		\item \bestehen Wo befindet sich in einem (Max-)Heap das kleinste Element?
+		\item \mittel Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heap-Eigenschaft aufrechterhalten.
+    \item \note %(\hard)
+    Angenommen wir erhalten $k$ sortierte Felder mit \textbf{insgesamt} $n$ Elementen als Eingabe.
 		Zeige, wie sich alle Felder in Zeit $O(n\log k)$ zu einem einzelnen sortierten Feld der Länge~$n$ verflechten lassen.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Priogruppen-Politik, \warmup]
+\begin{aufgabe}[Priogruppen-Politik \bestehen]%, \warmup]
 	Die Kakistokratische Partei will deine Hilfe, um ihre neue \enquote{Frischluft}-Politik umzusetzen.
 	Entwirf ein Bürgerregister, das alle Bürger:innen und ihre Gehälter so speichert, dass man die Person mit dem geringsten Einkommen möglichst schnell finden und ausbürgern kann.
 
@@ -159,21 +163,23 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 	Sei $n$ die Anzahl der Elemente in der Prioritätswarteschlange.
 	Löse die folgenden Teilaufgaben:
 	\begin{enumerate}
-		\item Erkläre wie sich \texttt{RemoveLargest($m$)} mit Zeitbedarf $O(m\log n)$ implementieren lässt.
-		\item Erkläre wie sich \texttt{Delete($x$)} und \texttt{Fusion($x,y$)} mit Zeitbedarf $O(\log n)$ implementieren lässt.
-		\item (\hard) Erkläre wie sich \texttt{FindLarger($k$)} mit Zeitbedarf $O(m)$ implementieren lässt, wobei $m$ die Anzahl der Elemente mit Schlüssel $\geq k$ ist.
-		\item (\hard) Erkläre wie sich \texttt{ExtractMin()} mit Zeitbedarf $O(\log n)$ implementieren lässt.
+		\item \mittel Erkläre wie sich \texttt{RemoveLargest($m$)} mit Zeitbedarf $O(m\log n)$ implementieren lässt.
+		\item \mittel Erkläre wie sich \texttt{Delete($x$)} und \texttt{Fusion($x,y$)} mit Zeitbedarf $O(\log n)$ implementieren lässt.
+		\item \note %(\hard)
+    Erkläre wie sich \texttt{FindLarger($k$)} mit Zeitbedarf $O(m)$ implementieren lässt, wobei $m$ die Anzahl der Elemente mit Schlüssel $\geq k$ ist.
+		\item \note %(\hard)
+    Erkläre wie sich \texttt{ExtractMin()} mit Zeitbedarf $O(\log n)$ implementieren lässt.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Zusätzliche Daten]
+\begin{aufgabe}[Zusätzliche Daten \mittel]
 	Sei $A[0..n-1]$ ein als Feld gespeicherter Heap.
 	Jedes Element~\texttt{x} in dem Heap wird durch einen Index $i$ repräsentiert und hat einen Schlüssel \texttt{x.key}, der als $A[i]$ gespeichert ist.
 	Es ist oftmals nützlich, zusätzliche Daten \texttt{x.data} zu speichern, die mit einem Element \texttt{x} assoziiert sind.
 	Modifiziere die Datenstruktur so, dass eine neue Operation \texttt{Data$(i)$} in Zeit~$O(1)$ die zusätzlichen Daten des Elements mit Index $i$ zurückliefert. Hierbei dürfen sich die asymptotischen Laufzeiten der Standardoperationen des Heaps nicht verändern.
 \end{aufgabe}
 
-\begin{aufgabe}[Eigenschaften von Heaps]
+\begin{aufgabe}[Eigenschaften von Heaps \mittel]
 	Sei $T = (V,E)$ ein vollständiger Binärbaum von Höhe~$h$.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
@@ -202,9 +208,11 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 	\end{itemize}
 	Löse die folgenden Teilaufgaben:
 	\begin{enumerate}
-		\item (\warmup) Entwirf eine Datenstruktur, die \texttt{Sum} mit $O(1)$ Zeit und $O(n^2)$ Platz unterstützt.
-		\item (\hard) Entwirf eine Datenstruktur, die \texttt{Sum} mit $O(1)$ Zeit und $O(n)$ Platz unterstützt.
-		\item (\veryhard) Entwirf eine Datenstruktur, die \texttt{Sum} und \texttt{Change} beide mit $O(\log n)$ Zeit und $O(n)$ Platz unterstützt.
+		\item \bestehen %(\warmup)
+    Entwirf eine Datenstruktur, die \texttt{Sum} mit $O(1)$ Zeit und $O(n^2)$ Platz unterstützt.
+		\item \note %(\hard)
+    Entwirf eine Datenstruktur, die \texttt{Sum} mit $O(1)$ Zeit und $O(n)$ Platz unterstützt.
+		\item \note (\veryhard) Entwirf eine Datenstruktur, die \texttt{Sum} und \texttt{Change} beide mit $O(\log n)$ Zeit und $O(n)$ Platz unterstützt.
 	\end{enumerate}
 \end{aufgabe}
 

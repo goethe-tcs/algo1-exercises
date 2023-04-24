@@ -19,7 +19,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 %  \note
 %  \spass
 
-\begin{aufgabe}[Von Hand laufen lassen und Eigenschaften]\label{tue-first}\mbox{}
+\begin{aufgabe}[Von Hand laufen lassen und Eigenschaften \bestehen]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Füge die Schlüsselsequenz $7, 18, 2, 3, 14, 25, 1, 11, 12, 1332$ in eine Hashtabelle der Länge 11 ein, die verkettetes Hashing und die Hashfunktion $f(k) = k \mod 11$ benutzt.
 		\item\label{hand_sondieren} (\warmup) Füge die Schlüsselsequenz $2, 32, 43, 16, 77, 51, 1, 17, 42, 111$ in eine Hashtabelle der Länge 17 ein, die lineares Sondieren und die Hashfunktion $f(k) = k \mod 17$ benutzt.
@@ -31,7 +31,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Teiler in der Divisionsmethode]
+\begin{aufgabe}[Teiler in der Divisionsmethode \mittel]
 	Bei der \emph{Divisionsmethode} wählen wir die Hashfunktion als $h(k)=k\bmod m$.
 	\begin{enumerate}
 		\item Betrachte die Hashfunktion $h(k) = k \bmod 10$ und die Schlüsselsequenz \[K = 0, 5, 20, 40, 65, 15, 90, 95, 80, 55\,.\] Warum ist diese Wahl der Hashfunktion problematisch für $K$?
@@ -39,7 +39,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Faules Löschen bei linearem Sondieren]
+\begin{aufgabe}[Faules Löschen bei linearem Sondieren \mittel]
 	Die Methode aus~\ref{tue-first}\ref{wrong_delete} hat nicht funktioniert, wir versuchen es also nochmal anders.
 	Wenn wir ein Element an Position $p$ löschen, dann hinterlassen wir jetzt eine Markierung, dass dort ein Element gelöscht worden ist.
 	\begin{enumerate}
@@ -48,7 +48,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Spielserverstatistiken]
+\begin{aufgabe}[Spielserverstatistiken \mittel]
 	Für dein neues, extrem erfolgreiches Onlinespiel \emph{Hashnite} willst du ermitteln, ob die vielen gespielten Spielsitzungen von einer kleinen Gruppe extrem aktiver Spieler:innen kommt oder aus einer großen Gruppe verschiedener Spieler:innen, die unregelmäßig spielen.
 	Jede Spieler:in hat eine eindeutige ID, und von deinem Spieleserver aus kannst du auf die Liste aller IDs aus allen vergangenen Spielesitzungen zugreifen.
 	\begin{enumerate}
@@ -65,12 +65,13 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	Angenommen wir arbeiten auf einem $w$-Bit Computer.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item(\warmup{}) Für $w=8$, schreibe $2^4$, \verb$1<<4$, $2^8-1$,
+		\item \bestehen %(\warmup{})
+    Für $w=8$, schreibe $2^4$, \verb$1<<4$, $2^8-1$,
 		$(2^7 \verb$^$ 2^4$) und
 		$(2^8-1)$ \verb$&$ $2^4$ in Binärdarstellung.
-		\item Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
-		\item Wie kann ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
-		\item Entwirf eine Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
+		\item \mittel Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
+		\item \mittel Wie kann ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
+		\item \mittel Entwirf eine Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
 		\begin{itemize}
 			\item \texttt{insert$(a)$} fügt der Menge $a$ hinzu, setzt also $S\gets S\cup \{a\}$.
 			\item \texttt{remove$(a)$} löscht $a$ aus der Menge, setzt also $S\gets S\setminus \{a\}$.
@@ -79,12 +80,12 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Sortieren in kleinen Universen, \hard]
+\begin{aufgabe}[Sortieren in kleinen Universen \note]%, \hard]
 	Sei $A[0\hdots n-1]$ ein Feld von Zahlen aus $\{0, \dots, n-1\}$.
 	Entwirf einen Algorithmus, der $A$ in Zeit $O(n)$ sortiert.
 \end{aufgabe}
 
-\begin{aufgabe}[Nicht initialisierte Felder, \veryhard]
+\begin{aufgabe}[Nicht initialisierte Felder \note, \veryhard]
 	Wir wollen ein \textit{riesiges} Feld $A$ implementieren, dessen Einträge wir effizient auslesen und ändern können.
 	Anfangs enthalten die Einträge von $A$ \enquote{Müll}, und wegen der Größe des Feldes wollen wir beim Erzeugen des Feldes keine Zeit darauf verschwenden, alle Einträge zu initialisieren.
 	Entwirf eine Datenstruktur, die linearen Platz in der Länge des Feldes benötigt, Auslesen und Ändern in erwarteter konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
@@ -113,11 +114,11 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
   % Wir führen \Call{Func}{$x_1,\dots,x_n$} aus.
   % Beweise:
   \begin{enumerate}
-      \item Sei $x$ eine beliebige natürliche Zahl ungleich $0$ und sei $i$ ein beliebiges Element aus $\{0,\dots,p-1\}$.
+      \item \mittel Sei $x$ eine beliebige natürliche Zahl ungleich $0$ und sei $i$ ein beliebiges Element aus $\{0,\dots,p-1\}$.
       Finde eine kurze Formel in Abhängigkeit von $p$ für die Wahrscheinlichkeit $\pr_{a,b}(h_{a,b}(x)=i)$, und beweise deine Antwort. (Mit anderen Worten, beweise dass die Annahme des einfachen gleichmäßigen Hashings für die zufällige Hashfunktion $h_{a,b}$ im Erwartungswert gilt.)
-      \item Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $x\ne y$.
+      \item \note Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $x\ne y$.
       Beweise, dass \[\pr_{a,b}(h_{a,b}(x)=h_{a,b}(y))=\frac{1}{p^2}\] gilt. (Mit anderen Worten, beweise dass die Kollisionswahrscheinlichkeit $\frac{1}{p^2}$ ist.)
-      \item Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
+      \item \note Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
       \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
       Beweise, dass folgende Ungleichungen gelten:
       \[

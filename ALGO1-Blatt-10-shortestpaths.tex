@@ -19,9 +19,10 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 %  \note
 %  \spass
 
-\begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}\mbox{}
+\begin{aufgabe}[Algorithmen und Eigenschaften \bestehen]\label{tue-first}\mbox{}
 	\begin{enumerate}
-		\item (\warmup) Gegeben sei der Graph aus Abbildung~\ref{example_graph}.
+		\item %(\warmup)
+    Gegeben sei der Graph aus Abbildung~\ref{example_graph}.
 		Zeichne einen Baum kürzester Wege für den Graphen (bei Startknoten 0).
 		Schreibe die Länge des kürzesten Weges von Knoten 0 zu jedem Knoten.
 		\item Gib einen Beispielgraphen an, der negative Kantengewichte aber keine negativen Kreise hat, und auf dem Dijkstras Algorithmus eine falsche Ausgabe erzeugt.
@@ -62,7 +63,7 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 	\end{center}
 \end{figure}
 
-\begin{aufgabe}[Noch mehr Kabel]
+\begin{aufgabe}[Noch mehr Kabel \bestehen]
 	Die Kabelfernsehen-Firma AlgoMedia überträgt Kabelfernsehen an alle Häuser in Algo-Stadt.
 	Sie übermitteln die TV-Signale von ihrem Hauptsitz mittels eines Kabelnetzwerks, wobei die Länge jedes Kabels bekannt ist.
 	Die Kabel verlaufen zwischen Verteilerkästen:
@@ -83,18 +84,18 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 \end{aufgabe}
 
 
-\begin{aufgabe}[Längster Weg in gerichteten, kreisfreien Graphen]
+\begin{aufgabe}[Längster Weg in gerichteten, kreisfreien Graphen \mittel]
 	Entwirf einen Algorithmus, um den \emph{längsten} Weg in einem gerichteten, kreisfreien Graphen zu finden.
 \end{aufgabe}
 
 %\vspace{1cm}
-\begin{aufgabe}[Dijkstra und Knotengewichte]
+\begin{aufgabe}[Dijkstra und Knotengewichte \mittel]
 	Sei $G$ ein gerichteter Graph, bei dem alle \emph{Knoten} ein nicht-negatives Gewicht haben.
 	Das Gewicht eines Weges in $G$ ist jetzt die Summe der Gewichte der Knoten auf dem Weg.
 	Entwirf einen Algorithmus, um den kürzesten Weg zwischen zwei Knoten in $G$ zu bestimmen.
 \end{aufgabe}
 
-\begin{aufgabe}[Reiseplanung in Zombiezeiten, \hard]
+\begin{aufgabe}[Reiseplanung in Zombiezeiten \spass]%, \hard]
 	\mbox{}\\
 	Scheinbar hat deine Gruppe es geschafft, der brenzligen Zombiesituation des Union-Find Blattes zu entkommen.
 	Jetzt müsst ihr den sichersten Weg zwischen zwei Städten finden, um hoffentlich nicht von Zombies gegessen zu werden.
@@ -169,9 +170,10 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 	Betrachte eine Weide mit $n$ Knoten.
 	Wir wollen für einen gegebenen Knoten $s$ die kürzesten Wege zu allen anderen Knoten ermitteln.
 	\begin{enumerate}
-		\item Wie lange braucht Dijkstras Algorithmus, um dieses Problem zu lösen?
+		\item \mittel Wie lange braucht Dijkstras Algorithmus, um dieses Problem zu lösen?
 		Gib die Laufzeit als Funktion von $n$ an.
-		\item (\hard) Entwirf einen schnelleren Algorithmus. 
+		\item \note %(\hard)
+    Entwirf einen schnelleren Algorithmus. 
 	\end{enumerate} 
 \end{aufgabe}
 

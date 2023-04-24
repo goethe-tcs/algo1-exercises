@@ -19,10 +19,11 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 %  \note
 %  \spass
 
-\begin{aufgabe}[Algorithmen und Eigenschaften]\label{tue-first}
+\begin{aufgabe}[Algorithmen und Eigenschaften \bestehen]\label{tue-first}
 	Gegeben sei der Graph G in Abbildung~\ref{example_graph}.
 	\begin{enumerate}
-		\item (\warmup) Führe Kruskals Algorithmus manuell auf G aus.
+		\item %(\warmup)
+    Führe Kruskals Algorithmus manuell auf G aus.
 		\item Führe Prims Algorithmus manuell auf G aus (Startknoten 0). Zeige den Inhalt der Prioritätswarteschlange zu jedem Zeitpunkt der Ausführung.
 		\item Zeichne \emph{alle} minimalen Spannbäume von G.
 		\item Gib einen effizienten Algorithmus an, der einen (nicht notwendigerweise minimalen) Spannbaum berechnet.
@@ -56,7 +57,7 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 	\end{center}
 \end{figure}
 
-\begin{aufgabe}[Kabel für den Riedberg]
+\begin{aufgabe}[Kabel für den Riedberg \bestehen]
 	Nach viel hin und her, sowie einigen Planungsfehlern, hat Fachbereich 12 endlich ganze $N$ Gebäude (nummeriert $1,\ldots , N$) am Campus Riedberg fertiggestellt, dabei aber vergessen, Glasfaserkabel verlegen zu lassen.
 	Top-Studentin Algolina entwickelt jetzt einen Plan, um alle Gebäude möglichst kostengünstig mit den neusten Glasfaserkabeln miteinander zu verbinden.
 
@@ -69,7 +70,7 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 	Du kannst annehmen, dass es möglich ist, alle Gebäude miteinander zu verbinden.
 \end{aufgabe}
 
-\begin{aufgabe}[Graphen kappen]
+\begin{aufgabe}[Graphen kappen \mittel]
 	Zur Bestimmung eines minimalen Spannbaums wird folgender Algorithmus vorgeschlagen: Starte mit einem gewichteten, zusammenhängenden Graphen~$G$. Betrachte die Kanten von $G$ mit absteigendem Gewicht (vom höchstem zu niedrigstem Gewicht).
 	Für jede Kante gilt: Behalte diese Kante, falls das Entfernen dieser Kante den Graphen in zwei Zusammenhangskomponenten aufteilen würde. Entferne sie, falls dies nicht der Fall ist.
 	Gib die finale Menge an Kanten zurück.
@@ -79,7 +80,7 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Eigenschaften von MSTs]
+\begin{aufgabe}[Eigenschaften von MSTs \mittel]
 	Sei $G$ ein gewichteter Graph.
 	\begin{enumerate}
 		\item Zeige, dass die Kante mit dem geringsten Gewicht in $G$ immer im minimalen Spannbaum von $G$ enthalten ist.
@@ -94,13 +95,13 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 \end{aufgabe}
 
 
-\begin{aufgabe}[Maximale Spannbäume]
+\begin{aufgabe}[Maximale Spannbäume \mittel]
 	Gegeben sei ein gewichteter Graph $G$. Gib einen Algorithmus an, um einen maximalen Spannbaum von $G$ zu bestimmen (also einen Spannbaum mit maximalem Gesamtgewicht).
 	\emph{Hinweis: Transformiere das Problem.}
 \end{aufgabe}
 
 
-\begin{aufgabe}[MSTs und kleine Änderungen]
+\begin{aufgabe}[MSTs und kleine Änderungen \mittel]
 	Wir betrachten nun minimale Spannbäume auf Graphen deren Kantengewichte nicht paarweise verschieden sind.
 	\begin{enumerate}
 		\item Zeige, dass die Schnitt- und Kreiseigenschaften auch dann gelten, wenn die Kantengewichte nicht eindeutig sind (die Eigenschaften müssen entsprechend umformuliert werden).
@@ -108,7 +109,7 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[MSTs mit kleinen Kantengewichten, \hard]
+\begin{aufgabe}[MSTs mit kleinen Kantengewichten \note]%, \hard]
 	Sei $G$ ein gewichteter Graph mit $n$ Knoten und $m$ Kanten, sodass alle Kantengewichte Werte aus der Menge $\{ 1, 2, \ldots , 10\}$ sind.
 	Gib einen effizienten Algorithmus an, um einen minimalen Spannbaum von $G$ zu bestimmen.
 \end{aufgabe}
@@ -153,17 +154,17 @@ Lies \emoji{book} \href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/A
         \small Die Flaschenhals-Distanz von $s$ nach $t$ ist $9$.
   \end{center}
   \begin{enumerate}
-      \item Beweise, dass der \emph{maximale} Spannbaum von $G$ zwischen \emph{jedem} Paar von Knoten einen breitesten Weg enthält.
-      \item Entwirf einen Algorithmus, der das folgende Problem in $O(n+m)$ Zeit löst:
+      \item \mittel Beweise, dass der \emph{maximale} Spannbaum von $G$ zwischen \emph{jedem} Paar von Knoten einen breitesten Weg enthält.
+      \item \mittel Entwirf einen Algorithmus, der das folgende Problem in $O(n+m)$ Zeit löst:
       Gegeben ein ungerichteter, gewichteter Graph~$G$ mit zwei Knoten $s$ und $t$ sowie einem Gewicht~$W$, ist die Flaschenhals-Distanz von $s$ nach $t$ höchstens $W$?
-      \item Sei $B$ die Flaschenhals-Distanz von $s$ nach $t$.
+      \item \mittel Sei $B$ die Flaschenhals-Distanz von $s$ nach $t$.
         \begin{enumerate}[label=\roman*.]
             \item Beweise, dass sich die Flaschenhals-Distanz von $s$ nach $t$ nicht ändert, wenn man eine beliebige Kante von Gewicht kleiner $B$ löscht.
             \item Beweise, dass sich die Flaschenhals-Distanz von $s$ nach $t$ nicht ändert, wenn man eine beliebige Kante von Gewicht größer $B$ \emph{kontrahiert}.
             (Um eine Kante $e=\{u,v\}$ in $G$ zu kontrahieren, wird die Kante $e$ gelöscht und die beiden Endpunkte $u$ und $v$ werden zu einem neuen Knoten $w$ verschmolzen. Falls dabei parallele Kanten entstehen, behalten wir nur die 
             \emph{schwerste} Kante zwischen jedem Paar von Knoten, und löschen die anderen. Der neue Graph heißt $G/e$.)
         \end{enumerate}
-    \item(\veryhard)
+    \item \note (\veryhard)
     Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen breitesten Weg von~$s$ nach~$t$ berechnet.
     \emph{Hinweis: Du darfst hierfür annehmen, dass man den Median von $m$ Zahlen in Zeit $O(m)$ berechnen kann.}
   \end{enumerate}

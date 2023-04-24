@@ -30,7 +30,7 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 %  \note
 %  \spass
 
-\begin{aufgabe}[Binärbaumeigenschaften]\label{tue-first}\mbox{}
+\begin{aufgabe}[Binärbaumeigenschaften \bestehen]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Welche der folgenden Bäume sind binäre Suchbäume?
 		\begin{center}
@@ -118,7 +118,7 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 		\item (\warmup) Wo in einem Baum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
 		\item Betrachte die Schlüsselmenge $\{1, 4, 5, 10, 16, 17, 21\}$. Zeichne binäre Suchbäume der Höhe 2, 3, 4, 5 und 6, die jeweils genau diese Schlüssel enthalten.
 		\item (\warmup) Gib die Reihenfolge an, in der die Knoten von Baum (ii) in inorder, preorder und postorder traversiert werden.
-		\item Verleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
+		\item Vergleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
 		\item Schreibe Pseudocode für eine iterative Variante der Inorder-Traversierung.
 		\item Sei $T$ ein binärer Suchbaum, in dem alle Schlüssel verschieden sind.
 		Beweise die folgende Aussage mit einem Widerspruchsbeweis:
@@ -128,22 +128,23 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 
 \begin{aufgabe}[AVL-Bäume]\mbox{}
 	\begin{enumerate}
-		\item(\warmup)
+		\item \bestehen %(\warmup)
 		Füge die Elemente $6, 5, 2, 1, 3, 4$ in dieser Reihenfolge in einen zunächst leeren AVL-Baum ein.
 		Zeichne den Baum nach jeder Einfügung.
-		\item(\warmup)
+		\item \bestehen %(\warmup)
 		Schreib den fehlenden Pseudocode für \texttt{Rebalance}$(y)$ im Fall, dass der Balancefaktor von $y$ zwei ist.
-		\item
+		\item \bestehen
 		Füge die Elemente $1, 4, 5, 6, 3, 2$ in dieser Reihenfolge in einen zunächst leeren AVL-Baum ein.
 		Zeichne den Baum nach jeder Einfügung.
-		\item Überlege dir, wie \texttt{Rebalance} die Höheninformationen \texttt{v.height} mit nur konstantem Mehraufwand aktuell halten kann.
-		\item Sei $T$ ein binärer Suchbaum mit $n$ Knoten.
+		\item \bestehen Überlege dir, wie \texttt{Rebalance} die Höheninformationen \texttt{v.height} mit nur konstantem Mehraufwand aktuell halten kann.
+		\item \mittel Sei $T$ ein binärer Suchbaum mit $n$ Knoten.
 		Beweise, dass die Höhe von $T$ durch $O(\log n)$ beschränkt ist, wenn $T$ die AVL-Eigenschaft erfüllt.
-		\item(\hard) Sei $T$ ein binärer Suchbaum, sodass bis auf die Wurzel~$v$ alle Knoten die AVL-Eigenschaft erfüllen. An der Wurzel sei der Balancefaktor $-2$. Beweise, dass der Baum nach Ausführung von \texttt{Rebalance}$(v)$ ein AVL-Baum ist.
+		\item \note %(\hard)
+    Sei $T$ ein binärer Suchbaum, sodass bis auf die Wurzel~$v$ alle Knoten die AVL-Eigenschaft erfüllen. An der Wurzel sei der Balancefaktor $-2$. Beweise, dass der Baum nach Ausführung von \texttt{Rebalance}$(v)$ ein AVL-Baum ist.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Blätter und Höhe]
+\begin{aufgabe}[Blätter und Höhe \mittel]
 	Sei $T$ ein Binärbaum mit $n$ Knoten und Wurzel $w$.
 	\begin{enumerate}
 		\item Entwirf einen rekursiven Algorithmus, der für Eingabe $w$ die Anzahl der Blätter in $T$ ausgibt.
@@ -156,21 +157,22 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 
 \begin{aufgabe}[Traversierung von binären Suchbäumen]\mbox{}
 	\begin{enumerate}
-		\item Entwirf einen Algorithmus, der für einen binären Baum $T$ (mit einem Schlüssel $x.\texttt{key}$ an jedem Knoten) ermittelt, ob $T$ ein binärer Suchbaum ist.
-		\item Entwirf einen Algorithmus, der für einen binären Suchbaum $T$ einen \textit{umgedrehten binären Suchbaum} $T^R$ aufbaut:
+		\item \mittel Entwirf einen Algorithmus, der für einen binären Baum $T$ (mit einem Schlüssel $x.\texttt{key}$ an jedem Knoten) ermittelt, ob $T$ ein binärer Suchbaum ist.
+		\item \mittel Entwirf einen Algorithmus, der für einen binären Suchbaum $T$ einen \textit{umgedrehten binären Suchbaum} $T^R$ aufbaut:
 		$T^R$ soll ein binärer Baum sein, in dem genau dieselben Schlüssel vorkommen wie in $T$.
 		Für jeden Knoten $v$ in $T^R$ soll zudem gelten, dass alle Knoten im linken Unterbaum von $v$ Schlüssel haben, die größer gleich $v.\texttt{key}$ sind, und dass alle Knoten im rechten Unterbaum von $v$ Schlüssel haben, die kleiner gleich $v.\texttt{key}$ sind.
-		\item (\hard) Entwirf einen Algorithmus, der zwei gegebene binäre Suchbäume $T_1$ und $T_2$ zu einem einzigen binären Suchbaum $T$ mit denselben Elementen verschmilzt.
+		\item \note %(\hard)
+    Entwirf einen Algorithmus, der zwei gegebene binäre Suchbäume $T_1$ und $T_2$ zu einem einzigen binären Suchbaum $T$ mit denselben Elementen verschmilzt.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Vollständige binäre Suchbäume]
+\begin{aufgabe}[Vollständige binäre Suchbäume \bestehen]
 	Sei $A$ ein sortiertes Feld mit $n = 2^{h+1}-1$ paarweise verschiedenen Zahlen.
 	In welcher Reihenfolge müssen wir die Elemente in einen zunächst leeren binären Suchbaum einfügen, sodass der Suchbaum am Ende ein \emph{vollständiger} Binärbaum ist?
 	Gib die Reihenfolge als eine Sequenz von Feldindizes an.
 \end{aufgabe}
 
-\begin{aufgabe}[Preorder-Traversierung]
+\begin{aufgabe}[Preorder-Traversierung \mittel]
 	Entwirf einen rekursiven Algorithmus, der die Preorder-Traversierung eines binären Baums~$T$ durchführt.
 	Schreib den Algorithmus in Pseudocode auf.
 \end{aufgabe}
@@ -209,11 +211,11 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}
-		\item Wenn wir \textsc{PrintTree} mit der Wurzel des Baums aufrufen, wird \enquote{CROOL} auf die Konsole ausgegeben.
+		\item \bestehen Wenn wir \textsc{PrintTree} mit der Wurzel des Baums aufrufen, wird \enquote{CROOL} auf die Konsole ausgegeben.
 		Wie muss \textsc{PrintTree} modifiziert werden, sodass wir bei derselben Eingabe stattdessen \enquote{COLOR} erhalten?
-		\item Entwirf einen rekursiven Algorithmus \textsc{Internal}$(x)$, der die Wurzel $x$ des Baums als Eingabe erhält und die Anzahl der internen Knoten des Baums berechnet.
+		\item \mittel Entwirf einen rekursiven Algorithmus \textsc{Internal}$(x)$, der die Wurzel $x$ des Baums als Eingabe erhält und die Anzahl der internen Knoten des Baums berechnet.
 		Schreib deinen Algorithmus in Pseudocode auf und analysiere die Laufzeit als Funktion von $n$, wobei $n$ die Anzahl der Knoten des Baums ist.
-		\item Wir sagen, dass ein Baum einen \textit{R-Pfad} hat, wenn es einen Pfad von der Wurzel zu einem Blatt gibt, sodass alle Knoten $v$ im Pfad $v.\texttt{label} = \texttt{'R'}$ erfüllen.
+		\item \mittel Wir sagen, dass ein Baum einen \textit{R-Pfad} hat, wenn es einen Pfad von der Wurzel zu einem Blatt gibt, sodass alle Knoten $v$ im Pfad $v.\texttt{label} = \texttt{'R'}$ erfüllen.
 		Entwirf einen rekursiven Algorithmus \texttt{RPfad($x$)}, der für den gegebenen Wurzelknoten $x$ ermittelt, ob es einen R-Pfad im Baum gibt.
 		Schreib den Algorithmus in Pseudocode auf und analysiere die Laufzeit im Verhältnis zu $|T(x)|$.
 	\end{enumerate}
@@ -234,14 +236,14 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
       \EndProcedure
   \end{algorithmic}
   \begin{enumerate}
-      \item Analysiere die Laufzeit von \textsc{Zero}$(x)$, wenn das Argument $x$ die Wurzel eines Teilbaums mit $n$ Knoten ist.
-      \item Sei $T(x)$ der Teilbaum mit Wurzel $x$ und sei $|T(x)|$ die Anzahl an Knoten in $T(x)$.
-      Entwirf einen rekursiven Algorithmus \textsc{InitSize$(x)$}, der für einen gegebenen Knoten $x$ und alle Knoten~$y$ im Teilbaum $T(x)$ die Variable $y.\texttt{size}$ auf $|T(y)|$ setzt.
+      \item \bestehen Analysiere die Laufzeit von \textsc{Zero}$(x)$, wenn das Argument $x$ die Wurzel eines Teilbaums mit $n$ Knoten ist.
+      \item \mittel Sei $T(x)$ der Teilbaum mit Wurzel $x$ und sei $|T(x)|$ die Anzahl an Knoten in $T(x)$.
+      Entwirf einen rekursiven Algorithmus \textsc{InitSize$(x)$}, der bei gegebenem Knoten $x$ für alle Knoten~$y$ im Teilbaum $T(x)$ die Variable $y.\texttt{size}$ auf $|T(y)|$ setzt.
       Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
-      \item Wir bezeichnen eine Kante $(x,y)$ von Knoten $x$ zu einem seiner Kinder $y$ als \emph{rot} genau dann, wenn $|T(x)| \geq 2\cdot|T(y)|$.
+      \item \mittel Wir bezeichnen eine Kante $(x,y)$ von Knoten $x$ zu einem seiner Kinder $y$ als \emph{rot} genau dann, wenn $|T(x)| \geq 2\cdot|T(y)|$.
       Entwirf einen rekursiven Algorithmus \textsc{RedEdge$(x)$}, der die Anzahl an roten Kanten im Teilbaum $T(x)$ berechnet.
       Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
-      \item Wie viele rote Kanten treten in einem Pfad von der Wurzel zu einem Blatt auf?
+      \item \mittel Wie viele rote Kanten treten in einem Pfad von der Wurzel zu einem Blatt auf?
       Gib asymptotische obere und untere Schranken an. Begründe deine Antwort.
   \end{enumerate}
 

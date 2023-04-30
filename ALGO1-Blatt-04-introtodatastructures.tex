@@ -15,6 +15,11 @@
 
 \textbf{Eigenständige Vorbereitung:}\\
 Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis Mitte von 17.4.1 und schau dir das \emoji{television} Video der Woche an.
+Beantworte dabei folgende Leitfragen:
+\begin{enumerate}
+	\item Welche Operationen muss ein Stapel unterstützen und wie implementiert man sie?
+  \item Wann und warum sind dynamische Arrays nützlich, obwohl sie komplizierter als feste Arrays sind?
+\end{enumerate}
 
 \textbf{Zeichenlegende:}
 \legende{}
@@ -120,21 +125,21 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 
 \begin{aufgabe}[Implementierung verketteter Listen \bestehen]%, \warmup]
 	Sei $x$ ein Element in einer einfach verketteten Liste wie in den Folien beschrieben.
-	Löse die folgenden Teilaufgaben.
+	Löse die folgenden Teilaufgaben. \emph{Hinweis: Eine Zeichnung hilft.}
 	\begin{enumerate}
 		\item Sei $x$ nicht das letzte Element in der Liste.
-		Worin resultiert der folgende Code-Schnipsel?
+		Welchen Effekt hat der folgende Code-Schnipsel?\\
 		\hspace*{20pt}\texttt{x.next = x.next.next;}
 
 		\item Sei $t$ ein neues Element, das noch nicht in der Liste enthalten ist.
-		Worin resultiert der folgende Code-Schnipsel?
-		\hspace*{20pt}\texttt{t.next = x.next;}
+		Welchen Effekt hat der folgende Code-Schnipsel?\\
+		\hspace*{20pt}\texttt{t.next = x.next;}\\
 		\hspace*{20pt}\texttt{x.next = t;}
 
 		\item Voraussetzungen wie in b).
-		Bringt der folgende Code-Schnipsel die gleichen Resultate?
-		Wenn nein was sonst?
-		\hspace*{20pt}\texttt{x.next = t;}
+		Hat der folgende Code-Schnipsel den gleichen Effekt?
+		Wenn nein, welchen hat er?\\
+		\hspace*{20pt}\texttt{x.next = t;}\\
 		\hspace*{20pt}\texttt{t.next = x.next;}
 	\end{enumerate}
 \end{aufgabe}
@@ -159,7 +164,7 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 \end{aufgabe}
 
 \begin{aufgabe}[Eine Liste umkehren \mittel]
-	Entwirf einen Algorithmus, der eine einfach verkettete Liste $L$ mit $n$ Elementen als Eingabe erhält und diese umkehrt, das heißt, nach der Ausführung soll die Liste $L$ dieselben Elemente, jedoch in umgekehrter Reihenfolge enthalten.
+	Entwirf einen Algorithmus, der eine einfach verkettete Liste~$L$ mit $n$ Elementen als Eingabe erhält und diese umkehrt, das heißt, nach der Ausführung soll die Liste~$L$ dieselben Elemente, jedoch in umgekehrter Reihenfolge enthalten.
 	Der Algorithmus soll $O(n)$ Zeit brauchen und höchstens konstant viel zusätzlichen Speicherplatz benötigen.\footnote{Das heißt, der zusätzliche Speicherbedarf muss durch eine Konstante (unabhängig von $n$) beschränkt bleiben, selbst dann, wenn $n$ beliebig wächst.}
 \end{aufgabe}
 
@@ -202,12 +207,18 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
 	\end{enumerate}
 \end{aufgabe}
 
+\newpage
 \begin{aufgabe}[Balance \schriftlich]
   Schreibe ein Programm in C/C\verb|++|, Java, Python, oder einer anderen üblichen Programmiersprache (kein Pseudocode), welches das folgende Problem in linearer Zeit löst:
   Entscheide, ob ein gegebener String von zwei verschiedenen Arten von Klammern \emph{balanciert} ist, das heißt, ob die zusammengehörigen öffnenden und schließenden Klammern richtig verschachtelt sind. Zum Beipiel ist \texttt{"([])()[]"} balanciert, aber \texttt{"(("} und \texttt{")("} und \texttt{"(]"} nicht.
   
-  Um präzise zu sein: (i) der leere String ist balanciert; (ii) wenn $w$ balanciert ist, dann sind sowohl \texttt{(}$w$\texttt{)} als auch \texttt{[}$w$\texttt{]} balanciert; und (iii) wenn $w$ und $x$ balanciert sind, dann ist auch $wx$ balanciert.
-  
+  Um präzise zu sein, hier ist die induktive Definition des Begriffes der Balanciertheit:
+	\begin{enumerate}[(i)]
+		\item der leere String ist balanciert;
+		\item wenn $w$ balanciert ist, dann sind sowohl \texttt{(}$w$\texttt{)} als auch \texttt{[}$w$\texttt{]} balanciert; und
+		\item wenn $w$ und~$x$ balanciert sind, dann ist auch $wx$ balanciert.
+  \end{enumerate}
+
   \textbf{Eingabe.}
   Die Eingabe besteht aus mehreren Zeilen. Jede Zeile ist eine Sequenz $w$, die nur Zeichen aus dem Alphabet $\{\texttt{[},\texttt{]},\texttt{(},\texttt{)}\}$ enthält.
   
@@ -239,7 +250,7 @@ Lies \emoji{book} CLRS Einleitung von Teil III und Kapitel 10, Kapitel 17.4 bis 
   \end{verbatim}
   \end{tabular}
   
-  \textbf{Klassifierte Testfälle.}
+  \textbf{Klassifizierte Testfälle.}
   Teste dein Programm! Hier ist ein größeres Beispiel:
   \begin{itemize}[noitemsep]
   \item \url{https://files.tcs.uni-frankfurt.de/algo1/balance-example.in}

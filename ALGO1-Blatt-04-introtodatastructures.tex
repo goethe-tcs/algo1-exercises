@@ -145,11 +145,12 @@ Beantworte dabei folgende Leitfragen:
 \end{aufgabe}
 
 \ifthenelse{\boolean{programming}}{
-\begin{aufgabe}[Implementierung von Stapeln und Warteschlangen \bestehen]
+\begin{aufgabe}[Implementierung von Stapeln und Warteschlangen \bestehen]\label{stack-with-list}
 	Implementiere die folgenden Datenstrukturen in einer Programmiersprache deiner Wahl.
 	\begin{enumerate}
-		\item Ein Stapel für Integer mittels einer einfach verketteten Liste.
-		\item Eine Warteschlange für Integer mittels einer einfach verketteten Liste.
+		\item Eine verkettete Liste. (Recherchiere z.B.~im Internet, wie das in deiner Programmiersprache geht.)
+		\item Ein Stapel für Integer mittels einer einfach verketteten Liste. (Ohne Recherche.)
+		\item Eine Warteschlange für Integer mittels einer einfach verketteten Liste. (Ohne Recherche.)
 	\end{enumerate}
 \end{aufgabe}
 }{}
@@ -267,7 +268,7 @@ Beantworte dabei folgende Leitfragen:
   Weiterhin zu beachten:
   \begin{itemize}
   \item Der Code darf maximal 80 Zeilen lang sein. Möglichst kurz und elegant! (Eine 15-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
-  \item Falls die genutzte Datenstruktur in der Programmiersprache eingebaut ist, darf diese benutzt werden. Falls die Datenstruktur selbst implementiert wird, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
+  \item Benutz am Besten deine selbst geschriebene Datenstruktur aus Aufgabe~\ref{stack-with-list}. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
   \end{itemize}
 
 \end{aufgabe}

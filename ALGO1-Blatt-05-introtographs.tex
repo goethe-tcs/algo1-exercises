@@ -192,7 +192,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 \end{center}
 
 
-\begin{aufgabe}[Buchstabenlabyrinth \bestehen]
+\begin{aufgabe}[Buchstabenlabyrinth \mittel]
 	Algolina und ihre kleine Schwester spielen \emph{Buchstabenlabyrinth}.
 	In diesem Spiel ist eine $N\times N$ Matrix gegeben, wo jeder Eintrag entweder A oder B ist. Zum Beispiel:
 	\begin{center}
@@ -231,7 +231,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 \begin{aufgabe}[Labyrinthe und Gittergraphen \mittel]
 	Ein $k\times k$ Gittergraph ist ein Graph, in dem die Knoten, wie in einem Netz, in $k$ Zeilen mit jeweils $k$ Knoten angeordnet sind.
 	Kanten dürfen sich hierbei nur zwischen Knoten befinden, die in horizontaler und vertikaler Richtung adjazent sind.
-	Siehe Abbildung~\ref{ex6mazes} (a).
+	Siehe Abbildung~\ref{ex6mazes}~(a).
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
@@ -496,9 +496,9 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item \note %(\hard)
-    Zeige, dass $G$ einen Eulerkreis hat genau dann, wenn alle Knoten einen geraden Knotengrad haben.
+    Beweise, dass $G$ einen Eulerkreis genau dann enthält, wenn alle Knoten einen geraden Knotengrad haben.
 		\item \note %(\hard)
-    Zeige, dass $G$ einen Eulerpfad hat genau dann, wenn 0 oder 2 Knoten einen ungeraden Knotengrad haben.
+    Beweise, dass $G$ einen Eulerpfad genau dann enthält, wenn 0 oder 2 Knoten einen ungeraden Knotengrad haben.
 		\item \bestehen Welche dieser Zeichnungen können gezeichnet werden ohne den Stift abzusetzen?
 		Kannst du den Stift am selben Punkt auf- und absetzen?
 	\end{enumerate}
@@ -526,16 +526,16 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 		\end{tikzpicture}
 	\end{center}
 	\begin{enumerate}[resume]
-		\item \bestehen Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ einen Eulerkreis hat.
+		\item \bestehen Entwirf einen Algorithmus, der in Zeit $O(n+m)$ ermittelt, ob $G$ einen Eulerkreis enthält.
 		\item \note %(\hard)
-    Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen Eulerkreis findet, falls $G$ einen enthält.
+    Entwirf einen Algorithmus, der in Zeit $O(n+m)$ einen Eulerkreis ausgibt, falls $G$ einen enthält.
 	\end{enumerate}	
 \end{aufgabe}
 
 
 \begin{aufgabe}[Durchmesser von Bäumen]
 	Sei $T$ ein binärer Baum mit $n$ Knoten.
-	Der \textit{Durchmesser von $T$} ist die Länge des längsten kürzesten Weges zwischen Knotenpaaren aus $T$\footnote{Sei $dist_G(u,v)$ die Länge des kürzesten Weges von Knoten $u$ nach Knoten $v$ im Graph $G$, dann ist der Durchmesser $\max_{u,v\in G}( dist_G(u,v) )$.}.
+	Der \textit{Durchmesser von $T$} ist die Länge des längsten kürzesten Weges zwischen Knotenpaaren aus $T$.\footnote{Sei $dist_G(u,v)$ die Länge des kürzesten Weges von Knoten $u$ nach Knoten $v$ im Graph $G$, dann ist der Durchmesser $\max_{u,v\in G}( dist_G(u,v) )$.}
 	\begin{enumerate}
 		\item \mittel Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n^2)$ ermittelt.
 		\item \note (\veryhard) Entwirf einen Algorithmus, der den Durchmesser von $T$ in Zeit $O(n)$ ermittelt.
@@ -543,8 +543,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 \end{aufgabe}
 
 \begin{aufgabe}[3-Farben Algorithmus \schriftlich]
-  \textit{\footnotesize For an English version of this exercise, see [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, page 210]}.
-  
+  \textit{\footnotesize For an English version of this exercise, see [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, page 210]}.\\
   Eine Klasse von Suchalgorithmen auf Graphen, die Breitensuche und Tiefensuche verallgemeinern, wurde 1975 von Edsger Dijkstra, Leslie Lamport, Alain Martin, Carel Scholten und Elisabeth Steffens beschrieben. Die Autor:innen haben diese Algorithmen untersucht, um damit einen automatischen \emph{garbage collector} zu entwerfen (siehe \href{https://de.wikipedia.org/wiki/Garbage_Collection}{wikipedia}).
   Anstatt markierte und unmarkierte Knoten zu verwalten, verwaltet ihr Algorithmus eine Farbe für jeden Knoten, entweder weiß, grau oder schwarz.
   Im Folgenden stellen wir uns einen als Adjazenzliste gegebenen, ungerichteten Graphen $G$ vor.
@@ -577,7 +576,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
   \begin{enumerate}
       \item\label{Farbinvariante} \bestehen Beweise, dass \textsc{ThreeColorSearch} zu jedem Zeitpunkt die folgende Invariante erhält: Kein schwarzer Knoten ist zu einem weißen Knoten benachbart. \emph{(Hinweis: Das sollte einfach sein.)}
       \item \mittel Beweise Folgendes: Wenn \textsc{ThreeColorSearch}$(s)$ terminiert, dann sind alle von $s$ erreichbaren Knoten schwarz, alle nicht von $s$ erreichbaren Knoten weiß, und die zu den Eltern zeigenden Kanten $(v, v.\pi)$ definieren einen Baum, der alle Knoten der Zusammenhangskomponente von $s$ aufspannt.
-      \emph{(Hinweis: Wenn man den Algorithmus mit DFS/BFS vergleicht, kann man sich intuitiv vorstellen, dass die schwarzen Knoten \enquote{markiert} sind und die grauen Knoten \enquote{auf dem Stapel/in der Warteschlange}. Ein Unterschied ist, dass \textsc{ThreeColorStep} nicht im selben Aufruf \emph{alle} Kanten abarbeiten muss, die aus einem Knoten $v$ rausgehen.)}
+      \emph{Hinweis: Wenn man den Algorithmus mit DFS/BFS vergleicht, kann man sich intuitiv vorstellen, dass die schwarzen Knoten \enquote{markiert} sind und die grauen Knoten \enquote{auf dem Stapel/in der Warteschlange}. Ein Unterschied ist, dass \textsc{ThreeColorStep} nicht im selben Aufruf \emph{alle} Kanten abarbeiten muss, die aus einem Knoten $v$ rausgehen.}
       \item \mittel Die folgende Variante von \textsc{ThreeColorSearch} verwaltet die grauen Knoten auf einem Stapel.
       Beweise, dass diese Variante äquivalent zu DFS ist, das heißt, die Knoten werden in genau derselben Reihenfolge entdeckt und die Elternbeziehungen sind identisch.
       \emph{Hinweis: Die Reihenfolge der letzten zwei Zeilen von \textsc{ThreeColorStackStep} ist wichtig!}

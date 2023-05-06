@@ -2,7 +2,7 @@
 \documentclass{uebung_cs}
 \usepackage{algo123}
 \uebung{8}{}{}
-\blattname{Disjunkte Mengen, Union-Find}
+\blattname{Disjunkte Mengen, Union-Find (Woche 8)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -11,10 +11,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Makros für noch nicht übersetzte Begrifflichkeiten
-\newcommand{\qfind}{\textit{\textbf{Quick Find}}}
-\newcommand{\qunion}{\textit{\textbf{Quick Union}}}
-\newcommand{\wqunion}{\textit{\textbf{Weighted Quick Union}}}
-\newcommand{\pathcomp}{\textit{\textbf{Pfadverkürzung}}}
+\newcommand{\qfind}{\textit{\textbf{Quick Find}}\xspace}
+\newcommand{\qunion}{\textit{\textbf{Quick Union}}\xspace}
+\newcommand{\wqunion}{\textit{\textbf{Weighted Quick Union}}\xspace}
+\newcommand{\pathcomp}{\textit{\textbf{Pfadverkürzung}}\xspace}
 
 
 \begin{document}
@@ -150,7 +150,7 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 	Entwirf eine Datenstruktur, die effizient den Überblick behält, während die Wände (Zellen des Gitters) eine nach der anderen einstürzen.
 \end{aufgabe}
 
-\begin{aufgabe}[Rekursive \pathcomp \note]%, \hard]
+\begin{aufgabe}[Rekursive \pathcomp{} \note]%, \hard]
 	Entwirf eine rekursive Variante von \pathcomp{} in Pseudo-Code.
 \end{aufgabe}
 
@@ -254,8 +254,10 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
   Diese Operationen erhalten die Invariante, dass die Mengen in der Familie disjunkt sind.
   
   \begin{enumerate}
-    \item\label{describe} Beschreibe deine Datenstruktur und analysiere sie
-    \item\label{implement} Implementiere und teste deine Datenstruktur gemäß der Anforderungen in Abschnitt~\ref{implementierung}.
+    \item\label{describe} \bestehen Beschreibe eine naive Datenstruktur, bei der jede Operation bis zu $O(n)$ Zeit brauchen darf.
+		\\
+		oder: \mittel Beschreibe eine deutlich effizientere Datenstruktur und analysiere sie.
+    \item\label{implement} \bestehen Implementiere und teste deine Datenstruktur gemäß der Anforderungen in Abschnitt~\ref{implementierung}.
   \end{enumerate}
 
   \textbf{Hinweise zur Abgabe.}
@@ -266,21 +268,20 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
   \appendix
   \section{Implementierung}\label{implementierung}
   Für die Implementierung soll folgendes Ein- und Ausgabeverhalten unterstützt werden.
-  \subsection*{Eingabe}
   
+	\paragraph{Eingabe.}
   Die Eingabe startet mit zwei natürlichen Zahlen $n$ und $m$ in der ersten Zeile.
   Die Zahl $n$ ist die Anzahl an einelementigen Mengen zu Beginn.
   Dann folgen $m$ Zeilen der Form
   \enquote{\texttt{0} $s$ $t$} (für \emph{query}) oder \enquote{\texttt{1} $s$ $t$} (für \emph{union}) oder \enquote{\texttt{2} $s$ $t$} (für \emph{move}).
   Du kannst $0\leq s< n$ und $0\leq t< n$ annehmen.
 
-  \subsection*{Ausgabe}
-  
+  \paragraph{Ausgabe.}  
   Für jede \emph{query} Operation wird wie oben beschrieben eine Zeile mit \texttt{1} oder \texttt{0} ausgegeben.
   
-  \subsection*{Beispiel}
+  \paragraph{Beispiel.}\mbox{}\\
   \begin{tabular}{ll}
-  \texttt{example.in}& Zustand der Datenstruktur nach der Operation\\
+  \texttt{\bfseries example.in}& Zustand der Datenstruktur nach der Operation\\[.5\baselineskip]
     \texttt{4 9}   & $\{0\}, \{1\}, \{2\},\{3\}$\\
     \texttt{0 0 1} \\
     \texttt{1 0 1} & $\{0, 1\}, \{2\},\{3\}$ \\
@@ -292,24 +293,27 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
     \texttt{0 0 1} &\\
     \texttt{0 1 2} &
   \end{tabular}
-
-  \noindent
-  \begin{verbatim}
-example.ans
+\hspace{2cm}
+	\begin{minipage}{3cm}
+		\texttt{\bfseries example.ans}
+		\begin{verbatim}
 0
 1
 1
 0
 1
 0
-  \end{verbatim}
+\end{verbatim}
+	\end{minipage}
 
-  \subsection*{Mehr Tests}
-  Hier gibt es größere Tests:\\
-  \small\url{https://files.tcs.uni-frankfurt.de/algo1/unionfindmove-tests.zip}
+  \paragraph{Mehr Tests.}
+  Hier gibt es größere Tests:
+  \small\url{https://files.tcs.uni-frankfurt.de/algo1/unionfindmove-tests.zip}.
 
-  Die darin enthaltene Datei \verb|032-huge.in| sollte gelöst werden.
-  Ein effizienter Algorithmus braucht auf einem handelsüblichen Laptop nicht lange:
+	Stelle sicher, dass deine Implementierung auf allen Instanzen exakt die richtige Ausgabe liefert.
+  Die Datei \verb|032-huge.in| hat noch keine Antwort und soll gelöst werden;
+	die meisten naiven Datenstrukturen können diese Instanz vermutlich nicht lösen.
+  Eine effiziente Lösung dagegen braucht auf einem handelsüblichen Laptop nicht lange:
   \begin{verbatim}
 $ time python oursolution.py < 032-huge.in > /dev/null
 
@@ -318,7 +322,7 @@ Executed in    8.85 secs    fish           external
    usr time    8.79 secs  822.00 micros    8.79 secs
    sys time    0.06 secs  309.00 micros    0.06 secs
   \end{verbatim}
-  Liefern Sie die SHA-1 Summe von \verb|032-huge.ans|.
+  Liefere die SHA-1 Summe von \verb|032-huge.ans|.
 
 \end{aufgabe}
 

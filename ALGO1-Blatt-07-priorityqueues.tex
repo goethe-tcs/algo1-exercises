@@ -2,7 +2,7 @@
 \documentclass{uebung_cs}
 \usepackage{algo123}
 \uebung{7}{}{}
-\blattname{Prioritätswarteschlangen, Heaps}
+\blattname{Prioritätswarteschlangen, Heaps (Woche 7)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -216,7 +216,7 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Sitze in einem Parlament \schriftlich]
+\begin{aufgabe}[Sitze in einem Parlament \schriftlich\mittel]
   Schreibe ein Programm in C/C\texttt{++}, Java, Python oder einer anderen gängigen Programmiersprache (kein Pseudocode), welches das folgende Problem löst: 
   Verteile die $m$ Sitze in einem Parlament nach einer Wahl auf $n$ Parteien.\\[0.25cm]
   Die Platzvergabe verläuft nach dem \emph{D'Hondt-Verfahren}:
@@ -244,65 +244,59 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
   Die Sitzverteilung, wobei sich die Reihenfolge in der Ausgabe mit der Reihenfolge in der Eingabe vertragen soll. Betrachte hierzu die Beispiele.
   
   \textbf{Beispiele.}\\
-  \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
-  \texttt{1.in}
-  \begin{verbatim}
-  2 2
-  10
-  10000000
-  \end{verbatim}
-  &
-  \texttt{1.ans}
-  \begin{verbatim}
-  0
-  2
-  \end{verbatim}
-  \end{tabular}
-  
-  \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
-  \texttt{2.in}
-  \begin{verbatim}
-  2 3
-  12
-  11
-  \end{verbatim}
-  &
-  \texttt{2.ans}
-  \begin{verbatim}
-  2
-  1
-  \end{verbatim}
-  \end{tabular}
-  
-  \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
-  \texttt{3.in}
-  \begin{verbatim}
-  2 4
-  12
-  11
-  \end{verbatim}
-  &
-  \texttt{3.ans}
-  \begin{verbatim}
-  2
-  2
-  \end{verbatim}
-  \end{tabular}
-  
-  \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
-  \texttt{4.in}
-  \begin{verbatim}
-  2 4
-  17
-  10
-  \end{verbatim}
-  &
-  \texttt{4.ans}
-  \begin{verbatim}
-  3
-  1
-  \end{verbatim}
-  \end{tabular}
+	\begin{tabular}{p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
+	\texttt{\bfseries 1.in}
+	\begin{verbatim}
+	2 2
+	10
+	10000000
+	\end{verbatim}
+	&
+	\texttt{\bfseries 1.ans}
+	\begin{verbatim}
+	0
+	2
+	\end{verbatim}
+	&
+	\texttt{\bfseries 2.in}
+	\begin{verbatim}
+	2 3
+	12
+	11
+	\end{verbatim}
+	&
+	\texttt{\bfseries 2.ans}
+	\begin{verbatim}
+	2
+	1
+	\end{verbatim}
+	\\[\baselineskip]
+	\texttt{\bfseries 3.in}
+	\begin{verbatim}
+	2 4
+	12
+	11
+	\end{verbatim}
+	&
+	\texttt{\bfseries 3.ans}
+	\begin{verbatim}
+	2
+	2
+	\end{verbatim}
+	&
+	\texttt{\bfseries 4.in}
+	\begin{verbatim}
+	2 4
+	17
+	10
+	\end{verbatim}
+	&
+	\texttt{\bfseries 4.ans}
+	\begin{verbatim}
+	3
+	1
+	\end{verbatim}
+	\end{tabular}
   
   \textbf{Erklärung zu Beispiel 4.}
   Es traten 2 Parteien zur Wahl an, und insgesamt sollen 4 Sitze vergeben werden.
@@ -311,7 +305,7 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
   Partei 2 erhält den nächsten Sitz, denn $10 > \frac{17}{2}$.
   Anschließend wird ihr Quotient auf $q_2 = \frac{10}{2} = 5$ gesetzt.
   Der dritte Sitz geht an Partei 1, denn es gilt $q_1 = \frac{17}{2} > 5 = q_1$.
-  Der Quotient von Partei 1 wird anschließend auf $q_1 = \frac{17}{3}$ gesetzt.
+  Der Quotient von Partei~1 wird anschließend auf $q_1 = \frac{17}{3}$ gesetzt.
   Auch der letzte Sitz geht an Partei 1, denn es gilt $q_1 = \frac{17}{3} > 5 = q_2$.
   Insgesamt erhält Partei 1 also drei Sitze und Partei 2 erhält einen.
   
@@ -336,12 +330,12 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
   
   \textbf{Größere Beispiele.}
   Teste dein Programm! Hier sind größere Beispiele:
-  \url{https://files.tcs.uni-frankfurt.de/algo1/seatallocation-tests.zip}
-  
+  \url{https://files.tcs.uni-frankfurt.de/algo1/seatallocation-tests.zip}.  
   Stell sicher, dass dein Programm für alle Eingaben \texttt{X.in} \emph{exakt} die entsprechende Ausgabedatei \texttt{X.ans} erzeugt.
   
   \textbf{Tipps.}
-  Welche Datenstruktur eignet sich, um diese Aufgabe zu lösen? Achte auf Rundungsfehler und möglichen Überlauf von \texttt{int}s.
+  Achte auf Rundungsfehler und möglichen Überlauf von \texttt{int}s.
+	Es ist keine Überraschung, dass diese Aufgabe mit einer Prioritätswarteschlange gelöst werden soll.
   
   \textbf{Hinweise zur Abgabe.}
   Die Datei \texttt{v2-015-secret.ans} fehlt.
@@ -355,7 +349,7 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
   Weiterhin zu beachten:
   \begin{itemize}
   \item Der Code darf maximal \textbf{60} Zeilen lang sein (jede Zeile mit maximal 100 Zeichen). Möglichst kurz und elegant! (Eine 20-Zeilen Lösung in Python ist möglich. Kommentare zählen nicht dazu.)
-  \item Falls die genutzte Datenstruktur in der Programmiersprache eingebaut ist, darf diese benutzt werden. Falls die Datenstruktur selbst implementiert wird, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt. Falls zum Beispiel eine Warteschlange benutzt wird, dürfen nur die entsprechenden Funktionen enqueue, dequeue und is\_empty verwendet werden.
+  \item In Python kann man einen Min-Heap mit dem Modul \texttt{heapq} nutzen, siehe z.B. hier: \href{https://www.geeksforgeeks.org/heap-queue-or-heapq-in-python/}{geeksforgeeks.org/heap-queue-or-heapq-in-python/}. Um ein Element \texttt{x} mit Priorität $7$ auf einen heap \texttt{heap} einzufügen, verwende beispielsweise \texttt{heapq.heappush((7,x), heap)}. Um einen Min-Heap zu einem Max-Heap zu machen, kann man die Vorzeichen der Prioritäten ändern. Falls du deine eigene Implementierung der Prioritätswarteschlange nutzen möchten, zählt diese Implementierung nicht zum Zeilenlimit dazu. Wichtig: Die Datenstruktur darf nur so benutzt werden, wie die in der Vorlesung beschriebene abstrakte Datenstruktur das erlaubt.
   \end{itemize}
 
 \end{aufgabe}

@@ -2,7 +2,7 @@
 \documentclass{uebung_cs}
 \usepackage{algo123}
 \uebung{5}{}{}
-\blattname{Darstellung von Graphen, Breitensuche, Tiefensuche}
+\blattname{Darstellung von Graphen, Breitensuche, Tiefensuche (Woche 5)}
 
 \usepackage{etoolbox}\AtBeginEnvironment{algorithmic}{\small}
 \newcommand{\fett}[1]{\textbf{\boldmath\color{red!60!black}#1}}
@@ -228,13 +228,13 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	Entwirf einen Algorithmus, der für einen Graphen $G$ und zwei Knoten $s,t$ die Anzahl der kürzesten Pfade zwischen $s$ und $t$ ausgibt.
 \end{aufgabe}
 
-\begin{aufgabe}[Labyrinthe und Gittergraphen \mittel]
+\begin{aufgabe}[Labyrinthe und Gittergraphen \schriftlich]
 	Ein $k\times k$ Gittergraph ist ein Graph, in dem die Knoten, wie in einem Netz, in $k$ Zeilen mit jeweils $k$ Knoten angeordnet sind.
 	Kanten dürfen sich hierbei nur zwischen Knoten befinden, die in horizontaler und vertikaler Richtung adjazent sind.
 	Siehe Abbildung~\ref{ex6mazes}~(a).
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
-		\item Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
+		\item \bestehen Seien $n$ und $m$ die Anzahl der Knoten und Kanten in einem $k\times k$ Gittergraph.
 		Drücke obere Schranken für $n$ und $m$ in asymptotischer Notation als Funktion von $k$ aus.
 	\end{enumerate}
 	Ein $k\times k$ Labyrinth ist eine quadratische Struktur, die aus $k$ Zeilen mit jeweils $k$ Zellen besteht.
@@ -250,9 +250,9 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	Ein Labyrinth wird als \textit{unschön} bewertet, wenn mindestens einer dieser Punkte verletzt wird.
 	Siehe Abbildung~\ref{ex6mazes} (b)--(d).
 	\begin{enumerate}
-		\item[b)] Beschreibe wie man ein $k\times k$ Labyrinth als $k\times k$ Gittergraph modelliert.
-		\item[c)] Zeichne Abbildung~\ref{ex6mazes} (b) als Gittergraph.
-		\item[d)] Mit dem Aufschwung der Gärtnerei im letzten Jahr wurden nun so viele Labyrinthe eingereicht, dass der Verein es nun nicht mehr stemmen kann, jedes Labyrinth von Hand zu bewerten.
+		\item[b)] \bestehen Beschreibe wie man ein $k\times k$ Labyrinth als $k\times k$ Gittergraph modelliert.
+		\item[c)] \bestehen Zeichne Abbildung~\ref{ex6mazes} (b) als Gittergraph.
+		\item[d)] \mittel Mit dem Aufschwung der Gärtnerei im letzten Jahr wurden nun so viele Labyrinthe eingereicht, dass der Verein es nun nicht mehr stemmen kann, jedes Labyrinth von Hand zu bewerten.
 		Entwirf einen Algorithmus, der als Eingabe einen $k\times k$ Gittergraph erhält, der ein $k\times k$ Labyrinth modelliert, und prüft, ob das Labyrinth schön ist.
 		Zeige die Korrektheit des Algorithmus\footnote{Beweis, dass die Ausgabe deines Algorithmus auf allen möglichen Eingaben richtig ist.} und gib eine Laufzeitanalyse an, in der die asymptotische Laufzeit als Funktion von $k$ beschreiben wird.
 	\end{enumerate}
@@ -542,7 +542,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[3-Farben Algorithmus \schriftlich]
+\begin{aufgabe}[3-Farben Algorithmus]
   \textit{\footnotesize For an English version of this exercise, see [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, page 210]}.\\
   Eine Klasse von Suchalgorithmen auf Graphen, die Breitensuche und Tiefensuche verallgemeinern, wurde 1975 von Edsger Dijkstra, Leslie Lamport, Alain Martin, Carel Scholten und Elisabeth Steffens beschrieben. Die Autor:innen haben diese Algorithmen untersucht, um damit einen automatischen \emph{garbage collector} zu entwerfen (siehe \href{https://de.wikipedia.org/wiki/Garbage_Collection}{wikipedia}).
   Anstatt markierte und unmarkierte Knoten zu verwalten, verwaltet ihr Algorithmus eine Farbe für jeden Knoten, entweder weiß, grau oder schwarz.

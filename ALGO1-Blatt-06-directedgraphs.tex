@@ -2,7 +2,7 @@
 \documentclass{uebung_cs}
 \usepackage{algo123}
 \uebung{6}{}{}
-\blattname{Gerichtete Graphen}
+\blattname{Gerichtete Graphen (Woche 6)}
 
 \usepackage{etoolbox}\AtBeginEnvironment{algorithmic}{\small}
 \newcommand{\fett}[1]{\textbf{\boldmath\color{red!60!black}#1}}
@@ -222,7 +222,7 @@ Lies \emoji{book} CLRS Einleitung Teil VI, Kapitel 22.1--22.4, sowie Appendix B.
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Studiengangplanung \mittel]
+\begin{aufgabe}[Studiengangplanung \schriftlich\mittel]
 Algolina hat den gesamten Sommer damit verbracht, sich zu überlegen, welche Kurse sie an der Universität der Algorithmen belegen möchte.
 Der Abschluss eines Kurses benötigt ein Semester. Sie ist zwar eine Super-Studentin und besteht jeden Kurs, aber manche Kurse hängen von anderen Kursen ab und die Universität erlaubt es nicht, solche Kurse im selben Semester zu belegen. Wenn Kurs $i$ von Kurs $j$ abhängt, muss Algolina Kurs $j$ in einem früheren Semester als Kurs $i$ belegen.
 Sie möchte ihr Studium in möglichst wenigen Semestern abschließen.
@@ -247,7 +247,7 @@ Sie haben zudem Fakten darüber gesammelt, wann diese Menschen im Verhältnis zu
 Natürlich sind sich die Ethnographen nicht sicher, ob all diese Fakten korrekt sind; Erinnerungen sind nicht immer verlässlich und Vieles wurde nur mündlich weitergegeben.
 
 Du sollst nun ermitteln, ob die Daten zumindest untereinander konsistent sind.
-Das heißt es kann eine Menge an Menschen gegeben haben, für die alle gesammelten Fakten gleichzeitig wahr sind.
+Das heißt, ob es~$n$ Personen gegeben haben könnte, für die alle gesammelten Fakten gleichzeitig wahr sind.
 Bestimme einen effizienten Algorithmus, der diese Aufgabe löst: entweder sollte er Geburts- und Todesdatum für alle $n$ Menschen ausgeben, sodass alle gesammelten Fakten wahr sind, oder wenn dies nicht möglich ist, ausgeben, dass die Fakten, die die Ethnographen gesammelt haben, untereinander nicht konsistent sind. 
 \end{aufgabe}
 
@@ -275,15 +275,15 @@ Es kann kein Wasser nachgefüllt oder ausgeschüttet werden.
 \end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Palindromische Wege \schriftlich]
+\begin{aufgabe}[Palindromische Wege]
   \textit{\footnotesize For an English version of this exercise, see [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, page 222]}.
 
   Ein \emph{Palindrom} über dem Alphabet $\{\texttt{R},\texttt{B}\}$ ist eine Zeichenkette $s_1,s_2,s_3,\dots,s_n\in\{\texttt{R},\texttt{B}\}$, sodass $s_i=s_{n-i+1}$ für alle $i\in\{1,\dots,n\}$. Zum Beispiel sind \texttt{BRBRB} und \texttt{RBBR} Palindrome, aber \texttt{RBB} und \texttt{BRRR} nicht.
   
   Sei $G$ ein beliebiger gerichteter Graph, in dem jede Kante entweder rot oder blau gefärbt ist, und seien $s,t$ zwei Knoten.
   \begin{enumerate}
-      \item \mittel Beschreibe einen Algorithmus, der entweder einen Weg von $s$ nach $t$ berechnet, für den die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
-      \item \note Beschreibe einen Algorithmus, der entweder einen \emph{kürzesten} Weg von $s$ nach $t$ berechnet unter allen Wegen, für die die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+      \item \mittel Beschreibe einen Algorithmus mit polynomieller Laufzeit, der entweder einen Weg von $s$ nach $t$ berechnet, für den die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
+      \item \note Beschreibe einen Algorithmus mit polynomieller Laufzeit, der entweder einen \emph{kürzesten} Weg von $s$ nach $t$ berechnet unter allen Wegen, für die die Sequenz von rot und blau entlang der Kanten des Weges ein Palindrom ist, oder korrekterweise feststellt, dass kein solcher Weg existiert.
   \end{enumerate}
   
 \end{aufgabe}

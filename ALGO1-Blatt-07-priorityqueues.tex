@@ -127,12 +127,12 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 		\item \bestehen %(\warmup)
     Sei $S = 4,8,11,5,21,\star,2,\star$ eine Sequenz von Operationen, wobei eine Zahl für das Einfügen dieser Zahl in den Heap steht und $\star$ für eine \texttt{ExtractMax} Operation.
 		Wie sieht der Heap $H$ nach jeder einzelnen Operation aus, wenn $H$ anfangs leer ist?
-		\item \bestehen Erfüllt ein sortiertes Feld die Heap-Eigenschaft?
+		\item \bestehen Erfüllt ein absteigend sortiertes Feld die Heap-Eigenschaft?
 		\item \bestehen Wo befindet sich in einem (Max-)Heap das kleinste Element?
 		\item \mittel Zeige, dass \texttt{Insert}, \texttt{ExtractMax} und \texttt{IncreaseKey} die Heap-Eigenschaft aufrechterhalten.
     \item \note %(\hard)
-    Angenommen wir erhalten $k$ sortierte Felder mit \textbf{insgesamt} $n$ Elementen als Eingabe.
-		Zeige, wie sich alle Felder in Zeit $O(n\log k)$ zu einem einzelnen sortierten Feld der Länge~$n$ verflechten lassen.
+    Angenommen wir erhalten $k$ absteigend sortierte Felder mit \textbf{insgesamt} $n$ Elementen als Eingabe.
+		Zeige, wie sich alle Felder in Zeit $O(n\log k)$ zu einem einzelnen absteigend sortierten Feld der Länge~$n$ verflechten lassen.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -148,9 +148,9 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 	Entwirf eine möglichst effiziente Datenstruktur, die das System implementiert.
 \end{aufgabe}
 
-\begin{aufgabe}[Operationen für Prioritätswarteschlangen]
-	Wir wollen nun die Menge an zur Verfügung stehenden Operationen für Prioritätswarteschlangen vergrößern.
-	Wir interessieren uns hierbei für die folgenden Operationen:
+\begin{aufgabe}[Operationen für Prioritätswarteschlangen]\hspace{.5em}
+	Wir erinnern uns, dass Prio\-ri\-täts\-war\-te\-schlang\-en die Operationen \texttt{Max()}, \texttt{ExtractMax()}, \texttt{IncreaseKey($x,k$)} und \texttt{Insert($x$)} unterstützen.
+	Wir wollen nun weitere Operationen zur Verfügung stellen, und zwar die Folgenden:
 	\begin{itemize}
 		\item \texttt{RemoveLargest($m$)} entfernt das $m$t-größte Element der Prioritätswarteschlange.
 		\item \texttt{Delete($x$)} entfernt Element $x$ aus der Prioritätswarteschlange.
@@ -166,9 +166,9 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 		\item \mittel Erkläre wie sich \texttt{RemoveLargest($m$)} mit Zeitbedarf $O(m\log n)$ implementieren lässt.
 		\item \mittel Erkläre wie sich \texttt{Delete($x$)} und \texttt{Fusion($x,y$)} mit Zeitbedarf $O(\log n)$ implementieren lässt.
 		\item \mittel %(\hard)
-    Erkläre wie sich \texttt{ExtractMin()} mit Zeitbedarf $O(\log n)$ implementieren lässt.
-		\item \mittel %(\hard)
     Erkläre wie sich \texttt{FindLarger($k$)} mit Zeitbedarf $O(m)$ implementieren lässt, wobei $m$ die Anzahl der Elemente mit Schlüssel $\geq k$ ist.
+		\item \note %(\hard)
+    Erkläre wie sich \texttt{ExtractMin()} mit Zeitbedarf $O(\log n)$ implementieren lässt.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -180,8 +180,8 @@ Lies \emoji{book} CLRS Kapitel 6, sowie Appendix B.5 und schau dir das \emoji{te
 \end{aufgabe}
 
 \begin{aufgabe}[Eigenschaften von Heaps \mittel]
-	Sei $T = (V,E)$ ein vollständiger Binärbaum von Höhe~$h$.
-	Löse die folgenden Teilaufgaben.
+	Sei $T = (V,E)$ ein \textbf{vollständiger} Binärbaum von Höhe~$h$.
+	Löse die folgenden Teilaufgaben, die für die Laufzeitanalyse von \texttt{heapify} benötigt werden.
 	\begin{enumerate}
 		\item Zeige, dass für die Anzahl an Knoten $|V| = 2^{h+1} - 1$ gilt.\\
 		\textit{Hinweis: Begründe, dass $|V| = 1 + 2 + 4 + \hdots + 2^h$ gilt und betrachte diesen Wert als Binärzahl.}

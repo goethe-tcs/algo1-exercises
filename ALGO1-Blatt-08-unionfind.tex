@@ -228,7 +228,8 @@ Lies \emoji{book} CLRS Kapitel 21 ohne 21.4 (oder Algorithms 4ed. Kapitel 1.5) u
 		\item \mittel Zeige wie man mit dieser Darstellung der Mengen die Operationen \texttt{Init($n$)} in Zeit $O(n)$, \texttt{Find($i$)} in Zeit $O(1)$ und \texttt{Union($i,j$)} in Zeit $O(|S(i)|)$ implementieren kann, wobei $S(i)$ diejenige Menge ist, die $i$ enthält.
 		\item\label{min} \mittel Zeige, wie man die Lösung erweitern kann, sodass \texttt{Init} und \texttt{Find} dieselbe Zeitkomplexität wie zuvor haben, aber \texttt{Union($i,j$)} nun nur Zeit $O(\min(|S(i)|, |S(j)|))$ benötigt.
 			\textit{Hinweis: Speichere ein paar Zusatzinformationen.}
-		\item \note %(\hard) Zeige, dass für die Lösung aus \ref{min} jede Sequenz von $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen eine Laufzeit von $O(p + m\log n)$ hat.
+		\item \note %(\hard)
+    Zeige, dass für die Lösung aus \ref{min} jede Sequenz von $p$ \texttt{Find} und $m$ \texttt{Union} Operationen auf $n$ Elementen eine Laufzeit von $O(p + m\log n)$ hat.
 		Zu Beginn der Sequenz sind alle Mengen einelementig.
 	\end{enumerate}
 \end{aufgabe}

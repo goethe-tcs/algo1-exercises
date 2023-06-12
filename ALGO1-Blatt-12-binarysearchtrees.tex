@@ -177,7 +177,7 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 	Schreib den Algorithmus in Pseudocode auf.
 \end{aufgabe}
 
-\begin{aufgabe}[Mehr Rekursionen auf Bäumen]
+\begin{aufgabe}[Rekursion auf Bäumen \schriftlich]
 	Sei $T$ ein Binärbaum.
 	Jeder Knoten $x$ von $T$ hat die Eigenschaften $x.\texttt{parent}$, $x.\texttt{left}$ und $x.\texttt{right}$, welche auf den Elternknoten sowie auf das linke und rechte Kind von $x$ verweisen.
 	Wenn der Knoten keine Kinder hat (z.B. die Blätter) oder keinen Elternknoten (Wurzel \texttt{root}) hat, wird der jeweilige Wert auf \texttt{null} gesetzt.
@@ -221,32 +221,31 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Rekursionen auf Bäumen \schriftlich]
-  Sei $T$ ein Binärbaum.
-  Jeder Knoten $x$ von $T$ hat die Eigenschaften $x.\texttt{parent}$, $x.\texttt{left}$ und $x.\texttt{right}$, welche auf den Elternknoten sowie auf das linke und rechte Kind von $x$ verweisen.
-  Wenn der Knoten keine Kinder hat (z.B. die Blätter) oder keinen Elternknoten hat (die Wurzel \texttt{root}), wird der jeweilige Wert auf \texttt{null} gesetzt.
-  Des Weiteren hat jeder Knoten $x$ eine Eigenschaft $x.\texttt{size}$, die auf einen Integer gesetzt werden kann.
-  Betrachte den folgenden Algorithmus.
-  \begin{algorithmic}
-      \Procedure{Zero}{$x$}
-      \If{$x\neq \texttt{null}$}
-          \State{\Call{Zero}{$x.\texttt{left}$}}
-          \State{\Call{Zero}{$x.\texttt{right}$}}
-      \EndIf
-      \EndProcedure
-  \end{algorithmic}
-  \begin{enumerate}
-      \item \bestehen Analysiere die Laufzeit von \textsc{Zero}$(x)$, wenn das Argument $x$ die Wurzel eines Teilbaums mit $n$ Knoten ist.
-      \item \mittel Sei $T(x)$ der Teilbaum mit Wurzel $x$ und sei $|T(x)|$ die Anzahl an Knoten in $T(x)$.
-      Entwirf einen rekursiven Algorithmus \textsc{InitSize$(x)$}, der bei gegebenem Knoten $x$ für alle Knoten~$y$ im Teilbaum $T(x)$ die Variable $y.\texttt{size}$ auf $|T(y)|$ setzt.
-      Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
-      \item \mittel Wir bezeichnen eine Kante $(x,y)$ von Knoten $x$ zu einem seiner Kinder $y$ als \emph{rot} genau dann, wenn $|T(x)| \geq 2\cdot|T(y)|$.
-      Entwirf einen rekursiven Algorithmus \textsc{RedEdge$(x)$}, der die Anzahl an roten Kanten im Teilbaum $T(x)$ berechnet.
-      Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
-      \item \mittel Wie viele rote Kanten treten in einem Pfad von der Wurzel zu einem Blatt auf?
-      Gib asymptotische obere und untere Schranken an. Begründe deine Antwort.
-  \end{enumerate}
-
-\end{aufgabe}
+% \begin{aufgabe}[Rekursionen auf Bäumen]
+%   Sei $T$ ein Binärbaum.
+%   Jeder Knoten $x$ von $T$ hat die Eigenschaften $x.\texttt{parent}$, $x.\texttt{left}$ und $x.\texttt{right}$, welche auf den Elternknoten sowie auf das linke und rechte Kind von $x$ verweisen.
+%   Wenn der Knoten keine Kinder hat (z.B. die Blätter) oder keinen Elternknoten hat (die Wurzel \texttt{root}), wird der jeweilige Wert auf \texttt{null} gesetzt.
+%   Des Weiteren hat jeder Knoten $x$ eine Eigenschaft $x.\texttt{size}$, die auf einen Integer gesetzt werden kann.
+%   Betrachte den folgenden Algorithmus.
+%   \begin{algorithmic}
+%       \Procedure{Zero}{$x$}
+%       \If{$x\neq \texttt{null}$}
+%           \State{\Call{Zero}{$x.\texttt{left}$}}
+%           \State{\Call{Zero}{$x.\texttt{right}$}}
+%       \EndIf
+%       \EndProcedure
+%   \end{algorithmic}
+%   \begin{enumerate}
+%       \item \bestehen Analysiere die Laufzeit von \textsc{Zero}$(x)$, wenn das Argument $x$ die Wurzel eines Teilbaums mit $n$ Knoten ist.
+%       \item \mittel Sei $T(x)$ der Teilbaum mit Wurzel $x$ und sei $|T(x)|$ die Anzahl an Knoten in $T(x)$.
+%       Entwirf einen rekursiven Algorithmus \textsc{InitSize$(x)$}, der bei gegebenem Knoten $x$ für alle Knoten~$y$ im Teilbaum $T(x)$ die Variable $y.\texttt{size}$ auf $|T(y)|$ setzt.
+%       Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
+%       \item \mittel Wir bezeichnen eine Kante $(x,y)$ von Knoten $x$ zu einem seiner Kinder $y$ als \emph{rot} genau dann, wenn $|T(x)| \geq 2\cdot|T(y)|$.
+%       Entwirf einen rekursiven Algorithmus \textsc{RedEdge$(x)$}, der die Anzahl an roten Kanten im Teilbaum $T(x)$ berechnet.
+%       Schreib den Algorithmus in Pseudocode auf und analysiere die asymptotische Laufzeit als Funktion von $|T(x)|$.
+%       \item \mittel Wie viele rote Kanten treten in einem Pfad von der Wurzel zu einem Blatt auf?
+%       Gib asymptotische obere und untere Schranken an. Begründe deine Antwort.
+%   \end{enumerate}
+% \end{aufgabe}
 
 \end{document}

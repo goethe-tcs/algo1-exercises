@@ -57,7 +57,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Bitvektoren]
+\begin{aufgabe}[Bitvektoren \schriftlich]
 	Computer werden	oft als $w$-\textit{Bit Computer} bezeichnet, beispielsweise sind die meisten modernen Computer $64$-Bit Computer.
 	Das bedeutet, dass die Register und Speicherzellen jeweils $w$ Bits speichern und primitive Datentypen wie Integer, Gleitkommazahlen und Zeiger mit $w$ Bits dargestellt werden.
 	Viele Programmiersprachen unterstützen Bit-Manipulationen mit konstantem Zeitaufwand, wie \emph{bit shifts} (\verb$<<$ und \verb$>>$) und bitweise logische Operationen (\verb$|&^$).
@@ -80,7 +80,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[Sortieren in kleinen Universen \note]%, \hard]
+\begin{aufgabe}[Sortieren in kleinen Universen \bestehen]%, \hard]
 	Sei $A[0\hdots n-1]$ ein Feld von Zahlen aus $\{0, \dots, n-1\}$.
 	Entwirf einen Algorithmus, der $A$ in Zeit $O(n)$ sortiert.
 \end{aufgabe}
@@ -91,47 +91,47 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	Entwirf eine Datenstruktur, die linearen Platz in der Länge des Feldes benötigt, Auslesen und Ändern in erwarteter konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
 \end{aufgabe}
 
-\newpage
-\begin{aufgabe}[Zufällige Hashfunktionen \schriftlich]
-  Oft benutzen wir nicht etwa feste Hashfunktionen, sondern zufällige.
-  Nur so können wir garantieren, dass die gewählte Hashfunktion die für Hashtabellen so wichtigen Eigenschaften auch wirklich haben, wie etwa die Annahme des einfachen gleichmäßigen Hashings.
+% \newpage
+% \begin{aufgabe}[Zufällige Hashfunktionen]
+%   Oft benutzen wir nicht etwa feste Hashfunktionen, sondern zufällige.
+%   Nur so können wir garantieren, dass die gewählte Hashfunktion die für Hashtabellen so wichtigen Eigenschaften auch wirklich haben, wie etwa die Annahme des einfachen gleichmäßigen Hashings.
   
-  Sei $p$ eine Primzahl.
-  Wir ziehen zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}$.
-  Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b\bmod p$.
-  % Betrachte die Prozedur:
-  % \begin{algorithmic}
-  %     \Procedure{Func}{$x_1,\dots,x_n$}
-  %     \State{Initialisiere ein Feld $T[0..p-1]$, in dem alle Einträge 0 sind.}
-  %     \State{Wähle zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}.$}
-  %     \State{Sei $h:\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h(x)=ax+b\bmod p$.}
-  %     \ForAll{$i\in\{1,\dots,n\}$}
-  %     \State $T[h(x_i)]\gets T[h(x_i)]+1$
-  %     \EndFor
-  %     \EndProcedure
-  % \end{algorithmic}
+%   Sei $p$ eine Primzahl.
+%   Wir ziehen zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}$.
+%   Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b\bmod p$.
+%   % Betrachte die Prozedur:
+%   % \begin{algorithmic}
+%   %     \Procedure{Func}{$x_1,\dots,x_n$}
+%   %     \State{Initialisiere ein Feld $T[0..p-1]$, in dem alle Einträge 0 sind.}
+%   %     \State{Wähle zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}.$}
+%   %     \State{Sei $h:\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h(x)=ax+b\bmod p$.}
+%   %     \ForAll{$i\in\{1,\dots,n\}$}
+%   %     \State $T[h(x_i)]\gets T[h(x_i)]+1$
+%   %     \EndFor
+%   %     \EndProcedure
+%   % \end{algorithmic}
   
-  % Wir führen \Call{Func}{$x_1,\dots,x_n$} aus.
-  % Beweise:
-  \begin{enumerate}
-      \item \mittel Sei $x$ eine beliebige natürliche Zahl ungleich $0$ und sei $i$ ein beliebiges Element aus $\{0,\dots,p-1\}$.
-      Finde eine kurze Formel in Abhängigkeit von $p$ für die Wahrscheinlichkeit $\pr_{a,b}(h_{a,b}(x)=i)$, und beweise deine Antwort. (Mit anderen Worten, beweise dass die Annahme des einfachen gleichmäßigen Hashings für die zufällige Hashfunktion $h_{a,b}$ im Erwartungswert gilt.)
-      \item \note Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $x\ne y$.
-      Beweise, dass \[\pr_{a,b}(h_{a,b}(x)=h_{a,b}(y))=\frac{1}{p^2}\] gilt. (Mit anderen Worten, beweise dass die Kollisionswahrscheinlichkeit $\frac{1}{p^2}$ ist.)
-      \item \note Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
-      \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
-      Beweise, dass folgende Ungleichungen gelten:
-      \[
-          \left(1-\frac{k}{p}\right)^k\le q_k \leq e^{-(k-1)k/(2p)}\,.
-      \]
-      (Das heißt, wir müssen bereits für $k=\Theta(\sqrt{p})$ mit Kollisionen rechnen.)\\
-      \emph{Hinweis: Die Ungleichung $(1-x)\le e^{-x}$ gilts stets und darf benutzt werden.}
-  \end{enumerate}
+%   % Wir führen \Call{Func}{$x_1,\dots,x_n$} aus.
+%   % Beweise:
+%   \begin{enumerate}
+%       \item \mittel Sei $x$ eine beliebige natürliche Zahl ungleich $0$ und sei $i$ ein beliebiges Element aus $\{0,\dots,p-1\}$.
+%       Finde eine kurze Formel in Abhängigkeit von $p$ für die Wahrscheinlichkeit $\pr_{a,b}(h_{a,b}(x)=i)$, und beweise deine Antwort. (Mit anderen Worten, beweise dass die Annahme des einfachen gleichmäßigen Hashings für die zufällige Hashfunktion $h_{a,b}$ im Erwartungswert gilt.)
+%       \item \note Seien $x,y\in\mathbb N$ zwei natürliche Zahlen mit $x\ne y$.
+%       Beweise, dass \[\pr_{a,b}(h_{a,b}(x)=h_{a,b}(y))=\frac{1}{p^2}\] gilt. (Mit anderen Worten, beweise dass die Kollisionswahrscheinlichkeit $\frac{1}{p^2}$ ist.)
+%       \item \note Sei $X\subset\mathbb N$ eine endliche Menge der Größe $|X|=k$. Sei $q_k$ die Wahrscheinlichkeit, dass \emph{keine} Kollision auftritt, das heißt:
+%       \[q_k=\pr_{a,b}(\forall x,y\in X\colon x=y \vee h_{a,b}(x)\ne h_{a,b}(y))\,.\]
+%       Beweise, dass folgende Ungleichungen gelten:
+%       \[
+%           \left(1-\frac{k}{p}\right)^k\le q_k \leq e^{-(k-1)k/(2p)}\,.
+%       \]
+%       (Das heißt, wir müssen bereits für $k=\Theta(\sqrt{p})$ mit Kollisionen rechnen.)\\
+%       \emph{Hinweis: Die Ungleichung $(1-x)\le e^{-x}$ gilts stets und darf benutzt werden.}
+%   \end{enumerate}
   
-%  \paragraph*{Hinweise zur Abgabe.}
-%  Bitte schreib deine Beweise möglichst kurz und elegant auf.
-%  Den \emoji{star} erhälst du für die vollständige und weitgehend korrekte Bearbeitung der Aufgabenteile~a) und~b). Aufgabenteil c) gibt einen Bonus in der Bewertung.
+% %  \paragraph*{Hinweise zur Abgabe.}
+% %  Bitte schreib deine Beweise möglichst kurz und elegant auf.
+% %  Den \emoji{star} erhälst du für die vollständige und weitgehend korrekte Bearbeitung der Aufgabenteile~a) und~b). Aufgabenteil c) gibt einen Bonus in der Bewertung.
 
-\end{aufgabe}
+% \end{aufgabe}
 
 \end{document}

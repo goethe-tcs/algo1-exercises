@@ -57,7 +57,7 @@
 \RequirePackage[colorlinks=true,linkcolor=GoetheBlue,urlcolor=GoetheBlue,citecolor=GoetheBlue,unicode]{hyperref}
 \renewcommand\UrlFont{\normalfont\small}
 \renewcommand\path[1]{{\normalfont\small\detokenize{#1}}}
-\usepackage[nameinlink,capitalise]{cleveref}
+\usepackage[noabbrev,nameinlink,capitalise]{cleveref}
 
 \RequirePackage{booktabs}
 \RequirePackage{tcolorbox}
@@ -201,6 +201,9 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 
 \DeclareOption{german}
 {
+	% Hinzufügen der scheme-Umgebung zu cleveref/varioref
+	\crefname{figure}{Abbildung}{Abbildungen}
+	
 \institute{Institut f"ur Informatik}
 
 % i18n: deutsch

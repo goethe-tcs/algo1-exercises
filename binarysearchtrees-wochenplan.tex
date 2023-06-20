@@ -106,10 +106,10 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 				\end{subfigure}
 			\end{figure}
 		\end{center}
-		\item (\warmup) Wo in einem Baum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
+		\item (\warmup) Wo in einem binären Suchbaum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
 		\item Betrachte die Schlüsselmenge $\{1, 4, 5, 10, 16, 17, 21\}$. Zeichne binäre Suchbäume der Höhe 2, 3, 4, 5 und 6, die jeweils genau diese Schlüssel enthalten.
 		\item (\warmup) Gib die Reihenfolge an, in der die Knoten von Baum (ii) in inorder, preorder und postorder traversiert werden.
-		\item Verleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
+		\item Vergleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
 		\item Schreibe Pseudocode für eine iterative Variante der Inorder-Traversierung.
 		\item Sei $T$ ein binärer Suchbaum, in dem alle Schlüssel verschieden sind.
 		Beweise die folgende Aussage mit einem Widerspruchsbeweis:
@@ -124,7 +124,7 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 		Zeichne den Baum nach jeder Einfügung.
 		\item(\warmup)
 		Schreib den fehlenden Pseudocode für \texttt{Rebalance}$(y)$ im Fall, dass der Balancefaktor von $y$ zwei ist.
-		\item
+	\item(\warmup)
 		Füge die Elemente $1, 4, 5, 6, 3, 2$ in dieser Reihenfolge in einen zunächst leeren AVL-Baum ein.
 		Zeichne den Baum nach jeder Einfügung.
 		\item Überlege dir, wie \texttt{Rebalance} die Höheninformationen \texttt{v.height} mit nur konstantem Mehraufwand aktuell halten kann.
@@ -162,9 +162,14 @@ Lies CLRS Kapitel 12 ohne 12.4 und schau das Video der Woche.
 	Gib die Reihenfolge als eine Sequenz von Feldindizes an.
 \end{aufgabe}
 
-\begin{aufgabe}[Preorder-Traversierung]
-	Entwirf einen rekursiven Algorithmus, der die Preorder-Traversierung eines binären Baums~$T$ durchführt.
-	Schreib den Algorithmus in Pseudocode auf.
+\begin{aufgabe}[Rank/Select]
+	Die binären Suchbäume implementieren eine dynamische Menge $S$, die die Operationen \Call{Insert}{}, \Call{Delete}{}, \Call{Predecessor}{} und \Call{Successor}{} in Zeit $O(h)$ unterstützt, wobei $h$ die Höhe des Baums ist.
+	Modifiziere die Datenstruktur nun so, dass die folgenden zwei Operationen ebenfalls in $O(h)$ Zeit unterstützt werden:
+	\begin{enumerate}
+		\item $\Call{Rank}{x}$ liefert die Zahl $\#\{y\;|\;y.\texttt{key} < x.\texttt{key}\}$, also die Anzahl der Elemente von~$S$, die einen kleineren Schlüssel haben.
+		\item $\Call{Select}{i}$ liefert das $(i+1)$-te Element der Menge $S$, also das Element $x$ mit $\Call{Rank}{x}=i$.
+	\end{enumerate}
+	Die existierenden Operationen \Call{Insert}{} und \Call{Delete}{} dürfen hierzu modifiziert werden, müssen aber weiterhin in Zeit $O(h)$ laufen.
 \end{aufgabe}
 
 \begin{aufgabe}[Mehr Rekursionen auf Bäumen]

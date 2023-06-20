@@ -1,4 +1,4 @@
-WWWDIR=$(HOME)/Documents/Websites/tcs.uni-frankfurt.de/static/teaching/summer21/algo1
+WWWDIR=$(HOME)/Documents/Websites/tcs.uni-frankfurt.de/static_large_files/teaching/summer21/algo1
 SOURCES=$(wildcard *.tex)
 TARGETS=$(patsubst %.tex,%.pdf,$(SOURCES))
 GITINFOS=$(patsubst %.tex,%.gitinfo,$(SOURCES))

@@ -29,6 +29,12 @@ Lies \emoji{book} E Kapitel 3 ohne 3.6 und 3.9 und schau dir das \emoji{televisi
     \end{enumerate}
 \end{aufgabe}
 
+\paragraph{Hinweise zur Abgabe und zum Vorgehen bei Aufgaben des Typs \enquote{Dynamische Programmierung}.}
+Im Buch [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, Abschnitt 3.4] ist in kleinen Schritten beschrieben, wie man bei dynamischer Programmierung vorgeht.
+Folge diesen Schritten!
+Fang gar nicht erst an, über for-Schleifen nachzudenken, bevor du eine vollständige rekursive Lösung hast! Das beinhaltet eine klar verständliche deutsche oder englische Spezifikation der rekursiven Teilprobleme, die du löst.
+In der Algorithmenentwicklung, in der Programmierung, und in den meisten Aufgaben des Lebens gilt immer: \textbf{Mach es zuerst korrekt, dann effizient.}
+
 \begin{aufgabe}[Pascalsches Dreieck \schriftlich]\mbox{}\\
     Für die Binomialkoeffizienten gilt folgende Rekursionsformel:
     \begin{align*}
@@ -42,12 +48,6 @@ Lies \emoji{book} E Kapitel 3 ohne 3.6 und 3.9 und schau dir das \emoji{televisi
         \item\mittel Entwirf nun mit Hilfe von platzsparender dynamischer Programmierung eine iterative Funktion \Call{IterBinom2}{$n,k$}, die ebenfalls $O(nk)$ arithmetische Operationen braucht, dabei aber nur $O(k)$ Zahlen im Speicher halten muss.
     \end{enumerate}
 \end{aufgabe}
-\paragraph{Hinweise zur Abgabe.}
-Im Buch [\href{https://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf}{Erickson}, Abschnitt 3.4] ist in kleinen Schritten beschrieben, wie man bei dynamischer Programmierung vorgeht.
-Folge diesen Schritten!
-Fang gar nicht erst an, über for-Schleifen nachzudenken, bevor du eine vollständige rekursive Lösung hast! Das beinhaltet eine klar verständliche deutsche oder englische Spezifikation der rekursiven Teilprobleme, die du löst.
-In der Algorithmenentwicklung, in der Programmierung, und in den meisten Aufgaben des Lebens gilt immer: \textbf{Mach es zuerst korrekt, dann effizient.}
-
 \begin{aufgabe}[Betriebsfeier \mittel]
     Du organisierst die jährliche Betriebsfeier bei der Algorithmen-Bank.
     Die Mitarbeiter:innen der Bank sind in einer strikten Hierarchie angeordnet: ein Baum, in dem die Eigentümerin der Bank die Wurzel darstellt.

@@ -30,6 +30,8 @@
 \RequirePackage{tcolorbox}
 \RequirePackage{cleveref}
 
+\usepackage{fontspec}
+
 \RequirePackage{subcaption}
 
 \RequirePackage[shortlabels,inline]{enumitem}

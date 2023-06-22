@@ -22,12 +22,12 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 \begin{aufgabe}[Von Hand laufen lassen und Eigenschaften \bestehen]\label{tue-first}\mbox{}
 	\begin{enumerate}
 		\item (\warmup) Füge die Schlüsselsequenz $7, 18, 2, 3, 14, 25, 1, 11, 12, 1332$ in eine Hashtabelle der Länge 11 ein, die verkettetes Hashing und die Hashfunktion $f(k) = k \mod 11$ benutzt.
-		\item\label{hand_sondieren} (\warmup) Füge die Schlüsselsequenz $2, 32, 43, 16, 77, 51, 1, 17, 42, 111$ in eine Hashtabelle der Länge 17 ein, die lineares Sondieren und die Hashfunktion $f(k) = k \mod 17$ benutzt.
+		      \item\label{hand_sondieren} (\warmup) Füge die Schlüsselsequenz $2, 32, 43, 16, 77, 51, 1, 17, 42, 111$ in eine Hashtabelle der Länge 17 ein, die lineares Sondieren und die Hashfunktion $f(k) = k \mod 17$ benutzt.
 		\item Lösche 111 und 51 aus der in~\ref{hand_sondieren} erzeugten Hashtabelle.
-		\item\label{wrong_delete} Angenommen, wir löschen ein Element~$x$ bei linearem Sondieren, ohne die Elemente im Cluster rechts von~$x$ wieder neu einzufügen.
-		Gib eine kürzestmögliche Sequenz von Wörterbuchoperationen an, sodass diese modifizierte Variante zu einem falschen Ergebnis führt.
+		      \item\label{wrong_delete} Angenommen, wir löschen ein Element~$x$ bei linearem Sondieren, ohne die Elemente im Cluster rechts von~$x$ wieder neu einzufügen.
+		      Gib eine kürzestmögliche Sequenz von Wörterbuchoperationen an, sodass diese modifizierte Variante zu einem falschen Ergebnis führt.
 		\item Sei $S$ eine Sequenz von Schlüsseln, die in einer Hashtabelle $A$ mittels verkettetem Hashing gespeichert sind.
-		Gegeben $A$, ist es möglich den größten Schlüssel aus $S$ effizient zu finden?
+		      Gegeben $A$, ist es möglich den größten Schlüssel aus $S$ effizient zu finden?
 	\end{enumerate}
 \end{aufgabe}
 
@@ -66,17 +66,17 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item \bestehen %(\warmup{})
-    Für $w=8$, schreibe $2^4$, \verb$1<<4$, $2^8-1$,
-		$(2^7 \verb$^$ 2^4$) und
-		$(2^8-1)$ \verb$&$ $2^4$ in Binärdarstellung.
-		\item \mittel Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
-		\item \mittel Wie kann ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
+		      Für $w=8$, schreibe $2^4$, \verb$1<<4$, $2^8-1$,
+		      $(2^7 \verb$^$ 2^4$) und
+		      $(2^8-1)$ \verb$&$ $2^4$ in Binärdarstellung.
+		\item \mittel Wir betrachten zunächst den Spezialfall $n=w$. Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also nicht von $w$ abhängen.)
+		\item \mittel Wir betrachten nun den allgemeinen Fall $n\ge w$. Wie kann ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
 		\item \mittel Entwirf eine Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
-		\begin{itemize}
-			\item \texttt{insert$(a)$} fügt der Menge $a$ hinzu, setzt also $S\gets S\cup \{a\}$.
-			\item \texttt{remove$(a)$} löscht $a$ aus der Menge, setzt also $S\gets S\setminus \{a\}$.
-			\item \texttt{has$(a)$} liefert $1$ wenn $a\in S$ und $0$ sonst.
-		\end{itemize}
+		      \begin{itemize}
+			      \item \texttt{insert$(a)$} fügt der Menge $a$ hinzu, setzt also $S\gets S\cup \{a\}$.
+			      \item \texttt{remove$(a)$} löscht $a$ aus der Menge, setzt also $S\gets S\setminus \{a\}$.
+			      \item \texttt{has$(a)$} liefert $1$ wenn $a\in S$ und $0$ sonst.
+		      \end{itemize}
 	\end{enumerate}
 \end{aufgabe}
 
@@ -86,16 +86,24 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 \end{aufgabe}
 
 \begin{aufgabe}[Nicht initialisierte Felder \note, \veryhard]
-	Wir wollen ein \textit{riesiges} Feld $A$ implementieren, dessen Einträge wir effizient auslesen und ändern können.
-	Anfangs enthalten die Einträge von $A$ \enquote{Müll}, und wegen der Größe des Feldes wollen wir beim Erzeugen des Feldes keine Zeit darauf verschwenden, alle Einträge zu initialisieren.
-	Entwirf eine Datenstruktur, die linearen Platz in der Länge des Feldes benötigt, Auslesen und Ändern in erwarteter konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
+	Wir wollen eine abstrakte Datenstruktur implementieren, die sich so verhält wie ein Feld $A$ von ganzen Zahlen, das heißt, es werden die folgenden Operationen unterstützt:
+	\begin{enumerate}
+		\item $\texttt{init}(n,\texttt{default})$ initialisiert das Feld und legt \texttt{default} als Standardwert fest.
+		\item $\texttt{set}(i,v)$ setzt den $i$-ten Eintrag auf den Wert $v$.
+		\item $\texttt{get}(i)$ liefert den $i$-ten Eintrag oder \texttt{default}, falls dieser noch nicht gesetzt wurde.
+	\end{enumerate}
+	Allerdings wird das Feld \emph{riesig} sein, deshalb wollen wir die Datenstruktur \emph{nicht} direkt als Feld implementieren, da wir keine Zeit darauf verschwenden wollen, es zu initialisieren.
+
+	Entwirf eine Datenstruktur, die nur $O(n)$ Platz benötigt, Auslesen und Ändern in erwarteter konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
+
+	\emph{Hinweis: Hashtabellen und die Lösung zu Aufgabe 4.9 b) \enquote{Dynamische Felder} könnten hilfreich sein.}
 \end{aufgabe}
 
 % \newpage
 % \begin{aufgabe}[Zufällige Hashfunktionen]
 %   Oft benutzen wir nicht etwa feste Hashfunktionen, sondern zufällige.
 %   Nur so können wir garantieren, dass die gewählte Hashfunktion die für Hashtabellen so wichtigen Eigenschaften auch wirklich haben, wie etwa die Annahme des einfachen gleichmäßigen Hashings.
-  
+
 %   Sei $p$ eine Primzahl.
 %   Wir ziehen zwei zufällige Zahlen $a$ und $b$ gleichverteilt und unabhängig aus $\{0,\dots,p-1\}$.
 %   Sei $h_{a,b}\colon\mathbb N\to\{0,\dots,p-1\}$ die Funktion mit $h_{a,b}(x)=ax+b\bmod p$.
@@ -110,7 +118,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 %   %     \EndFor
 %   %     \EndProcedure
 %   % \end{algorithmic}
-  
+
 %   % Wir führen \Call{Func}{$x_1,\dots,x_n$} aus.
 %   % Beweise:
 %   \begin{enumerate}
@@ -127,7 +135,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 %       (Das heißt, wir müssen bereits für $k=\Theta(\sqrt{p})$ mit Kollisionen rechnen.)\\
 %       \emph{Hinweis: Die Ungleichung $(1-x)\le e^{-x}$ gilts stets und darf benutzt werden.}
 %   \end{enumerate}
-  
+
 % %  \paragraph*{Hinweise zur Abgabe.}
 % %  Bitte schreib deine Beweise möglichst kurz und elegant auf.
 % %  Den \emoji{star} erhälst du für die vollständige und weitgehend korrekte Bearbeitung der Aufgabenteile~a) und~b). Aufgabenteil c) gibt einen Bonus in der Bewertung.

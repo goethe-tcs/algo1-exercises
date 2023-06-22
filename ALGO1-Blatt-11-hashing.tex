@@ -43,8 +43,8 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 	Die Methode aus~\ref{tue-first}\ref{wrong_delete} hat nicht funktioniert, wir versuchen es also nochmal anders.
 	Wenn wir ein Element an Position $p$ löschen, dann hinterlassen wir jetzt eine Markierung, dass dort ein Element gelöscht worden ist.
 	\begin{enumerate}
-		\item Erkläre, wie \texttt{Search} und \texttt{Insert} modifiziert werden können, damit diese Methode funktioniert.
-		\item Erkläre welche Vor- und Nachteile diese Methode im Vergleich zu der Methode aus der Vorlesung hat.
+		\item Wie können \texttt{Search} und \texttt{Insert} modifiziert werden, damit diese Methode funktioniert?
+		\item Welche Vor- und Nachteile hat diese Methode im Vergleich zu der Methode aus der Vorlesung hat?
 	\end{enumerate}
 \end{aufgabe}
 
@@ -58,19 +58,26 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 \end{aufgabe}
 
 \begin{aufgabe}[Bitvektoren \schriftlich]
-	Computer werden	oft als $w$-\textit{Bit Computer} bezeichnet, beispielsweise sind die meisten modernen Computer $64$-Bit Computer.
-	Das bedeutet, dass die Register und Speicherzellen jeweils $w$ Bits speichern und primitive Datentypen wie Integer, Gleitkommazahlen und Zeiger mit $w$ Bits dargestellt werden.
+	Eine naive Implementierung würde einen \emph{Bitvektor} $B\in\{0,1\}^n$ als Array von \texttt{int}s darstellen, in dem jeder Eintrag~$0$ oder~$1$ ist:
+	\begin{lstlisting}[language=C++,numbers=none]
+		int[] B = new int[n]; // in C++
+	\end{lstlisting}
+	\vspace{-.5\baselineskip}
+	Diese Darstellung verschwendet eine ganze Menge Platz, da für jedes Bit ein ganzer Integer genutzt wird, der 32 oder 64 Bit lang ist.%
+	\footnote{%
+		\texttt{bool} spart leider auch keinen Platz: \url{https://stackoverflow.com/questions/2064550/c-why-bool-is-8-bits-long}}
+	%
+	Wir wollen nun \emph{Bit-Operationen} nutzen, um Platz zu sparen.
+	Angenommen wir arbeiten auf einem \emph{$w$-Bit Computer}, das heißt, die Register und Speicherzellen speichern jeweils $w$ Bits und primitive Datentypen wie Integer, Gleitkommazahlen und Zeiger werden mit $w$ Bits dargestellt.
 	Viele Programmiersprachen unterstützen Bit-Manipulationen mit konstantem Zeitaufwand, wie \emph{bit shifts} (\verb$<<$ und \verb$>>$) und bitweise logische Operationen (\verb$|&^$).
-	Wir wollen diese nutzen, um effizient Felder von Bits, also Elemente $B\in\{0,1\}^n$, als sogenannte \textit{Bitvektoren} zu implementieren.
-	Angenommen wir arbeiten auf einem $w$-Bit Computer.
 	Löse die folgenden Teilaufgaben.
 	\begin{enumerate}
 		\item \bestehen %(\warmup{})
 		      Für $w=8$, schreibe $2^4$, \verb$1<<4$, $2^8-1$,
 		      $(2^7 \verb$^$ 2^4$) und
 		      $(2^8-1)$ \verb$&$ $2^4$ in Binärdarstellung.
-		\item \mittel Wir betrachten zunächst den Spezialfall $n=w$. Zeige, wie ein Bitvektor $B$ der Länge $w$ kompakt dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also nicht von $w$ abhängen.)
-		\item \mittel Wir betrachten nun den allgemeinen Fall $n\ge w$. Wie kann ein Bitvektor $B$ der Länge $n$ kompakt dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
+		\item \mittel Wir betrachten zunächst den Spezialfall $n=w$. Zeige, wie ein Bitvektor $B$ der Länge $w$ \textbf{kompakt} dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also nicht von $w$ abhängen.)
+		\item \mittel Wir betrachten nun den allgemeinen Fall $n\ge w$. Wie kann ein Bitvektor $B$ der Länge $n$ \textbf{kompakt} dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
 		\item \mittel Entwirf eine Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
 		      \begin{itemize}
 			      \item \texttt{insert$(a)$} fügt der Menge $a$ hinzu, setzt also $S\gets S\cup \{a\}$.
@@ -81,21 +88,20 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 \end{aufgabe}
 
 \begin{aufgabe}[Sortieren in kleinen Universen \bestehen]%, \hard]
-	Sei $A[0\hdots n-1]$ ein Feld von Zahlen aus $\{0, \dots, n-1\}$.
-	Entwirf einen Algorithmus, der $A$ in Zeit $O(n)$ sortiert.
+	Sei $A[1\hdots n]$ ein Feld von Zahlen aus ${\{1, \dots, n\}}$ sind. Entwirf einen Algorithmus, der $A$ in Zeit $O(n)$ sortiert.
 \end{aufgabe}
 
 \begin{aufgabe}[Nicht initialisierte Felder \note, \veryhard]
 	Wir wollen eine abstrakte Datenstruktur implementieren, die sich so verhält wie ein Feld $A$ von ganzen Zahlen, das heißt, es werden die folgenden Operationen unterstützt:
 	\begin{enumerate}
-		\item $\texttt{init}(n,\texttt{default})$ initialisiert das Feld und legt \texttt{default} als Standardwert fest.
-		\item $\texttt{set}(i,v)$ setzt den $i$-ten Eintrag auf den Wert $v$.
+		\item $\texttt{init}(n,\texttt{default})$ initialisiert das Feld und legt den Integer \texttt{default} als Standardwert fest.
+		\item $\texttt{set}(i,v)$ setzt den $i$-ten Eintrag auf den Integer~$v$.
 		\item $\texttt{get}(i)$ liefert den $i$-ten Eintrag oder \texttt{default}, falls dieser noch nicht gesetzt wurde.
 	\end{enumerate}
-	Allerdings wird das Feld \emph{riesig} sein, deshalb wollen wir die Datenstruktur \emph{nicht} direkt als Feld implementieren, da wir keine Zeit darauf verschwenden wollen, es zu initialisieren.
+	Allerdings wird das Feld \emph{riesig} sein, deshalb wollen wir die Datenstruktur \emph{nicht} direkt als Feld implementieren, da wir keine Zeit darauf verschwenden wollen, alle Einträge auf \texttt{default} zu initialisieren.
 
 	Entwirf eine Datenstruktur, die nur $O(n)$ Platz benötigt, Auslesen und Ändern in erwarteter konstanter Zeit pro Eintrag unterstützt und nur konstante Zeit für die Initialisierung benötigt.
-
+%
 	\emph{Hinweis: Hashtabellen und die Lösung zu Aufgabe 4.9 b) \enquote{Dynamische Felder} könnten hilfreich sein.}
 \end{aufgabe}
 

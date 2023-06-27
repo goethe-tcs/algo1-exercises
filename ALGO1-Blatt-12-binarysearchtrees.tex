@@ -30,9 +30,10 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 %  \note
 %  \spass
 
-\begin{aufgabe}[Binärbaumeigenschaften \bestehen]\label{tue-first}\mbox{}
+\begin{aufgabe}[Binärbaumeigenschaften]\label{tue-first}\mbox{}
 	\begin{enumerate}
-		\item (\warmup) Welche der folgenden Bäume sind binäre Suchbäume?
+		\item \bestehen %(\warmup)
+		Welche der folgenden Bäume sind binäre Suchbäume?
 		\begin{center}
 			\begin{figure}[h]
 				\begin{subfigure}[b]{0.33\textwidth}
@@ -115,12 +116,15 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 				\end{subfigure}
 			\end{figure}
 		\end{center}
-		\item (\warmup) Wo in einem binären Suchbaum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
-		\item Betrachte die Schlüsselmenge $\{1, 4, 5, 10, 16, 17, 21\}$. Zeichne binäre Suchbäume der Höhe 2, 3, 4, 5 und 6, die jeweils genau diese Schlüssel enthalten.
-		\item (\warmup) Gib die Reihenfolge an, in der die Knoten von Baum (ii) in inorder, preorder und postorder traversiert werden.
-		\item Vergleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
-		\item Schreibe Pseudocode für eine iterative Variante der Inorder-Traversierung.
-		\item Sei $T$ ein binärer Suchbaum, in dem alle Schlüssel verschieden sind.
+		\item \bestehen %(\warmup)
+		Wo in einem binären Suchbaum befinden sich die Elemente mit dem kleinsten und größten Schlüssel?
+		\item \bestehen %(\warmup)
+		Betrachte die Schlüsselmenge $\{1, 4, 5, 10, 16, 17, 21\}$. Zeichne binäre Suchbäume der Höhe 2, 3, 4, 5 und 6, die jeweils genau diese Schlüssel enthalten.
+		\item \bestehen %(\warmup)
+		 Gib die Reihenfolge an, in der die Knoten von Baum (ii) in inorder, preorder und postorder traversiert werden.
+		\item\bestehen Vergleiche die Heap-Eigenschaft und die Suchbaum-Eigenschaft.
+		\item\mittel Schreibe Pseudocode für eine iterative Variante der Inorder-Traversierung.
+		\item\note Sei $T$ ein binärer Suchbaum, in dem alle Schlüssel verschieden sind.
 		Beweise die folgende Aussage mit einem Widerspruchsbeweis:
 		Wenn ein Knoten $v$ zwei Kinder hat, dann hat das Element mit dem nächstgrößeren Schlüssel kein linkes Kind und das Element mit dem nächstkleineren Schlüssel kein rechtes Kind.
 	\end{enumerate}
@@ -161,7 +165,7 @@ Lies \emoji{book} CLRS Kapitel 12 ohne 12.4 und schau dir das \emoji{television}
 		\item \mittel Entwirf einen Algorithmus, der für einen binären Suchbaum $T$ einen \textit{umgedrehten binären Suchbaum} $T^R$ aufbaut:
 		$T^R$ soll ein binärer Baum sein, in dem genau dieselben Schlüssel vorkommen wie in $T$.
 		Für jeden Knoten $v$ in $T^R$ soll zudem gelten, dass alle Knoten im linken Unterbaum von $v$ Schlüssel haben, die größer gleich $v.\texttt{key}$ sind, und dass alle Knoten im rechten Unterbaum von $v$ Schlüssel haben, die kleiner gleich $v.\texttt{key}$ sind.
-		\item \note %(\hard)
+		\item \note %(\hard)	
     Entwirf einen Algorithmus, der zwei gegebene binäre Suchbäume $T_1$ und $T_2$ zu einem einzigen binären Suchbaum $T$ mit denselben Elementen verschmilzt.
 	\end{enumerate}
 \end{aufgabe}

@@ -34,8 +34,8 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 \begin{aufgabe}[Teiler in der Divisionsmethode \mittel]
 	Bei der \emph{Divisionsmethode} wählen wir die Hashfunktion als $h(k)=k\bmod m$.
 	\begin{enumerate}
-		\item Betrachte die Hashfunktion $h(k) = k \bmod 10$ und die Schlüsselsequenz \[K = 0, 5, 20, 40, 65, 15, 90, 95, 80, 55\,.\] Warum ist diese Wahl der Hashfunktion problematisch für $K$?
-		\item Erkläre, warum wir für~$m$ eine Primzahl bevorzugen.
+		\item Betrachte die Hashfunktion $h(k) = k \bmod 10$ und die Schlüsselsequenz \[K = 0, 5, 20, 40, 65, 15, 90, 95, 80, 55\,.\] Warum ist diese Wahl der Hashfunktion problematisch für $K$? Inwiefern wäre die Hashfunktion $h(k) = k \bmod 11$ besser für~$K$?
+		\item Konstruiere eine Schlüsselsequenz~$K_m$, die schlecht für~$h(k) = k \bmod m$ ist.
 	\end{enumerate}
 \end{aufgabe}
 
@@ -78,7 +78,7 @@ Lies \emoji{book} CLRS Kapitel 11 ohne 11.5 und schau dir das \emoji{television}
 		      $(2^8-1)$ \verb$&$ $2^4$ in Binärdarstellung.
 		\item \mittel Wir betrachten zunächst den Spezialfall $n=w$. Zeige, wie ein Bitvektor $B$ der Länge $w$ \textbf{kompakt} dargestellt werden kann, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann. (Die schlimmste Laufzeit darf also nicht von $w$ abhängen.)
 		\item \mittel Wir betrachten nun den allgemeinen Fall $n\ge w$. Wie kann ein Bitvektor $B$ der Länge $n$ \textbf{kompakt} dargestellt werden, sodass das $i$-te Bit in konstanter Zeit ausgelesen oder geflippt werden kann? (Die schlimmste Laufzeit darf also weder von $n$ noch von $w$ abhängen.)
-		\item \mittel Entwirf eine Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
+		\item \mittel Entwirf eine \textbf{kompakte} Datenstruktur, die eine dynamische Menge $S\subseteq\{0,\dots,t\}$ darstellt und dabei die folgenden Operationen in konstanter Zeit unterstützt:
 		      \begin{itemize}
 			      \item \texttt{insert$(a)$} fügt der Menge $a$ hinzu, setzt also $S\gets S\cup \{a\}$.
 			      \item \texttt{remove$(a)$} löscht $a$ aus der Menge, setzt also $S\gets S\setminus \{a\}$.
